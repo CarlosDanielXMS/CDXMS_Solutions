@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 — Homologation fix pre-release
+
+- Mantida versão 1.0.0.
+- Corrigida interpretação de booleanos localizados em JCM, Bootstrap, Result Manager, Logger e String Utils.
+- Corrigida serialização de Data Json em String Utils/Logger para cenários com aspas e JSON embutido.
+
+
 ## 1.0.0 — Saneamento pré-release das capabilities core
 
 - Mantida a versão `1.0.0` para todas as capabilities.

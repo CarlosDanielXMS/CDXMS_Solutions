@@ -1,1 +1,965 @@
-{"globalVariables":[],"macro":{"isInputExpanded":true,"isLocalExpanded":false,"isOutputExpanded":true,"isTestMode":false,"aiGenerated":0,"breakpoints":[],"disabledTimestamp":0,"exportedActionBlocks":[{"isInputExpanded":false,"isLocalExpanded":false,"isOutputExpanded":true,"isTestMode":false,"aiGenerated":0,"breakpoints":[],"disabledTimestamp":0,"exportedActionBlocks":[],"forceEvenIfNotEnabledTimestamp":0,"isActionBlock":true,"isExtra":false,"isFavourite":false,"lastEditedTimestamp":1781620000000,"localVariables":[{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Operation","m_stringValue":"build_result","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Operação técnica. Opções: build_result, normalize_result, validate_result, propagate_result, wrap_error, register_result. Exemplo: build_result monta Resultado a partir das entradas."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Source Artifact Type","m_stringValue":"capability","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Tipo técnico do artifact de origem. Opções: core, capability, solution, package, catalog. Exemplo: capability."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Source Artifact Id","m_stringValue":"result_manager","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Id técnico do artifact de origem. Exemplo: bootstrap, json_config_manager, result_manager."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Source Operation","m_stringValue":"build_result","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Operação original registrada no Resultado. Exemplo: read_json, initialize_ecosystem, build_result."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":true,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Success?","m_stringValue":"","m_type":0,"supportsInput":true,"supportsOutput":false,"description":"Indica sucesso lógico para build_result. true gera status success por padrão; false gera status error."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Status","m_stringValue":"success","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Status padronizado. Opções: success, error, cancelled, skipped, not_found, partial, blocked. Se vazio, deriva de Success?."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Message","m_stringValue":"Operação executada com sucesso.","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Mensagem humana em português para Resultado.message. Exemplo: Operação executada com sucesso."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Data Json","m_stringValue":"{}","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Objeto JSON usado como Resultado.data. Exemplos: {}, {\"file_path\":\"core/settings.json\"}. Se raiz não for objeto, será encapsulada em data.value."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Error Json","m_stringValue":"null","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Erro estruturado ou null. Exemplo: {\"code\":\"INVALID_JSON\",\"message\":\"JSON inválido.\",\"details\":{},\"recoverable\":false}."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Result Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Resultado bruto para normalize_result, validate_result, propagate_result ou register_result. Deve ser JSON válido."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Context Json","m_stringValue":"{}","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Contexto adicional opcional. Exemplo: {\"caller\":\"bootstrap\",\"step\":\"verify_core\"}."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":true,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Strict Mode?","m_stringValue":"","m_type":0,"supportsInput":true,"supportsOutput":false,"description":"Quando true, valida campos obrigatórios e bloqueia top-level data_json/error_code/error_message/error_json."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Include Raw Result?","m_stringValue":"","m_type":0,"supportsInput":true,"supportsOutput":false,"description":"Quando true, inclui resultado bruto em Resultado.data.raw_result para debug. Evitar em produção."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Session Id","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Identificador de sessão propagado para Resultado.meta.session_id. Exemplo: session-001."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Correlation Id","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Identificador de correlação propagado para Resultado.meta.correlation_id. Exemplo: corr-001."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Resultado","m_stringValue":"","m_type":4,"supportsInput":false,"supportsOutput":true,"description":"Saída pública única. Dicionário conforme contrato universal CDXMS. Dados úteis sempre em Resultado.data."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":true,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Tmp_ResultJson","m_stringValue":"","m_type":2,"supportsInput":false,"supportsOutput":false,"description":"JSON textual interno publicado em Resultado via JSON Parse."}],"localVarsAlphabetical":true,"m_GUID":-2848404244272762193,"m_actionList":[{"actionGroupName":"01 — Initialize Runtime","childrenCollapsed":false,"dontLogIfConditionIsFalse":false,"actionLabel":"01 — Initialize Runtime","disableLogging":false,"m_SIGUID":-7091262484763327594,"m_classType":"ActionGroupAction","m_comment":"01 — Build/Normalize/Validate Result: capability pura sem efeitos colaterais.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"blockNextAction":true,"javascriptEngine":"JetPack JavascriptEngine","scriptText":"\nconst ARTIFACT_ID = \"result_manager\";\nconst VERSION = \"1.0.0\";\nconst SOURCE_NAME = \"[CDXMS] Registrar Resultado\";\nconst SUPPORTED = [\"build_result\",\"normalize_result\",\"validate_result\",\"propagate_result\",\"wrap_error\",\"register_result\"];\nconst STATUS = [\"success\",\"error\",\"cancelled\",\"skipped\",\"not_found\",\"partial\",\"blocked\"];\nconst ARTIFACT_TYPES = [\"core\",\"capability\",\"solution\",\"package\",\"catalog\"];\nconst REQUIRED = [\"schema_version\",\"namespace\",\"success\",\"status\",\"artifact_type\",\"artifact_id\",\"operation\",\"message\",\"data\",\"error\"];\nconst FORBIDDEN = [\"data_json\",\"error_code\",\"error_message\",\"error_json\"];\nfunction txt(v){ return String(v == null ? \"\" : v).trim(); }\nfunction bool(v){ const s = String(v == null ? \"\" : v).toLowerCase().trim(); return s === \"true\" || s === \"1\" || s === \"yes\" || s === \"sim\"; }\nfunction parseJson(raw, fallback, name){\n  const s = txt(raw);\n  if (!s) return fallback;\n  try { return JSON.parse(s); } catch(e) { throw { code:\"INVALID_JSON\", message:\"JSON inválido em \" + name + \".\", details:{ input:name, reason:String(e.message || e) }, recoverable:false }; }\n}\nfunction asObject(value){\n  if (value && typeof value === \"object\" && !Array.isArray(value)) return value;\n  if (value === null || value === undefined || value === \"\") return {};\n  return { value:value };\n}\nfunction normalizeError(value, fallbackCode, fallbackMessage){\n  if (value === null || value === undefined || value === \"\") return null;\n  if (typeof value === \"object\" && !Array.isArray(value)) {\n    return {\n      code: txt(value.code || fallbackCode || \"UNKNOWN_ERROR\") || \"UNKNOWN_ERROR\",\n      message: txt(value.message || fallbackMessage || \"Erro desconhecido.\") || \"Erro desconhecido.\",\n      details: value.details && typeof value.details === \"object\" && !Array.isArray(value.details) ? value.details : {},\n      recoverable: value.recoverable === true\n    };\n  }\n  return { code: fallbackCode || \"UNKNOWN_ERROR\", message: fallbackMessage || \"Erro desconhecido.\", details:{ value:value }, recoverable:false };\n}\nfunction meta(extra){\n  const m = { timestamp:new Date().toISOString(), source:SOURCE_NAME, version:VERSION, session_id:txt(`{lv=Session Id}`), correlation_id:txt(`{lv=Correlation Id}`) };\n  if (extra && typeof extra === \"object\" && !Array.isArray(extra)) {\n    for (const k in extra) m[k] = extra[k];\n  }\n  return m;\n}\nfunction makeResult(success, status, artifactType, artifactId, operation, message, data, error, metaExtra){\n  const ok = success === true;\n  let st = txt(status) || (ok ? \"success\" : \"error\");\n  if (STATUS.indexOf(st) < 0) st = ok ? \"success\" : \"error\";\n  let at = txt(artifactType) || \"capability\";\n  if (ARTIFACT_TYPES.indexOf(at) < 0) at = \"capability\";\n  return {\n    schema_version:1,\n    namespace:\"CDXMS\",\n    success:ok,\n    status:st,\n    artifact_type:at,\n    artifact_id:txt(artifactId) || ARTIFACT_ID,\n    operation:txt(operation),\n    message:txt(message) || (ok ? \"Operação executada com sucesso.\" : \"A operação não pôde ser concluída.\"),\n    data:asObject(data),\n    error:error || null,\n    meta:meta(metaExtra)\n  };\n}\nfunction contractIssues(obj, strict){\n  const missing = [];\n  const forbidden = [];\n  const warnings = [];\n  if (!obj || typeof obj !== \"object\" || Array.isArray(obj)) return { valid:false, missing_fields:REQUIRED.slice(), forbidden_fields:[], warnings:[\"root_not_object\"] };\n  for (const f of REQUIRED) if (!(f in obj)) missing.push(f);\n  for (const f of FORBIDDEN) if (f in obj) forbidden.push(f);\n  if (\"data\" in obj && (!obj.data || typeof obj.data !== \"object\" || Array.isArray(obj.data))) warnings.push(\"data_not_object\");\n  if (\"error\" in obj && obj.error !== null && (typeof obj.error !== \"object\" || Array.isArray(obj.error))) warnings.push(\"error_not_object\");\n  const valid = missing.length === 0 && (!strict || forbidden.length === 0) && warnings.indexOf(\"data_not_object\") < 0 && warnings.indexOf(\"error_not_object\") < 0;\n  return { valid, missing_fields:missing, forbidden_fields:forbidden, warnings };\n}\nfunction normalizeRawResult(raw, strict){\n  const obj = parseJson(raw, {}, \"Result Json\");\n  const issues = contractIssues(obj, strict);\n  if (strict && issues.forbidden_fields.length > 0) {\n    throw { code:\"RESULT_FORBIDDEN_TOP_LEVEL_FIELD\", message:\"O resultado contém campos de topo proibidos.\", details:{ forbidden_fields:issues.forbidden_fields }, recoverable:false };\n  }\n  if (issues.warnings.indexOf(\"data_not_object\") >= 0) {\n    throw { code:\"RESULT_DATA_NOT_OBJECT\", message:\"O campo data do resultado precisa ser um dicionário.\", details:{}, recoverable:false };\n  }\n  if (issues.warnings.indexOf(\"error_not_object\") >= 0) {\n    throw { code:\"RESULT_ERROR_NOT_OBJECT\", message:\"O campo error do resultado precisa ser nulo ou um dicionário.\", details:{}, recoverable:false };\n  }\n  const success = obj.success === true;\n  const data = obj.data && typeof obj.data === \"object\" && !Array.isArray(obj.data) ? obj.data : {};\n  return makeResult(success, obj.status, obj.artifact_type, obj.artifact_id, obj.operation, obj.message, data, normalizeError(obj.error), obj.meta && typeof obj.meta === \"object\" ? obj.meta : {});\n}\nfunction topLevelError(operation, e){\n  const er = normalizeError(e, e && e.code ? e.code : \"PROCESSING_FAILED\", e && e.message ? e.message : \"Falha ao processar resultado.\");\n  return makeResult(false, \"error\", \"capability\", ARTIFACT_ID, operation, er.message, {}, er, null);\n}\nconst op = txt(`{lv=Operation}`);\nconst strict = bool(`{lv=Strict Mode?}`);\nconst includeRaw = bool(`{lv=Include Raw Result?}`);\ntry {\n  if (!op) throw { code:\"MISSING_REQUIRED_INPUT\", message:\"A entrada obrigatória Operation não foi informada.\", details:{ input:\"Operation\" }, recoverable:false };\n  if (SUPPORTED.indexOf(op) < 0) throw { code:\"UNSUPPORTED_OPERATION\", message:\"A operação informada não é suportada pelo Result Manager.\", details:{ operation:op, supported_operations:SUPPORTED }, recoverable:false };\n  const sourceType = txt(`{lv=Source Artifact Type}`) || \"capability\";\n  const sourceId = txt(`{lv=Source Artifact Id}`) || ARTIFACT_ID;\n  const sourceOp = txt(`{lv=Source Operation}`) || op;\n  const message = txt(`{lv=Message}`);\n  const context = parseJson(`{lv=Context Json}`, {}, \"Context Json\");\n  let output;\n  if (op === \"build_result\") {\n    const success = bool(`{lv=Success?}`);\n    const status = txt(`{lv=Status}`) || (success ? \"success\" : \"error\");\n    const data = parseJson(`{lv=Data Json}`, {}, \"Data Json\");\n    const errorRaw = parseJson(`{lv=Error Json}`, null, \"Error Json\");\n    const error = success ? null : (normalizeError(errorRaw, \"UNKNOWN_ERROR\", message || \"A operação não pôde ser concluída.\"));\n    output = makeResult(success, status, sourceType, sourceId, sourceOp, message, Object.assign({}, asObject(data), Object.keys(context).length ? { context } : {}), error, null);\n  } else if (op === \"wrap_error\") {\n    const data = parseJson(`{lv=Data Json}`, {}, \"Data Json\");\n    const errorRaw = parseJson(`{lv=Error Json}`, null, \"Error Json\");\n    const error = normalizeError(errorRaw, \"UNKNOWN_ERROR\", message || \"A operação não pôde ser concluída.\");\n    output = makeResult(false, txt(`{lv=Status}`) || \"error\", sourceType, sourceId, sourceOp, message || error.message, Object.assign({}, asObject(data), Object.keys(context).length ? { context } : {}), error, null);\n  } else if (op === \"validate_result\") {\n    const raw = parseJson(`{lv=Result Json}`, {}, \"Result Json\");\n    const issues = contractIssues(raw, strict);\n    if (!issues.valid) {\n      let code = \"RESULT_INVALID_CONTRACT\";\n      if (issues.forbidden_fields.length > 0) code = \"RESULT_FORBIDDEN_TOP_LEVEL_FIELD\";\n      if (issues.warnings.indexOf(\"data_not_object\") >= 0) code = \"RESULT_DATA_NOT_OBJECT\";\n      if (issues.warnings.indexOf(\"error_not_object\") >= 0) code = \"RESULT_ERROR_NOT_OBJECT\";\n      output = makeResult(false, \"error\", \"capability\", ARTIFACT_ID, \"validate_result\", \"O resultado informado não atende ao contrato CDXMS.\", Object.assign({ valid:false }, issues), normalizeError({code, message:\"O resultado informado não atende ao contrato CDXMS.\", details:issues, recoverable:false}), null);\n    } else {\n      output = makeResult(true, \"success\", \"capability\", ARTIFACT_ID, \"validate_result\", \"Resultado validado com sucesso.\", Object.assign({ valid:true }, issues), null, null);\n    }\n  } else if (op === \"normalize_result\") {\n    const normalized = normalizeRawResult(`{lv=Result Json}`, strict);\n    output = makeResult(true, \"success\", \"capability\", ARTIFACT_ID, \"normalize_result\", \"Resultado normalizado com sucesso.\", { normalized:true, value:normalized, context:Object.keys(context).length ? context : undefined }, null, null);\n    if (output.data.context === undefined) delete output.data.context;\n  } else if (op === \"propagate_result\") {\n    const child = normalizeRawResult(`{lv=Result Json}`, strict);\n    const childSummary = { success:child.success, status:child.status, artifact_type:child.artifact_type, artifact_id:child.artifact_id, operation:child.operation, message:child.message, error_code:child.error ? child.error.code : null };\n    const data = { propagated:true, child_result_summary:childSummary, child_data:child.data };\n    if (Object.keys(context).length) data.context = context;\n    if (includeRaw) data.raw_result = child;\n    output = makeResult(child.success === true, child.status, sourceType, sourceId, sourceOp, message || child.message, data, child.error, { child_source: child.artifact_id });\n  } else if (op === \"register_result\") {\n    const normalized = normalizeRawResult(`{lv=Result Json}`, strict);\n    const data = { registered:true, value:normalized };\n    if (Object.keys(context).length) data.context = context;\n    if (includeRaw) data.raw_result = parseJson(`{lv=Result Json}`, {}, \"Result Json\");\n    output = makeResult(normalized.success === true, normalized.status, normalized.artifact_type, normalized.artifact_id, normalized.operation, message || normalized.message, data, normalized.error, normalized.meta || null);\n  }\n  JSON.stringify(output);\n} catch(e) {\n  JSON.stringify(topLevelError(op || \"unknown\", e));\n}\n","stringVariableName":"Tmp_ResultJson","disableLogging":false,"m_SIGUID":-5662873323362663032,"m_classType":"JavaScriptAction","m_comment":"Executa dispatch por Operation e gera Tmp_ResultJson conforme contrato universal CDXMS.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"dictionaryKeys":{"keys":[]},"dictionaryVarName":"Resultado","stringVarName":"Tmp_ResultJson","disableLogging":false,"m_SIGUID":-2424146458439785043,"m_classType":"JsonParseAction","m_comment":"Publica Tmp_ResultJson diretamente na saída pública única Resultado.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"disableLogging":false,"m_SIGUID":-2451125217236262964,"m_classType":"ActionGroupEndAction","m_comment":"","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"outputOption":0,"disableLogging":false,"m_SIGUID":-2332545089780781344,"m_classType":"ExitActionBlockAction","m_comment":"Encerra o Action Block após publicar Resultado.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false}],"m_category":"CDXMS","m_constraintList":[],"m_description":"Constrói, normaliza, valida e propaga Resultado conforme contrato universal CDXMS.","m_descriptionOpen":false,"m_enabled":true,"m_excludeLog":false,"m_headingColor":-11382190,"m_isOrCondition":false,"m_name":"[CDXMS] Registrar Resultado","m_triggerList":[]}],"forceEvenIfNotEnabledTimestamp":0,"isActionBlock":true,"isExtra":false,"isFavourite":false,"lastEditedTimestamp":1781639560470,"localVariables":[{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Operation","m_stringValue":"normalize_text","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Operação técnica da String Utils. Opções: escape_json_string, unescape_json_string, normalize_text, normalize_id, to_snake_case, to_kebab_case, trim, collapse_whitespace, replace_text, contains_text, equals_text, starts_with, ends_with, is_blank, sanitize_file_name, sanitize_path_segment, truncate."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Text","m_stringValue":"Olá, Mundo!","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Texto principal que será transformado, comparado ou validado."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Search Text","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Texto de busca usado por replace_text, contains_text, equals_text, starts_with e ends_with."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Replace Text","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Texto substituto usado por replace_text."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Regex Pattern","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Expressão regular opcional para replace_text. Quando informada, substitui Search Text como critério de busca."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Regex Flags","m_stringValue":"g","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Flags da expressão regular. Exemplo: g, gi, m. Se g estiver ausente em replace_text, será adicionado automaticamente."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Case Mode","m_stringValue":"none","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Modo de caixa para normalize_text. Opções: none, lower, upper, title."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Comparison Mode","m_stringValue":"case_sensitive","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Modo de comparação textual. Opções: case_sensitive, case_insensitive, normalized."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Separator","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Separador preferencial para operações futuras/compatibilidade. to_snake_case usa _, to_kebab_case usa -."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Max Length","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Comprimento máximo opcional. Vazio ou 0 mantém o tamanho original nas operações aplicáveis."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Allow Slash?","m_stringValue":"","m_type":0,"supportsInput":true,"supportsOutput":false,"description":"Quando true, sanitize_path_segment preserva / como separador lógico e sanitiza cada segmento."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":true,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Strict Mode?","m_stringValue":"","m_type":0,"supportsInput":true,"supportsOutput":false,"description":"Reservado para validação rígida de entradas em evoluções futuras. Nesta versão, erros estruturais já retornam Resultado.error."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Config Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Configuração completa opcional da String Utils. Capability pura; quando informado, é apenas validado como JSON para compatibilidade com o padrão CDXMS."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Context Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Contexto adicional opcional propagado ao Result Manager. Exemplo: {\"caller\":\"artifact_manager\"}."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Session Id","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Identificador de sessão propagado para Resultado.meta.session_id."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Correlation Id","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Identificador de correlação propagado para Resultado.meta.correlation_id."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Resultado","m_stringValue":"","m_type":4,"supportsInput":false,"supportsOutput":true,"description":"Saída pública única. Dicionário conforme contrato universal CDXMS, com dados úteis em Resultado.data."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":true,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Tmp_StringWorkJson","m_stringValue":"","m_type":2,"supportsInput":false,"supportsOutput":false,"description":"JSON temporário produzido pela transformação textual antes da finalização pelo Result Manager."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":true,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Tmp_StringWork","m_stringValue":"","m_type":4,"supportsInput":false,"supportsOutput":false,"description":"Dicionário temporário derivado de Tmp_StringWorkJson para mapear success/status/message/data/error ao Result Manager."}],"localVarsAlphabetical":false,"m_GUID":-3034207520900123987,"m_actionList":[{"actionGroupName":"01 — Transform Text","childrenCollapsed":false,"dontLogIfConditionIsFalse":false,"actionLabel":"01 — Transform Text","disableLogging":false,"m_SIGUID":-1402621072237265938,"m_classType":"ActionGroupAction","m_comment":"Executa a transformação/comparação textual de forma local e sem efeitos colaterais.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"blockNextAction":true,"javascriptEngine":"JetPack JavascriptEngine","scriptText":"\nconst ARTIFACT_ID = \"string_utils\";\nconst VERSION = \"1.0.0\";\nconst SUPPORTED = [\"escape_json_string\",\"unescape_json_string\",\"normalize_text\",\"normalize_id\",\"to_snake_case\",\"to_kebab_case\",\"trim\",\"collapse_whitespace\",\"replace_text\",\"contains_text\",\"equals_text\",\"starts_with\",\"ends_with\",\"is_blank\",\"sanitize_file_name\",\"sanitize_path_segment\",\"truncate\"];\nfunction txt(v){ return String(v == null ? \"\" : v); }\nfunction trimmed(v){ return txt(v).trim(); }\nfunction bool(v){ const s = trimmed(v).toLowerCase(); return s === \"true\" || s === \"1\" || s === \"yes\" || s === \"sim\"; }\nfunction parseJson(raw, fallback, name){\n  const s = trimmed(raw);\n  if (!s) return fallback;\n  try { return JSON.parse(s); }\n  catch(e) { throw { code:\"INVALID_JSON\", message:\"JSON inválido em \" + name + \".\", details:{ input:name, reason:String(e.message || e) }, recoverable:false }; }\n}\nfunction err(code, message, details, recoverable){ return { code, message, details:details || {}, recoverable:recoverable === true }; }\nfunction ok(message, data){ return { success:true, status:\"success\", result_message:message, data_json:JSON.stringify(data || {}), error_json:\"null\" }; }\nfunction fail(operation, e){\n  const er = (e && typeof e === \"object\" && e.code) ? e : err(\"STRING_TRANSFORM_FAILED\", \"Não foi possível transformar o texto.\", { reason:String(e && e.message ? e.message : e) }, false);\n  return { success:false, status:\"error\", result_message:er.message, data_json:JSON.stringify({ operation, value:\"\", transformed:false }), error_json:JSON.stringify(er) };\n}\nfunction removeAccents(value){ try { return value.normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\"); } catch(e){ return value; } }\nfunction titleCase(value){ return value.toLowerCase().replace(/\\b\\S/g, function(ch){ return ch.toUpperCase(); }); }\nfunction applyCase(value, mode){\n  const m = trimmed(mode).toLowerCase() || \"none\";\n  if (m === \"lower\") return value.toLowerCase();\n  if (m === \"upper\") return value.toUpperCase();\n  if (m === \"title\") return titleCase(value);\n  return value;\n}\nfunction collapse(value){ return value.replace(/\\s+/g, \" \"); }\nfunction safeMax(raw){\n  const s = trimmed(raw);\n  if (!s) return 0;\n  const n = parseInt(s, 10);\n  if (isNaN(n) || n < 0) throw err(\"STRING_INVALID_MAX_LENGTH\", \"Max Length precisa ser um inteiro maior ou igual a zero.\", { max_length:raw }, false);\n  return n;\n}\nfunction truncate(value, max){ return max > 0 && value.length > max ? value.slice(0, max) : value; }\nfunction normalizeForCompare(value){ return removeAccents(collapse(trimmed(value)).toLowerCase()); }\nfunction comparePrepare(value, mode){\n  const m = trimmed(mode).toLowerCase() || \"case_sensitive\";\n  if (m === \"case_insensitive\") return txt(value).toLowerCase();\n  if (m === \"normalized\") return normalizeForCompare(value);\n  return txt(value);\n}\nfunction slug(value, sep, max){\n  let s = removeAccents(collapse(trimmed(value))).toLowerCase();\n  s = s.replace(/[^a-z0-9]+/g, sep);\n  const escSep = sep.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n  s = s.replace(new RegExp(escSep + \"+\", \"g\"), sep).replace(new RegExp(\"^\" + escSep + \"|\" + escSep + \"$\", \"g\"), \"\");\n  return truncate(s, max);\n}\nfunction sanitizeFileName(value, max){\n  let s = collapse(trimmed(value));\n  s = removeAccents(s).replace(/[<>:\"/\\\\|?*\\x00-\\x1F]/g, \"_\");\n  s = s.replace(/\\s+/g, \" \").replace(/_+/g, \"_\").replace(/^[ ._]+|[ ._]+$/g, \"\");\n  if (!s) s = \"unnamed\";\n  return truncate(s, max || 120);\n}\nfunction sanitizePathSegment(value, allowSlash, max){\n  if (allowSlash) {\n    return txt(value).split(/[\\\\/]+/).map(function(part){ return sanitizeFileName(part, max || 120); }).filter(function(part){ return part.length > 0; }).join(\"/\");\n  }\n  return sanitizeFileName(value, max || 120);\n}\nfunction unescapeJsonString(value){\n  const s = txt(value);\n  if (/^\"[\\s\\S]*\"$/.test(s.trim())) return JSON.parse(s.trim());\n  return JSON.parse('\"' + s.replace(/\\\\/g, \"\\\\\\\\\").replace(/\"/g, '\\\\\"') + '\"');\n}\nconst op = trimmed(`{lv=Operation}`);\ntry {\n  if (!op) throw err(\"MISSING_REQUIRED_INPUT\", \"A entrada obrigatória Operation não foi informada.\", { input:\"Operation\" }, false);\n  if (SUPPORTED.indexOf(op) < 0) throw err(\"UNSUPPORTED_OPERATION\", \"A operação informada não é suportada pela String Utils.\", { operation:op, supported_operations:SUPPORTED }, false);\n  const input = txt(`{lv=Text}`);\n  const search = txt(`{lv=Search Text}`);\n  const replace = txt(`{lv=Replace Text}`);\n  const pattern = txt(`{lv=Regex Pattern}`);\n  const flagsRaw = txt(`{lv=Regex Flags}`);\n  const caseMode = trimmed(`{lv=Case Mode}`) || \"none\";\n  const cmpMode = trimmed(`{lv=Comparison Mode}`) || \"case_sensitive\";\n  const sepInput = trimmed(`{lv=Separator}`);\n  const max = safeMax(`{lv=Max Length}`);\n  const allowSlash = bool(`{lv=Allow Slash?}`);\n  parseJson(`{lv=Config Json}`, {}, \"Config Json\");\n  let value = input;\n  let data = { operation:op, input, value:null, length:0, changed:false };\n  let final = null;\n  if (op === \"escape_json_string\") {\n    const quoted = JSON.stringify(input);\n    value = quoted.slice(1, -1);\n    data.quoted_value = quoted;\n  } else if (op === \"unescape_json_string\") {\n    value = unescapeJsonString(input);\n  } else if (op === \"trim\") {\n    value = input.trim();\n  } else if (op === \"collapse_whitespace\") {\n    value = collapse(input);\n  } else if (op === \"normalize_text\") {\n    value = applyCase(collapse(input.trim()), caseMode);\n  } else if (op === \"normalize_id\") {\n    value = slug(input, \"_\", max || 80);\n  } else if (op === \"to_snake_case\") {\n    value = slug(input, \"_\", max || 0);\n  } else if (op === \"to_kebab_case\") {\n    value = slug(input, \"-\", max || 0);\n  } else if (op === \"replace_text\") {\n    if (pattern.trim()) {\n      let flags = flagsRaw.trim() || \"g\";\n      if (flags.indexOf(\"g\") < 0) flags += \"g\";\n      try { value = input.replace(new RegExp(pattern, flags), replace); }\n      catch(e) { throw err(\"STRING_INVALID_REGEX\", \"Regex Pattern inválido.\", { pattern, flags, reason:String(e.message || e) }, false); }\n      data.regex = { pattern, flags };\n    } else {\n      if (search.length === 0) throw err(\"STRING_EMPTY_SEARCH_TEXT\", \"Search Text é obrigatório para replace_text sem Regex Pattern.\", { operation:op }, false);\n      value = input.split(search).join(replace);\n    }\n    data.search_text = search;\n    data.replace_text = replace;\n  } else if (op === \"contains_text\") {\n    const a = comparePrepare(input, cmpMode);\n    const b = comparePrepare(search, cmpMode);\n    const idx = a.indexOf(b);\n    data.value = idx >= 0;\n    data.index = idx;\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação contains_text executada com sucesso.\", data);\n  } else if (op === \"equals_text\") {\n    data.value = comparePrepare(input, cmpMode) === comparePrepare(search, cmpMode);\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação equals_text executada com sucesso.\", data);\n  } else if (op === \"starts_with\") {\n    data.value = comparePrepare(input, cmpMode).indexOf(comparePrepare(search, cmpMode)) === 0;\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação starts_with executada com sucesso.\", data);\n  } else if (op === \"ends_with\") {\n    const a = comparePrepare(input, cmpMode); const b = comparePrepare(search, cmpMode);\n    data.value = b.length === 0 ? true : a.slice(-b.length) === b;\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação ends_with executada com sucesso.\", data);\n  } else if (op === \"is_blank\") {\n    data.value = input.trim().length === 0;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Validação is_blank executada com sucesso.\", data);\n  } else if (op === \"sanitize_file_name\") {\n    value = sanitizeFileName(input, max || 120);\n  } else if (op === \"sanitize_path_segment\") {\n    value = sanitizePathSegment(input, allowSlash, max || 120);\n    data.allow_slash = allowSlash;\n  } else if (op === \"truncate\") {\n    value = truncate(input, max);\n  }\n  if (!final) {\n    data.value = value;\n    data.length = value.length;\n    data.changed = value !== input;\n    data.case_mode = caseMode;\n    data.max_length = max;\n    final = ok(\"Texto processado com sucesso.\", data);\n  }\n  JSON.stringify(final);\n} catch(e) {\n  JSON.stringify(fail(op || \"unknown\", e));\n}\n","stringVariableName":"Tmp_StringWorkJson","disableLogging":false,"m_SIGUID":-4421259792684632543,"m_classType":"JavaScriptAction","m_comment":"Executa dispatch por Operation e gera dados intermediários para o Result Manager.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"dictionaryKeys":{"keys":[]},"dictionaryVarName":"Tmp_StringWork","stringVarName":"Tmp_StringWorkJson","disableLogging":false,"m_SIGUID":-4133773687559974954,"m_classType":"JsonParseAction","m_comment":"Converte o JSON temporário para dicionário de trabalho.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"disableLogging":false,"m_SIGUID":-6030078585140103637,"m_classType":"ActionGroupEndAction","m_comment":"","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"actionGroupName":"02 — Build Resultado","childrenCollapsed":false,"dontLogIfConditionIsFalse":false,"actionLabel":"02 — Build Resultado","disableLogging":false,"m_SIGUID":-1807066134641326564,"m_classType":"ActionGroupAction","m_comment":"Publica a saída única através do Result Manager para manter o contrato universal.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"actionBlockId":-2848404244272762193,"actionBlockName":"[CDXMS] Registrar Resultado","continueActionsWithoutWaiting":false,"inputDictionaryMap":{},"inputVarsMap":{"Operation":"build_result","Source Artifact Type":"capability","Source Artifact Id":"string_utils","Source Operation":"{lv=Operation}","Success?":"{lv=Tmp_StringWork[success]}","Status":"{lv=Tmp_StringWork[status]}","Message":"{lv=Tmp_StringWork[result_message]}","Data Json":"{lv=Tmp_StringWork[data_json]}","Error Json":"{lv=Tmp_StringWork[error_json]}","Result Json":"","Context Json":"{lv=Context Json}","Strict Mode?":"true","Include Raw Result?":"false","Session Id":"{lv=Session Id}","Correlation Id":"{lv=Correlation Id}"},"outputDictionaryMap":{"Resultado":{"keys":[]}},"outputVarsMap":{"Resultado":"Resultado"},"disableLogging":false,"m_SIGUID":-7256238840781184199,"m_classType":"ActionBlockAction","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false,"m_comment":"Finaliza a saída pública única através do Result Manager, mantendo a String Utils como capability pura e padronizada."},{"disableLogging":false,"m_SIGUID":-6816480467219204173,"m_classType":"ActionGroupEndAction","m_comment":"","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"outputOption":0,"disableLogging":false,"m_SIGUID":-3197654901736716673,"m_classType":"ExitActionBlockAction","m_comment":"Encerramento explícito após publicar Resultado.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false}],"m_category":"CDXMS","m_constraintList":[],"m_description":"Capability pura CDXMS para utilitários de texto: escape/desescape JSON, normalização, comparação, substituição e sanitização de nomes/caminhos. Saída única: Resultado.","m_descriptionOpen":false,"m_enabled":false,"m_excludeLog":false,"m_headingColor":-11382190,"m_isOrCondition":false,"m_name":"[CDXMS] String Utils","m_triggerList":[]},"macroExportVersion":1}
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [
+      {
+        "isInputExpanded": false,
+        "isLocalExpanded": false,
+        "isOutputExpanded": true,
+        "isTestMode": false,
+        "aiGenerated": 0,
+        "breakpoints": [],
+        "disabledTimestamp": 0,
+        "exportedActionBlocks": [],
+        "forceEvenIfNotEnabledTimestamp": 0,
+        "isActionBlock": true,
+        "isExtra": false,
+        "isFavourite": false,
+        "lastEditedTimestamp": 1781620000000,
+        "localVariables": [
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Operation",
+            "m_stringValue": "build_result",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Operação técnica. Opções: build_result, normalize_result, validate_result, propagate_result, wrap_error, register_result. Exemplo: build_result monta Resultado a partir das entradas."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Source Artifact Type",
+            "m_stringValue": "capability",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Tipo técnico do artifact de origem. Opções: core, capability, solution, package, catalog. Exemplo: capability."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Source Artifact Id",
+            "m_stringValue": "result_manager",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Id técnico do artifact de origem. Exemplo: bootstrap, json_config_manager, result_manager."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Source Operation",
+            "m_stringValue": "build_result",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Operação original registrada no Resultado. Exemplo: read_json, initialize_ecosystem, build_result."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": true,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Success?",
+            "m_stringValue": "",
+            "m_type": 0,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Indica sucesso lógico para build_result. true gera status success por padrão; false gera status error."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Status",
+            "m_stringValue": "success",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Status padronizado. Opções: success, error, cancelled, skipped, not_found, partial, blocked. Se vazio, deriva de Success?."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Message",
+            "m_stringValue": "Operação executada com sucesso.",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Mensagem humana em português para Resultado.message. Exemplo: Operação executada com sucesso."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Data Json",
+            "m_stringValue": "{}",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Objeto JSON usado como Resultado.data. Exemplos: {}, {\"file_path\":\"core/settings.json\"}. Se raiz não for objeto, será encapsulada em data.value."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Error Json",
+            "m_stringValue": "null",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Erro estruturado ou null. Exemplo: {\"code\":\"INVALID_JSON\",\"message\":\"JSON inválido.\",\"details\":{},\"recoverable\":false}."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Result Json",
+            "m_stringValue": "",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Resultado bruto para normalize_result, validate_result, propagate_result ou register_result. Deve ser JSON válido."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Context Json",
+            "m_stringValue": "{}",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Contexto adicional opcional. Exemplo: {\"caller\":\"bootstrap\",\"step\":\"verify_core\"}."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": true,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Strict Mode?",
+            "m_stringValue": "",
+            "m_type": 0,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Quando true, valida campos obrigatórios e bloqueia top-level data_json/error_code/error_message/error_json."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Include Raw Result?",
+            "m_stringValue": "",
+            "m_type": 0,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Quando true, inclui resultado bruto em Resultado.data.raw_result para debug. Evitar em produção."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Session Id",
+            "m_stringValue": "",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Identificador de sessão propagado para Resultado.meta.session_id. Exemplo: session-001."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Correlation Id",
+            "m_stringValue": "",
+            "m_type": 2,
+            "supportsInput": true,
+            "supportsOutput": false,
+            "description": "Identificador de correlação propagado para Resultado.meta.correlation_id. Exemplo: corr-001."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": false,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Resultado",
+            "m_stringValue": "",
+            "m_type": 4,
+            "supportsInput": false,
+            "supportsOutput": true,
+            "description": "Saída pública única. Dicionário conforme contrato universal CDXMS. Dados úteis sempre em Resultado.data."
+          },
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": false,
+              "variableType": 4,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": true,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "Tmp_ResultJson",
+            "m_stringValue": "",
+            "m_type": 2,
+            "supportsInput": false,
+            "supportsOutput": false,
+            "description": "JSON textual interno publicado em Resultado via JSON Parse."
+          }
+        ],
+        "localVarsAlphabetical": true,
+        "m_GUID": -2848404244272762193,
+        "m_actionList": [
+          {
+            "actionGroupName": "01 — Initialize Runtime",
+            "childrenCollapsed": false,
+            "dontLogIfConditionIsFalse": false,
+            "actionLabel": "01 — Initialize Runtime",
+            "disableLogging": false,
+            "m_SIGUID": -7091262484763327594,
+            "m_classType": "ActionGroupAction",
+            "m_comment": "01 — Build/Normalize/Validate Result: capability pura sem efeitos colaterais.",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "blockNextAction": true,
+            "javascriptEngine": "JetPack JavascriptEngine",
+            "scriptText": "\nconst ARTIFACT_ID = \"result_manager\";\nconst VERSION = \"1.0.0\";\nconst SOURCE_NAME = \"[CDXMS] Registrar Resultado\";\nconst SUPPORTED = [\"build_result\",\"normalize_result\",\"validate_result\",\"propagate_result\",\"wrap_error\",\"register_result\"];\nconst STATUS = [\"success\",\"error\",\"cancelled\",\"skipped\",\"not_found\",\"partial\",\"blocked\"];\nconst ARTIFACT_TYPES = [\"core\",\"capability\",\"solution\",\"package\",\"catalog\"];\nconst REQUIRED = [\"schema_version\",\"namespace\",\"success\",\"status\",\"artifact_type\",\"artifact_id\",\"operation\",\"message\",\"data\",\"error\"];\nconst FORBIDDEN = [\"data_json\",\"error_code\",\"error_message\",\"error_json\"];\nfunction txt(v){ return String(v == null ? \"\" : v).trim(); }\nfunction bool(v){ const s = String(v == null ? \"\" : v).toLowerCase().trim(); return s === \"true\" || s === \"1\" || s === \"yes\" || s === \"sim\"; }\nfunction parseJson(raw, fallback, name){\n  const s = txt(raw);\n  if (!s) return fallback;\n  try { return JSON.parse(s); } catch(e) { throw { code:\"INVALID_JSON\", message:\"JSON inválido em \" + name + \".\", details:{ input:name, reason:String(e.message || e) }, recoverable:false }; }\n}\nfunction asObject(value){\n  if (value && typeof value === \"object\" && !Array.isArray(value)) return value;\n  if (value === null || value === undefined || value === \"\") return {};\n  return { value:value };\n}\nfunction normalizeError(value, fallbackCode, fallbackMessage){\n  if (value === null || value === undefined || value === \"\") return null;\n  if (typeof value === \"object\" && !Array.isArray(value)) {\n    return {\n      code: txt(value.code || fallbackCode || \"UNKNOWN_ERROR\") || \"UNKNOWN_ERROR\",\n      message: txt(value.message || fallbackMessage || \"Erro desconhecido.\") || \"Erro desconhecido.\",\n      details: value.details && typeof value.details === \"object\" && !Array.isArray(value.details) ? value.details : {},\n      recoverable: value.recoverable === true\n    };\n  }\n  return { code: fallbackCode || \"UNKNOWN_ERROR\", message: fallbackMessage || \"Erro desconhecido.\", details:{ value:value }, recoverable:false };\n}\nfunction meta(extra){\n  const m = { timestamp:new Date().toISOString(), source:SOURCE_NAME, version:VERSION, session_id:txt(`{lv=Session Id}`), correlation_id:txt(`{lv=Correlation Id}`) };\n  if (extra && typeof extra === \"object\" && !Array.isArray(extra)) {\n    for (const k in extra) m[k] = extra[k];\n  }\n  return m;\n}\nfunction makeResult(success, status, artifactType, artifactId, operation, message, data, error, metaExtra){\n  const ok = success === true;\n  let st = txt(status) || (ok ? \"success\" : \"error\");\n  if (STATUS.indexOf(st) < 0) st = ok ? \"success\" : \"error\";\n  let at = txt(artifactType) || \"capability\";\n  if (ARTIFACT_TYPES.indexOf(at) < 0) at = \"capability\";\n  return {\n    schema_version:1,\n    namespace:\"CDXMS\",\n    success:ok,\n    status:st,\n    artifact_type:at,\n    artifact_id:txt(artifactId) || ARTIFACT_ID,\n    operation:txt(operation),\n    message:txt(message) || (ok ? \"Operação executada com sucesso.\" : \"A operação não pôde ser concluída.\"),\n    data:asObject(data),\n    error:error || null,\n    meta:meta(metaExtra)\n  };\n}\nfunction contractIssues(obj, strict){\n  const missing = [];\n  const forbidden = [];\n  const warnings = [];\n  if (!obj || typeof obj !== \"object\" || Array.isArray(obj)) return { valid:false, missing_fields:REQUIRED.slice(), forbidden_fields:[], warnings:[\"root_not_object\"] };\n  for (const f of REQUIRED) if (!(f in obj)) missing.push(f);\n  for (const f of FORBIDDEN) if (f in obj) forbidden.push(f);\n  if (\"data\" in obj && (!obj.data || typeof obj.data !== \"object\" || Array.isArray(obj.data))) warnings.push(\"data_not_object\");\n  if (\"error\" in obj && obj.error !== null && (typeof obj.error !== \"object\" || Array.isArray(obj.error))) warnings.push(\"error_not_object\");\n  const valid = missing.length === 0 && (!strict || forbidden.length === 0) && warnings.indexOf(\"data_not_object\") < 0 && warnings.indexOf(\"error_not_object\") < 0;\n  return { valid, missing_fields:missing, forbidden_fields:forbidden, warnings };\n}\nfunction normalizeRawResult(raw, strict){\n  const obj = parseJson(raw, {}, \"Result Json\");\n  const issues = contractIssues(obj, strict);\n  if (strict && issues.forbidden_fields.length > 0) {\n    throw { code:\"RESULT_FORBIDDEN_TOP_LEVEL_FIELD\", message:\"O resultado contém campos de topo proibidos.\", details:{ forbidden_fields:issues.forbidden_fields }, recoverable:false };\n  }\n  if (issues.warnings.indexOf(\"data_not_object\") >= 0) {\n    throw { code:\"RESULT_DATA_NOT_OBJECT\", message:\"O campo data do resultado precisa ser um dicionário.\", details:{}, recoverable:false };\n  }\n  if (issues.warnings.indexOf(\"error_not_object\") >= 0) {\n    throw { code:\"RESULT_ERROR_NOT_OBJECT\", message:\"O campo error do resultado precisa ser nulo ou um dicionário.\", details:{}, recoverable:false };\n  }\n  const success = obj.success === true;\n  const data = obj.data && typeof obj.data === \"object\" && !Array.isArray(obj.data) ? obj.data : {};\n  return makeResult(success, obj.status, obj.artifact_type, obj.artifact_id, obj.operation, obj.message, data, normalizeError(obj.error), obj.meta && typeof obj.meta === \"object\" ? obj.meta : {});\n}\nfunction topLevelError(operation, e){\n  const er = normalizeError(e, e && e.code ? e.code : \"PROCESSING_FAILED\", e && e.message ? e.message : \"Falha ao processar resultado.\");\n  return makeResult(false, \"error\", \"capability\", ARTIFACT_ID, operation, er.message, {}, er, null);\n}\nconst op = txt(`{lv=Operation}`);\nconst strict = bool(`{lv=Strict Mode?}`);\nconst includeRaw = bool(`{lv=Include Raw Result?}`);\ntry {\n  if (!op) throw { code:\"MISSING_REQUIRED_INPUT\", message:\"A entrada obrigatória Operation não foi informada.\", details:{ input:\"Operation\" }, recoverable:false };\n  if (SUPPORTED.indexOf(op) < 0) throw { code:\"UNSUPPORTED_OPERATION\", message:\"A operação informada não é suportada pelo Result Manager.\", details:{ operation:op, supported_operations:SUPPORTED }, recoverable:false };\n  const sourceType = txt(`{lv=Source Artifact Type}`) || \"capability\";\n  const sourceId = txt(`{lv=Source Artifact Id}`) || ARTIFACT_ID;\n  const sourceOp = txt(`{lv=Source Operation}`) || op;\n  const message = txt(`{lv=Message}`);\n  const context = parseJson(`{lv=Context Json}`, {}, \"Context Json\");\n  let output;\n  if (op === \"build_result\") {\n    const success = bool(`{lv=Success?}`);\n    const status = txt(`{lv=Status}`) || (success ? \"success\" : \"error\");\n    const data = parseJson(`{lv=Data Json}`, {}, \"Data Json\");\n    const errorRaw = parseJson(`{lv=Error Json}`, null, \"Error Json\");\n    const error = success ? null : (normalizeError(errorRaw, \"UNKNOWN_ERROR\", message || \"A operação não pôde ser concluída.\"));\n    output = makeResult(success, status, sourceType, sourceId, sourceOp, message, Object.assign({}, asObject(data), Object.keys(context).length ? { context } : {}), error, null);\n  } else if (op === \"wrap_error\") {\n    const data = parseJson(`{lv=Data Json}`, {}, \"Data Json\");\n    const errorRaw = parseJson(`{lv=Error Json}`, null, \"Error Json\");\n    const error = normalizeError(errorRaw, \"UNKNOWN_ERROR\", message || \"A operação não pôde ser concluída.\");\n    output = makeResult(false, txt(`{lv=Status}`) || \"error\", sourceType, sourceId, sourceOp, message || error.message, Object.assign({}, asObject(data), Object.keys(context).length ? { context } : {}), error, null);\n  } else if (op === \"validate_result\") {\n    const raw = parseJson(`{lv=Result Json}`, {}, \"Result Json\");\n    const issues = contractIssues(raw, strict);\n    if (!issues.valid) {\n      let code = \"RESULT_INVALID_CONTRACT\";\n      if (issues.forbidden_fields.length > 0) code = \"RESULT_FORBIDDEN_TOP_LEVEL_FIELD\";\n      if (issues.warnings.indexOf(\"data_not_object\") >= 0) code = \"RESULT_DATA_NOT_OBJECT\";\n      if (issues.warnings.indexOf(\"error_not_object\") >= 0) code = \"RESULT_ERROR_NOT_OBJECT\";\n      output = makeResult(false, \"error\", \"capability\", ARTIFACT_ID, \"validate_result\", \"O resultado informado não atende ao contrato CDXMS.\", Object.assign({ valid:false }, issues), normalizeError({code, message:\"O resultado informado não atende ao contrato CDXMS.\", details:issues, recoverable:false}), null);\n    } else {\n      output = makeResult(true, \"success\", \"capability\", ARTIFACT_ID, \"validate_result\", \"Resultado validado com sucesso.\", Object.assign({ valid:true }, issues), null, null);\n    }\n  } else if (op === \"normalize_result\") {\n    const normalized = normalizeRawResult(`{lv=Result Json}`, strict);\n    output = makeResult(true, \"success\", \"capability\", ARTIFACT_ID, \"normalize_result\", \"Resultado normalizado com sucesso.\", { normalized:true, value:normalized, context:Object.keys(context).length ? context : undefined }, null, null);\n    if (output.data.context === undefined) delete output.data.context;\n  } else if (op === \"propagate_result\") {\n    const child = normalizeRawResult(`{lv=Result Json}`, strict);\n    const childSummary = { success:child.success, status:child.status, artifact_type:child.artifact_type, artifact_id:child.artifact_id, operation:child.operation, message:child.message, error_code:child.error ? child.error.code : null };\n    const data = { propagated:true, child_result_summary:childSummary, child_data:child.data };\n    if (Object.keys(context).length) data.context = context;\n    if (includeRaw) data.raw_result = child;\n    output = makeResult(child.success === true, child.status, sourceType, sourceId, sourceOp, message || child.message, data, child.error, { child_source: child.artifact_id });\n  } else if (op === \"register_result\") {\n    const normalized = normalizeRawResult(`{lv=Result Json}`, strict);\n    const data = { registered:true, value:normalized };\n    if (Object.keys(context).length) data.context = context;\n    if (includeRaw) data.raw_result = parseJson(`{lv=Result Json}`, {}, \"Result Json\");\n    output = makeResult(normalized.success === true, normalized.status, normalized.artifact_type, normalized.artifact_id, normalized.operation, message || normalized.message, data, normalized.error, normalized.meta || null);\n  }\n  JSON.stringify(output);\n} catch(e) {\n  JSON.stringify(topLevelError(op || \"unknown\", e));\n}\n",
+            "stringVariableName": "Tmp_ResultJson",
+            "disableLogging": false,
+            "m_SIGUID": -5662873323362663032,
+            "m_classType": "JavaScriptAction",
+            "m_comment": "Executa dispatch por Operation e gera Tmp_ResultJson conforme contrato universal CDXMS.",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryVarName": "Resultado",
+            "stringVarName": "Tmp_ResultJson",
+            "disableLogging": false,
+            "m_SIGUID": -2424146458439785043,
+            "m_classType": "JsonParseAction",
+            "m_comment": "Publica Tmp_ResultJson diretamente na saída pública única Resultado.",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "disableLogging": false,
+            "m_SIGUID": -2451125217236262964,
+            "m_classType": "ActionGroupEndAction",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "outputOption": 0,
+            "disableLogging": false,
+            "m_SIGUID": -2332545089780781344,
+            "m_classType": "ExitActionBlockAction",
+            "m_comment": "Encerra o Action Block após publicar Resultado.",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_category": "CDXMS",
+        "m_constraintList": [],
+        "m_description": "Constrói, normaliza, valida e propaga Resultado conforme contrato universal CDXMS.",
+        "m_descriptionOpen": false,
+        "m_enabled": true,
+        "m_excludeLog": false,
+        "m_headingColor": -11382190,
+        "m_isOrCondition": false,
+        "m_name": "[CDXMS] Registrar Resultado",
+        "m_triggerList": []
+      }
+    ],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1781639560470,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "normalize_text",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica da String Utils. Opções: escape_json_string, unescape_json_string, normalize_text, normalize_id, to_snake_case, to_kebab_case, trim, collapse_whitespace, replace_text, contains_text, equals_text, starts_with, ends_with, is_blank, sanitize_file_name, sanitize_path_segment, truncate."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Text",
+        "m_stringValue": "Olá, Mundo!",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Texto principal que será transformado, comparado ou validado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Search Text",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Texto de busca usado por replace_text, contains_text, equals_text, starts_with e ends_with."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Replace Text",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Texto substituto usado por replace_text."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Regex Pattern",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Expressão regular opcional para replace_text. Quando informada, substitui Search Text como critério de busca."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Regex Flags",
+        "m_stringValue": "g",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Flags da expressão regular. Exemplo: g, gi, m. Se g estiver ausente em replace_text, será adicionado automaticamente."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Case Mode",
+        "m_stringValue": "none",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Modo de caixa para normalize_text. Opções: none, lower, upper, title."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Comparison Mode",
+        "m_stringValue": "case_sensitive",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Modo de comparação textual. Opções: case_sensitive, case_insensitive, normalized."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Separator",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Separador preferencial para operações futuras/compatibilidade. to_snake_case usa _, to_kebab_case usa -."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Max Length",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Comprimento máximo opcional. Vazio ou 0 mantém o tamanho original nas operações aplicáveis."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Allow Slash?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Quando true, sanitize_path_segment preserva / como separador lógico e sanitiza cada segmento."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Reservado para validação rígida de entradas em evoluções futuras. Nesta versão, erros estruturais já retornam Resultado.error."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Config Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Configuração completa opcional da String Utils. Capability pura; quando informado, é apenas validado como JSON para compatibilidade com o padrão CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Context Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Contexto adicional opcional propagado ao Result Manager. Exemplo: {\"caller\":\"artifact_manager\"}."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Identificador de sessão propagado para Resultado.meta.session_id."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Identificador de correlação propagado para Resultado.meta.correlation_id."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única. Dicionário conforme contrato universal CDXMS, com dados úteis em Resultado.data."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_StringWorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "JSON temporário produzido pela transformação textual antes da finalização pelo Result Manager."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_StringWork",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Dicionário temporário derivado de Tmp_StringWorkJson para mapear success/status/message/data/error ao Result Manager."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -3034207520900123987,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Transform Text",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Transform Text",
+        "disableLogging": false,
+        "m_SIGUID": -1402621072237265938,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Executa a transformação/comparação textual de forma local e sem efeitos colaterais.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"string_utils\";\nconst VERSION = \"1.0.0\";\nconst SUPPORTED = [\"escape_json_string\",\"unescape_json_string\",\"normalize_text\",\"normalize_id\",\"to_snake_case\",\"to_kebab_case\",\"trim\",\"collapse_whitespace\",\"replace_text\",\"contains_text\",\"equals_text\",\"starts_with\",\"ends_with\",\"is_blank\",\"sanitize_file_name\",\"sanitize_path_segment\",\"truncate\"];\nfunction txt(v){ return String(v == null ? \"\" : v); }\nfunction trimmed(v){ return txt(v).trim(); }\nfunction bool(v, fallback){ const s = String(v == null ? \"\" : v).trim().toLowerCase(); if ([\"true\",\"1\",\"yes\",\"y\",\"sim\",\"s\",\"verdadeiro\"].indexOf(s) >= 0) return true; if ([\"false\",\"0\",\"no\",\"n\",\"nao\",\"não\",\"falso\"].indexOf(s) >= 0) return false; return fallback === true; }\nfunction parseJson(raw, fallback, name){\n  const s = trimmed(raw);\n  if (!s) return fallback;\n  try { return JSON.parse(s); }\n  catch(e) { throw { code:\"INVALID_JSON\", message:\"JSON inválido em \" + name + \".\", details:{ input:name, reason:String(e.message || e) }, recoverable:false }; }\n}\nfunction err(code, message, details, recoverable){ return { code, message, details:details || {}, recoverable:recoverable === true }; }\nfunction macroSafeJson(obj) { return JSON.stringify(obj == null ? {} : obj).replace(/\\/g, \"\\\\\"); }\nfunction ok(message, data){ return { success:true, status:\"success\", result_message:message, data_json:macroSafeJson(data || {}), error_json:\"null\" }; }\nfunction fail(operation, e){\n  const er = (e && typeof e === \"object\" && e.code) ? e : err(\"STRING_TRANSFORM_FAILED\", \"Não foi possível transformar o texto.\", { reason:String(e && e.message ? e.message : e) }, false);\n  return { success:false, status:\"error\", result_message:er.message, data_json:macroSafeJson({ operation, value:\"\", transformed:false }), error_json:macroSafeJson(er) };\n}\nfunction removeAccents(value){ try { return value.normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\"); } catch(e){ return value; } }\nfunction titleCase(value){ return value.toLowerCase().replace(/\\b\\S/g, function(ch){ return ch.toUpperCase(); }); }\nfunction applyCase(value, mode){\n  const m = trimmed(mode).toLowerCase() || \"none\";\n  if (m === \"lower\") return value.toLowerCase();\n  if (m === \"upper\") return value.toUpperCase();\n  if (m === \"title\") return titleCase(value);\n  return value;\n}\nfunction collapse(value){ return value.replace(/\\s+/g, \" \"); }\nfunction safeMax(raw){\n  const s = trimmed(raw);\n  if (!s) return 0;\n  const n = parseInt(s, 10);\n  if (isNaN(n) || n < 0) throw err(\"STRING_INVALID_MAX_LENGTH\", \"Max Length precisa ser um inteiro maior ou igual a zero.\", { max_length:raw }, false);\n  return n;\n}\nfunction truncate(value, max){ return max > 0 && value.length > max ? value.slice(0, max) : value; }\nfunction normalizeForCompare(value){ return removeAccents(collapse(trimmed(value)).toLowerCase()); }\nfunction comparePrepare(value, mode){\n  const m = trimmed(mode).toLowerCase() || \"case_sensitive\";\n  if (m === \"case_insensitive\") return txt(value).toLowerCase();\n  if (m === \"normalized\") return normalizeForCompare(value);\n  return txt(value);\n}\nfunction slug(value, sep, max){\n  let s = removeAccents(collapse(trimmed(value))).toLowerCase();\n  s = s.replace(/[^a-z0-9]+/g, sep);\n  const escSep = sep.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\n  s = s.replace(new RegExp(escSep + \"+\", \"g\"), sep).replace(new RegExp(\"^\" + escSep + \"|\" + escSep + \"$\", \"g\"), \"\");\n  return truncate(s, max);\n}\nfunction sanitizeFileName(value, max){\n  let s = collapse(trimmed(value));\n  s = removeAccents(s).replace(/[<>:\"/\\\\|?*\\x00-\\x1F]/g, \"_\");\n  s = s.replace(/\\s+/g, \" \").replace(/_+/g, \"_\").replace(/^[ ._]+|[ ._]+$/g, \"\");\n  if (!s) s = \"unnamed\";\n  return truncate(s, max || 120);\n}\nfunction sanitizePathSegment(value, allowSlash, max){\n  if (allowSlash) {\n    return txt(value).split(/[\\\\/]+/).map(function(part){ return sanitizeFileName(part, max || 120); }).filter(function(part){ return part.length > 0; }).join(\"/\");\n  }\n  return sanitizeFileName(value, max || 120);\n}\nfunction unescapeJsonString(value){\n  const s = txt(value);\n  if (/^\"[\\s\\S]*\"$/.test(s.trim())) return JSON.parse(s.trim());\n  return JSON.parse('\"' + s.replace(/\\\\/g, \"\\\\\\\\\").replace(/\"/g, '\\\\\"') + '\"');\n}\nconst op = trimmed(`{lv=Operation}`);\ntry {\n  if (!op) throw err(\"MISSING_REQUIRED_INPUT\", \"A entrada obrigatória Operation não foi informada.\", { input:\"Operation\" }, false);\n  if (SUPPORTED.indexOf(op) < 0) throw err(\"UNSUPPORTED_OPERATION\", \"A operação informada não é suportada pela String Utils.\", { operation:op, supported_operations:SUPPORTED }, false);\n  const input = txt(`{lv=Text}`);\n  const search = txt(`{lv=Search Text}`);\n  const replace = txt(`{lv=Replace Text}`);\n  const pattern = txt(`{lv=Regex Pattern}`);\n  const flagsRaw = txt(`{lv=Regex Flags}`);\n  const caseMode = trimmed(`{lv=Case Mode}`) || \"none\";\n  const cmpMode = trimmed(`{lv=Comparison Mode}`) || \"case_sensitive\";\n  const sepInput = trimmed(`{lv=Separator}`);\n  const max = safeMax(`{lv=Max Length}`);\n  const allowSlash = bool(`{lv=Allow Slash?}`);\n  parseJson(`{lv=Config Json}`, {}, \"Config Json\");\n  let value = input;\n  let data = { operation:op, input, value:null, length:0, changed:false };\n  let final = null;\n  if (op === \"escape_json_string\") {\n    const quoted = JSON.stringify(input);\n    value = quoted.slice(1, -1);\n    data.quoted_value = quoted;\n  } else if (op === \"unescape_json_string\") {\n    value = unescapeJsonString(input);\n  } else if (op === \"trim\") {\n    value = input.trim();\n  } else if (op === \"collapse_whitespace\") {\n    value = collapse(input);\n  } else if (op === \"normalize_text\") {\n    value = applyCase(collapse(input.trim()), caseMode);\n  } else if (op === \"normalize_id\") {\n    value = slug(input, \"_\", max || 80);\n  } else if (op === \"to_snake_case\") {\n    value = slug(input, \"_\", max || 0);\n  } else if (op === \"to_kebab_case\") {\n    value = slug(input, \"-\", max || 0);\n  } else if (op === \"replace_text\") {\n    if (pattern.trim()) {\n      let flags = flagsRaw.trim() || \"g\";\n      if (flags.indexOf(\"g\") < 0) flags += \"g\";\n      try { value = input.replace(new RegExp(pattern, flags), replace); }\n      catch(e) { throw err(\"STRING_INVALID_REGEX\", \"Regex Pattern inválido.\", { pattern, flags, reason:String(e.message || e) }, false); }\n      data.regex = { pattern, flags };\n    } else {\n      if (search.length === 0) throw err(\"STRING_EMPTY_SEARCH_TEXT\", \"Search Text é obrigatório para replace_text sem Regex Pattern.\", { operation:op }, false);\n      value = input.split(search).join(replace);\n    }\n    data.search_text = search;\n    data.replace_text = replace;\n  } else if (op === \"contains_text\") {\n    const a = comparePrepare(input, cmpMode);\n    const b = comparePrepare(search, cmpMode);\n    const idx = a.indexOf(b);\n    data.value = idx >= 0;\n    data.index = idx;\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação contains_text executada com sucesso.\", data);\n  } else if (op === \"equals_text\") {\n    data.value = comparePrepare(input, cmpMode) === comparePrepare(search, cmpMode);\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação equals_text executada com sucesso.\", data);\n  } else if (op === \"starts_with\") {\n    data.value = comparePrepare(input, cmpMode).indexOf(comparePrepare(search, cmpMode)) === 0;\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação starts_with executada com sucesso.\", data);\n  } else if (op === \"ends_with\") {\n    const a = comparePrepare(input, cmpMode); const b = comparePrepare(search, cmpMode);\n    data.value = b.length === 0 ? true : a.slice(-b.length) === b;\n    data.search_text = search;\n    data.comparison_mode = cmpMode;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Comparação ends_with executada com sucesso.\", data);\n  } else if (op === \"is_blank\") {\n    data.value = input.trim().length === 0;\n    data.length = input.length;\n    data.changed = false;\n    final = ok(\"Validação is_blank executada com sucesso.\", data);\n  } else if (op === \"sanitize_file_name\") {\n    value = sanitizeFileName(input, max || 120);\n  } else if (op === \"sanitize_path_segment\") {\n    value = sanitizePathSegment(input, allowSlash, max || 120);\n    data.allow_slash = allowSlash;\n  } else if (op === \"truncate\") {\n    value = truncate(input, max);\n  }\n  if (!final) {\n    data.value = value;\n    data.length = value.length;\n    data.changed = value !== input;\n    data.case_mode = caseMode;\n    data.max_length = max;\n    final = ok(\"Texto processado com sucesso.\", data);\n  }\n  JSON.stringify(final);\n} catch(e) {\n  JSON.stringify(fail(op || \"unknown\", e));\n}\n",
+        "stringVariableName": "Tmp_StringWorkJson",
+        "disableLogging": false,
+        "m_SIGUID": -4421259792684632543,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Executa dispatch por Operation e gera dados intermediários para o Result Manager.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Tmp_StringWork",
+        "stringVarName": "Tmp_StringWorkJson",
+        "disableLogging": false,
+        "m_SIGUID": -4133773687559974954,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Converte o JSON temporário para dicionário de trabalho.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -6030078585140103637,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionGroupName": "02 — Build Resultado",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "02 — Build Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -1807066134641326564,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Publica a saída única através do Result Manager para manter o contrato universal.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -2848404244272762193,
+        "actionBlockName": "[CDXMS] Registrar Resultado",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Operation": "build_result",
+          "Source Artifact Type": "capability",
+          "Source Artifact Id": "string_utils",
+          "Source Operation": "{lv=Operation}",
+          "Success?": "{lv=Tmp_StringWork[success]}",
+          "Status": "{lv=Tmp_StringWork[status]}",
+          "Message": "{lv=Tmp_StringWork[result_message]}",
+          "Data Json": "{lv=Tmp_StringWork[data_json]}",
+          "Error Json": "{lv=Tmp_StringWork[error_json]}",
+          "Result Json": "",
+          "Context Json": "{lv=Context Json}",
+          "Strict Mode?": "true",
+          "Include Raw Result?": "false",
+          "Session Id": "{lv=Session Id}",
+          "Correlation Id": "{lv=Correlation Id}"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Resultado"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -7256238840781184199,
+        "m_classType": "ActionBlockAction",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "m_comment": "Finaliza a saída pública única através do Result Manager, mantendo a String Utils como capability pura e padronizada."
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -6816480467219204173,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -3197654901736716673,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerramento explícito após publicar Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_constraintList": [],
+    "m_description": "Capability pura CDXMS para utilitários de texto: escape/desescape JSON, normalização, comparação, substituição e sanitização de nomes/caminhos. Saída única: Resultado.",
+    "m_descriptionOpen": false,
+    "m_enabled": false,
+    "m_excludeLog": false,
+    "m_headingColor": -11382190,
+    "m_isOrCondition": false,
+    "m_name": "[CDXMS] String Utils",
+    "m_triggerList": []
+  },
+  "macroExportVersion": 1
+}

@@ -30,3 +30,10 @@ python src/scripts/validate_core_capabilities_v1_0_0_sanitized.py
 ```
 
 Depois, importar os `.ablock` no MacroDroid real e executar os testes manuais de cada capability.
+
+
+## Homologation fix — v1.0.0 pre-release
+
+- Mantida versão 1.0.0.
+- Corrigida interpretação de booleanos localizados (`Verdadeiro`/`Falso`) em Magic Text.
+- Reforçada serialização de dados textuais com aspas para Result Manager.
