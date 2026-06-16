@@ -2,7 +2,7 @@
   "schema_version": 1,
   "namespace": "CDXMS",
   "release_id": "ecosystem_core_base",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "created_at": "",
   "artifacts": [
     {
@@ -19,8 +19,12 @@
     }
   ],
   "notes": [
-    "Base incremental sobre JCM v1.0.0 já presente na branch feat/create-ecosystem-core.",
-    "Adiciona Bootstrap v1.0.0 sem recriar a estrutura do repositório.",
-    "A raiz distribuível remota é src/; o dispositivo não deve receber src/."
-  ]
+    "Bootstrap v1.0.0 incremental com Action Block exportado",
+    "Depende do JCM local >= 1.0.0",
+    "Sem dependência de GitHub/CDN em runtime",
+    "Saída pública única Resultado"
+  ],
+  "artifact_id": "bootstrap",
+  "artifact_type": "capability",
+  "package": "CDXMS_Bootstrap_v1_0_0_with_ablock_incremental_package.zip"
 }

@@ -21,3 +21,11 @@
 - `write_json` e `merge_json` bloqueiam múltiplos matches.
 - Resultado mantém `data` como dicionário oficial.
 - Removidos campos top-level não padronizados do contrato.
+
+## Bootstrap 1.0.0
+
+- Adicionada capability `[CDXMS] Bootstrap`.
+- Incluído export MacroDroid em `capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock`.
+- Bootstrap usa o JCM para garantir core, runtime e contexto local.
+- Mantida saída pública única `Resultado`.
+- Sem dependência operacional de GitHub/CDN.

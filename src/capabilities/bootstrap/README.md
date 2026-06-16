@@ -47,4 +47,4 @@ O export deve ficar em:
 capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock
 ```
 
-Este package não inclui `.ablock` final porque o Action Block precisa ser criado/exportado pelo MacroDroid real para preservar IDs internos de `ActionBlockAction` ao chamar o JCM.
+Este package inclui o export `[CDXMS]_Bootstrap.ablock`, criado a partir de export real do MacroDroid com referência interna ao `[CDXMS] Json Config Manager`. A homologação final deve ser feita por importação e testes no MacroDroid real.
