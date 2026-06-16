@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_config",
+  "capability_id": "logger",
+  "config": {
+    "enabled": true,
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "default_level": "info",
+    "default_scope": "auto",
+    "format": "jsonl",
+    "folder_by_scope": true,
+    "strict_mode_default": false,
+    "include_result_snapshot": true,
+    "include_error_snapshot": true,
+    "max_line_size_warning_bytes": 32768,
+    "rotation": {
+      "enabled": false,
+      "strategy": "future_artifact_manager_or_runtime_policy"
+    }
+  },
+  "updated_at": ""
+}

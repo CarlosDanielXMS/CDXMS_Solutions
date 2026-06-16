@@ -1,21 +1,17 @@
-# CDXMS Result Manager v1.0.0 — Incremental Package
+# CDXMS Logger v1.0.0 — package incremental
 
-Package incremental alinhado ao estado remoto atual da branch `feat/create-ecosystem-core`.
+Package incremental alinhado ao repositório remoto atual.
 
-A próxima capability da base é o Result Manager, porque ele padroniza `Resultado` antes de Logger, String Utils, Artifact Manager e demais capabilities.
+## Conteúdo principal
 
-## Conteúdo
+- `src/capabilities/logger/manifest.json`
+- `src/capabilities/logger/contract.json`
+- `src/capabilities/logger/config.default.json`
+- `src/capabilities/logger/remote_manifest.json`
+- `src/capabilities/logger/macrodroid/[CDXMS]_Logger.ablock`
+- `src/docs/logger_architecture.md`
+- `src/docs/logger_export_validation_report.md`
 
-- Capability completa `result_manager`.
-- Action Block `[CDXMS] Registrar Resultado`.
-- Atualização incremental de core enums/errors.
-- Atualização de release/checksums/readme/changelog.
+## Checksums
 
-## Garantias
-
-- Saída pública única: `Resultado`.
-- `Resultado.data` permanece dicionário oficial.
-- Sem `data_json`, `error_code`, `error_message`, `error_json` no topo.
-- Sem dependência de GitHub/CDN em runtime.
-- Sem dependência do JCM.
-- Sem efeitos colaterais.
+- Action Block: `1a35d47fedc71c8da0a2cf05843f913981b7b2e0540e660b51691c26cfb61979`

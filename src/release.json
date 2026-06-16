@@ -22,15 +22,21 @@
       "artifact_type": "capability",
       "version": "1.0.0",
       "path": "capabilities/result_manager/manifest.json"
+    },
+    {
+      "artifact_id": "logger",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/logger/manifest.json"
     }
   ],
   "notes": [
-    "Base do ecossistema com JCM, Bootstrap e Result Manager.",
-    "Result Manager puro para construir, normalizar, validar e propagar Resultado.",
+    "Base do ecossistema com JCM, Bootstrap, Result Manager e Logger.",
+    "Logger registra eventos, resultados e erros em JSON Lines local.",
     "Sem dependência de GitHub/CDN em runtime.",
     "Saída pública única Resultado em todas as capabilities da base."
   ],
-  "artifact_id": "result_manager",
+  "artifact_id": "logger",
   "artifact_type": "capability",
-  "package": "CDXMS_Result_Manager_v1_0_0_incremental_package.zip"
+  "package": "CDXMS_Logger_v1_0_0_incremental_package.zip"
 }

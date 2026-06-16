@@ -47,6 +47,12 @@
     "RESULT_PROPAGATION_FAILED": "Não foi possível propagar o resultado recebido.",
     "RESULT_FORBIDDEN_TOP_LEVEL_FIELD": "O resultado contém campo de topo proibido.",
     "RESULT_DATA_NOT_OBJECT": "O campo data do resultado precisa ser um dicionário.",
-    "RESULT_ERROR_NOT_OBJECT": "O campo error do resultado precisa ser nulo ou um dicionário."
+    "RESULT_ERROR_NOT_OBJECT": "O campo error do resultado precisa ser nulo ou um dicionário.",
+    "LOGGER_INVALID_LEVEL": "Nível de log inválido.",
+    "LOGGER_INVALID_SCOPE": "Escopo de log inválido.",
+    "LOGGER_WRITE_FAILED": "Não foi possível gravar o registro de log.",
+    "LOGGER_DISABLED": "Logger desabilitado pela configuração.",
+    "LOGGER_INVALID_LOG_PAYLOAD": "Payload de log inválido.",
+    "LOGGER_MESSAGE_EMPTY": "Mensagem de log vazia."
   }
 }

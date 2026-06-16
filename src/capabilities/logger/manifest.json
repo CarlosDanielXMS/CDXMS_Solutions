@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "logger",
+    "name": "Logger",
+    "display_name": "[CDXMS] Logger",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Capability de observabilidade local para registrar eventos, resultados e erros em JSON Lines no ecossistema CDXMS.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/logger/macrodroid/[CDXMS]_Logger.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Logger",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0",
+      "result_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "log_event",
+    "log_result",
+    "log_error",
+    "get_log_status"
+  ],
+  "log_format": "jsonl",
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": ""
+}
