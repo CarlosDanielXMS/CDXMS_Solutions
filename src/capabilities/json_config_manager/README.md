@@ -64,3 +64,13 @@ Resultado.data.content
 ## Contrato de Resultado
 
 Não existem campos top-level como `data_json`, `error_code`, `error_message` ou `error_json`. Qualquer payload útil fica em `Resultado.data`.
+
+## Saneamento pré-release v1.0.0
+
+A capability permanece na versão `1.0.0`. Este ajuste registra a auditoria de ações nativas, JS e Shell antes da primeira release oficial.
+
+- Política: `native_first_when_safe_clear_and_homologated`.
+- JS: `25` ocorrência(s).
+- Shell: `4` ocorrência(s).
+- Decisão: Mantém ações nativas de leitura/escrita/parse onde elas já expressam a intenção; mantém JavaScript como engine interna de JsonPath/merge; mantém ShellScriptAction como fallback controlado para mkdir -p e rm -f até homologação real de FileOperationV21Action/FileOperationAllFilesAction com paths dinâmicos e criação recursiva.
+

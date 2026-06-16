@@ -33,3 +33,13 @@ Ela não acessa filesystem, não usa GitHub/CDN, não instala artifacts, não al
 - `[CDXMS] Registrar Resultado >= 1.0.0`
 
 O Action Block chama o Result Manager ao final para publicar `Resultado` de forma padronizada.
+
+## Saneamento pré-release v1.0.0
+
+A capability permanece na versão `1.0.0`. Este ajuste registra a auditoria de ações nativas, JS e Shell antes da primeira release oficial.
+
+- Política: `native_first_when_safe_clear_and_homologated`.
+- JS: `1` ocorrência(s).
+- Shell: `0` ocorrência(s).
+- Decisão: Mantém JavaScript centralizado porque o Action Block precisa suportar 17 operações por Operation e retornar Resultado homogêneo. TextManipulationAction será preferida em fluxos externos simples, mas dentro desta capability o script reduz duplicação e edge cases.
+

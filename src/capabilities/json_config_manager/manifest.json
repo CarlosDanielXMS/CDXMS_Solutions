@@ -56,5 +56,23 @@
   },
   "result_contract": "core/result_contract.json",
   "created_at": "",
-  "updated_at": ""
+  "updated_at": "",
+  "implementation_audit": {
+    "stage": "pre_release_1_0_0_sanitization",
+    "version_policy": "no_version_bump_before_first_official_release",
+    "validated_against": "docs/macro_droid_action_catalog_v0_1.md",
+    "native_action_policy": "native_first_when_safe_clear_and_homologated",
+    "action_profile": {
+      "total_actions": 119,
+      "unique_action_classes": 12,
+      "javascript_actions": 25,
+      "shell_actions": 4,
+      "file_operation_actions": 0,
+      "text_manipulation_actions": 0
+    },
+    "native_action_decision": "Mantém ações nativas de leitura/escrita/parse onde elas já expressam a intenção; mantém JavaScript como engine interna de JsonPath/merge; mantém ShellScriptAction como fallback controlado para mkdir -p e rm -f até homologação real de FileOperationV21Action/FileOperationAllFilesAction com paths dinâmicos e criação recursiva.",
+    "javascript_policy": "justified_engine",
+    "shell_policy": "controlled_fallback_pending_real_device_saf_validation",
+    "recommended_follow_up": "Criar teste mínimo real no MacroDroid para FileOperationV21Action com m_folderName dinâmico e FileOperationAllFilesAction delete por all-files path antes de substituir o Shell."
+  }
 }

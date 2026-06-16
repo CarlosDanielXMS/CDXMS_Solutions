@@ -1,12 +1,16 @@
 # Changelog
 
-## 1.0.0 — String Utils
+## 1.0.0 — Saneamento pré-release das capabilities core
 
-- Adicionada capability `[CDXMS] String Utils`.
-- Adicionado contrato para escape/desescape JSON, normalização, comparação e sanitização textual.
-- Adicionados enums e erros de String Utils ao core.
-- Action Block exportado em `capabilities/string_utils/macrodroid/`.
-- String Utils usa Result Manager para publicar `Resultado`.
+- Mantida a versão `1.0.0` para todas as capabilities.
+- Adicionada auditoria de uso de ações nativas, JavaScript e Shell nos manifests.
+- Adicionado catálogo local de estruturas de ações MacroDroid em `docs/`.
+- Adicionada auditoria nativa revisada em `docs/native_action_audit_v1_0_0_pre_release.md`.
+- Adicionado relatório consolidado em `docs/pre_release_capability_sanitization_report.md`.
+- Adicionado script de validação estrutural consolidada.
+- JCM mantém JavaScript como engine e Shell como fallback controlado até teste real de FileOperation.
+- Bootstrap permanece fundação mínima dependente apenas do JCM.
+- Result Manager, Logger e String Utils mantêm decisões de implementação documentadas.
 
 ## 1.0.0 — Logger
 
@@ -14,24 +18,15 @@
 - Adicionado contrato para observabilidade local em JSON Lines.
 - Adicionados enums e erros de Logger ao core.
 - Action Block exportado em `capabilities/logger/macrodroid/`.
-- Logger passa a usar JCM para garantir pasta local e Result Manager para publicar `Resultado`.
 
 ## 1.0.0 — Result Manager
 
 - Adicionada capability `[CDXMS] Registrar Resultado`.
 - Adicionado contrato para construção, normalização, validação e propagação de `Resultado`.
 - Mantido padrão de saída pública única.
-- Adicionados enums e erros de Result Manager ao core.
-- Action Block exportado em `capabilities/result_manager/macrodroid/`.
 
-## 1.0.0 final
+## 1.0.0 final — Json Config Manager
 
 - Adicionada JCM JsonPath Engine v1.
-- Suporte a `config.services[id="x"].name`.
-- Suporte a JsonPath canônico `$.items[?(@.id=="x")].name`.
-- Suporte a `$`, wildcard, recursive descent, slice e union.
-- `read_json` com Json Path vazio/$ retorna documento completo.
-- `exists` passa a verificar Json Path quando informado.
-- `write_json` e `merge_json` bloqueiam múltiplos matches.
+- Suporte a filtros práticos e JsonPath canônico.
 - Resultado mantém `data` como dicionário oficial.
-- Removidos campos top-level não padronizados do contrato.

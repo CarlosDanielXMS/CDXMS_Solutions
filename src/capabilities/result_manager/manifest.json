@@ -35,5 +35,23 @@
   "purity": "pure",
   "side_effects": [],
   "created_at": "",
-  "updated_at": ""
+  "updated_at": "",
+  "implementation_audit": {
+    "stage": "pre_release_1_0_0_sanitization",
+    "version_policy": "no_version_bump_before_first_official_release",
+    "validated_against": "docs/macro_droid_action_catalog_v0_1.md",
+    "native_action_policy": "native_first_when_safe_clear_and_homologated",
+    "action_profile": {
+      "total_actions": 5,
+      "unique_action_classes": 5,
+      "javascript_actions": 1,
+      "shell_actions": 0,
+      "file_operation_actions": 0,
+      "text_manipulation_actions": 0
+    },
+    "native_action_decision": "Mantém JavaScript por ser fábrica/normalizadora de Resultado. Reescrever em ações visuais aumentaria ações e risco sem ganho.",
+    "javascript_policy": "justified_contract_normalizer",
+    "shell_policy": "not_used",
+    "recommended_follow_up": "Sem ajuste funcional necessário antes da release 1.0.0."
+  }
 }

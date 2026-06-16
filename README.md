@@ -1,14 +1,32 @@
-# CDXMS String Utils v1.0.0 — Package Incremental
+# CDXMS — Ecosystem Core Base v1.0.0
 
-Package incremental alinhado ao repositório remoto atual do ecossistema CDXMS.
+Base inicial do ecossistema CDXMS Solutions para MacroDroid.
 
-## Inclui
+## Capabilities incluídas
 
-- Capability `string_utils` completa.
-- Action Block `[CDXMS] String Utils`.
-- Manifest, contrato, config default, remote manifest, documentação, testes manuais e script de validação.
-- Atualizações incrementais do core, release, README, changelog e checksums.
+- `[CDXMS] Json Config Manager`
+- `[CDXMS] Bootstrap`
+- `[CDXMS] Registrar Resultado`
+- `[CDXMS] Logger`
+- `[CDXMS] String Utils`
 
-## Dependência
+## Saneamento pré-release v1.0.0
 
-- `[CDXMS] Registrar Resultado >= 1.0.0`
+Este pacote consolida todas as capabilities já criadas sem alteração de versão pública. A versão permanece `1.0.0` porque ainda não houve release oficial, disponibilização estável para usuários finais ou validação completa em dispositivo limpo.
+
+Principais ajustes:
+
+- Manifest de cada capability recebeu `implementation_audit`.
+- Catálogo de ações MacroDroid incorporado em `docs/`.
+- Auditoria nativa reescrita sem sugerir `v1.0.1`.
+- Checksums recalculados para a árvore consolidada.
+- Script único de validação estrutural adicionado em `scripts/`.
+- Shell continua restrito ao JCM como fallback controlado pendente de homologação real com FileOperation.
+
+## Como validar
+
+```bash
+python src/scripts/validate_core_capabilities_v1_0_0_sanitized.py
+```
+
+Depois, importar os `.ablock` no MacroDroid real e executar os testes manuais de cada capability.

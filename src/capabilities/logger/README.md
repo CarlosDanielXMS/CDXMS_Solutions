@@ -35,3 +35,13 @@ O Logger registra eventos, resultados e erros em arquivos locais no formato JSON
 ```
 
 Cada linha é um JSON completo e independente.
+
+## Saneamento pré-release v1.0.0
+
+A capability permanece na versão `1.0.0`. Este ajuste registra a auditoria de ações nativas, JS e Shell antes da primeira release oficial.
+
+- Política: `native_first_when_safe_clear_and_homologated`.
+- JS: `1` ocorrência(s).
+- Shell: `0` ocorrência(s).
+- Decisão: Mantém JCM para garantia de estrutura, WriteToFileAction para persistência e Result Manager para publicação; JavaScript fica restrito à montagem da linha JSONL e validação do payload.
+

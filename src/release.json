@@ -38,11 +38,12 @@
   ],
   "notes": [
     "Base do ecossistema com JCM, Bootstrap, Result Manager, Logger e String Utils.",
-    "String Utils centraliza escape, normalização, comparação e sanitização textual.",
-    "Sem dependência de GitHub/CDN em runtime.",
-    "Saída pública única Resultado em todas as capabilities da base."
+    "Saneamento pré-release sem alteração de versão pública.",
+    "Ações nativas priorizadas quando seguras, claras e homologadas.",
+    "JavaScript mantido onde reduz complexidade ou implementa engine real.",
+    "Shell restrito ao JCM como fallback controlado até homologação de FileOperation."
   ],
-  "artifact_id": "string_utils",
-  "artifact_type": "capability",
-  "package": "CDXMS_String_Utils_v1_0_0_incremental_package.zip"
+  "artifact_id": "ecosystem_core_base",
+  "artifact_type": "package",
+  "package": "CDXMS_Core_Capabilities_v1_0_0_final_sanitized_package.zip"
 }

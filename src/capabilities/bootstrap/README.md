@@ -48,3 +48,13 @@ capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock
 ```
 
 Este package inclui o export `[CDXMS]_Bootstrap.ablock`, criado a partir de export real do MacroDroid com referência interna ao `[CDXMS] Json Config Manager`. A homologação final deve ser feita por importação e testes no MacroDroid real.
+
+## Saneamento pré-release v1.0.0
+
+A capability permanece na versão `1.0.0`. Este ajuste registra a auditoria de ações nativas, JS e Shell antes da primeira release oficial.
+
+- Política: `native_first_when_safe_clear_and_homologated`.
+- JS: `9` ocorrência(s).
+- Shell: `0` ocorrência(s).
+- Decisão: Mantém o Bootstrap minimalista, com dependência direta apenas do JCM. Não foi adicionada dependência obrigatória do Result Manager para não fragilizar a inicialização limpa do core.
+

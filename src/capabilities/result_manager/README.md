@@ -39,3 +39,13 @@ error_json
 ## Efeito colateral
 
 Nenhum. Esta capability é pura.
+
+## Saneamento pré-release v1.0.0
+
+A capability permanece na versão `1.0.0`. Este ajuste registra a auditoria de ações nativas, JS e Shell antes da primeira release oficial.
+
+- Política: `native_first_when_safe_clear_and_homologated`.
+- JS: `1` ocorrência(s).
+- Shell: `0` ocorrência(s).
+- Decisão: Mantém JavaScript por ser fábrica/normalizadora de Resultado. Reescrever em ações visuais aumentaria ações e risco sem ganho.
+

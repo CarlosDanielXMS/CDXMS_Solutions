@@ -259,15 +259,8 @@ function evaluate(root, path) {
         }
       }
       else if (token.type === "filter") {
-        if (Array.isArray(v)) {
-          for (let i=0;i<v.length;i++) {
-            if (evalFilter(v[i], token.expr)) next.push({ parent:v, key:i, value:v[i], path:ref.path+"["+i+"]" });
-          }
-        } else if (v && typeof v === "object") {
-          Object.keys(v).forEach(k => {
-            if (evalFilter(v[k], token.expr)) next.push({ parent:v, key:k, value:v[k], path:ref.path+(k.match(/^[A-Za-z_$][\w$]*$/)?"."+k:"["+quoteString(k)+"]") });
-          });
-        }
+        if (Array.isArray(v)) for (let i=0;i<v.length;i++) if (evalFilter(v[i], token.expr)) next.push({ parent:v, key:i, value:v[i], path:ref.path+"["+i+"]" });
+        else if (v && typeof v === "object") Object.keys(v).forEach(k => { if (evalFilter(v[k], token.expr)) next.push({ parent:v, key:k, value:v[k], path:ref.path+(k.match(/^[A-Za-z_$][\w$]*$/)?"."+k:"["+quoteString(k)+"]") }); });
       }
       else if (token.type === "recursive") descendants(ref, token.key, next);
     }

@@ -10,10 +10,23 @@ Base inicial do ecossistema CDXMS Solutions para MacroDroid.
 - `[CDXMS] Logger`
 - `[CDXMS] String Utils`
 
-## Incremento — String Utils v1.0.0
+## Saneamento pré-release v1.0.0
 
-- Adicionada capability `string_utils`.
-- Action Block `[CDXMS] String Utils` em `capabilities/string_utils/macrodroid/`.
-- Operações de escape/desescape JSON, normalização, comparação, substituição e sanitização textual.
-- Capability pura: sem filesystem, sem GitHub/CDN, sem registry e sem logging obrigatório.
-- Dependência: Result Manager.
+Este pacote consolida todas as capabilities já criadas sem alteração de versão pública. A versão permanece `1.0.0` porque ainda não houve release oficial, disponibilização estável para usuários finais ou validação completa em dispositivo limpo.
+
+Principais ajustes:
+
+- Manifest de cada capability recebeu `implementation_audit`.
+- Catálogo de ações MacroDroid incorporado em `docs/`.
+- Auditoria nativa reescrita sem sugerir `v1.0.1`.
+- Checksums recalculados para a árvore consolidada.
+- Script único de validação estrutural adicionado em `scripts/`.
+- Shell continua restrito ao JCM como fallback controlado pendente de homologação real com FileOperation.
+
+## Como validar
+
+```bash
+python src/scripts/validate_core_capabilities_v1_0_0_sanitized.py
+```
+
+Depois, importar os `.ablock` no MacroDroid real e executar os testes manuais de cada capability.
