@@ -3,8 +3,8 @@
   "namespace": "CDXMS",
   "algorithm": "sha256",
   "files": {
-    "CHANGELOG.md": "a7fb4c218bc8ce365936e5e145d5574b87d4e8a684c1d784c6a79c9dadc3ef2f",
-    "README.md": "d39b4f544bbba6e4948694718de9195f762bb1bf0445e559ef85d837bb7ee856",
+    "CHANGELOG.md": "58d6dc1c0f207124d0933f3b73e2600d4614677111ee14813910100dc049f4d0",
+    "README.md": "1da73113c78ef0eee60b8cfd073440a0456cead11b778a4eaa4cbff6520cf80a",
     "capabilities/bootstrap/README.md": "8bfd7dfc3709f6050efaf00ae32aac77ac375e2918aede2d14ce2d7bd56fd635",
     "capabilities/bootstrap/body.md": "24af1a2949f9c2d9e05b55f49374675a23c081fff1983be35ae170871d1e0538",
     "capabilities/bootstrap/config.default.json": "3e658d1355bed81dc9b5a99c469c9e43b6c4634d632facb21122586839029191",
@@ -14,10 +14,21 @@
     "capabilities/bootstrap/remote_manifest.json": "bda67615cd815a7ca27ca06fb83c7e8d3b4580d06ddb2c9145fd4515f23d570f",
     "capabilities/bootstrap/scripts/validate_bootstrap_incremental.py": "d898324ba3154cb64fde40fa3fba8b8d6708fb8ee973eac2c020ceddf54e712a",
     "capabilities/bootstrap/tests/manual_test.md": "f3c17ff190360460b5c11dc13e703f33a06a88a6a3aea8f4556c953cb5b986d2",
-    "core/enums.json": "846ce5485a40471b03e8955fb35be4d5c058be1742d252f221e01c6b6c894f77",
-    "core/errors.json": "e7418a8931ad66070743b3589241d8c8d51b357166cf19e92843f9845df41cd1",
+    "core/enums.json": "b5b648af6f180f4bc18d2e5c30e8110ee6816a448dc7eacc95c01fef556569b3",
+    "core/errors.json": "93b6bdda1cf0e8483ce79ae0bb0339c7c04a73b178a25fd8f7da1e9624e443c0",
     "docs/bootstrap_architecture.md": "355a38d33a3738d68bd5b836c83defc0b671b50489d8d77ff43142a9c8ef68cd",
     "docs/bootstrap_export_validation_report.md": "e9b872514e17607825e4cbc0b4b6d670de60d396f242c0bae71dbb204d46d9db",
-    "release.json": "93a7853c97be309a9a8238b8ce5ab792fe2102ef734edd90a62eda8ba3397887"
+    "release.json": "eb2ab997a8d2ef3d3984f7c758065b316cd9645e3c0fcb5c4edf8d96fd049445",
+    "docs/result_manager_architecture.md": "944ce214a7969ea790223eb96ddd85ce640d90294bc303b84a6943ea565ad7d3",
+    "docs/result_manager_export_validation_report.md": "de8298626e6c5841dad558da5eb7dc1637f05d9cdf044816085dbdccd657c9e5",
+    "capabilities/result_manager/manifest.json": "97467794c124e770b548eff4b5bdb9859b18728376eca45ce338f7fffdaf15d6",
+    "capabilities/result_manager/contract.json": "4ca59616ad7ce2a533c114302424f770cfef630c027dc4a063ab6ca29dfbb6a9",
+    "capabilities/result_manager/config.default.json": "088ba497e58733901a9c2d1d38360f0421e5dc04e8de13dcb95e86a6406440a2",
+    "capabilities/result_manager/remote_manifest.json": "c60a7e9ccf967c62bd9d0d305b2df4346c880e5ec98b7854b9d3ceed9ce26a2c",
+    "capabilities/result_manager/README.md": "a5fc365ed17f39b7e3ddb6669c5e362736f66b292ee6439537a651e3844c21e9",
+    "capabilities/result_manager/body.md": "4e87b8e61c63ab0703f3b6d1030d1995c213f968c989b8f39e6f966bc0c7484c",
+    "capabilities/result_manager/tests/manual_test.md": "07077e183b36324d8f5f1fabc3bcb5a3bf89b258fda0103e09fb2504365caeb9",
+    "capabilities/result_manager/scripts/validate_result_manager_incremental.py": "8acda81da5392dfe97b883936d7e180e147df6499e39d92babf00a681be0064c",
+    "capabilities/result_manager/macrodroid/[CDXMS]_Registrar_Resultado.ablock": "79744b585a518e94be09f552d95e94d2653ebfd30f65a9bbda60cc191e1595b4"
   }
 }

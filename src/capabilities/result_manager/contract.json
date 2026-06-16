@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "result_manager",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Registrar Resultado",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica do Result Manager.",
+      "options": [
+        "build_result",
+        "normalize_result",
+        "validate_result",
+        "propagate_result",
+        "wrap_error",
+        "register_result"
+      ],
+      "examples": [
+        "build_result",
+        "normalize_result",
+        "propagate_result"
+      ]
+    },
+    {
+      "name": "Source Artifact Type",
+      "type": "string",
+      "required": "conditional",
+      "description": "Tipo técnico do artifact de origem do resultado.",
+      "options": [
+        "core",
+        "capability",
+        "solution",
+        "package",
+        "catalog"
+      ],
+      "examples": [
+        "capability",
+        "solution"
+      ]
+    },
+    {
+      "name": "Source Artifact Id",
+      "type": "string",
+      "required": "conditional",
+      "description": "Id técnico do artifact de origem. Exemplo: json_config_manager, bootstrap, result_manager.",
+      "examples": [
+        "json_config_manager",
+        "bootstrap",
+        "result_manager"
+      ]
+    },
+    {
+      "name": "Source Operation",
+      "type": "string",
+      "required": "conditional",
+      "description": "Operação original que será registrada no Resultado.",
+      "examples": [
+        "read_json",
+        "initialize_ecosystem",
+        "build_result"
+      ]
+    },
+    {
+      "name": "Success?",
+      "type": "boolean",
+      "required": "conditional",
+      "description": "Indica sucesso lógico para build_result/wrap_error. Quando false, status padrão é error.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "required": false,
+      "description": "Status padronizado. Se vazio, será derivado de Success?.",
+      "options": [
+        "success",
+        "error",
+        "cancelled",
+        "skipped",
+        "not_found",
+        "partial",
+        "blocked"
+      ],
+      "examples": [
+        "success",
+        "error",
+        "blocked"
+      ]
+    },
+    {
+      "name": "Message",
+      "type": "string",
+      "required": "conditional",
+      "description": "Mensagem humana em português para Resultado.message.",
+      "examples": [
+        "Operação executada com sucesso.",
+        "Não foi possível validar o arquivo informado."
+      ]
+    },
+    {
+      "name": "Data Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Objeto JSON usado como Resultado.data. Se a raiz não for objeto, será encapsulada em data.value.",
+      "examples": [
+        "{}",
+        "{\"file_path\":\"core/settings.json\"}",
+        "[1,2,3]",
+        "\"valor\""
+      ]
+    },
+    {
+      "name": "Error Json",
+      "type": "string(json|null)",
+      "required": false,
+      "description": "Erro estruturado. Se vazio e Success? for false, o Result Manager cria erro UNKNOWN_ERROR.",
+      "examples": [
+        "null",
+        "{\"code\":\"INVALID_JSON\",\"message\":\"JSON inválido.\",\"details\":{},\"recoverable\":false}"
+      ]
+    },
+    {
+      "name": "Result Json",
+      "type": "string(json)",
+      "required": "conditional",
+      "description": "Resultado bruto para normalize_result, validate_result, propagate_result ou register_result.",
+      "examples": [
+        "{\"success\":true,\"status\":\"success\",\"data\":{}}"
+      ]
+    },
+    {
+      "name": "Context Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Contexto adicional a anexar em Resultado.data.context ou Resultado.meta.context conforme operação.",
+      "examples": [
+        "{}",
+        "{\"caller\":\"bootstrap\",\"step\":\"verify_core\"}"
+      ]
+    },
+    {
+      "name": "Strict Mode?",
+      "type": "boolean",
+      "required": false,
+      "description": "Quando true, valida campos obrigatórios e bloqueia campos top-level proibidos como data_json/error_code/error_message/error_json.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Include Raw Result?",
+      "type": "boolean",
+      "required": false,
+      "description": "Quando true, propagate_result/register_result incluem o resultado original em Resultado.data.raw_result. Usar apenas em debug.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Session Id",
+      "type": "string",
+      "required": false,
+      "description": "Identificador de sessão propagado para Resultado.meta.session_id.",
+      "examples": [
+        "session-2026-06-16-001"
+      ]
+    },
+    {
+      "name": "Correlation Id",
+      "type": "string",
+      "required": false,
+      "description": "Identificador de correlação propagado para Resultado.meta.correlation_id.",
+      "examples": [
+        "corr-bootstrap-001"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única. Dados úteis sempre em Resultado.data."
+    }
+  ],
+  "operations": {
+    "build_result": {
+      "description": "Constrói Resultado a partir das entradas simples.",
+      "required_inputs": [
+        "Operation",
+        "Source Artifact Type",
+        "Source Artifact Id",
+        "Source Operation",
+        "Success?",
+        "Message"
+      ],
+      "data_fields": [
+        "value",
+        "context"
+      ]
+    },
+    "normalize_result": {
+      "description": "Normaliza Result Json para o contrato universal CDXMS, preenchendo defaults seguros.",
+      "required_inputs": [
+        "Operation",
+        "Result Json"
+      ],
+      "data_fields": [
+        "normalized",
+        "legacy_fields_detected"
+      ]
+    },
+    "validate_result": {
+      "description": "Valida Result Json contra o contrato universal CDXMS.",
+      "required_inputs": [
+        "Operation",
+        "Result Json"
+      ],
+      "data_fields": [
+        "valid",
+        "missing_fields",
+        "forbidden_fields",
+        "warnings"
+      ]
+    },
+    "propagate_result": {
+      "description": "Propaga Resultado de outra capability, preservando status/erro e anexando contexto do chamador.",
+      "required_inputs": [
+        "Operation",
+        "Result Json",
+        "Source Artifact Type",
+        "Source Artifact Id",
+        "Source Operation"
+      ],
+      "data_fields": [
+        "propagated",
+        "child_result_summary",
+        "context"
+      ]
+    },
+    "wrap_error": {
+      "description": "Cria Resultado de erro padronizado a partir de Error Json, Message e contexto.",
+      "required_inputs": [
+        "Operation",
+        "Source Artifact Type",
+        "Source Artifact Id",
+        "Source Operation",
+        "Message"
+      ],
+      "data_fields": [
+        "context"
+      ]
+    },
+    "register_result": {
+      "description": "Registra logicamente um Resultado no contrato CDXMS sem persistir em arquivo. Normaliza, anexa contexto e retorna Resultado.",
+      "required_inputs": [
+        "Operation",
+        "Result Json"
+      ],
+      "data_fields": [
+        "registered",
+        "context",
+        "raw_result"
+      ]
+    }
+  },
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  },
+  "side_effects": []
+}

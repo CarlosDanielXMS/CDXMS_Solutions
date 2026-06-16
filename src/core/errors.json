@@ -41,6 +41,12 @@
     "BOOTSTRAP_REPAIR_REQUIRED": "A inicialização detectou que o core precisa de reparo.",
     "BOOTSTRAP_RUNTIME_UNAVAILABLE": "Não foi possível preparar a estrutura de runtime.",
     "BOOTSTRAP_CONTEXT_LOAD_FAILED": "Não foi possível carregar o contexto local do ecossistema.",
-    "BOOTSTRAP_DEPENDENCY_FAILED": "Uma dependência obrigatória do Bootstrap falhou."
+    "BOOTSTRAP_DEPENDENCY_FAILED": "Uma dependência obrigatória do Bootstrap falhou.",
+    "RESULT_INVALID_CONTRACT": "O resultado informado não atende ao contrato CDXMS.",
+    "RESULT_NORMALIZATION_FAILED": "Não foi possível normalizar o resultado informado.",
+    "RESULT_PROPAGATION_FAILED": "Não foi possível propagar o resultado recebido.",
+    "RESULT_FORBIDDEN_TOP_LEVEL_FIELD": "O resultado contém campo de topo proibido.",
+    "RESULT_DATA_NOT_OBJECT": "O campo data do resultado precisa ser um dicionário.",
+    "RESULT_ERROR_NOT_OBJECT": "O campo error do resultado precisa ser nulo ou um dicionário."
   }
 }

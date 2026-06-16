@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "result_manager",
+    "name": "Result Manager",
+    "display_name": "[CDXMS] Registrar Resultado",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Capability pura para construir, normalizar, validar e propagar Resultado conforme contrato universal CDXMS.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/result_manager/macrodroid/[CDXMS]_Registrar_Resultado.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Registrar Resultado",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  },
+  "operations": [
+    "build_result",
+    "normalize_result",
+    "validate_result",
+    "propagate_result",
+    "wrap_error",
+    "register_result"
+  ],
+  "result_contract": "core/result_contract.json",
+  "purity": "pure",
+  "side_effects": [],
+  "created_at": "",
+  "updated_at": ""
+}

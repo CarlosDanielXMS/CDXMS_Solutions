@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "result_manager",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "v1.0.0",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/v1.0.0/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/result_manager/manifest.json",
+      "target_path": "capabilities/result_manager/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "checksum_sha256": ""
+    },
+    {
+      "path": "capabilities/result_manager/contract.json",
+      "target_path": "capabilities/result_manager/contract.json",
+      "write_policy": "overwrite_versioned",
+      "checksum_sha256": ""
+    },
+    {
+      "path": "capabilities/result_manager/config.default.json",
+      "target_path": "capabilities/result_manager/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "checksum_sha256": ""
+    },
+    {
+      "path": "capabilities/result_manager/macrodroid/[CDXMS]_Registrar_Resultado.ablock",
+      "target_path": "capabilities/result_manager/macrodroid/[CDXMS]_Registrar_Resultado.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": ""
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/result_manager/macrodroid/[CDXMS]_Registrar_Resultado.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Registrar Resultado",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  }
+}

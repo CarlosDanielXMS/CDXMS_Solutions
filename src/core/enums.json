@@ -70,6 +70,27 @@
       "needs_repair": "needs_repair",
       "blocked": "blocked",
       "partial": "partial"
+    },
+    "result_manager_operation": {
+      "build_result": "build_result",
+      "normalize_result": "normalize_result",
+      "validate_result": "validate_result",
+      "propagate_result": "propagate_result",
+      "wrap_error": "wrap_error",
+      "register_result": "register_result"
+    },
+    "result_contract_field": {
+      "schema_version": "schema_version",
+      "namespace": "namespace",
+      "success": "success",
+      "status": "status",
+      "artifact_type": "artifact_type",
+      "artifact_id": "artifact_id",
+      "operation": "operation",
+      "message": "message",
+      "data": "data",
+      "error": "error",
+      "meta": "meta"
     }
   }
 }

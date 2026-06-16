@@ -1,48 +1,19 @@
-# CDXMS Solutions — Ecosystem Core
+# CDXMS — JCM Final v1.0.0
 
-Raiz distribuível do ecossistema CDXMS Solutions para MacroDroid.
+Package completo do `[CDXMS] Json Config Manager`.
 
-Esta pasta `src/` é usada apenas no repositório. No dispositivo do usuário, a estrutura final não deve conter `src/`.
+Principais entregas:
 
-## Capabilities estruturais atuais
+- Action Block final em `capabilities/json_config_manager/macrodroid/`.
+- Contrato com saída única `Resultado`.
+- JCM JsonPath Engine v1.
+- Leitura completa de config/documento via Json Path vazio ou `$`.
+- Bloqueio de escrita/merge com múltiplos alvos.
+- Core mínimo e arquivos oficiais de contrato.
 
-```text
-capabilities/json_config_manager/
-capabilities/bootstrap/
-```
+## Incremento — Result Manager v1.0.0
 
-## JCM
-
-`[CDXMS] Json Config Manager` é o kernel primitivo de JSON/filesystem.
-
-Responsabilidades:
-
-- core mínimo local;
-- leitura/escrita/merge de JSON;
-- JCM JsonPath Engine v1;
-- saída pública única `Resultado`;
-- dados úteis em `Resultado.data`.
-
-## Bootstrap
-
-`[CDXMS] Bootstrap` coordena a inicialização local do ecossistema sobre o JCM.
-
-Responsabilidades:
-
-- verificar core;
-- reparar core quando autorizado;
-- preparar runtime;
-- carregar contexto completo para reduzir chamadas repetidas ao JCM;
-- retornar status local.
-
-Bootstrap não baixa da CDN, não instala artifacts remotos e não registra artifacts. Essas responsabilidades pertencem às próximas capabilities.
-
-## Regra de distribuição
-
-Remote manifests devem usar:
-
-```text
-base_raw_url = https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/<ref>/src
-```
-
-E os `target_path` devem permanecer sem `src/`.
+- Adicionada capability `result_manager`.
+- Action Block `[CDXMS] Registrar Resultado` em `capabilities/result_manager/macrodroid/`.
+- Operações: `build_result`, `normalize_result`, `validate_result`, `propagate_result`, `wrap_error`, `register_result`.
+- Capability pura: sem GitHub, sem filesystem, sem JCM e sem efeitos colaterais.

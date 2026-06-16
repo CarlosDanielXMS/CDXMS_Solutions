@@ -1,37 +1,21 @@
-# CDXMS Bootstrap v1.0.0 — Pacote Incremental
+# CDXMS Result Manager v1.0.0 — Incremental Package
 
-Este pacote foi gerado para ser aplicado **sobre a branch remota existente**:
+Package incremental alinhado ao estado remoto atual da branch `feat/create-ecosystem-core`.
 
-```text
-CarlosDanielXMS/CDXMS_Solutions
-branch: feat/create-ecosystem-core
-raiz distribuível: src/
-```
+A próxima capability da base é o Result Manager, porque ele padroniza `Resultado` antes de Logger, String Utils, Artifact Manager e demais capabilities.
 
-Ele não recria a base do repositório e não duplica o JCM. Ele adiciona a capability `bootstrap` e atualiza apenas os arquivos compartilhados necessários.
+## Conteúdo
 
-## Aplicação esperada
+- Capability completa `result_manager`.
+- Action Block `[CDXMS] Registrar Resultado`.
+- Atualização incremental de core enums/errors.
+- Atualização de release/checksums/readme/changelog.
 
-Copiar o conteúdo de `src/` deste pacote para a pasta `src/` do repositório.
+## Garantias
 
-Arquivos novos:
-
-```text
-src/capabilities/bootstrap/**
-src/docs/bootstrap_architecture.md
-```
-
-Arquivos compartilhados atualizados:
-
-```text
-src/core/enums.json
-src/core/errors.json
-src/README.md
-src/CHANGELOG.md
-src/release.json
-src/checksums.json
-```
-
-## Observação importante
-
-O export `.ablock` final do Bootstrap ainda deve ser criado no MacroDroid real, porque precisa referenciar o JCM via `ActionBlockAction` com IDs internos válidos.
+- Saída pública única: `Resultado`.
+- `Resultado.data` permanece dicionário oficial.
+- Sem `data_json`, `error_code`, `error_message`, `error_json` no topo.
+- Sem dependência de GitHub/CDN em runtime.
+- Sem dependência do JCM.
+- Sem efeitos colaterais.

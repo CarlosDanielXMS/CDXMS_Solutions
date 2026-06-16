@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "capability_config",
+  "artifact_id": "result_manager",
+  "settings": {
+    "strict_mode_default": true,
+    "include_raw_result_default": false,
+    "default_artifact_type": "capability",
+    "default_status_success": "success",
+    "default_status_error": "error",
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  },
+  "updated_at": ""
+}

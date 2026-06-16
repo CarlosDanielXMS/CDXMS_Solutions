@@ -16,15 +16,21 @@
       "artifact_type": "capability",
       "version": "1.0.0",
       "path": "capabilities/bootstrap/manifest.json"
+    },
+    {
+      "artifact_id": "result_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/result_manager/manifest.json"
     }
   ],
   "notes": [
-    "Bootstrap v1.0.0 incremental com Action Block exportado",
-    "Depende do JCM local >= 1.0.0",
-    "Sem dependência de GitHub/CDN em runtime",
-    "Saída pública única Resultado"
+    "Base do ecossistema com JCM, Bootstrap e Result Manager.",
+    "Result Manager puro para construir, normalizar, validar e propagar Resultado.",
+    "Sem dependência de GitHub/CDN em runtime.",
+    "Saída pública única Resultado em todas as capabilities da base."
   ],
-  "artifact_id": "bootstrap",
+  "artifact_id": "result_manager",
   "artifact_type": "capability",
-  "package": "CDXMS_Bootstrap_v1_0_0_with_ablock_incremental_package.zip"
+  "package": "CDXMS_Result_Manager_v1_0_0_incremental_package.zip"
 }
