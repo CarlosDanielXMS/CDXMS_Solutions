@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "string_utils",
+    "name": "String Utils",
+    "display_name": "[CDXMS] String Utils",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Capability pura para transformação, normalização, comparação e sanitização de textos no ecossistema CDXMS.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/string_utils/macrodroid/[CDXMS]_String_Utils.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] String Utils",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "result_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "escape_json_string",
+    "unescape_json_string",
+    "normalize_text",
+    "normalize_id",
+    "to_snake_case",
+    "to_kebab_case",
+    "trim",
+    "collapse_whitespace",
+    "replace_text",
+    "contains_text",
+    "equals_text",
+    "starts_with",
+    "ends_with",
+    "is_blank",
+    "sanitize_file_name",
+    "sanitize_path_segment",
+    "truncate"
+  ],
+  "purity": "pure",
+  "side_effects": [],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": ""
+}

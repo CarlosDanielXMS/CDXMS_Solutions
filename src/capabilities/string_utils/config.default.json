@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_id": "string_utils",
+  "artifact_type": "capability_config",
+  "version": "1.0.0",
+  "settings": {
+    "default_case_mode": "none",
+    "default_comparison_mode": "case_sensitive",
+    "default_max_length": 0,
+    "sanitize_file_name_max_length": 120,
+    "normalize_id_max_length": 80,
+    "strict_mode_default": true
+  }
+}

@@ -28,15 +28,21 @@
       "artifact_type": "capability",
       "version": "1.0.0",
       "path": "capabilities/logger/manifest.json"
+    },
+    {
+      "artifact_id": "string_utils",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/string_utils/manifest.json"
     }
   ],
   "notes": [
-    "Base do ecossistema com JCM, Bootstrap, Result Manager e Logger.",
-    "Logger registra eventos, resultados e erros em JSON Lines local.",
+    "Base do ecossistema com JCM, Bootstrap, Result Manager, Logger e String Utils.",
+    "String Utils centraliza escape, normalização, comparação e sanitização textual.",
     "Sem dependência de GitHub/CDN em runtime.",
     "Saída pública única Resultado em todas as capabilities da base."
   ],
-  "artifact_id": "logger",
+  "artifact_id": "string_utils",
   "artifact_type": "capability",
-  "package": "CDXMS_Logger_v1_0_0_incremental_package.zip"
+  "package": "CDXMS_String_Utils_v1_0_0_incremental_package.zip"
 }

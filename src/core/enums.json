@@ -98,23 +98,49 @@
       "log_error": "log_error",
       "get_log_status": "get_log_status"
     },
-    "logger_level": {
+    "log_level": {
       "debug": "debug",
       "info": "info",
       "warning": "warning",
       "error": "error",
       "critical": "critical"
     },
-    "logger_scope": {
+    "log_scope": {
       "auto": "auto",
       "events": "events",
       "results": "results",
       "errors": "errors",
-      "audit": "audit",
-      "runtime": "runtime"
+      "audit": "audit"
     },
-    "logger_format": {
-      "jsonl": "jsonl"
+    "string_utils_operation": {
+      "escape_json_string": "escape_json_string",
+      "unescape_json_string": "unescape_json_string",
+      "normalize_text": "normalize_text",
+      "normalize_id": "normalize_id",
+      "to_snake_case": "to_snake_case",
+      "to_kebab_case": "to_kebab_case",
+      "trim": "trim",
+      "collapse_whitespace": "collapse_whitespace",
+      "replace_text": "replace_text",
+      "contains_text": "contains_text",
+      "equals_text": "equals_text",
+      "starts_with": "starts_with",
+      "ends_with": "ends_with",
+      "is_blank": "is_blank",
+      "sanitize_file_name": "sanitize_file_name",
+      "sanitize_path_segment": "sanitize_path_segment",
+      "truncate": "truncate"
+    },
+    "string_utils_case_mode": {
+      "none": "none",
+      "lower": "lower",
+      "upper": "upper",
+      "title": "title"
+    },
+    "string_utils_comparison_mode": {
+      "case_sensitive": "case_sensitive",
+      "case_insensitive": "case_insensitive",
+      "normalized": "normalized"
     }
   }
 }

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 — String Utils
+
+- Adicionada capability `[CDXMS] String Utils`.
+- Adicionado contrato para escape/desescape JSON, normalização, comparação e sanitização textual.
+- Adicionados enums e erros de String Utils ao core.
+- Action Block exportado em `capabilities/string_utils/macrodroid/`.
+- String Utils usa Result Manager para publicar `Resultado`.
+
 ## 1.0.0 — Logger
 
 - Adicionada capability `[CDXMS] Logger`.

@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "string_utils",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] String Utils",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica da String Utils.",
+      "options": [
+        "escape_json_string",
+        "unescape_json_string",
+        "normalize_text",
+        "normalize_id",
+        "to_snake_case",
+        "to_kebab_case",
+        "trim",
+        "collapse_whitespace",
+        "replace_text",
+        "contains_text",
+        "equals_text",
+        "starts_with",
+        "ends_with",
+        "is_blank",
+        "sanitize_file_name",
+        "sanitize_path_segment",
+        "truncate"
+      ],
+      "examples": [
+        "escape_json_string",
+        "normalize_id",
+        "sanitize_file_name"
+      ]
+    },
+    {
+      "name": "Text",
+      "type": "string",
+      "required": "conditional",
+      "description": "Texto principal usado pela operação.",
+      "examples": [
+        "Olá, Mundo!",
+        "Arquivo inválido: teste?.json",
+        "linha 1\\nlinha 2"
+      ]
+    },
+    {
+      "name": "Search Text",
+      "type": "string",
+      "required": "conditional",
+      "description": "Texto de busca para replace_text e comparações.",
+      "examples": [
+        "mundo",
+        "json_config_manager"
+      ]
+    },
+    {
+      "name": "Replace Text",
+      "type": "string",
+      "required": "conditional",
+      "description": "Texto substituto para replace_text.",
+      "examples": [
+        "CDXMS",
+        "_"
+      ]
+    },
+    {
+      "name": "Regex Pattern",
+      "type": "string",
+      "required": false,
+      "description": "Regex opcional usado por replace_text no lugar de Search Text.",
+      "examples": [
+        "\\s+",
+        "[^a-zA-Z0-9]+"
+      ]
+    },
+    {
+      "name": "Regex Flags",
+      "type": "string",
+      "required": false,
+      "description": "Flags da regex. Em replace_text, g é adicionado quando ausente.",
+      "examples": [
+        "g",
+        "gi",
+        "gm"
+      ]
+    },
+    {
+      "name": "Case Mode",
+      "type": "string",
+      "required": false,
+      "description": "Modo de caixa aplicado por normalize_text.",
+      "options": [
+        "none",
+        "lower",
+        "upper",
+        "title"
+      ],
+      "examples": [
+        "lower",
+        "title"
+      ]
+    },
+    {
+      "name": "Comparison Mode",
+      "type": "string",
+      "required": false,
+      "description": "Modo usado por contains_text, equals_text, starts_with e ends_with.",
+      "options": [
+        "case_sensitive",
+        "case_insensitive",
+        "normalized"
+      ],
+      "examples": [
+        "case_insensitive",
+        "normalized"
+      ]
+    },
+    {
+      "name": "Separator",
+      "type": "string",
+      "required": false,
+      "description": "Reservado para compatibilidade e futuras operações parametrizadas.",
+      "examples": [
+        "_",
+        "-"
+      ]
+    },
+    {
+      "name": "Max Length",
+      "type": "string(integer)",
+      "required": false,
+      "description": "Comprimento máximo opcional nas operações aplicáveis. Vazio/0 preserva tamanho.",
+      "examples": [
+        "80",
+        "120"
+      ]
+    },
+    {
+      "name": "Allow Slash?",
+      "type": "boolean",
+      "required": false,
+      "description": "Quando true, sanitize_path_segment preserva / e sanitiza cada segmento.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Strict Mode?",
+      "type": "boolean",
+      "required": false,
+      "description": "Reservado para validação rígida. Erros estruturais já retornam Resultado.error nesta versão.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Config Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Configuração completa opcional. Capability pura; é validada para compatibilidade com o padrão CDXMS.",
+      "examples": [
+        "{}"
+      ]
+    },
+    {
+      "name": "Context Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Contexto adicional propagado ao Result Manager.",
+      "examples": [
+        "{\"caller\":\"artifact_manager\"}"
+      ]
+    },
+    {
+      "name": "Session Id",
+      "type": "string",
+      "required": false,
+      "description": "Identificador de sessão para Resultado.meta.session_id.",
+      "examples": [
+        "session-001"
+      ]
+    },
+    {
+      "name": "Correlation Id",
+      "type": "string",
+      "required": false,
+      "description": "Identificador de correlação para Resultado.meta.correlation_id.",
+      "examples": [
+        "corr-001"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única. Dados úteis sempre em Resultado.data."
+    }
+  ],
+  "operations": {
+    "escape_json_string": {
+      "description": "Escapa Text como conteúdo seguro de string JSON sem as aspas externas.",
+      "data_fields": [
+        "value",
+        "quoted_value",
+        "length",
+        "changed"
+      ]
+    },
+    "unescape_json_string": {
+      "description": "Desescapa uma string JSON. Aceita conteúdo escapado ou string JSON entre aspas.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed"
+      ]
+    },
+    "normalize_text": {
+      "description": "Aplica trim, colapso de whitespace e Case Mode.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed",
+        "case_mode"
+      ]
+    },
+    "normalize_id": {
+      "description": "Gera identificador técnico lower_snake_case sem acentos e sem caracteres especiais.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed"
+      ]
+    },
+    "to_snake_case": {
+      "description": "Converte Text para snake_case.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed"
+      ]
+    },
+    "to_kebab_case": {
+      "description": "Converte Text para kebab-case.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed"
+      ]
+    },
+    "trim": {
+      "description": "Remove espaços no início/fim.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed"
+      ]
+    },
+    "collapse_whitespace": {
+      "description": "Troca sequências de whitespace por um espaço simples.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed"
+      ]
+    },
+    "replace_text": {
+      "description": "Substitui texto por Search Text ou Regex Pattern.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed",
+        "search_text",
+        "replace_text",
+        "regex"
+      ]
+    },
+    "contains_text": {
+      "description": "Retorna boolean em data.value indicando se Text contém Search Text.",
+      "data_fields": [
+        "value",
+        "index",
+        "search_text",
+        "comparison_mode"
+      ]
+    },
+    "equals_text": {
+      "description": "Retorna boolean em data.value indicando igualdade entre Text e Search Text.",
+      "data_fields": [
+        "value",
+        "search_text",
+        "comparison_mode"
+      ]
+    },
+    "starts_with": {
+      "description": "Retorna boolean em data.value indicando prefixo.",
+      "data_fields": [
+        "value",
+        "search_text",
+        "comparison_mode"
+      ]
+    },
+    "ends_with": {
+      "description": "Retorna boolean em data.value indicando sufixo.",
+      "data_fields": [
+        "value",
+        "search_text",
+        "comparison_mode"
+      ]
+    },
+    "is_blank": {
+      "description": "Retorna boolean em data.value indicando texto vazio após trim.",
+      "data_fields": [
+        "value",
+        "length"
+      ]
+    },
+    "sanitize_file_name": {
+      "description": "Remove/substitui caracteres inválidos para nome de arquivo.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed",
+        "max_length"
+      ]
+    },
+    "sanitize_path_segment": {
+      "description": "Sanitiza segmento de caminho. Pode preservar / como separador lógico quando Allow Slash? = true.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed",
+        "allow_slash",
+        "max_length"
+      ]
+    },
+    "truncate": {
+      "description": "Corta Text para Max Length quando informado.",
+      "data_fields": [
+        "value",
+        "length",
+        "changed",
+        "max_length"
+      ]
+    }
+  },
+  "errors": [
+    "STRING_INVALID_REGEX",
+    "STRING_EMPTY_SEARCH_TEXT",
+    "STRING_INVALID_MAX_LENGTH",
+    "STRING_TRANSFORM_FAILED",
+    "INVALID_JSON",
+    "MISSING_REQUIRED_INPUT",
+    "UNSUPPORTED_OPERATION"
+  ],
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  }
+}

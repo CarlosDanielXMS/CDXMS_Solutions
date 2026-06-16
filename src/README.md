@@ -8,12 +8,12 @@ Base inicial do ecossistema CDXMS Solutions para MacroDroid.
 - `[CDXMS] Bootstrap`
 - `[CDXMS] Registrar Resultado`
 - `[CDXMS] Logger`
+- `[CDXMS] String Utils`
 
-## Incremento — Logger v1.0.0
+## Incremento — String Utils v1.0.0
 
-- Adicionada capability `logger`.
-- Action Block `[CDXMS] Logger` em `capabilities/logger/macrodroid/`.
-- Registros locais em JSON Lines por escopo e data.
-- Operações: `log_event`, `log_result`, `log_error`, `get_log_status`.
-- Dependências: JCM e Result Manager.
-- Sem GitHub/CDN em runtime.
+- Adicionada capability `string_utils`.
+- Action Block `[CDXMS] String Utils` em `capabilities/string_utils/macrodroid/`.
+- Operações de escape/desescape JSON, normalização, comparação, substituição e sanitização textual.
+- Capability pura: sem filesystem, sem GitHub/CDN, sem registry e sem logging obrigatório.
+- Dependência: Result Manager.

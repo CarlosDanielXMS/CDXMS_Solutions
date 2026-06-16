@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "string_utils",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "v1.0.0",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/v1.0.0/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/string_utils/manifest.json",
+      "target_path": "capabilities/string_utils/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "checksum_sha256": ""
+    },
+    {
+      "path": "capabilities/string_utils/contract.json",
+      "target_path": "capabilities/string_utils/contract.json",
+      "write_policy": "overwrite_versioned",
+      "checksum_sha256": ""
+    },
+    {
+      "path": "capabilities/string_utils/config.default.json",
+      "target_path": "capabilities/string_utils/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "checksum_sha256": ""
+    },
+    {
+      "path": "capabilities/string_utils/macrodroid/[CDXMS]_String_Utils.ablock",
+      "target_path": "capabilities/string_utils/macrodroid/[CDXMS]_String_Utils.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": ""
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/string_utils/macrodroid/[CDXMS]_String_Utils.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] String Utils",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "result_manager": ">=1.0.0"
+    }
+  }
+}

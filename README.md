@@ -1,17 +1,14 @@
-# CDXMS Logger v1.0.0 — package incremental
+# CDXMS String Utils v1.0.0 — Package Incremental
 
-Package incremental alinhado ao repositório remoto atual.
+Package incremental alinhado ao repositório remoto atual do ecossistema CDXMS.
 
-## Conteúdo principal
+## Inclui
 
-- `src/capabilities/logger/manifest.json`
-- `src/capabilities/logger/contract.json`
-- `src/capabilities/logger/config.default.json`
-- `src/capabilities/logger/remote_manifest.json`
-- `src/capabilities/logger/macrodroid/[CDXMS]_Logger.ablock`
-- `src/docs/logger_architecture.md`
-- `src/docs/logger_export_validation_report.md`
+- Capability `string_utils` completa.
+- Action Block `[CDXMS] String Utils`.
+- Manifest, contrato, config default, remote manifest, documentação, testes manuais e script de validação.
+- Atualizações incrementais do core, release, README, changelog e checksums.
 
-## Checksums
+## Dependência
 
-- Action Block: `1a35d47fedc71c8da0a2cf05843f913981b7b2e0540e660b51691c26cfb61979`
+- `[CDXMS] Registrar Resultado >= 1.0.0`

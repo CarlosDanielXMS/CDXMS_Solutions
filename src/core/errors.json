@@ -50,9 +50,12 @@
     "RESULT_ERROR_NOT_OBJECT": "O campo error do resultado precisa ser nulo ou um dicionário.",
     "LOGGER_INVALID_LEVEL": "Nível de log inválido.",
     "LOGGER_INVALID_SCOPE": "Escopo de log inválido.",
-    "LOGGER_WRITE_FAILED": "Não foi possível gravar o registro de log.",
-    "LOGGER_DISABLED": "Logger desabilitado pela configuração.",
-    "LOGGER_INVALID_LOG_PAYLOAD": "Payload de log inválido.",
-    "LOGGER_MESSAGE_EMPTY": "Mensagem de log vazia."
+    "LOGGER_WRITE_FAILED": "Não foi possível escrever o registro de log.",
+    "LOGGER_RESULT_INVALID": "O Resultado informado para log_result não é válido.",
+    "LOGGER_STATUS_UNAVAILABLE": "Não foi possível obter o status do Logger.",
+    "STRING_INVALID_REGEX": "Regex Pattern inválido.",
+    "STRING_EMPTY_SEARCH_TEXT": "Search Text é obrigatório para esta operação.",
+    "STRING_INVALID_MAX_LENGTH": "Max Length precisa ser um inteiro maior ou igual a zero.",
+    "STRING_TRANSFORM_FAILED": "Não foi possível transformar o texto."
   }
 }
