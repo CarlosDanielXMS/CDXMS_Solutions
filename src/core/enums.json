@@ -56,6 +56,20 @@
       "recursive": "recursive",
       "slice": "slice",
       "union": "union"
+    },
+    "bootstrap_operation": {
+      "initialize_ecosystem": "initialize_ecosystem",
+      "verify_core": "verify_core",
+      "repair_core": "repair_core",
+      "ensure_runtime": "ensure_runtime",
+      "load_context": "load_context",
+      "get_status": "get_status"
+    },
+    "bootstrap_status": {
+      "ready": "ready",
+      "needs_repair": "needs_repair",
+      "blocked": "blocked",
+      "partial": "partial"
     }
   }
 }

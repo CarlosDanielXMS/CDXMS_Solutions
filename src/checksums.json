@@ -4,8 +4,17 @@
   "algorithm": "sha256",
   "files": {
     ".cdxms_root.json": "09f16bb5f6fcee3db99193104dc7b62f1e07a6ab70c444726ca354dffba11a05",
-    "CHANGELOG.md": "08a266ebaa3563b08d6c71d11d76b77f0bfa15360ff0818e99daf2fb160f2bad",
-    "README.md": "00c096906df2ba492cb8fcadbec2334d50a7b43d33dff6b0efa1f22d25f677a6",
+    "CHANGELOG.md": "a2be080178dcf6c407b273b3ad77fb42106b9be50461eca20f5bca2a7d0fd8c4",
+    "README.md": "d39b4f544bbba6e4948694718de9195f762bb1bf0445e559ef85d837bb7ee856",
+    "capabilities/bootstrap/README.md": "2cfeb854a7ab2b464a15db15f89797f2b81ae41e8c6cfcc0437bc5fef4a97e52",
+    "capabilities/bootstrap/body.md": "24af1a2949f9c2d9e05b55f49374675a23c081fff1983be35ae170871d1e0538",
+    "capabilities/bootstrap/config.default.json": "3e658d1355bed81dc9b5a99c469c9e43b6c4634d632facb21122586839029191",
+    "capabilities/bootstrap/contract.json": "acfdd207bb12508e24c9a31e667c7abb21834977722feabb0a5470be6f4916d3",
+    "capabilities/bootstrap/macrodroid/README_EXPORT_REQUIRED.md": "dd08a6671cab61b3c7dee917b4931ff553dc66e2f01d8921751fe1484ff6aa76",
+    "capabilities/bootstrap/manifest.json": "5dacde54eb85aab8f1851a04087b3dd897214e6c95038b22ab6bd493881431c5",
+    "capabilities/bootstrap/remote_manifest.json": "bda67615cd815a7ca27ca06fb83c7e8d3b4580d06ddb2c9145fd4515f23d570f",
+    "capabilities/bootstrap/scripts/validate_bootstrap_incremental.py": "d898324ba3154cb64fde40fa3fba8b8d6708fb8ee973eac2c020ceddf54e712a",
+    "capabilities/bootstrap/tests/manual_test.md": "f3c17ff190360460b5c11dc13e703f33a06a88a6a3aea8f4556c953cb5b986d2",
     "capabilities/json_config_manager/README.md": "7d4a05ecf2f2334cdd6a03870b8b81d29ecab56919efd4ef4621ad8263740c2b",
     "capabilities/json_config_manager/body.md": "e169dafb1c6d781a290115d23e59bc38fc7849a071a4d262f5906a35e32faabd",
     "capabilities/json_config_manager/config.default.json": "1cd6ef4d26991545172cbb01302869b79c63a310ce7976e2c918f1a0c82a3591",
@@ -16,12 +25,14 @@
     "capabilities/json_config_manager/scripts/jcm_jsonpath_engine_reference.js": "de45bf0d7cc42016154d06de009146725abaeaafb651eddf032469cdca20db7e",
     "capabilities/json_config_manager/tests/manual_test.md": "59fd7ce7d3815d368bf9955c5152f801d5d248feb6ec0acbc0ac95cd40f79e03",
     "core/compatibility.json": "e44d593d3564e33df59b16d25e39ccc2b4b72854f47818b8486a42f3b8ed0bd5",
-    "core/enums.json": "0a6f482a9faa1697a55879c214853dacc097607a179238a990105077d1c818b5",
-    "core/errors.json": "f18419d2ce1952dbf991319663b214b5253cf016ccfe20adcffe8e0bec9e741b",
+    "core/enums.json": "846ce5485a40471b03e8955fb35be4d5c058be1742d252f221e01c6b6c894f77",
+    "core/errors.json": "e7418a8931ad66070743b3589241d8c8d51b357166cf19e92843f9845df41cd1",
     "core/manifest.json": "8ff248aa31e5c463d712ce40d07f3f2ebca5bf8fab6772702fa65e5b6d92d81a",
     "core/registry.default.json": "8b6da691b40665098e2e6955b84a96db27e8973d8f2242c71d2b267a830f9d73",
     "core/result_contract.json": "88afacc35ea8e077bdb758b0f47f59c44cfa4ab71daa550224bf911a47a7a4fb",
     "core/settings.default.json": "b0353c13ac03c53cf8ab8ce234a6e6ef5720781c6522410b795b069c69577e89",
-    "docs/jcm_validation_report.md": "9b63fe920f89d51f0b8fdba5be82dd8d46776a550904060e5c00fac9ff39f2f3"
+    "docs/bootstrap_architecture.md": "355a38d33a3738d68bd5b836c83defc0b671b50489d8d77ff43142a9c8ef68cd",
+    "docs/jcm_validation_report.md": "9b63fe920f89d51f0b8fdba5be82dd8d46776a550904060e5c00fac9ff39f2f3",
+    "release.json": "494c22bc6c7eb7d43c3f4b9b2ba705f8742290054c806209d71ad8ad97852ae2"
   }
 }

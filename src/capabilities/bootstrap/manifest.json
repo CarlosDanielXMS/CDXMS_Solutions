@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "bootstrap",
+    "name": "Bootstrap",
+    "display_name": "[CDXMS] Bootstrap",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Coordenador local de inicialização do ecossistema CDXMS. Valida core, prepara runtime e carrega contexto local usando o JCM.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Bootstrap",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "initialize_ecosystem",
+    "verify_core",
+    "repair_core",
+    "ensure_runtime",
+    "load_context",
+    "get_status"
+  ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": ""
+}

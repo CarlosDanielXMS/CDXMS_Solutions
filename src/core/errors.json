@@ -35,6 +35,12 @@
     "JSON_PATH_INDEX_OUT_OF_RANGE": "Índice fora do intervalo no caminho JSON.",
     "JSON_PATH_UNSUPPORTED_EXPRESSION": "Expressão JsonPath não suportada.",
     "JSON_PATH_WRITE_NOT_ALLOWED": "Escrita bloqueada para o caminho JSON informado.",
-    "JSON_PATH_CREATE_NOT_SUPPORTED": "Criação automática não suportada para este caminho JSON."
+    "JSON_PATH_CREATE_NOT_SUPPORTED": "Criação automática não suportada para este caminho JSON.",
+    "BOOTSTRAP_CORE_UNAVAILABLE": "O core local não está disponível para inicialização.",
+    "BOOTSTRAP_CORE_INVALID": "O core local existe, mas não passou na validação mínima.",
+    "BOOTSTRAP_REPAIR_REQUIRED": "A inicialização detectou que o core precisa de reparo.",
+    "BOOTSTRAP_RUNTIME_UNAVAILABLE": "Não foi possível preparar a estrutura de runtime.",
+    "BOOTSTRAP_CONTEXT_LOAD_FAILED": "Não foi possível carregar o contexto local do ecossistema.",
+    "BOOTSTRAP_DEPENDENCY_FAILED": "Uma dependência obrigatória do Bootstrap falhou."
   }
 }

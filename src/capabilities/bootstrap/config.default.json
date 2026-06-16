@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "capability_config",
+  "artifact_id": "bootstrap",
+  "settings": {
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "auto_repair_on_initialize": false,
+    "load_context_by_default": true,
+    "preserve_user_config": true,
+    "runtime_paths": [
+      "runtime",
+      "runtime/capabilities",
+      "runtime/solutions",
+      "logs",
+      "cache",
+      "cache/remote",
+      "packages/downloaded",
+      "packages/installed",
+      "backups"
+    ],
+    "required_core_files": [
+      ".cdxms_root.json",
+      "core/manifest.json",
+      "core/registry.json",
+      "core/settings.json",
+      "core/enums.json",
+      "core/errors.json",
+      "core/result_contract.json",
+      "core/compatibility.json"
+    ]
+  },
+  "updated_at": ""
+}

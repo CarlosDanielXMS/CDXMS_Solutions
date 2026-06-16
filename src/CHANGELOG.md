@@ -1,6 +1,16 @@
 # Changelog
 
-## 1.0.0 final
+## 1.1.0 incremental — Bootstrap
+
+- Adicionada capability `[CDXMS] Bootstrap` v1.0.0.
+- Bootstrap passa a depender do JCM `>=1.0.0`.
+- Adicionadas operações `initialize_ecosystem`, `verify_core`, `repair_core`, `ensure_runtime`, `load_context` e `get_status`.
+- Mantida saída pública única `Resultado`.
+- Dados úteis permanecem em `Resultado.data`.
+- Bootstrap não depende de GitHub/CDN e não executa lifecycle remoto.
+- `remote_manifest.json` usa `base_raw_url` com `/src` e `target_path` sem `src/`.
+
+## 1.0.0 final — JCM
 
 - Adicionada JCM JsonPath Engine v1.
 - Suporte a `config.services[id="x"].name`.

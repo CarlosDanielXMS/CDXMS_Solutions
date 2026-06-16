@@ -1,14 +1,26 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "artifact_id": "json_config_manager",
-  "artifact_type": "capability",
-  "version": "1.0.0",
-  "package": "CDXMS_JCM_Final_v1_0_0_complete_package.zip",
+  "release_id": "ecosystem_core_base",
+  "version": "1.1.0",
   "created_at": "",
+  "artifacts": [
+    {
+      "artifact_id": "json_config_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/json_config_manager/manifest.json"
+    },
+    {
+      "artifact_id": "bootstrap",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/bootstrap/manifest.json"
+    }
+  ],
   "notes": [
-    "JCM final com JsonPath Engine v1",
-    "Saída pública única Resultado",
-    "Config completa via read_json $"
+    "Base incremental sobre JCM v1.0.0 já presente na branch feat/create-ecosystem-core.",
+    "Adiciona Bootstrap v1.0.0 sem recriar a estrutura do repositório.",
+    "A raiz distribuível remota é src/; o dispositivo não deve receber src/."
   ]
 }
