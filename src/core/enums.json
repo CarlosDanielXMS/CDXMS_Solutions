@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "core_enums",
+  "updated_at": "",
+  "enums": {
+    "artifact_type": {
+      "core": "core",
+      "capability": "capability",
+      "solution": "solution",
+      "package": "package",
+      "catalog": "catalog"
+    },
+    "result_status": {
+      "success": "success",
+      "error": "error",
+      "cancelled": "cancelled",
+      "skipped": "skipped",
+      "not_found": "not_found",
+      "partial": "partial",
+      "blocked": "blocked"
+    },
+    "write_policy": {
+      "create_if_missing": "create_if_missing",
+      "overwrite_versioned": "overwrite_versioned",
+      "create_if_missing_or_merge": "create_if_missing_or_merge",
+      "merge_preserve_user": "merge_preserve_user",
+      "append": "append",
+      "skip_if_exists": "skip_if_exists"
+    },
+    "merge_strategy": {
+      "deep_merge": "deep_merge",
+      "preserve_existing": "preserve_existing",
+      "overwrite_existing": "overwrite_existing",
+      "replace": "replace"
+    },
+    "jcm_operation": {
+      "ensure_core": "ensure_core",
+      "repair_core": "repair_core",
+      "ensure_folder": "ensure_folder",
+      "validate_json": "validate_json",
+      "read_json": "read_json",
+      "exists": "exists",
+      "write_json": "write_json",
+      "merge_json": "merge_json",
+      "ensure_file": "ensure_file",
+      "backup_file": "backup_file",
+      "delete_file": "delete_file"
+    },
+    "jcm_json_path_feature": {
+      "root": "$",
+      "child": "child",
+      "index": "index",
+      "filter": "filter",
+      "wildcard": "wildcard",
+      "recursive": "recursive",
+      "slice": "slice",
+      "union": "union"
+    }
+  }
+}

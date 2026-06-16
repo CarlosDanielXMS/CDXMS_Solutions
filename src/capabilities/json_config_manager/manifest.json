@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "json_config_manager",
+    "name": "Json Config Manager",
+    "display_name": "[CDXMS] Json Config Manager",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Kernel primitivo de JSON/filesystem do ecossistema CDXMS com JCM JsonPath Engine v1.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Json Config Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  },
+  "operations": [
+    "ensure_core",
+    "repair_core",
+    "ensure_folder",
+    "validate_json",
+    "read_json",
+    "exists",
+    "write_json",
+    "merge_json",
+    "ensure_file",
+    "backup_file",
+    "delete_file"
+  ],
+  "json_path_engine": {
+    "id": "jcm_json_path_engine",
+    "version": "1",
+    "description": "Engine interna do JCM para leitura, escrita e merge em qualquer estrutura JSON suportada pelo padrão prático CDXMS/JsonPath.",
+    "features": [
+      "root",
+      "child",
+      "bracket_child",
+      "index",
+      "wildcard",
+      "recursive_descent",
+      "slice",
+      "union",
+      "shortcut_filter",
+      "canonical_filter",
+      "continued_navigation_after_filter"
+    ]
+  },
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": ""
+}

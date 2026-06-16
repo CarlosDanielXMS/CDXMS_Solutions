@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "root_sentinel",
+  "created_by": "CDXMS.JsonConfigManager",
+  "core_initialized": true,
+  "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+  "created_at": "",
+  "updated_at": ""
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "core_settings",
+  "settings": {
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "debug_mode": false,
+    "preserve_user_config": true,
+    "backup_before_update": true,
+    "logs_enabled": true,
+    "default_log_level": "info",
+    "language": "pt-BR",
+    "remote_sources_enabled": true,
+    "default_remote_ref": "latest_release",
+    "allow_dev_branch_install": false
+  },
+  "updated_at": ""
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "algorithm": "sha256",
+  "files": {
+    ".cdxms_root.json": "09f16bb5f6fcee3db99193104dc7b62f1e07a6ab70c444726ca354dffba11a05",
+    "CHANGELOG.md": "08a266ebaa3563b08d6c71d11d76b77f0bfa15360ff0818e99daf2fb160f2bad",
+    "README.md": "00c096906df2ba492cb8fcadbec2334d50a7b43d33dff6b0efa1f22d25f677a6",
+    "capabilities/json_config_manager/README.md": "7d4a05ecf2f2334cdd6a03870b8b81d29ecab56919efd4ef4621ad8263740c2b",
+    "capabilities/json_config_manager/body.md": "e169dafb1c6d781a290115d23e59bc38fc7849a071a4d262f5906a35e32faabd",
+    "capabilities/json_config_manager/config.default.json": "1cd6ef4d26991545172cbb01302869b79c63a310ce7976e2c918f1a0c82a3591",
+    "capabilities/json_config_manager/contract.json": "f3399bac947b7bf4f9a05494cc7ecacdf0f36a88ca7c84fcd0bfb69fc267fecd",
+    "capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock": "bd6b176ce0c2fb7666e5299e35fdb734910b0110a925e649bcf9fe9fa39a2306",
+    "capabilities/json_config_manager/manifest.json": "62af151fc7036e40cff7347d24ba53dd12109fbf02975634f2281e815b3b58a6",
+    "capabilities/json_config_manager/remote_manifest.json": "a3b9081d28f69e5b985c8a68a80d6e014c6e47a7d09e0028fc6da6ca264b63cc",
+    "capabilities/json_config_manager/scripts/jcm_jsonpath_engine_reference.js": "de45bf0d7cc42016154d06de009146725abaeaafb651eddf032469cdca20db7e",
+    "capabilities/json_config_manager/tests/manual_test.md": "59fd7ce7d3815d368bf9955c5152f801d5d248feb6ec0acbc0ac95cd40f79e03",
+    "core/compatibility.json": "e44d593d3564e33df59b16d25e39ccc2b4b72854f47818b8486a42f3b8ed0bd5",
+    "core/enums.json": "0a6f482a9faa1697a55879c214853dacc097607a179238a990105077d1c818b5",
+    "core/errors.json": "f18419d2ce1952dbf991319663b214b5253cf016ccfe20adcffe8e0bec9e741b",
+    "core/manifest.json": "8ff248aa31e5c463d712ce40d07f3f2ebca5bf8fab6772702fa65e5b6d92d81a",
+    "core/registry.default.json": "8b6da691b40665098e2e6955b84a96db27e8973d8f2242c71d2b267a830f9d73",
+    "core/result_contract.json": "88afacc35ea8e077bdb758b0f47f59c44cfa4ab71daa550224bf911a47a7a4fb",
+    "core/settings.default.json": "b0353c13ac03c53cf8ab8ce234a6e6ef5720781c6522410b795b069c69577e89",
+    "docs/jcm_validation_report.md": "9b63fe920f89d51f0b8fdba5be82dd8d46776a550904060e5c00fac9ff39f2f3"
+  }
+}

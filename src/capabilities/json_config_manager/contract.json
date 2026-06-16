@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "json_config_manager",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Json Config Manager",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica.",
+      "options": [
+        "ensure_core",
+        "repair_core",
+        "ensure_folder",
+        "validate_json",
+        "read_json",
+        "exists",
+        "write_json",
+        "merge_json",
+        "ensure_file",
+        "backup_file",
+        "delete_file"
+      ],
+      "examples": [
+        "ensure_core",
+        "read_json",
+        "merge_json"
+      ]
+    },
+    {
+      "name": "File Path",
+      "type": "string",
+      "required": "conditional",
+      "description": "Arquivo JSON alvo. Aceita path relativo ao base_path ou absoluto dentro do base_path.",
+      "examples": [
+        "core/settings.json",
+        "capabilities/json_config_manager/config.json",
+        "/storage/emulated/0/Documents/CDXMS_Solutions/core/registry.json"
+      ]
+    },
+    {
+      "name": "Folder Path",
+      "type": "string",
+      "required": "conditional",
+      "description": "Pasta alvo para ensure_folder ou fallback de escrita.",
+      "examples": [
+        "core",
+        "capabilities/logger",
+        "solutions/solutions_manager",
+        "/storage/emulated/0/Documents/CDXMS_Solutions/runtime/capabilities"
+      ]
+    },
+    {
+      "name": "Json Path",
+      "type": "string",
+      "required": false,
+      "description": "Caminho lógico no JSON. Vazio/$ retorna documento completo. Suporta JCM JsonPath Engine v1.",
+      "examples": [
+        "$",
+        "settings.language",
+        "config.services[0]",
+        "config.services[id=\"teste\"]",
+        "config.services[id=\"teste\"].name",
+        "$.catalog.items[?(@.artifact_id==\"mdf\")].version",
+        "$..artifact_id",
+        "$.items[*].id",
+        "$.items[0:5]"
+      ]
+    },
+    {
+      "name": "Value Json",
+      "type": "string(json)",
+      "required": "conditional",
+      "description": "JSON de entrada para validate_json, write_json e merge_json.",
+      "examples": [
+        "{\"settings\":{\"debug_mode\":true}}",
+        "{\"enabled\":false}",
+        "[1,2,3]",
+        "\"pt-BR\"",
+        "true"
+      ]
+    },
+    {
+      "name": "Default Json",
+      "type": "string(json)",
+      "required": "conditional",
+      "description": "JSON padrão usado por ensure_file quando Create If Missing? = true.",
+      "examples": [
+        "{}",
+        "{\"schema_version\":1,\"namespace\":\"CDXMS\"}"
+      ]
+    },
+    {
+      "name": "Create If Missing?",
+      "type": "boolean",
+      "required": false,
+      "description": "Permite criação em ensure_file.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Pretty Print?",
+      "type": "boolean",
+      "required": false,
+      "description": "Controla formatação JSON na escrita.",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Merge Strategy",
+      "type": "string",
+      "required": "conditional",
+      "description": "Estratégia de merge_json.",
+      "options": [
+        "deep_merge",
+        "preserve_existing",
+        "overwrite_existing",
+        "replace"
+      ],
+      "examples": [
+        "deep_merge",
+        "preserve_existing",
+        "replace"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única. Dados úteis sempre em Resultado.data."
+    }
+  ],
+  "json_path_engine": {
+    "name": "JCM JsonPath Engine v1",
+    "supported_syntax": [
+      "$",
+      "a.b.c",
+      "a[\"b\"]",
+      "a[0]",
+      "a[*]",
+      "a[0:5]",
+      "a[0,2,4]",
+      "a[id=\"x\"]",
+      "a[?(@.id==\"x\")]",
+      "a[?(@.enabled==true)]",
+      "a[?(@.priority>=3)]",
+      "a[id=\"x\"].name",
+      "$..artifact_id"
+    ],
+    "read_semantics": "read_json e exists aceitam zero, um ou múltiplos matches.",
+    "write_semantics": "write_json e merge_json só alteram a raiz ou um único alvo. Se o path resolver múltiplos matches, retorna JSON_PATH_AMBIGUOUS_MATCH.",
+    "complete_config_read": "Json Path vazio ou $ retorna o documento/config completo em Resultado.data.value e Resultado.data.content."
+  },
+  "operations": {
+    "ensure_core": {
+      "description": "Cria/atualiza seed mínimo do core local CDXMS sem operações de lifecycle de artifacts.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "data_fields": [
+        "base_path",
+        "created_files",
+        "version"
+      ]
+    },
+    "repair_core": {
+      "description": "Reaplica seed mínimo do core. Pode sobrescrever arquivos versionados do core e JCM.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "data_fields": [
+        "base_path",
+        "created_files",
+        "version"
+      ]
+    },
+    "ensure_folder": {
+      "description": "Garante pasta local dentro do base_path.",
+      "required_inputs": [
+        "Operation",
+        "Folder Path"
+      ],
+      "data_fields": [
+        "folder_path"
+      ]
+    },
+    "validate_json": {
+      "description": "Valida Value Json e opcionalmente verifica Json Path dentro desse JSON.",
+      "required_inputs": [
+        "Operation",
+        "Value Json"
+      ],
+      "optional_inputs": [
+        "Json Path"
+      ],
+      "data_fields": [
+        "valid",
+        "json_path",
+        "found",
+        "match_count",
+        "value",
+        "values",
+        "content"
+      ]
+    },
+    "read_json": {
+      "description": "Lê documento completo quando Json Path vazio/$ ou lê trecho(s) por JCM JsonPath Engine v1.",
+      "required_inputs": [
+        "Operation",
+        "File Path"
+      ],
+      "optional_inputs": [
+        "Json Path"
+      ],
+      "data_fields": [
+        "file_path",
+        "json_path",
+        "normalized_json_path",
+        "exists",
+        "found",
+        "match_count",
+        "matched_paths",
+        "value",
+        "values",
+        "content"
+      ]
+    },
+    "exists": {
+      "description": "Verifica existência do arquivo e, se Json Path for informado, existência de nó(s) no JSON.",
+      "required_inputs": [
+        "Operation",
+        "File Path"
+      ],
+      "optional_inputs": [
+        "Json Path"
+      ],
+      "data_fields": [
+        "file_path",
+        "exists",
+        "json_path",
+        "found",
+        "match_count",
+        "matched_paths"
+      ]
+    },
+    "write_json": {
+      "description": "Grava Value Json no documento inteiro ou em um único alvo resolvido por Json Path. Cria caminhos determinísticos ausentes.",
+      "required_inputs": [
+        "Operation",
+        "File Path",
+        "Value Json"
+      ],
+      "optional_inputs": [
+        "Json Path",
+        "Pretty Print?"
+      ],
+      "data_fields": [
+        "file_path",
+        "json_path",
+        "matched_path",
+        "created",
+        "value",
+        "content"
+      ]
+    },
+    "merge_json": {
+      "description": "Mescla Value Json no documento inteiro ou em um único objeto resolvido por Json Path.",
+      "required_inputs": [
+        "Operation",
+        "File Path",
+        "Value Json",
+        "Merge Strategy"
+      ],
+      "optional_inputs": [
+        "Json Path",
+        "Pretty Print?"
+      ],
+      "data_fields": [
+        "file_path",
+        "json_path",
+        "matched_path",
+        "created",
+        "merge_strategy",
+        "value",
+        "content"
+      ]
+    },
+    "ensure_file": {
+      "description": "Cria arquivo ausente usando Default Json quando autorizado. Preserva arquivo existente.",
+      "required_inputs": [
+        "Operation",
+        "File Path",
+        "Default Json",
+        "Create If Missing?"
+      ],
+      "data_fields": [
+        "file_path",
+        "created",
+        "content"
+      ]
+    },
+    "backup_file": {
+      "description": "Cria backup textual .bak do arquivo JSON lido.",
+      "required_inputs": [
+        "Operation",
+        "File Path"
+      ],
+      "data_fields": [
+        "file_path",
+        "backup_path"
+      ]
+    },
+    "delete_file": {
+      "description": "Remove arquivo JSON dentro do base_path.",
+      "required_inputs": [
+        "Operation",
+        "File Path"
+      ],
+      "data_fields": [
+        "file_path"
+      ]
+    }
+  },
+  "errors": [
+    "INVALID_JSON_PATH",
+    "JSON_PATH_NOT_FOUND",
+    "JSON_PATH_AMBIGUOUS_MATCH",
+    "JSON_PATH_TARGET_NOT_OBJECT",
+    "JSON_PATH_TARGET_NOT_ARRAY",
+    "JSON_PATH_INDEX_OUT_OF_RANGE",
+    "JSON_PATH_UNSUPPORTED_EXPRESSION",
+    "JSON_PATH_WRITE_NOT_ALLOWED",
+    "JSON_PATH_CREATE_NOT_SUPPORTED",
+    "INVALID_JSON",
+    "FILE_NOT_FOUND",
+    "FILE_READ_ERROR",
+    "FILE_WRITE_ERROR",
+    "PERMISSION_DENIED",
+    "INVALID_ENUM_VALUE",
+    "PROCESSING_FAILED",
+    "UNSUPPORTED_OPERATION"
+  ],
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  }
+}
