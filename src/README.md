@@ -111,3 +111,11 @@ python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incre
 ## Artifact Manager local apply v1.0.0
 
 O Artifact Manager passa a suportar aplicação local real controlada para operações elegíveis. A escrita física só ocorre com `Dry Run? = false` e `Apply Changes? = true`. A importação automática de artifacts MacroDroid permanece manual.
+
+
+## Capability hardening — v1.0.0 pre-release
+
+- Auditoria transversal das capabilities atuais.
+- Mantida versão `1.0.0`.
+- Reforçado Artifact Manager local apply com diagnóstico de gates (`debug_inputs`), `apply`, `side_effects_delegated_to_shell` e bloqueio explícito quando `Dry Run? = false` sem `Apply Changes? = true` em Strict Mode.
+- Confirmada direção arquitetural: Artifact Manager orquestra lifecycle; Dependency Resolver permanece puro/stateless.

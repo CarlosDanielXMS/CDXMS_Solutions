@@ -57,8 +57,11 @@
       "Artifact Manager keeps dependency-aware plan support.",
       "Physical side effects are guarded by double-gate: Dry Run? must be false and Apply Changes? must be true.",
       "Controlled apply writes manifest/contract/config, registry, runtime state and installed marker according to operation.",
-      "Automatic MacroDroid .ablock/.macro import remains manual/out of scope."
-    ]
+      "Automatic MacroDroid .ablock/.macro import remains manual/out of scope.",
+      "Auditou publish/parse, booleanos localizados, gates de aplicação e saída diagnóstica do local apply.",
+      "Artifact Manager agora retorna debug_inputs, apply e side_effects_delegated_to_shell nas operações de lifecycle."
+    ],
+    "hardening_revision": "capability_hardening_2026_06_17"
   },
   "integrates_with": {
     "capabilities": {

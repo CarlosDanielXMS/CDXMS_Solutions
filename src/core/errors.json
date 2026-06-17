@@ -69,6 +69,9 @@
     "DEPENDENCY_RESOLUTION_FAILED": "Falha ao resolver dependências.",
     "DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED": "Artifact alvo não identificado no manifest.",
     "ARTIFACT_APPLY_BLOCKED": "Aplicação física do artifact bloqueada por regra de segurança.",
-    "ARTIFACT_APPLY_FAILED": "Falha ao aplicar arquivos/registry do artifact."
-  }
+    "ARTIFACT_APPLY_FAILED": "Falha ao aplicar arquivos/registry do artifact.",
+    "ARTIFACT_APPLY_GATE_DISABLED": "Gate de aplicação física não habilitado para o artifact.",
+    "ARTIFACT_APPLY_NOT_VERIFIED": "A aplicação física do artifact não foi verificada."
+  },
+  "updated_at": ""
 }

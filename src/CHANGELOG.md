@@ -91,3 +91,10 @@
 - Adicionado gate explícito `Apply Changes?`.
 - Artifact Manager passa a escrever arquivos JSON/registry/state/marker quando `Dry Run? = false` e `Apply Changes? = true`.
 - Mantida versão `1.0.0` por ainda ser pré-release/homologação.
+
+
+## v1.0.0 pre-release — Capability hardening
+
+- Auditadas as capabilities JCM, Bootstrap, Result Manager, Logger, String Utils, Artifact Manager e Dependency Resolver.
+- Corrigido/fortalecido o contrato de aplicação física do Artifact Manager.
+- Adicionados códigos `ARTIFACT_APPLY_GATE_DISABLED` e `ARTIFACT_APPLY_NOT_VERIFIED`.

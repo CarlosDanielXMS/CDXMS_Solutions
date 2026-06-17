@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_plus_am_dr_local_apply",
+  "release_id": "ecosystem_core_plus_am_dr_capability_hardening",
   "version": "1.0.0",
   "created_at": "",
   "artifacts": [
@@ -70,9 +70,12 @@
     "Mantém sem Action Block intermediário nesta etapa.",
     "Evolui Artifact Manager para aplicação local real controlada por double-gate.",
     "Operações elegíveis só aplicam efeitos físicos quando Dry Run? = false e Apply Changes? = true.",
-    "MacroDroid .ablock/.macro continua com importação manual; o apply físico cobre arquivos JSON, registry, runtime state e install marker."
+    "MacroDroid .ablock/.macro continua com importação manual; o apply físico cobre arquivos JSON, registry, runtime state e install marker.",
+    "Auditoria transversal de capabilities v1.0.0 pré-release.",
+    "Artifact Manager local apply reforçado com gates explícitos e diagnóstico de entrada.",
+    "Correção preventiva para evitar sucesso silencioso quando Apply Changes? não é verdadeiro."
   ],
-  "artifact_id": "ecosystem_core_plus_am_dr_local_apply",
+  "artifact_id": "ecosystem_core_plus_am_dr_capability_hardening",
   "artifact_type": "package",
-  "package": "CDXMS_AM_Local_Apply_v1_0_0_incremental_merged_package.zip"
+  "package": "CDXMS_Capabilities_Audit_Hardening_v1_0_0_incremental_merged_package.zip"
 }
