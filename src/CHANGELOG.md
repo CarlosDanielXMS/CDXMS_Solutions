@@ -53,3 +53,11 @@
 - Atualizados `core/enums.json`, `core/errors.json`, `release.json`, `checksums.json`, `README.md` e documentação em `docs/`.
 - Package corrigido para ser incremental mesclado, contendo toda a base Core homologada anterior mais as alterações do Artifact Manager.
 - Download remoto e Dependency Resolver permanecem fora do escopo desta entrega.
+
+
+## Artifact Manager v1.0.0 — Homologation fix 1
+
+- Mantida versão `1.0.0`.
+- Corrigida publicação de `Resultado` no Action Block `[CDXMS] Artifact Manager`.
+- `JavaScriptAction` agora grava em `Tmp_ArtifactWorkJson`, que é a variável lida pelo `JsonParseAction`.
+- Macro temporária de homologação deve retornar `Tmp_AM_*` preenchidas após esta correção.

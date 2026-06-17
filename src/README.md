@@ -74,3 +74,10 @@ Validação recomendada:
 python src/scripts/validate_core_plus_artifact_manager_v1_0_0.py
 python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py
 ```
+
+
+## Artifact Manager homologation fix 1 — v1.0.0
+
+- Mantida versão `1.0.0`.
+- Corrigida inconsistência interna do Action Block `[CDXMS] Artifact Manager`: o JavaScript escrevia em `Tmp_StringWorkJson`, mas o `JsonParseAction` lia `Tmp_ArtifactWorkJson`.
+- Após a correção, as saídas `Tmp_AM_*` da macro de homologação devem ser preenchidas.

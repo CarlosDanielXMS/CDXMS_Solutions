@@ -1,21 +1,18 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "file_type": "checksums",
-  "algorithm": "sha256",
-  "generated_at": "",
-  "files": {
+  "checksums": {
     ".cdxms_root.json": "09f16bb5f6fcee3db99193104dc7b62f1e07a6ab70c444726ca354dffba11a05",
-    "CHANGELOG.md": "4aa902db40e2ccc891b68e283162ee55a2b1a9674454be3e262539ca6e9987f0",
-    "README.md": "cf8e02d25887d782182156141d62db68dd5f532e6e372426961934de27ef8eca",
+    "CHANGELOG.md": "26188331600a227d15ef82d6575f4eae40089f628cc7aaad31d561be31c6f152",
+    "README.md": "e9568142ca850d7271e83bd59ceff7c85afba756ba530fd238c16d6335ef42e5",
     "capabilities/artifact_manager/README.md": "922cf21c2c388c2e3647eb08b30b4835b8bf647e146a54ac4ff64b78adc8f10a",
     "capabilities/artifact_manager/body.md": "33bd489e7b1e08c80586dec4fb663aada62195dbd3ad0f25176157b9f89c3bc5",
     "capabilities/artifact_manager/config.default.json": "8c8a563d978d57d6b9290a151c0cb36e6113cd5f54e3dbb3350adbc58c91be30",
     "capabilities/artifact_manager/contract.json": "129fe12ab4cd3874122a7172909f3884911c4f47dd44ece0e5c9a9580a6beaad",
-    "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock": "7a6aa338d5de189ee1546f941cd3c524781f1c28aa1f54c28f4a53f477cdd20b",
+    "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock": "fff315e72a4e2f9c7708fa7381609b70b856195048b590968df02f697e1b8726",
     "capabilities/artifact_manager/manifest.json": "d02200fbddb5ac3a0cd91ba65e89add3c129149f803c4e74a9ed733c63e615de",
     "capabilities/artifact_manager/remote_manifest.json": "f04ade89567ace63e2de08e8d94b7b4ccdac43f3a35f4764bff395bff235afb5",
-    "capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py": "8fa78e107daa975587797ff5978d48c0979633c2a606015d5520861779c01da6",
+    "capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py": "12938da0ce3642483d3be45c9335beb1f6840043ad4c487ac42c1c77629f51e9",
     "capabilities/artifact_manager/tests/manual_test.md": "9fa0de15089bff98e4aa83e66cdae74708c91c93ad4b01af5d9f7b4b71b720db",
     "capabilities/bootstrap/README.md": "52be48dc2daffd170159d1f28428456afa84d129fa5a9aaa3470f13c6d37c90a",
     "capabilities/bootstrap/body.md": "24af1a2949f9c2d9e05b55f49374675a23c081fff1983be35ae170871d1e0538",
@@ -62,6 +59,7 @@
     "capabilities/string_utils/remote_manifest.json": "c1697392b76cd6336be88bd1ad3c57539cff4dfd3c90be161216d80ca49c2f25",
     "capabilities/string_utils/scripts/validate_string_utils_incremental.py": "be6faa662117dff35d63319eb213c8f6e5ba94a02ba9e5e903dc3731ecf52bd3",
     "capabilities/string_utils/tests/manual_test.md": "c52d3c8034831e942bbd1ac6a0e1a5b5f8d843ba59b5d8d270695cd04fe1f245",
+    "checksums.json": "5fad46e9bace27e0375d20fa7f6012b8d30c552d8d6801f9edd04a01473e560d",
     "core/compatibility.json": "e44d593d3564e33df59b16d25e39ccc2b4b72854f47818b8486a42f3b8ed0bd5",
     "core/enums.json": "ab812c86d47cf116f0f69d6a4469b982c7916b1aafb412e84da4a92f4a78fb1b",
     "core/errors.json": "3402f82203328f79859146bf9bda06344263e6b1552bb4e99a6d2b69520f34da",
@@ -90,6 +88,7 @@
     "release.json": "015f1604fde07c621050bc1ed556da530fe92937bc5386d5cc98cb88d1159374",
     "scripts/run_core_capabilities_v1_0_0_automated_tests.py": "280c2f7d51cecf9d75ac63151d66a01c37de92bf7a78d0e4894c6a896e42865b",
     "scripts/validate_core_capabilities_v1_0_0_sanitized.py": "7bd0e6491ca2fbf56c3e2f6679ebfe4961515081ae86e70baf83ee403402391b",
-    "scripts/validate_core_plus_artifact_manager_v1_0_0.py": "ff31cf933db9e7ab340ef5cbd1e3ef991abbd5562d3594861651cb5d5593ed9d"
+    "scripts/validate_core_plus_artifact_manager_v1_0_0.py": "ff31cf933db9e7ab340ef5cbd1e3ef991abbd5562d3594861651cb5d5593ed9d",
+    "scripts/validate_core_plus_artifact_manager_v1_0_0_incremental_merged.py": "148b101802ffdc6cf2cc57781d5375101172eebe62146e92954edb32facb568e"
   }
 }
