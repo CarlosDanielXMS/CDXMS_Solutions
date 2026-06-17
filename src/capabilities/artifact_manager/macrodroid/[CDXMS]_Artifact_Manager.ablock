@@ -508,7 +508,7 @@
         "m_isOrCondition": false
       }
     ],
-    "m_category": "CDXMS/Core",
+    "m_category": "CDXMS",
     "m_constraintList": [],
     "m_description": "Gerencia lifecycle de artifacts CDXMS. v1.0.0 com planejamento dependency-aware e aplicação local controlada por double-gate.",
     "m_descriptionOpen": false,
