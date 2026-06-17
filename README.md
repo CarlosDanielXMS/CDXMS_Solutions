@@ -1,34 +1,21 @@
-# CDXMS Core + Artifact Manager v1.0.0 — Incremental Merged Package
+# CDXMS Core + Artifact Manager + Dependency Resolver v1.0.0
 
-Este ZIP substitui o package anterior do Artifact Manager que havia sido gerado apenas como diferencial.
-
-Aqui, **incremental** significa: base anterior completa + alterações novas mescladas.
+Package incremental mesclado contendo toda a base já existente e a nova capability `[CDXMS] Dependency Resolver`.
 
 ## Conteúdo
 
-- Core v1.0.0 homologado.
-- Capabilities já existentes:
-  - Json Config Manager
-  - Bootstrap
-  - Registrar Resultado
-  - Logger
-  - String Utils
-- Nova capability:
-  - Artifact Manager
-- Documentação e scripts de validação atualizados.
-- `release.json`, `checksums.json`, `core/enums.json` e `core/errors.json` mesclados corretamente.
+- Core Base v1.0.0 homologada.
+- Artifact Manager v1.0.0.
+- Dependency Resolver v1.0.0.
 
-## Validação
+## Importação MacroDroid
 
-```bash
-python src/scripts/validate_core_plus_artifact_manager_v1_0_0.py
-python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py
+Importar manualmente o Action Block:
+
+```text
+src/capabilities/dependency_resolver/macrodroid/[CDXMS]_Dependency_Resolver.ablock
 ```
 
+## Próxima etapa
 
-## Homologation fix 1 — Artifact Manager v1.0.0
-
-- Mantida versão `1.0.0`.
-- Corrigida a variável de saída da `JavaScriptAction` do `[CDXMS] Artifact Manager`: de `Tmp_StringWorkJson` para `Tmp_ArtifactWorkJson`.
-- Motivo: o `JsonParseAction` já lia `Tmp_ArtifactWorkJson`; por isso o `Resultado` permanecia vazio dentro do MacroDroid.
-- Atualizada validação estrutural para conferir consistência entre saída do JavaScript e entrada do JSON Parse.
+Criar a macro temporária de homologação do Dependency Resolver.

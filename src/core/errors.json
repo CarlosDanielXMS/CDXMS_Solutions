@@ -61,6 +61,12 @@
     "ARTIFACT_PLAN_FAILED": "Não foi possível gerar o plano do artifact.",
     "ARTIFACT_REGISTRY_ENTRY_FAILED": "Não foi possível construir entrada de registry do artifact.",
     "ARTIFACT_TARGET_PATH_INVALID": "Path de destino do artifact inválido.",
-    "ARTIFACT_LOCAL_INSTALL_NOT_APPLIED": "Instalação local não aplicada nesta execução."
+    "ARTIFACT_LOCAL_INSTALL_NOT_APPLIED": "Instalação local não aplicada nesta execução.",
+    "DEPENDENCY_INVALID_DECLARATION": "Declaração de dependência inválida.",
+    "DEPENDENCY_CYCLE_DETECTED": "Ciclo de dependência detectado.",
+    "DEPENDENCY_RESOLUTION_BLOCKED": "Plano de resolução de dependências bloqueado.",
+    "DEPENDENCY_INSTALL_PLAN_INVALID": "Plano de instalação inválido por dependências.",
+    "DEPENDENCY_RESOLUTION_FAILED": "Falha ao resolver dependências.",
+    "DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED": "Artifact alvo não identificado no manifest."
   }
 }

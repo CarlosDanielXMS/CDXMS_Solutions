@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 — Dependency Resolver
+
+- Adicionada capability `[CDXMS] Dependency Resolver`.
+- Adicionado contrato para validação de dependências, constraints de versão, grafo, ciclos e plano de resolução.
+- Mantido escopo sem efeitos colaterais físicos: não baixa, não instala e não altera registry.
+- Package incremental mesclado sobre Core + Artifact Manager.
+
+
 ## 1.0.0 — Homologation fix pre-release
 
 - Mantida versão 1.0.0.

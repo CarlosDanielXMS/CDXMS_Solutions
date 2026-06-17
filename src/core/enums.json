@@ -161,6 +161,31 @@
       "installed": "installed",
       "disabled": "disabled",
       "blocked": "blocked"
+    },
+    "dependency_resolver_operation": {
+      "validate_dependencies": "validate_dependencies",
+      "get_missing_dependencies": "get_missing_dependencies",
+      "check_version_constraints": "check_version_constraints",
+      "build_dependency_graph": "build_dependency_graph",
+      "build_resolution_plan": "build_resolution_plan",
+      "detect_dependency_cycles": "detect_dependency_cycles",
+      "sort_install_order": "sort_install_order",
+      "validate_install_plan": "validate_install_plan"
+    },
+    "dependency_resolution_status": {
+      "ready": "ready",
+      "partial": "partial",
+      "blocked": "blocked"
+    },
+    "dependency_version_operator": {
+      ">=": ">=",
+      "<=": "<=",
+      ">": ">",
+      "<": "<",
+      "=": "=",
+      "^": "^",
+      "~>": "~>",
+      "*": "*"
     }
   }
 }

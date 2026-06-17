@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "dependency_resolver",
+    "name": "Dependency Resolver",
+    "display_name": "[CDXMS] Dependency Resolver",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Resolver dependências declaradas entre artifacts CDXMS, validar versões, detectar ciclos e gerar plano seguro de instalação.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/dependency_resolver/macrodroid/[CDXMS]_Dependency_Resolver.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Dependency Resolver",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "result_manager": ">=1.0.0",
+      "string_utils": ">=1.0.0",
+      "artifact_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "validate_dependencies",
+    "get_missing_dependencies",
+    "check_version_constraints",
+    "build_dependency_graph",
+    "build_resolution_plan",
+    "detect_dependency_cycles",
+    "sort_install_order",
+    "validate_install_plan"
+  ],
+  "lifecycle_scope": {
+    "v1_0_0": "dependency_validation_version_constraints_graph_cycle_detection_resolution_plan",
+    "side_effects": "none",
+    "remote_downloads": "out_of_scope"
+  },
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "implementation_audit": {
+    "stage": "phase_3_dependency_resolver_v1_0_0",
+    "version_policy": "pre_release_same_version_1_0_0",
+    "source_base": "remote feat/create-ecosystem-core updated with core plus artifact_manager",
+    "scope": "dependency validation and safe resolution plan only",
+    "manual_homologation_required": true,
+    "notes": [
+      "No physical installation is performed by Dependency Resolver.",
+      "Artifact Manager integration comes after standalone homologation."
+    ]
+  }
+}

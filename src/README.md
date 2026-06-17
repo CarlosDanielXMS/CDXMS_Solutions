@@ -10,6 +10,7 @@ Base inicial do ecossistema CDXMS Solutions para MacroDroid.
 - `[CDXMS] Logger`
 - `[CDXMS] String Utils`
 - `[CDXMS] Artifact Manager`
+- `[CDXMS] Dependency Resolver`
 
 ## Saneamento pré-release v1.0.0
 
@@ -81,3 +82,11 @@ python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incre
 - Mantida versão `1.0.0`.
 - Corrigida inconsistência interna do Action Block `[CDXMS] Artifact Manager`: o JavaScript escrevia em `Tmp_StringWorkJson`, mas o `JsonParseAction` lia `Tmp_ArtifactWorkJson`.
 - Após a correção, as saídas `Tmp_AM_*` da macro de homologação devem ser preenchidas.
+
+
+## Dependency Resolver v1.0.0
+
+- Mantida versão 1.0.0.
+- Adicionada capability `[CDXMS] Dependency Resolver`.
+- Resolve dependências declaradas em manifests, valida constraints, detecta ciclos e gera plano seguro.
+- Não instala, não baixa e não altera registry nesta versão.

@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "artifact_id": "dependency_resolver",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Dependency Resolver",
+  "description": "Contrato do Dependency Resolver v1.0.0.",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "text",
+      "required": true,
+      "description": "Operação técnica do Dependency Resolver."
+    },
+    {
+      "name": "Artifact Manifest Json",
+      "type": "text",
+      "required": true,
+      "description": "Manifest JSON do artifact alvo cujas dependências serão resolvidas."
+    },
+    {
+      "name": "Installed Registry Json",
+      "type": "text",
+      "required": false,
+      "description": "Registry local atual contendo capabilities, solutions e packages instalados."
+    },
+    {
+      "name": "Available Catalog Json",
+      "type": "text",
+      "required": false,
+      "description": "Catálogo disponível contendo artifacts que podem satisfazer dependências ausentes."
+    },
+    {
+      "name": "Dependency Policy Json",
+      "type": "text",
+      "required": false,
+      "description": "Política opcional de resolução, como tratamento de dependências opcionais e prereleases."
+    },
+    {
+      "name": "Strict Mode?",
+      "type": "boolean",
+      "required": false,
+      "description": "Quando verdadeiro, bloqueia inconsistências em vez de apenas avisar."
+    },
+    {
+      "name": "Session Id",
+      "type": "text",
+      "required": false,
+      "description": "Identificador lógico da sessão."
+    },
+    {
+      "name": "Correlation Id",
+      "type": "text",
+      "required": false,
+      "description": "Identificador de correlação para logs/resultados."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Resultado CDXMS com data/error/meta."
+    }
+  ],
+  "operations": {
+    "validate_dependencies": {
+      "description": "Valida a declaração de dependências do manifest."
+    },
+    "get_missing_dependencies": {
+      "description": "Compara dependências declaradas com o registry instalado e lista ausentes."
+    },
+    "check_version_constraints": {
+      "description": "Valida constraints de versão contra o registry instalado."
+    },
+    "build_dependency_graph": {
+      "description": "Constrói grafo lógico de dependências a partir do manifest e catálogo."
+    },
+    "build_resolution_plan": {
+      "description": "Gera plano seguro de resolução de dependências."
+    },
+    "detect_dependency_cycles": {
+      "description": "Detecta ciclos no grafo de dependências."
+    },
+    "sort_install_order": {
+      "description": "Gera ordem de instalação para dependências conhecidas."
+    },
+    "validate_install_plan": {
+      "description": "Valida se o plano final pode seguir para o Artifact Manager."
+    }
+  },
+  "result_data_contract": {
+    "validate_dependencies": [
+      "valid",
+      "artifact",
+      "dependencies",
+      "dependency_count",
+      "warnings"
+    ],
+    "get_missing_dependencies": [
+      "artifact",
+      "missing_dependencies",
+      "present_dependencies",
+      "missing_count"
+    ],
+    "check_version_constraints": [
+      "artifact",
+      "version_checks",
+      "conflicts",
+      "compatible"
+    ],
+    "build_dependency_graph": [
+      "artifact",
+      "dependency_graph"
+    ],
+    "build_resolution_plan": [
+      "resolution_plan"
+    ],
+    "detect_dependency_cycles": [
+      "artifact",
+      "dependency_graph",
+      "cycles",
+      "has_cycle"
+    ],
+    "sort_install_order": [
+      "artifact",
+      "install_order",
+      "blocked"
+    ],
+    "validate_install_plan": [
+      "valid",
+      "resolution_plan"
+    ]
+  },
+  "side_effects": "Nenhum efeito colateral físico; capability apenas calcula e valida planos.",
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_JSON",
+    "UNSUPPORTED_OPERATION",
+    "MISSING_DEPENDENCY",
+    "VERSION_CONFLICT",
+    "DEPENDENCY_CYCLE_DETECTED",
+    "DEPENDENCY_RESOLUTION_BLOCKED",
+    "DEPENDENCY_INSTALL_PLAN_INVALID",
+    "DEPENDENCY_RESOLUTION_FAILED"
+  ]
+}

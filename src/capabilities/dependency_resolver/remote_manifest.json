@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "artifact_id": "dependency_resolver",
+  "version": "1.0.0",
+  "files": [
+    "manifest.json",
+    "contract.json",
+    "config.default.json",
+    "remote_manifest.json",
+    "README.md",
+    "body.md",
+    "tests/manual_test.md",
+    "macrodroid/[CDXMS]_Dependency_Resolver.ablock"
+  ],
+  "remote_source": {
+    "type": "github_raw",
+    "branch_for_homologation": "develop",
+    "release_ref": "latest_release"
+  },
+  "updated_at": ""
+}
