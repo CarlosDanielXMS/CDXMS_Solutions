@@ -40,24 +40,24 @@
     "install_local_artifact"
   ],
   "lifecycle_scope": {
-    "v1_0_0": "validation_planning_registry_entry_and_safe_local_lifecycle_plan",
-    "side_effects": "disabled_by_default_until_full_lifecycle_homologation",
+    "v1_0_0": "dependency_aware_lifecycle_plan_and_controlled_local_apply_with_double_gate",
+    "side_effects": "controlled_by_dry_run_false_and_apply_changes_true",
     "remote_downloads": "out_of_scope"
   },
   "result_contract": "core/result_contract.json",
   "created_at": "",
   "updated_at": "",
   "implementation_audit": {
-    "stage": "phase_3_artifact_manager_v1_0_0_dependency_aware_lifecycle_plan",
+    "stage": "phase_3_artifact_manager_v1_0_0_controlled_local_apply",
     "version_policy": "pre_release_same_version_1_0_0",
     "source_base": "remote feat/create-ecosystem-core updated with AM + DR, remodeled for AM -> DR orchestration",
-    "scope": "artifact lifecycle planning with optional dependency resolution input",
+    "scope": "artifact lifecycle planning plus controlled local file and registry apply in sandboxable target root",
     "manual_homologation_required": true,
     "notes": [
-      "Artifact Manager remains lifecycle orchestrator.",
-      "Dependency Resolver remains stateless and does not depend on Artifact Manager.",
-      "Artifact Manager accepts dependency resolution output as input for dependency-aware install plans.",
-      "Physical installation remains disabled in this etapa; flow is dry-run."
+      "Artifact Manager keeps dependency-aware plan support.",
+      "Physical side effects are guarded by double-gate: Dry Run? must be false and Apply Changes? must be true.",
+      "Controlled apply writes manifest/contract/config, registry, runtime state and installed marker according to operation.",
+      "Automatic MacroDroid .ablock/.macro import remains manual/out of scope."
     ]
   },
   "integrates_with": {

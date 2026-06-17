@@ -67,6 +67,8 @@
     "DEPENDENCY_RESOLUTION_BLOCKED": "Plano de resolução de dependências bloqueado.",
     "DEPENDENCY_INSTALL_PLAN_INVALID": "Plano de instalação inválido por dependências.",
     "DEPENDENCY_RESOLUTION_FAILED": "Falha ao resolver dependências.",
-    "DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED": "Artifact alvo não identificado no manifest."
+    "DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED": "Artifact alvo não identificado no manifest.",
+    "ARTIFACT_APPLY_BLOCKED": "Aplicação física do artifact bloqueada por regra de segurança.",
+    "ARTIFACT_APPLY_FAILED": "Falha ao aplicar arquivos/registry do artifact."
   }
 }

@@ -160,7 +160,11 @@
       "not_installed": "not_installed",
       "installed": "installed",
       "disabled": "disabled",
-      "blocked": "blocked"
+      "blocked": "blocked",
+      "applying": "applying",
+      "applied": "applied",
+      "apply_blocked": "apply_blocked",
+      "partially_applied": "partially_applied"
     },
     "dependency_resolver_operation": {
       "validate_dependencies": "validate_dependencies",
@@ -186,6 +190,11 @@
       "^": "^",
       "~>": "~>",
       "*": "*"
+    },
+    "artifact_apply_mode": {
+      "dry_run": "dry_run",
+      "controlled_apply": "controlled_apply",
+      "blocked": "blocked"
     }
   }
 }

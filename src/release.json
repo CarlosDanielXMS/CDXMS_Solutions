@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_plus_am_dependency_resolver_remodeled",
+  "release_id": "ecosystem_core_plus_am_dr_local_apply",
   "version": "1.0.0",
   "created_at": "",
   "artifacts": [
@@ -67,9 +67,12 @@
     "Remodela a direção conceitual AM/DR: Artifact Manager orquestra lifecycle; Dependency Resolver é puro/stateless.",
     "Remove dependência rígida Dependency Resolver -> Artifact Manager.",
     "Artifact Manager passa a aceitar Dependency Resolution Json para planos dependency-aware em dry-run.",
-    "Mantém sem Action Block intermediário nesta etapa."
+    "Mantém sem Action Block intermediário nesta etapa.",
+    "Evolui Artifact Manager para aplicação local real controlada por double-gate.",
+    "Operações elegíveis só aplicam efeitos físicos quando Dry Run? = false e Apply Changes? = true.",
+    "MacroDroid .ablock/.macro continua com importação manual; o apply físico cobre arquivos JSON, registry, runtime state e install marker."
   ],
-  "artifact_id": "ecosystem_core_plus_am_dependency_resolver_remodeled",
+  "artifact_id": "ecosystem_core_plus_am_dr_local_apply",
   "artifact_type": "package",
-  "package": "CDXMS_AM_DR_Remodel_v1_0_0_incremental_merged_package.zip"
+  "package": "CDXMS_AM_Local_Apply_v1_0_0_incremental_merged_package.zip"
 }

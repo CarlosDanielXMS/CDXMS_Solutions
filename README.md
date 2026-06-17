@@ -1,19 +1,28 @@
-# CDXMS — AM/DR Concept Remodel v1.0.0
+# CDXMS — Artifact Manager Local Apply v1.0.0
 
-Package incremental mesclado contendo toda a base atual do ecossistema e a remodelagem conceitual entre Artifact Manager e Dependency Resolver.
+Package incremental mesclado contendo todo o ecossistema atual e a evolução do Artifact Manager para aplicação local real controlada.
 
-## Decisão aplicada
+## Decisão
 
-- Não foi criado Action Block intermediário.
-- `[CDXMS] Dependency Resolver` tornou-se uma capability pura/stateless e não depende mais do Artifact Manager.
-- `[CDXMS] Artifact Manager` permanece como orquestrador de lifecycle e passa a aceitar `Dependency Resolution Json` para compor planos dependency-aware.
-- A instalação física continua fora desta etapa; a homologação opera em dry-run.
+A aplicação física é permitida somente com double-gate:
 
-## Arquivos principais
+```text
+Dry Run? = false
+Apply Changes? = true
+```
 
-- `src/capabilities/artifact_manager/manifest.json`
-- `src/capabilities/artifact_manager/contract.json`
-- `src/capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock`
-- `src/capabilities/dependency_resolver/manifest.json`
-- `src/docs/artifact_manager_dependency_resolver_integration_architecture.md`
-- `src/homologation/am_dr_integration/macrodroid/[CDXMS]_Homologar_AM_DR_Integration_v1_0_0_TEMP.macro`
+Sem esses dois gates, o Artifact Manager continua retornando plano seguro.
+
+## Escopo aplicado
+
+- Criação de diretórios do artifact.
+- Escrita de `manifest.json`, `contract.json` e `config.json`.
+- Escrita/merge planejado de `core/registry.json` a partir do Registry Json informado.
+- Escrita de runtime state.
+- Escrita de install marker.
+
+## Fora de escopo
+
+- Download remoto.
+- Importação automática de `.ablock`/`.macro` no MacroDroid.
+- Rollback transacional completo.

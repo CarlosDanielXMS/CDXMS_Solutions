@@ -1,30 +1,34 @@
-# Teste manual — [CDXMS] Artifact Manager v1.0.0
+# Teste manual — Artifact Manager v1.0.0 local apply
 
-## Pré-requisito
+## Cenário seguro
 
-Importar `[CDXMS] Artifact Manager` no MacroDroid.
+Use `Target Root Path` apontando para uma área de homologação:
 
-## Teste 1 — validate_artifact
-
-Entrada:
-
-- Operation: `validate_artifact`
-- Manifest Json:
-
-```json
-{"schema_version":1,"namespace":"CDXMS","artifact_type":"capability","capability":{"id":"demo_capability","version":"1.0.0","display_name":"[CDXMS] Demo"}}
+```text
+/storage/emulated/0/Documents/CDXMS_Solutions/runtime/homologation/am_local_apply
 ```
 
-Esperado:
+## Teste 1 — Dry-run
 
-- `Resultado.success = Verdadeiro`
-- `Resultado.data.valid = Verdadeiro`
+- `Operation = install_local_artifact`
+- `Dry Run? = true`
+- `Apply Changes? = false`
 
-## Teste 2 — build_install_plan
+Esperado: `success = true`, `data.install_plan.side_effects_enabled = false`, sem arquivos obrigatórios criados pelo AM.
 
-Usar o mesmo manifest e `Operation = build_install_plan`.
+## Teste 2 — Aplicação controlada
 
-Esperado:
+- `Operation = install_local_artifact`
+- `Dry Run? = false`
+- `Apply Changes? = true`
 
-- `Resultado.success = Verdadeiro`
-- `Resultado.data.install_plan.files` preenchido.
+Esperado: `success = true`, `data.apply.should_apply = true`, e arquivos criados sob o `Target Root Path` de homologação:
+
+```text
+capabilities/<artifact_id>/manifest.json
+capabilities/<artifact_id>/contract.json
+capabilities/<artifact_id>/config.json
+core/registry.json
+runtime/capabilities/<artifact_id>.state.json
+packages/installed/capabilities/<artifact_id>/install_manifest.json
+```

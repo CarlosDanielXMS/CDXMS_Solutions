@@ -84,3 +84,10 @@
 - Adicionada entrada `Dependency Resolution Json` no Artifact Manager.
 - Atualizado plano do Artifact Manager para incluir `dependency_resolution`.
 - Atualizada macro temporária integrada para serializar e repassar o plano do DR ao AM.
+
+
+## Artifact Manager local apply v1.0.0
+
+- Adicionado gate explícito `Apply Changes?`.
+- Artifact Manager passa a escrever arquivos JSON/registry/state/marker quando `Dry Run? = false` e `Apply Changes? = true`.
+- Mantida versão `1.0.0` por ainda ser pré-release/homologação.

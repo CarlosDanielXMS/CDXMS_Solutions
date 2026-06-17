@@ -2,72 +2,66 @@
 
 ## Entradas
 
-- Operation: operação técnica do Artifact Manager.
-- Artifact Type: tipo do artifact.
-- Artifact Id: id técnico do artifact.
-- Manifest Json: manifest JSON do artifact.
-- Contract Json: contract JSON do artifact, quando aplicável.
-- Config Json: config/default JSON do artifact, quando aplicável.
-- Registry Json: registry local atual.
-- Package Manifest Json: manifest de package/local bundle.
-- Local Package Path: caminho local do pacote de origem.
-- Target Root Path: raiz de destino CDXMS.
-- Preserve User Config?: preserva config do usuário.
-- Dry Run?: retorna apenas plano seguro.
-- Strict Mode?: validação mais rígida.
-- Session Id: sessão lógica.
-- Correlation Id: correlação da execução.
+- `Operation`: operação técnica.
+- `Artifact Type`: tipo do artifact.
+- `Artifact Id`: id técnico.
+- `Manifest Json`: manifest do artifact.
+- `Contract Json`: contrato opcional.
+- `Config Json`: configuração/default opcional.
+- `Registry Json`: registry atual usado para merge seguro.
+- `Package Manifest Json`: manifest de package/local bundle quando aplicável.
+- `Dependency Resolution Json`: resultado/plano produzido pelo Dependency Resolver.
+- `Local Package Path`: origem local opcional.
+- `Target Root Path`: raiz CDXMS de destino.
+- `Preserve User Config?`: preserva config existente.
+- `Dry Run?`: quando verdadeiro, retorna apenas plano.
+- `Apply Changes?`: segundo gate para aplicar fisicamente quando `Dry Run?` for falso.
+- `Strict Mode?`: validação rigorosa.
+- `Session Id` / `Correlation Id`: rastreabilidade.
 
 ## Saída
 
-- Resultado: dicionário CDXMS padronizado.
+- `Resultado`: dicionário CDXMS único.
 
 ## Variáveis de trabalho
 
-- Tmp_ArtifactWorkJson
-- Tmp_ArtifactWork
+- `Tmp_ArtifactWorkJson`: JSON textual gerado pelo motor interno.
+- `Tmp_ArtifactWork`: dicionário intermediário usado pela aplicação shell controlada.
 
-## Corpo passo a passo
+## Corpo
 
-### Ação 1 — Action Group
+1. **Action Group — Processar Artifact**
+   - Agrupa a execução da capability.
 
-Nome: `01 — Processar Artifact`.
+2. **JavaScriptAction — Motor interno**
+   - Lê as entradas.
+   - Interpreta booleanos localizados (`true`, `false`, `Verdadeiro`, `Falso`, `sim`, `não`).
+   - Valida o manifest.
+   - Calcula paths locais.
+   - Gera registry entry.
+   - Consome `Dependency Resolution Json` quando informado.
+   - Monta `install_plan`.
+   - Define `apply.should_apply` somente se a operação for elegível, `Dry Run? = false`, `Apply Changes? = true` e não houver bloqueio de dependência.
+   - Gera `apply_payload` com JSONs de manifest, contract, config, registry, runtime state e install marker.
+   - Saída textual: `Tmp_ArtifactWorkJson`.
 
-Objetivo: organizar visualmente o processamento principal do Artifact Manager.
+3. **Json Parse — Tmp_ArtifactWorkJson -> Tmp_ArtifactWork**
+   - Disponibiliza os campos gerados para o `ShellScriptAction`.
 
-### Ação 2 — JavaScript Code
+4. **Shell Script — Aplicação local controlada**
+   - Non-root.
+   - Executa apenas quando `Tmp_ArtifactWork[data][apply][should_apply]` for verdadeiro.
+   - Cria diretórios de destino com `mkdir -p`.
+   - Escreve `manifest.json`, `contract.json` e `config.json` quando aplicável.
+   - Escreve `core/registry.json` quando a operação exige registry.
+   - Escreve runtime state e install marker.
+   - Não importa `.ablock`/`.macro` automaticamente.
 
-Configuração:
+5. **Json Parse — Tmp_ArtifactWorkJson -> Resultado**
+   - Publica a saída pública única.
 
-- Engine: JetPack JavaScriptEngine.
-- Block next action: habilitado.
-- Saída textual: `Tmp_ArtifactWorkJson`.
+6. **Action Group End**
+   - Fecha o grupo.
 
-Função:
-
-1. Lê as entradas via Magic Text.
-2. Normaliza booleanos localizados (`Verdadeiro`/`Falso`).
-3. Valida `Operation`.
-4. Faz parse seguro de `Manifest Json`, `Contract Json`, `Config Json`, `Registry Json` e `Package Manifest Json`.
-5. Valida manifest mínimo.
-6. Calcula paths de destino.
-7. Gera `registry_entry` e `install_plan` quando aplicável.
-8. Retorna JSON no contrato `Resultado`.
-
-### Ação 3 — JSON Parse
-
-Configuração:
-
-- Entrada: `Tmp_ArtifactWorkJson`.
-- Saída: `Resultado`.
-- Chaves: raiz do dicionário.
-
-Objetivo: publicar o Resultado final como dicionário público.
-
-### Ação 4 — End Action Group
-
-Encerra o grupo principal.
-
-### Ação 5 — Exit Action Block
-
-Encerra explicitamente o Action Block após publicar `Resultado`.
+7. **Exit Action Block**
+   - Encerra explicitamente o bloco.

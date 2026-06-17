@@ -86,6 +86,12 @@
       "description": "Quando verdadeiro, retorna apenas plano sem efeitos colaterais."
     },
     {
+      "name": "Apply Changes?",
+      "type": "boolean",
+      "required": false,
+      "description": "Gate explícito para permitir efeitos colaterais físicos quando Dry Run? for falso. Deve ser verdadeiro para aplicar instalação local controlada."
+    },
+    {
       "name": "Strict Mode?",
       "type": "boolean",
       "required": false,
@@ -166,22 +172,39 @@
       "artifact",
       "registry_entry",
       "install_plan",
-      "dependency_resolution"
+      "dependency_resolution",
+      "paths",
+      "apply",
+      "apply_payload"
     ],
     "ensure_artifact_files": [
       "artifact",
       "registry_entry",
       "install_plan",
-      "dependency_resolution"
+      "dependency_resolution",
+      "paths",
+      "apply",
+      "apply_payload"
     ],
     "install_local_artifact": [
       "artifact",
       "registry_entry",
       "install_plan",
-      "dependency_resolution"
+      "dependency_resolution",
+      "paths",
+      "apply",
+      "apply_payload"
+    ],
+    "unregister_artifact": [
+      "artifact",
+      "registry_entry",
+      "install_plan",
+      "paths",
+      "apply",
+      "apply_payload"
     ]
   },
-  "side_effects": "Nenhum efeito colateral físico habilitado por padrão na v1.0.0; operações persistentes retornam plano seguro. Quando Dependency Resolution Json é informado, o plano inclui bloqueios, ausências, ordem de instalação e conflitos calculados pelo Dependency Resolver.",
+  "side_effects": "Efeitos colaterais físicos continuam bloqueados por padrão. Na v1.0.0, somente operações elegíveis aplicam arquivos/registry quando Dry Run? = false e Apply Changes? = true. Sem esses dois gates, retorna apenas plano seguro.",
   "errors": [
     "MISSING_REQUIRED_INPUT",
     "INVALID_JSON",
@@ -191,6 +214,8 @@
     "ARTIFACT_PLAN_FAILED",
     "PROCESSING_FAILED",
     "DEPENDENCY_RESOLUTION_BLOCKED",
-    "DEPENDENCY_INSTALL_PLAN_INVALID"
+    "DEPENDENCY_INSTALL_PLAN_INVALID",
+    "ARTIFACT_APPLY_BLOCKED",
+    "ARTIFACT_APPLY_FAILED"
   ]
 }

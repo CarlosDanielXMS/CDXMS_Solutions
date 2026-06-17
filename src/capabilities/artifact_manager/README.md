@@ -26,3 +26,10 @@ Saída pública única: `Resultado`.
 ## Integração com Dependency Resolver
 
 O Artifact Manager é o orquestrador de lifecycle. Para planos dependency-aware, ele pode receber `Dependency Resolution Json`, preferencialmente produzido por `[CDXMS] Dependency Resolver.build_resolution_plan`, e incorporar esse resultado ao `install_plan`. Na v1.0.0, a execução continua segura em dry-run e sem instalação física real.
+
+
+## Aplicação local controlada
+
+A v1.0.0 passa a suportar aplicação física controlada para operações elegíveis (`register_artifact`, `unregister_artifact`, `ensure_artifact_files` e `install_local_artifact`). A aplicação só ocorre quando `Dry Run? = false` e `Apply Changes? = true`. Sem esses dois gates, o Artifact Manager retorna apenas plano seguro.
+
+A aplicação cria/atualiza arquivos dentro do `Target Root Path`: manifest, contract, config, registry, runtime state e install marker, conforme a operação. A importação automática de `.ablock`/`.macro` no MacroDroid permanece fora do escopo.

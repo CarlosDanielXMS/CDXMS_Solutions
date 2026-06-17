@@ -106,3 +106,8 @@ python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incre
 - Artifact Manager continua como orquestrador de lifecycle.
 - Artifact Manager aceita `Dependency Resolution Json` para compor planos dependency-aware.
 - Não foi criado Action Block intermediário nesta etapa.
+
+
+## Artifact Manager local apply v1.0.0
+
+O Artifact Manager passa a suportar aplicação local real controlada para operações elegíveis. A escrita física só ocorre com `Dry Run? = false` e `Apply Changes? = true`. A importação automática de artifacts MacroDroid permanece manual.
