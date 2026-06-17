@@ -37,3 +37,10 @@
 - Adicionada JCM JsonPath Engine v1.
 - Suporte a filtros práticos e JsonPath canônico.
 - Resultado mantém `data` como dicionário oficial.
+
+
+## Homologation fix 2 — String Utils v1.0.0
+
+- Mantida versão 1.0.0.
+- Ajustada publicação de Resultado da String Utils para evitar falha de Data Json ao atravessar Magic Text para Result Manager.
+- Validação estrutural automatizada mantida com PASS=114 WARN=0 FAIL=0.

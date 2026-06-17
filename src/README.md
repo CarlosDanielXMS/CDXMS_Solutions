@@ -37,3 +37,10 @@ Depois, importar os `.ablock` no MacroDroid real e executar os testes manuais de
 - Mantida versão 1.0.0.
 - Corrigida interpretação de booleanos localizados (`Verdadeiro`/`Falso`) em Magic Text.
 - Reforçada serialização de dados textuais com aspas para Result Manager.
+
+
+## Homologation fix 2 — String Utils v1.0.0
+
+- Mantida versão 1.0.0.
+- Ajustada publicação de Resultado da String Utils para evitar falha de Data Json ao atravessar Magic Text para Result Manager.
+- Validação estrutural automatizada mantida com PASS=114 WARN=0 FAIL=0.
