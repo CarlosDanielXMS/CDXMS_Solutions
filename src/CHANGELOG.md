@@ -69,3 +69,18 @@
 - Corrigida publicação de `Resultado` no Action Block `[CDXMS] Artifact Manager`.
 - `JavaScriptAction` agora grava em `Tmp_ArtifactWorkJson`, que é a variável lida pelo `JsonParseAction`.
 - Macro temporária de homologação deve retornar `Tmp_AM_*` preenchidas após esta correção.
+
+
+## v1.0.0 pre-release — AM + DR Integration
+
+- Adicionada macro temporária `[CDXMS] Homologar AM + DR Integration v1.0.0 TEMP`.
+- Adicionada documentação de integração Artifact Manager + Dependency Resolver.
+- Package incremental mesclado mantém toda a base anterior e adiciona a etapa de integração.
+
+
+## AM/DR Concept Remodel — v1.0.0
+
+- Removida dependência rígida do Dependency Resolver para Artifact Manager.
+- Adicionada entrada `Dependency Resolution Json` no Artifact Manager.
+- Atualizado plano do Artifact Manager para incluir `dependency_resolution`.
+- Atualizada macro temporária integrada para serializar e repassar o plano do DR ao AM.

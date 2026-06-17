@@ -1,21 +1,19 @@
-# CDXMS Core + Artifact Manager + Dependency Resolver v1.0.0
+# CDXMS — AM/DR Concept Remodel v1.0.0
 
-Package incremental mesclado contendo toda a base já existente e a nova capability `[CDXMS] Dependency Resolver`.
+Package incremental mesclado contendo toda a base atual do ecossistema e a remodelagem conceitual entre Artifact Manager e Dependency Resolver.
 
-## Conteúdo
+## Decisão aplicada
 
-- Core Base v1.0.0 homologada.
-- Artifact Manager v1.0.0.
-- Dependency Resolver v1.0.0.
+- Não foi criado Action Block intermediário.
+- `[CDXMS] Dependency Resolver` tornou-se uma capability pura/stateless e não depende mais do Artifact Manager.
+- `[CDXMS] Artifact Manager` permanece como orquestrador de lifecycle e passa a aceitar `Dependency Resolution Json` para compor planos dependency-aware.
+- A instalação física continua fora desta etapa; a homologação opera em dry-run.
 
-## Importação MacroDroid
+## Arquivos principais
 
-Importar manualmente o Action Block:
-
-```text
-src/capabilities/dependency_resolver/macrodroid/[CDXMS]_Dependency_Resolver.ablock
-```
-
-## Próxima etapa
-
-Criar a macro temporária de homologação do Dependency Resolver.
+- `src/capabilities/artifact_manager/manifest.json`
+- `src/capabilities/artifact_manager/contract.json`
+- `src/capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock`
+- `src/capabilities/dependency_resolver/manifest.json`
+- `src/docs/artifact_manager_dependency_resolver_integration_architecture.md`
+- `src/homologation/am_dr_integration/macrodroid/[CDXMS]_Homologar_AM_DR_Integration_v1_0_0_TEMP.macro`

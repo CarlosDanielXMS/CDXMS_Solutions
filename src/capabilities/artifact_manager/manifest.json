@@ -48,14 +48,21 @@
   "created_at": "",
   "updated_at": "",
   "implementation_audit": {
-    "stage": "phase_3_artifact_manager_v1_0_0_local_lifecycle_foundation",
+    "stage": "phase_3_artifact_manager_v1_0_0_dependency_aware_lifecycle_plan",
     "version_policy": "pre_release_same_version_1_0_0",
-    "source_base": "remote feat/create-ecosystem-core + local homologated core v1.0.0 fix2",
-    "scope": "validation_planning_registry_entry_target_paths_and_safe_local_lifecycle_plan",
+    "source_base": "remote feat/create-ecosystem-core updated with AM + DR, remodeled for AM -> DR orchestration",
+    "scope": "artifact lifecycle planning with optional dependency resolution input",
     "manual_homologation_required": true,
     "notes": [
-      "Package merged incremental: contains all previous core files plus Artifact Manager changes.",
-      "Remote download and Dependency Resolver remain out of scope for this artifact."
+      "Artifact Manager remains lifecycle orchestrator.",
+      "Dependency Resolver remains stateless and does not depend on Artifact Manager.",
+      "Artifact Manager accepts dependency resolution output as input for dependency-aware install plans.",
+      "Physical installation remains disabled in this etapa; flow is dry-run."
     ]
+  },
+  "integrates_with": {
+    "capabilities": {
+      "dependency_resolver": ">=1.0.0"
+    }
   }
 }

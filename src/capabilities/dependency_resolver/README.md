@@ -20,3 +20,8 @@ Esta versão foca em validação, grafo, constraints de versão, detecção de c
 ## Saída
 
 Saída pública única: `Resultado`.
+
+
+## Remodelagem AM/DR
+
+O Dependency Resolver é uma capability pura/stateless. Ele não depende do Artifact Manager, não escreve registry, não baixa arquivos e não instala artifacts. Seu papel é receber manifest, registry e catálogo disponível, e devolver um `resolution_plan` para que o Artifact Manager ou outro orquestrador decida o próximo passo.

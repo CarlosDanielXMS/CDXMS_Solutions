@@ -90,3 +90,19 @@ python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incre
 - Adicionada capability `[CDXMS] Dependency Resolver`.
 - Resolve dependências declaradas em manifests, valida constraints, detecta ciclos e gera plano seguro.
 - Não instala, não baixa e não altera registry nesta versão.
+
+
+## Integração AM + DR — v1.0.0 pre-release
+
+- Mantida versão 1.0.0.
+- Adicionada macro temporária para homologar a integração por orquestração entre Artifact Manager e Dependency Resolver.
+- Mantido `Dry Run? = true` para impedir efeitos físicos durante homologação.
+- Definido que a fase remota futura usará `develop` como ref inicial de homologação.
+
+
+## AM/DR Concept Remodel — v1.0.0
+
+- Dependency Resolver não depende mais do Artifact Manager.
+- Artifact Manager continua como orquestrador de lifecycle.
+- Artifact Manager aceita `Dependency Resolution Json` para compor planos dependency-aware.
+- Não foi criado Action Block intermediário nesta etapa.

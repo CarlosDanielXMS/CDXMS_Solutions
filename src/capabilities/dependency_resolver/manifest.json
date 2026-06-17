@@ -23,8 +23,7 @@
     "core_min_version": "1.0.0",
     "capabilities": {
       "result_manager": ">=1.0.0",
-      "string_utils": ">=1.0.0",
-      "artifact_manager": ">=1.0.0"
+      "string_utils": ">=1.0.0"
     }
   },
   "operations": [
@@ -46,14 +45,15 @@
   "created_at": "",
   "updated_at": "",
   "implementation_audit": {
-    "stage": "phase_3_dependency_resolver_v1_0_0",
+    "stage": "phase_3_dependency_resolver_v1_0_0_stateless_dependency_engine",
     "version_policy": "pre_release_same_version_1_0_0",
-    "source_base": "remote feat/create-ecosystem-core updated with core plus artifact_manager",
-    "scope": "dependency validation and safe resolution plan only",
+    "source_base": "remote feat/create-ecosystem-core updated with AM + DR, remodeled to remove DR -> AM dependency",
+    "scope": "stateless dependency validation and safe resolution plan only",
     "manual_homologation_required": true,
     "notes": [
-      "No physical installation is performed by Dependency Resolver.",
-      "Artifact Manager integration comes after standalone homologation."
+      "Dependency Resolver no longer requires Artifact Manager.",
+      "Dependency Resolver remains pure/stateless: no registry write, no file write, no installation, no download.",
+      "Artifact Manager or caller orchestrates lifecycle and may consume the resolution_plan returned by this capability."
     ]
   }
 }

@@ -56,6 +56,12 @@
       "description": "Manifest do package/local bundle, quando aplicável."
     },
     {
+      "name": "Dependency Resolution Json",
+      "type": "text",
+      "required": false,
+      "description": "Resultado JSON ou resolution_plan retornado pelo Dependency Resolver para compor plano de instalação dependency-aware."
+    },
+    {
       "name": "Local Package Path",
       "type": "text",
       "required": false,
@@ -148,15 +154,34 @@
     "build_install_plan": [
       "artifact",
       "registry_entry",
-      "install_plan"
+      "install_plan",
+      "dependency_resolution"
     ],
     "get_target_paths": [
       "artifact",
       "target_root",
       "paths"
+    ],
+    "register_artifact": [
+      "artifact",
+      "registry_entry",
+      "install_plan",
+      "dependency_resolution"
+    ],
+    "ensure_artifact_files": [
+      "artifact",
+      "registry_entry",
+      "install_plan",
+      "dependency_resolution"
+    ],
+    "install_local_artifact": [
+      "artifact",
+      "registry_entry",
+      "install_plan",
+      "dependency_resolution"
     ]
   },
-  "side_effects": "Nenhum efeito colateral físico habilitado por padrão na v1.0.0; operações persistentes retornam plano seguro.",
+  "side_effects": "Nenhum efeito colateral físico habilitado por padrão na v1.0.0; operações persistentes retornam plano seguro. Quando Dependency Resolution Json é informado, o plano inclui bloqueios, ausências, ordem de instalação e conflitos calculados pelo Dependency Resolver.",
   "errors": [
     "MISSING_REQUIRED_INPUT",
     "INVALID_JSON",
@@ -164,6 +189,8 @@
     "UNSUPPORTED_OPERATION",
     "ARTIFACT_INVALID_MANIFEST",
     "ARTIFACT_PLAN_FAILED",
-    "PROCESSING_FAILED"
+    "PROCESSING_FAILED",
+    "DEPENDENCY_RESOLUTION_BLOCKED",
+    "DEPENDENCY_INSTALL_PLAN_INVALID"
   ]
 }

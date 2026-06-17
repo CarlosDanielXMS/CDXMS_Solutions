@@ -21,3 +21,8 @@ Esta versão foca em validação, planejamento e contrato. Operações que seria
 ## Saída
 
 Saída pública única: `Resultado`.
+
+
+## Integração com Dependency Resolver
+
+O Artifact Manager é o orquestrador de lifecycle. Para planos dependency-aware, ele pode receber `Dependency Resolution Json`, preferencialmente produzido por `[CDXMS] Dependency Resolver.build_resolution_plan`, e incorporar esse resultado ao `install_plan`. Na v1.0.0, a execução continua segura em dry-run e sem instalação física real.

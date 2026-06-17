@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_plus_artifact_manager_dependency_resolver",
+  "release_id": "ecosystem_core_plus_am_dependency_resolver_remodeled",
   "version": "1.0.0",
   "created_at": "",
   "artifacts": [
@@ -59,9 +59,17 @@
     "Escopo inicial focado em validação, paths, registry entry e plano local seguro.",
     "Download remoto e resolução completa de dependências permanecem fora do escopo desta entrega.",
     "Adiciona Dependency Resolver v1.0.0 como fechamento lógico da Fase 3 antes da integração com Artifact Manager.",
-    "Dependency Resolver gera plano seguro: dependências ausentes, constraints de versão, ciclos e ordem de instalação."
+    "Dependency Resolver gera plano seguro: dependências ausentes, constraints de versão, ciclos e ordem de instalação.",
+    "Adiciona homologação integrada Artifact Manager + Dependency Resolver v1.0.0 por orquestração.",
+    "Mantém AM e DR desacoplados para evitar ciclo de dependência e acoplamento por GUID.",
+    "A instalação física real continua fora desta etapa; fluxo integrado opera em dry-run.",
+    "Fase remota futura usará develop como ref de homologação.",
+    "Remodela a direção conceitual AM/DR: Artifact Manager orquestra lifecycle; Dependency Resolver é puro/stateless.",
+    "Remove dependência rígida Dependency Resolver -> Artifact Manager.",
+    "Artifact Manager passa a aceitar Dependency Resolution Json para planos dependency-aware em dry-run.",
+    "Mantém sem Action Block intermediário nesta etapa."
   ],
-  "artifact_id": "ecosystem_core_plus_artifact_manager_dependency_resolver",
+  "artifact_id": "ecosystem_core_plus_am_dependency_resolver_remodeled",
   "artifact_type": "package",
-  "package": "CDXMS_Core_Plus_AM_Dependency_Resolver_v1_0_0_incremental_merged_package.zip"
+  "package": "CDXMS_AM_DR_Remodel_v1_0_0_incremental_merged_package.zip"
 }
