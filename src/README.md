@@ -9,6 +9,7 @@ Base inicial do ecossistema CDXMS Solutions para MacroDroid.
 - `[CDXMS] Registrar Resultado`
 - `[CDXMS] Logger`
 - `[CDXMS] String Utils`
+- `[CDXMS] Artifact Manager`
 
 ## Saneamento pré-release v1.0.0
 
@@ -44,3 +45,32 @@ Depois, importar os `.ablock` no MacroDroid real e executar os testes manuais de
 - Mantida versão 1.0.0.
 - Ajustada publicação de Resultado da String Utils para evitar falha de Data Json ao atravessar Magic Text para Result Manager.
 - Validação estrutural automatizada mantida com PASS=114 WARN=0 FAIL=0.
+
+
+## Artifact Manager v1.0.0 — Fase 3
+
+Esta entrega adiciona `[CDXMS] Artifact Manager` à base Core v1.0.0 já homologada.
+
+Diferente de um pacote diferencial isolado, este package é incremental mesclado: contém todos os arquivos anteriores da base Core homologada e adiciona/atualiza os arquivos necessários para registrar o Artifact Manager.
+
+Escopo inicial:
+
+- validar manifests e contratos de artifacts;
+- gerar status local de artifact;
+- construir entrada de registry;
+- calcular paths de destino;
+- montar plano local seguro de instalação;
+- manter operações persistentes/destrutivas em modo planejado até homologação completa do lifecycle.
+
+Fora do escopo desta entrega:
+
+- download remoto via GitHub;
+- resolução completa de dependências;
+- instalação automática de `.macro`/`.ablock` dentro do MacroDroid.
+
+Validação recomendada:
+
+```bash
+python src/scripts/validate_core_plus_artifact_manager_v1_0_0.py
+python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py
+```

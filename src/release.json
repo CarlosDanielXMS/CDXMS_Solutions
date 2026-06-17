@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_base",
+  "release_id": "ecosystem_core_plus_artifact_manager",
   "version": "1.0.0",
   "created_at": "",
   "artifacts": [
@@ -34,6 +34,12 @@
       "artifact_type": "capability",
       "version": "1.0.0",
       "path": "capabilities/string_utils/manifest.json"
+    },
+    {
+      "artifact_id": "artifact_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/artifact_manager/manifest.json"
     }
   ],
   "notes": [
@@ -41,9 +47,13 @@
     "Saneamento pré-release sem alteração de versão pública.",
     "Ações nativas priorizadas quando seguras, claras e homologadas.",
     "JavaScript mantido onde reduz complexidade ou implementa engine real.",
-    "Shell restrito ao JCM como fallback controlado até homologação de FileOperation."
+    "Shell restrito ao JCM como fallback controlado até homologação de FileOperation.",
+    "Adiciona Artifact Manager v1.0.0 como início da Fase 3.",
+    "Package incremental mesclado: inclui toda a base homologada anterior mais as alterações do Artifact Manager.",
+    "Escopo inicial focado em validação, paths, registry entry e plano local seguro.",
+    "Download remoto e resolução completa de dependências permanecem fora do escopo desta entrega."
   ],
-  "artifact_id": "ecosystem_core_base",
+  "artifact_id": "ecosystem_core_plus_artifact_manager",
   "artifact_type": "package",
-  "package": "CDXMS_Core_Capabilities_v1_0_0_final_sanitized_package.zip"
+  "package": "CDXMS_Core_Plus_Artifact_Manager_v1_0_0_incremental_merged_package.zip"
 }

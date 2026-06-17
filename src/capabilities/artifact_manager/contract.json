@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "artifact_id": "artifact_manager",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Artifact Manager",
+  "description": "Contrato do Artifact Manager v1.0.0.",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "text",
+      "required": true,
+      "description": "Operação técnica do Artifact Manager."
+    },
+    {
+      "name": "Artifact Type",
+      "type": "text",
+      "required": false,
+      "description": "Tipo do artifact: core, capability, solution, package ou catalog."
+    },
+    {
+      "name": "Artifact Id",
+      "type": "text",
+      "required": false,
+      "description": "Id técnico do artifact."
+    },
+    {
+      "name": "Manifest Json",
+      "type": "text",
+      "required": false,
+      "description": "Manifest JSON do artifact a validar/processar."
+    },
+    {
+      "name": "Contract Json",
+      "type": "text",
+      "required": false,
+      "description": "Contract JSON associado ao artifact, quando aplicável."
+    },
+    {
+      "name": "Config Json",
+      "type": "text",
+      "required": false,
+      "description": "Config/default JSON associado ao artifact, quando aplicável."
+    },
+    {
+      "name": "Registry Json",
+      "type": "text",
+      "required": false,
+      "description": "Registry local atual em JSON, quando disponível."
+    },
+    {
+      "name": "Package Manifest Json",
+      "type": "text",
+      "required": false,
+      "description": "Manifest do package/local bundle, quando aplicável."
+    },
+    {
+      "name": "Local Package Path",
+      "type": "text",
+      "required": false,
+      "description": "Caminho local do package/artifact de origem."
+    },
+    {
+      "name": "Target Root Path",
+      "type": "text",
+      "required": false,
+      "description": "Raiz de destino CDXMS local. Default: /storage/emulated/0/Documents/CDXMS_Solutions."
+    },
+    {
+      "name": "Preserve User Config?",
+      "type": "boolean",
+      "required": false,
+      "description": "Define se configs existentes devem ser preservadas."
+    },
+    {
+      "name": "Dry Run?",
+      "type": "boolean",
+      "required": false,
+      "description": "Quando verdadeiro, retorna apenas plano sem efeitos colaterais."
+    },
+    {
+      "name": "Strict Mode?",
+      "type": "boolean",
+      "required": false,
+      "description": "Quando verdadeiro, valida campos obrigatórios com mais rigor."
+    },
+    {
+      "name": "Session Id",
+      "type": "text",
+      "required": false,
+      "description": "Identificador lógico da sessão."
+    },
+    {
+      "name": "Correlation Id",
+      "type": "text",
+      "required": false,
+      "description": "Identificador de correlação para logs/resultados."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Resultado CDXMS com data/error/meta."
+    }
+  ],
+  "operations": {
+    "validate_artifact": {
+      "description": "Valida manifest e metadados mínimos do artifact."
+    },
+    "get_artifact_status": {
+      "description": "Obtém status local do artifact a partir de registry informado."
+    },
+    "build_registry_entry": {
+      "description": "Gera entrada padronizada para core/registry.json."
+    },
+    "build_install_plan": {
+      "description": "Gera plano local de instalação sem aplicar efeitos colaterais."
+    },
+    "get_target_paths": {
+      "description": "Calcula paths locais de destino."
+    },
+    "register_artifact": {
+      "description": "Gera plano de registro local do artifact."
+    },
+    "unregister_artifact": {
+      "description": "Gera plano de remoção lógica/desregistro."
+    },
+    "ensure_artifact_files": {
+      "description": "Gera plano de garantia dos arquivos do artifact."
+    },
+    "install_local_artifact": {
+      "description": "Gera plano de instalação local. Download remoto fora do escopo."
+    }
+  },
+  "result_data_contract": {
+    "validate_artifact": [
+      "valid",
+      "artifact",
+      "warnings",
+      "manifest_summary"
+    ],
+    "build_registry_entry": [
+      "artifact",
+      "registry_entry"
+    ],
+    "build_install_plan": [
+      "artifact",
+      "registry_entry",
+      "install_plan"
+    ],
+    "get_target_paths": [
+      "artifact",
+      "target_root",
+      "paths"
+    ]
+  },
+  "side_effects": "Nenhum efeito colateral físico habilitado por padrão na v1.0.0; operações persistentes retornam plano seguro.",
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_JSON",
+    "INVALID_ENUM_VALUE",
+    "UNSUPPORTED_OPERATION",
+    "ARTIFACT_INVALID_MANIFEST",
+    "ARTIFACT_PLAN_FAILED",
+    "PROCESSING_FAILED"
+  ]
+}

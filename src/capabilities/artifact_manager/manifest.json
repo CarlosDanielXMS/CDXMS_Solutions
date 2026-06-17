@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "artifact_manager",
+    "name": "Artifact Manager",
+    "display_name": "[CDXMS] Artifact Manager",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Gerenciador local de validação, status, paths, registry entry e plano de lifecycle de artifacts CDXMS.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Artifact Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0",
+      "result_manager": ">=1.0.0",
+      "logger": ">=1.0.0",
+      "string_utils": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "validate_artifact",
+    "get_artifact_status",
+    "build_registry_entry",
+    "build_install_plan",
+    "get_target_paths",
+    "register_artifact",
+    "unregister_artifact",
+    "ensure_artifact_files",
+    "install_local_artifact"
+  ],
+  "lifecycle_scope": {
+    "v1_0_0": "validation_planning_registry_entry_and_safe_local_lifecycle_plan",
+    "side_effects": "disabled_by_default_until_full_lifecycle_homologation",
+    "remote_downloads": "out_of_scope"
+  },
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "implementation_audit": {
+    "stage": "phase_3_artifact_manager_v1_0_0_local_lifecycle_foundation",
+    "version_policy": "pre_release_same_version_1_0_0",
+    "source_base": "remote feat/create-ecosystem-core + local homologated core v1.0.0 fix2",
+    "scope": "validation_planning_registry_entry_target_paths_and_safe_local_lifecycle_plan",
+    "manual_homologation_required": true,
+    "notes": [
+      "Package merged incremental: contains all previous core files plus Artifact Manager changes.",
+      "Remote download and Dependency Resolver remain out of scope for this artifact."
+    ]
+  }
+}

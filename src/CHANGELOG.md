@@ -44,3 +44,12 @@
 - Mantida versão 1.0.0.
 - Ajustada publicação de Resultado da String Utils para evitar falha de Data Json ao atravessar Magic Text para Result Manager.
 - Validação estrutural automatizada mantida com PASS=114 WARN=0 FAIL=0.
+
+
+## 1.0.0 — Artifact Manager v1.0.0 incremental merged
+
+- Mantida versão pública `1.0.0`.
+- Adicionada capability `[CDXMS] Artifact Manager`.
+- Atualizados `core/enums.json`, `core/errors.json`, `release.json`, `checksums.json`, `README.md` e documentação em `docs/`.
+- Package corrigido para ser incremental mesclado, contendo toda a base Core homologada anterior mais as alterações do Artifact Manager.
+- Download remoto e Dependency Resolver permanecem fora do escopo desta entrega.

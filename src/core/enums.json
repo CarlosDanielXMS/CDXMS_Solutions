@@ -141,6 +141,26 @@
       "case_sensitive": "case_sensitive",
       "case_insensitive": "case_insensitive",
       "normalized": "normalized"
+    },
+    "artifact_manager_operation": {
+      "validate_artifact": "validate_artifact",
+      "get_artifact_status": "get_artifact_status",
+      "build_registry_entry": "build_registry_entry",
+      "build_install_plan": "build_install_plan",
+      "get_target_paths": "get_target_paths",
+      "register_artifact": "register_artifact",
+      "unregister_artifact": "unregister_artifact",
+      "ensure_artifact_files": "ensure_artifact_files",
+      "install_local_artifact": "install_local_artifact"
+    },
+    "artifact_lifecycle_status": {
+      "planned": "planned",
+      "valid": "valid",
+      "invalid": "invalid",
+      "not_installed": "not_installed",
+      "installed": "installed",
+      "disabled": "disabled",
+      "blocked": "blocked"
     }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_id": "artifact_manager",
+  "artifact_type": "capability",
+  "version": "1.0.0",
+  "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/feat/create-ecosystem-core/src",
+  "files": [
+    "capabilities/artifact_manager/manifest.json",
+    "capabilities/artifact_manager/contract.json",
+    "capabilities/artifact_manager/config.default.json",
+    "capabilities/artifact_manager/README.md",
+    "capabilities/artifact_manager/body.md",
+    "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock"
+  ],
+  "manual_import_required": true
+}

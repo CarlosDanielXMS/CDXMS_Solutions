@@ -1,19 +1,26 @@
-# CDXMS Core Capabilities v1.0.0 — Homologation Fix 2
+# CDXMS Core + Artifact Manager v1.0.0 — Incremental Merged Package
 
-Pacote de correção para a homologação da Core Base v1.0.0.
+Este ZIP substitui o package anterior do Artifact Manager que havia sido gerado apenas como diferencial.
 
-## Correção principal
+Aqui, **incremental** significa: base anterior completa + alterações novas mescladas.
 
-A `[CDXMS] String Utils` agora publica `Resultado` diretamente por `JsonParseAction`, evitando erro `INVALID_JSON` em `Data Json` quando os dados são passados para o Result Manager por Magic Text.
+## Conteúdo
 
-A versão permanece `1.0.0`.
+- Core v1.0.0 homologado.
+- Capabilities já existentes:
+  - Json Config Manager
+  - Bootstrap
+  - Registrar Resultado
+  - Logger
+  - String Utils
+- Nova capability:
+  - Artifact Manager
+- Documentação e scripts de validação atualizados.
+- `release.json`, `checksums.json`, `core/enums.json` e `core/errors.json` mesclados corretamente.
 
 ## Validação
 
-```text
-PASS=114 WARN=0 FAIL=0
+```bash
+python src/scripts/validate_core_plus_artifact_manager_v1_0_0.py
+python src/capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py
 ```
-
-## Aplicação
-
-Copie o conteúdo de `src/` para o repositório/estrutura local e importe novamente a macro temporária corrigida no MacroDroid.

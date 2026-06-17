@@ -56,6 +56,11 @@
     "STRING_INVALID_REGEX": "Regex Pattern inválido.",
     "STRING_EMPTY_SEARCH_TEXT": "Search Text é obrigatório para esta operação.",
     "STRING_INVALID_MAX_LENGTH": "Max Length precisa ser um inteiro maior ou igual a zero.",
-    "STRING_TRANSFORM_FAILED": "Não foi possível transformar o texto."
+    "STRING_TRANSFORM_FAILED": "Não foi possível transformar o texto.",
+    "ARTIFACT_INVALID_MANIFEST": "Manifest do artifact inválido.",
+    "ARTIFACT_PLAN_FAILED": "Não foi possível gerar o plano do artifact.",
+    "ARTIFACT_REGISTRY_ENTRY_FAILED": "Não foi possível construir entrada de registry do artifact.",
+    "ARTIFACT_TARGET_PATH_INVALID": "Path de destino do artifact inválido.",
+    "ARTIFACT_LOCAL_INSTALL_NOT_APPLIED": "Instalação local não aplicada nesta execução."
   }
 }
