@@ -5,7 +5,7 @@
   "artifact_id": "artifact_manager",
   "version": "1.0.0",
   "action_block": "[CDXMS] Artifact Manager",
-  "description": "Contrato do Artifact Manager v1.0.0.",
+  "description": "Contrato do Artifact Manager v1.0.0 consolidado para apply via Json Config Manager.",
   "inputs": [
     {
       "name": "Operation",
@@ -89,13 +89,13 @@
       "name": "Apply Changes?",
       "type": "boolean",
       "required": false,
-      "description": "Gate explícito obrigatório para permitir efeitos colaterais físicos quando Dry Run? for falso. Em Strict Mode, operações aplicáveis com Dry Run? = false e Apply Changes? diferente de verdadeiro devem retornar blocked."
+      "description": "Gate explícito obrigatório para permitir efeitos colaterais físicos quando Dry Run? for falso. O executor físico deve ser sempre o Json Config Manager."
     },
     {
       "name": "Strict Mode?",
       "type": "boolean",
       "required": false,
-      "description": "Quando verdadeiro, valida campos obrigatórios com mais rigor."
+      "description": "Quando verdadeiro, valida campos obrigatórios com mais rigor e bloqueia apply sem confirmação/verificação."
     },
     {
       "name": "Session Id",
@@ -119,7 +119,7 @@
   ],
   "operations": {
     "validate_artifact": {
-      "description": "Valida manifest e metadados mínimos do artifact."
+      "description": "Valida manifest e metadados mínimos do artifact sem efeitos colaterais."
     },
     "get_artifact_status": {
       "description": "Obtém status local do artifact a partir de registry informado."
@@ -130,20 +130,26 @@
     "build_install_plan": {
       "description": "Gera plano local de instalação sem aplicar efeitos colaterais."
     },
+    "build_jcm_apply_plan": {
+      "description": "Gera plano de operações JCM necessárias para aplicar fisicamente o artifact. Não executa filesystem diretamente."
+    },
     "get_target_paths": {
       "description": "Calcula paths locais de destino."
     },
     "register_artifact": {
-      "description": "Gera plano de registro local do artifact."
+      "description": "Gera plano de registro local do artifact e, quando permitido, exige execução por JCM e verificação pós-escrita."
     },
     "unregister_artifact": {
-      "description": "Gera plano de remoção lógica/desregistro."
+      "description": "Gera plano de remoção lógica/desregistro, sem purge destrutivo por padrão."
     },
     "ensure_artifact_files": {
-      "description": "Gera plano de garantia dos arquivos do artifact."
+      "description": "Gera plano de garantia dos arquivos do artifact e delega apply físico ao JCM."
     },
     "install_local_artifact": {
-      "description": "Gera plano de instalação local. Download remoto fora do escopo."
+      "description": "Gera plano de instalação local. Download remoto fora do escopo; apply físico somente via JCM."
+    },
+    "verify_local_apply": {
+      "description": "Valida resultados de leitura/verificação pós-escrita retornados pelo JCM."
     }
   },
   "result_data_contract": {
@@ -163,9 +169,16 @@
       "install_plan",
       "dependency_resolution",
       "apply",
-      "apply_payload",
-      "side_effects_delegated_to_shell",
+      "jcm_apply_plan",
+      "jcm_verification_plan",
       "debug_inputs"
+    ],
+    "build_jcm_apply_plan": [
+      "artifact",
+      "paths",
+      "apply",
+      "jcm_apply_plan",
+      "jcm_verification_plan"
     ],
     "get_target_paths": [
       "artifact",
@@ -179,8 +192,8 @@
       "dependency_resolution",
       "paths",
       "apply",
-      "apply_payload",
-      "side_effects_delegated_to_shell",
+      "jcm_apply_plan",
+      "jcm_verification_plan",
       "debug_inputs"
     ],
     "ensure_artifact_files": [
@@ -190,8 +203,8 @@
       "dependency_resolution",
       "paths",
       "apply",
-      "apply_payload",
-      "side_effects_delegated_to_shell",
+      "jcm_apply_plan",
+      "jcm_verification_plan",
       "debug_inputs"
     ],
     "install_local_artifact": [
@@ -201,8 +214,8 @@
       "dependency_resolution",
       "paths",
       "apply",
-      "apply_payload",
-      "side_effects_delegated_to_shell",
+      "jcm_apply_plan",
+      "jcm_verification_plan",
       "debug_inputs"
     ],
     "unregister_artifact": [
@@ -211,12 +224,18 @@
       "install_plan",
       "paths",
       "apply",
-      "apply_payload",
-      "side_effects_delegated_to_shell",
+      "jcm_apply_plan",
+      "jcm_verification_plan",
       "debug_inputs"
+    ],
+    "verify_local_apply": [
+      "artifact",
+      "apply",
+      "verification",
+      "failed_items"
     ]
   },
-  "side_effects": "Efeitos físicos somente quando Dry Run? = false e Apply Changes? = true. Em Strict Mode, ausência do gate explícito bloqueia a operação aplicável.",
+  "side_effects": "O Artifact Manager não executa filesystem diretamente. Efeitos físicos somente quando Dry Run? = false e Apply Changes? = true, por meio de operações do Json Config Manager, com verificação pós-escrita obrigatória.",
   "errors": [
     "MISSING_REQUIRED_INPUT",
     "INVALID_JSON",
@@ -230,6 +249,8 @@
     "ARTIFACT_APPLY_BLOCKED",
     "ARTIFACT_APPLY_FAILED",
     "ARTIFACT_APPLY_GATE_DISABLED",
-    "ARTIFACT_APPLY_NOT_VERIFIED"
+    "ARTIFACT_APPLY_REQUIRES_JCM",
+    "ARTIFACT_APPLY_NOT_VERIFIED",
+    "JCM_EXECUTION_FAILED"
   ]
 }

@@ -11,7 +11,9 @@
     "capabilities/artifact_manager/config.default.json",
     "capabilities/artifact_manager/README.md",
     "capabilities/artifact_manager/body.md",
-    "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock"
+    "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock",
+    "capabilities/artifact_manager/scripts/validate_artifact_manager_incremental.py",
+    "capabilities/artifact_manager/tests/manual_test.md"
   ],
   "manual_import_required": true
 }

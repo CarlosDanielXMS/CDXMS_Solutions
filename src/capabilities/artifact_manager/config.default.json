@@ -8,6 +8,10 @@
     "preserve_user_config": true,
     "dry_run_by_default": true,
     "strict_mode_by_default": false,
+    "apply_executor": "json_config_manager",
+    "allow_shell_apply": false,
+    "require_jcm_executor": true,
+    "require_post_write_verification": true,
     "remote_downloads_enabled": false,
     "manual_import_required_for_macrodroid_exports": true
   },
