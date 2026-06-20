@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "remote_source_manager",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Remote Source Manager",
+  "description": "Contrato da camada de transporte/validação remota GitHub raw para documentos JSON de controle.",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica do Remote Source Manager."
+    },
+    {
+      "name": "Source Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Fonte remota completa. Vazio usa a fonte oficial de homologação."
+    },
+    {
+      "name": "Source Id",
+      "type": "string",
+      "required": false,
+      "description": "Id esperado da fonte remota."
+    },
+    {
+      "name": "Remote Path",
+      "type": "string",
+      "required": "conditional",
+      "description": "Path relativo dentro de base_raw_url."
+    },
+    {
+      "name": "Expected File Type",
+      "type": "string",
+      "required": false,
+      "description": "file_type esperado somente em fetch_json."
+    },
+    {
+      "name": "Cache Root Path",
+      "type": "string",
+      "required": false,
+      "description": "Raiz local de staging/cache dentro do base_path CDXMS."
+    },
+    {
+      "name": "Timeout Seconds",
+      "type": "integer",
+      "required": false,
+      "description": "Timeout HTTP entre 5 e 120 segundos."
+    },
+    {
+      "name": "Strict Mode?",
+      "type": "boolean",
+      "required": false,
+      "description": "Bloqueia divergências de fonte, schema e verificação quando verdadeiro."
+    },
+    {
+      "name": "Session Id",
+      "type": "string",
+      "required": false,
+      "description": "Id de sessão."
+    },
+    {
+      "name": "Correlation Id",
+      "type": "string",
+      "required": false,
+      "description": "Id de correlação."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato universal CDXMS."
+    }
+  ],
+  "operations": {
+    "validate_source": {
+      "description": "Valida source.id/type/repository/ref/base_raw_url sem acessar a rede.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "side_effects": false
+    },
+    "get_source_status": {
+      "description": "Retorna resumo e estado habilitado da fonte sem acessar a rede.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "side_effects": false
+    },
+    "fetch_catalog": {
+      "description": "Baixa o catálogo configurado pela fonte, valida local_catalog e prepara staging.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "side_effects": "download_to_staging"
+    },
+    "fetch_release_manifest": {
+      "description": "Baixa release.json, valida package/schema/namespace e prepara staging.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "side_effects": "download_to_staging"
+    },
+    "fetch_remote_manifest": {
+      "description": "Baixa um remote_artifact_manifest informado por Remote Path e prepara staging.",
+      "required_inputs": [
+        "Operation",
+        "Remote Path"
+      ],
+      "side_effects": "download_to_staging"
+    },
+    "fetch_json": {
+      "description": "Baixa documento JSON CDXMS de controle e valida Expected File Type quando informado.",
+      "required_inputs": [
+        "Operation",
+        "Remote Path"
+      ],
+      "side_effects": "download_to_staging"
+    }
+  },
+  "result_data_contract": [
+    "source",
+    "request",
+    "http",
+    "validation",
+    "cache",
+    "document_summary",
+    "scope"
+  ],
+  "security": {
+    "required_scheme": "https",
+    "allowed_host": "raw.githubusercontent.com",
+    "blocked_url_fragment": "/blob/",
+    "download_target": "temporary_staging_only",
+    "allow_any_certificate": false,
+    "control_plane_only": true,
+    "artifact_payload_download_enabled": false
+  },
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_JSON",
+    "INVALID_ENUM_VALUE",
+    "UNSUPPORTED_OPERATION",
+    "REMOTE_SOURCE_INVALID",
+    "REMOTE_SOURCE_DISABLED",
+    "HTTP_REQUEST_FAILED",
+    "HTTP_UNEXPECTED_STATUS",
+    "HTTP_INVALID_RESPONSE",
+    "REMOTE_CACHE_VERIFICATION_FAILED",
+    "SECURITY_STOP",
+    "PROCESSING_FAILED"
+  ],
+  "side_effects": "Somente download HTTP para staging em packages/downloaded/remote_source_manager e verificação por JCM. Não instala, não registra e não altera destino final."
+}

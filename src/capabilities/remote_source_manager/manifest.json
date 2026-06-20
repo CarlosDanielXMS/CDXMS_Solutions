@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "remote_source_manager",
+    "name": "Remote Source Manager",
+    "display_name": "[CDXMS] Remote Source Manager",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Gerencia fontes remotas GitHub raw e baixa documentos JSON de controle para staging local validado, sem executar lifecycle ou instalação de artifacts.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/remote_source_manager/macrodroid/[CDXMS]_Remote_Source_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Remote Source Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "validate_source",
+    "get_source_status",
+    "fetch_catalog",
+    "fetch_release_manifest",
+    "fetch_remote_manifest",
+    "fetch_json"
+  ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "lifecycle_scope": {
+    "v1_0_0": "github_raw_control_plane_validation_and_staging",
+    "transport": "macrodroid_http_request",
+    "staging_verification": "json_config_manager",
+    "artifact_payload_downloads": "blocked_until_checksum_validation_is_homologated",
+    "artifact_installation": "out_of_scope",
+    "registry_updates": "out_of_scope"
+  },
+  "implementation_audit": {
+    "stage": "phase_4_remote_source_manager_v1_0_0_control_plane",
+    "version_policy": "pre_release_same_version_1_0_0",
+    "source_base": "full merged remote distribution readiness package 2026-06-20",
+    "manual_homologation_required": true,
+    "notes": [
+      "A capability usa HTTP Request nativo e nunca curl para transporte HTTP comum.",
+      "Downloads são salvos em staging temporário, nunca diretamente sobre arquivos instalados.",
+      "O Json Config Manager prepara a pasta e relê o JSON baixado para verificação pós-download.",
+      "A v1.0.0 cobre somente documentos JSON de controle: catálogo, release manifest, remote manifest e JSON genérico CDXMS.",
+      "Bulk artifact download e checksum SHA-256 permanecem bloqueados até validação nativa ou capability específica, conforme a Knowledge Base."
+    ],
+    "action_profile": {
+      "total_actions": 16,
+      "unique_action_classes": 8,
+      "javascript_actions": 2,
+      "http_request_actions": 1,
+      "action_block_calls": 2,
+      "shell_actions": 0
+    },
+    "export_checked_against_contract": true
+  }
+}

@@ -7,7 +7,7 @@ ERRORS = []
 WARNINGS = []
 CAPABILITIES = [
     'json_config_manager', 'bootstrap', 'result_manager', 'logger',
-    'string_utils', 'artifact_manager', 'dependency_resolver',
+    'string_utils', 'artifact_manager', 'dependency_resolver', 'remote_source_manager',
 ]
 
 def error(message):

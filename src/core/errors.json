@@ -70,7 +70,14 @@
     "ARTIFACT_APPLY_BLOCKED": "Aplicação física do artifact bloqueada por regra de segurança.",
     "ARTIFACT_APPLY_FAILED": "Falha ao aplicar arquivos/registry do artifact.",
     "ARTIFACT_APPLY_GATE_DISABLED": "Gate de aplicação física não habilitado para o artifact.",
-    "ARTIFACT_APPLY_NOT_VERIFIED": "A aplicação física do artifact não foi verificada."
+    "ARTIFACT_APPLY_NOT_VERIFIED": "A aplicação física do artifact não foi verificada.",
+    "REMOTE_SOURCE_INVALID": "Fonte remota inválida.",
+    "REMOTE_SOURCE_DISABLED": "Fonte remota desabilitada.",
+    "HTTP_REQUEST_FAILED": "Falha ao executar requisição HTTP.",
+    "HTTP_UNEXPECTED_STATUS": "A requisição HTTP retornou status inesperado.",
+    "HTTP_EMPTY_RESPONSE": "A resposta HTTP está vazia.",
+    "HTTP_INVALID_RESPONSE": "A resposta HTTP não atende ao contrato esperado.",
+    "REMOTE_CACHE_VERIFICATION_FAILED": "O staging remoto não pôde ser verificado pelo Json Config Manager."
   },
   "updated_at": ""
 }

@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0 — Remote Source Manager
+
+- Mantida versão pré-release `1.0.0`.
+- Implementado `[CDXMS] Remote Source Manager` com HTTP Request nativo.
+- Adicionadas operações de validação de fonte, status, catálogo, release manifest, remote manifest e JSON de controle.
+- Downloads passam primeiro por staging em `packages/downloaded/remote_source_manager/`.
+- Código HTTP e headers são capturados; schema, namespace e identidade são validados.
+- Staging é relido/verificado pelo Json Config Manager.
+- Nenhuma instalação, alteração de registry ou apply final é executada pela capability.
+- Bulk payload download e checksum SHA-256 em runtime permanecem bloqueados até homologação específica, evitando falso senso de integridade.
+
 ## 1.0.0 — Remote distribution readiness corrigida
 
 - Mantida versão pré-release `1.0.0`.

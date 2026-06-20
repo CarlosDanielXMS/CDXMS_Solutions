@@ -38,14 +38,14 @@
       "target_path": "core/enums.json",
       "write_policy": "overwrite_versioned",
       "file_role": "enums",
-      "checksum_sha256": "9c7ae0a4c5b2e1e17055762fc7fb047efbe8877790bb0c5c2b1218d5d8acb840"
+      "checksum_sha256": "780c11f84186724b88c50e8ce566de56911d3a1b08a75dd1d624655abb5c474b"
     },
     {
       "path": "core/errors.json",
       "target_path": "core/errors.json",
       "write_policy": "overwrite_versioned",
       "file_role": "errors",
-      "checksum_sha256": "3c6a80a51d28a529b1c65fe590b1a9c49c5d72594b6207d011114c795bbde02c"
+      "checksum_sha256": "eedf3e07db10cb32a22c9a362d691e581d9cd27e7c8dc9b03144228a4450f0eb"
     },
     {
       "path": "core/result_contract.json",

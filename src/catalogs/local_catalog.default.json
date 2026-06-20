@@ -74,6 +74,16 @@
       "remote_manifest_path": "capabilities/dependency_resolver/remote_manifest.json",
       "installable": true,
       "visible": false
+    },
+    {
+      "artifact_id": "remote_source_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Remote Source Manager",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/remote_source_manager/manifest.json",
+      "remote_manifest_path": "capabilities/remote_source_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
     }
   ],
   "core": [

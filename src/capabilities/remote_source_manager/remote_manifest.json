@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "remote_source_manager",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/remote_source_manager/manifest.json",
+      "target_path": "capabilities/remote_source_manager/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "31f7eba00627973057af20e7d4218574e7f905680e9b3a75bffc072c095c1d3f"
+    },
+    {
+      "path": "capabilities/remote_source_manager/contract.json",
+      "target_path": "capabilities/remote_source_manager/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "9ecb2e362ace4fb25b588d12e501cb6c26d2f695e6ff5a03a5f01db004ab5bae"
+    },
+    {
+      "path": "capabilities/remote_source_manager/config.default.json",
+      "target_path": "capabilities/remote_source_manager/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "66047dae98c26d9e7377afaa287c32bee77364b481652f9e611d22a7f00d3d56"
+    },
+    {
+      "path": "capabilities/remote_source_manager/macrodroid/[CDXMS]_Remote_Source_Manager.ablock",
+      "target_path": "capabilities/remote_source_manager/macrodroid/[CDXMS]_Remote_Source_Manager.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "a843c0a5f2e89bb136b29847098e2e8e4e5d45fbf5a198e72213f3703683a57f"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/remote_source_manager/macrodroid/[CDXMS]_Remote_Source_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Remote Source Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "updated_at": ""
+}

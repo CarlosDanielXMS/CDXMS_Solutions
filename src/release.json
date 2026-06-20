@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_remote_distribution_readiness",
-  "artifact_id": "ecosystem_core_remote_distribution_readiness",
+  "release_id": "ecosystem_core_remote_source_manager",
+  "artifact_id": "ecosystem_core_remote_source_manager",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -70,15 +70,22 @@
       "version": "1.0.0",
       "path": "capabilities/dependency_resolver/manifest.json",
       "remote_manifest_path": "capabilities/dependency_resolver/remote_manifest.json"
+    },
+    {
+      "artifact_id": "remote_source_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/remote_source_manager/manifest.json",
+      "remote_manifest_path": "capabilities/remote_source_manager/remote_manifest.json"
     }
   ],
   "notes": [
     "Base completa e mesclada do ecossistema atual.",
     "Artifact Manager consolidado para apply via Json Config Manager.",
-    "Remote manifests schema v1 padronizados preservando source.type, source.ref e source.base_raw_url.",
-    "Homologação remota usa develop; release estável futura usará tag/release.",
-    "Download remoto e Remote Source Manager serão implementados na próxima fase.",
-    "Importação automática de .macro/.ablock continua fora de escopo até homologação específica."
+    "Remote Source Manager v1.0.0 implementado para fonte GitHub raw e documentos JSON de controle.",
+    "Downloads usam HTTP Request nativo, staging temporário e releitura/verificação pelo JCM.",
+    "Bulk payload download, SHA-256 em runtime e instalação remota permanecem bloqueados até homologação específica.",
+    "Importação automática de .macro/.ablock continua fora de escopo."
   ],
-  "package": "CDXMS_Remote_Distribution_Readiness_v1_0_0_full_merged_corrected.zip"
+  "package": "CDXMS_Remote_Source_Manager_v1_0_0_full_merged_package_2026_06_20.zip"
 }

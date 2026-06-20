@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "capability_config",
+  "artifact_id": "remote_source_manager",
+  "version": "1.0.0",
+  "settings": {
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "default_source_id": "cdxms_official_github",
+    "default_cache_root": "/storage/emulated/0/Documents/CDXMS_Solutions/packages/downloaded/remote_source_manager",
+    "allowed_source_types": [
+      "github_raw"
+    ],
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "allowed_methods": [
+      "GET"
+    ],
+    "allowed_control_document_extensions": [
+      ".json"
+    ],
+    "default_timeout_seconds": 30,
+    "min_timeout_seconds": 5,
+    "max_timeout_seconds": 120,
+    "follow_redirects": true,
+    "allow_any_certificate": false,
+    "strict_mode_default": true,
+    "block_github_blob_urls": true,
+    "control_plane_only": true,
+    "artifact_payload_download_enabled": false,
+    "checksum_validation": "deferred_until_native_or_dedicated_capability"
+  },
+  "updated_at": ""
+}

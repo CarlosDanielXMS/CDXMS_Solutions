@@ -1,40 +1,51 @@
-# Distribuição remota GitHub — preparação mínima v1.0.0
+# Distribuição remota GitHub — Remote Source Manager v1.0.0
 
-## Decisão
+## Fluxo implementado
 
 ```text
-GitHub raw -> camada remota futura -> cache via JCM -> Dependency Resolver -> Artifact Manager -> apply/verify via JCM
+Sources/Catalog control JSON
+  -> [CDXMS] Remote Source Manager
+      -> valida source/url/path
+      -> HTTP Request GET
+      -> salva em staging temporário
+      -> valida status/schema/namespace/identidade
+      -> JCM relê e verifica staging
+  -> chamador recebe Resultado + cache.file_path
 ```
 
-Nesta etapa não é criada uma capability de download. A entrega apenas padroniza os contratos e arquivos de controle necessários.
+## Separação de responsabilidades
+
+- **Remote Source Manager:** fonte, URL, transporte HTTP, validação remota e staging.
+- **Json Config Manager:** preparação de pasta e verificação do JSON baixado.
+- **Dependency Resolver:** dependências, sem side effects.
+- **Artifact Manager:** lifecycle e apply final via JCM.
+- **Solutions Manager/Installer futuro:** orquestra o fluxo completo.
 
 ## Fonte de homologação
 
-`catalogs/sources.json` contém uma única fonte oficial habilitada, apontando para `develop`. Usuários finais não devem instalar de `develop`; a release estável futura trocará `ref` e `base_raw_url` por uma tag/release.
+`catalogs/sources.json` mantém uma única fonte oficial apontando para `develop`. Release estável futura usará tag imutável.
 
-## Catálogo
+## Escopo deliberado da v1.0.0
 
-`catalogs/local_catalog.default.json` lista o core e as capabilities atuais. Ele aponta para manifests e remote manifests; não duplica o conteúdo completo dos artifacts.
+São suportados apenas documentos JSON do plano de controle:
 
-## Remote manifest schema v1
+- catálogo;
+- `release.json`;
+- `remote_manifest.json`;
+- JSON CDXMS genérico com `schema_version` e `namespace`.
 
-Cada artifact mantém:
+Não são executados download em lote, instalação, update de registry, ZIP, GitHub API, repositório privado ou importação automática de exports MacroDroid.
 
-- `source.type`;
-- `source.repository`;
-- `source.ref`;
-- `source.base_raw_url`;
-- `files[].path`;
-- `files[].target_path`;
-- `files[].write_policy`;
-- `files[].checksum_sha256`;
-- dependências e metadados do export MacroDroid.
+## Integridade
 
-## Regras
+Os remote manifests e `checksums.json` já publicam SHA-256. Entretanto, o catálogo nativo auditado do MacroDroid não expõe ação simples de checksum. Conforme a Knowledge Base, a capability não declara checksum como verificado e bloqueia payloads críticos até existir validação nativa homologada ou capability específica.
 
-- Nunca usar `/blob/` como arquivo cru.
-- Config defaults viram `config.json` por criação/merge, sem sobrescrita destrutiva.
-- O download futuro deve ocorrer primeiro em cache.
-- O AM não baixa nem grava diretamente.
-- O JCM executa filesystem/JSON.
-- `.macro` e `.ablock` continuam exigindo importação manual até homologação específica.
+## Regras de segurança
+
+- HTTPS obrigatório.
+- Host permitido: `raw.githubusercontent.com`.
+- `/blob/` bloqueado.
+- Remote Path relativo, sem `..`, URL completa, query ou fragmento.
+- Download sempre em staging temporário.
+- `allowAnyCertificate = false`.
+- Nenhum arquivo instalado é sobrescrito pelo transporte remoto.
