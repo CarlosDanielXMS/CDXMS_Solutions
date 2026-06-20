@@ -52,7 +52,7 @@ checks = {
 for key,value in checks.items():
     if rc.get(key) != value: error(f'HTTP requestConfig.{key} esperado {value!r}, obtido {rc.get(key)!r}')
 if '/blob/' in rc.get('urlToOpen',''): error('URL /blob/ no export')
-if rc.get('urlToOpen') != '{lv=Tmp_RequestWork[request][url]}': error('HTTP URL não usa contexto validado')
+if rc.get('urlToOpen') != '{lv=Tmp_RequestUrl}': error('HTTP URL não usa ponte escalar validada')
 
 jcm_calls = [x for x in macro.get('m_actionList',[]) if x.get('m_classType')=='ActionBlockAction']
 for call in jcm_calls:
@@ -61,6 +61,20 @@ for call in jcm_calls:
     if call.get('continueActionsWithoutWaiting') is not False: error('chamada JCM deve aguardar')
 ops = [x.get('inputVarsMap',{}).get('Operation') for x in jcm_calls]
 if ops != ['ensure_folder','read_json']: error(f'operações JCM divergentes: {ops}')
+
+
+# Regressões de homologação: MacroDroid executa JavaScript no escopo principal.
+js_actions = [x for x in macro.get('m_actionList',[]) if x.get('m_classType') == 'JavaScriptAction']
+prep = next((x for x in js_actions if x.get('actionLabel') == 'Validar fonte e montar request'), {})
+finalize = next((x for x in js_actions if x.get('actionLabel') == 'Consolidar Resultado remoto'), {})
+if not prep.get('scriptText','').lstrip().startswith('(function(){'):
+    error('preflight JavaScript precisa usar IIFE')
+if not finalize.get('scriptText','').lstrip().startswith('(function(){'):
+    error('finalização JavaScript precisa usar IIFE')
+if 'if (pre) {\n  return pre;' not in finalize.get('scriptText',''):
+    error('finalização não retorna pre_result_json explicitamente')
+for required_var in ['Tmp_ShouldRequestText','Tmp_RequestUrl','Tmp_StagingFolderPath','Tmp_StagingFileName','Tmp_StagingFilePath','Tmp_JcmReadResultJson']:
+    if required_var not in works: error(f'ponte escalar ausente: {required_var}')
 
 supported = set(manifest.get('operations',[]))
 expected = {'validate_source','get_source_status','fetch_catalog','fetch_release_manifest','fetch_remote_manifest','fetch_json'}

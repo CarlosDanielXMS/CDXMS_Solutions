@@ -85,7 +85,8 @@
     "Remote Source Manager v1.0.0 implementado para fonte GitHub raw e documentos JSON de controle.",
     "Downloads usam HTTP Request nativo, staging temporário e releitura/verificação pelo JCM.",
     "Bulk payload download, SHA-256 em runtime e instalação remota permanecem bloqueados até homologação específica.",
-    "Importação automática de .macro/.ablock continua fora de escopo."
+    "Importação automática de .macro/.ablock continua fora de escopo.",
+    "Correções de homologação: IIFE no RSM e booleanos locale-safe no JCM."
   ],
-  "package": "CDXMS_Remote_Source_Manager_v1_0_0_full_merged_package_2026_06_20.zip"
+  "package": "CDXMS_Remote_Source_Manager_v1_0_0_homologation_fix_full_merged_package_2026_06_20.zip"
 }

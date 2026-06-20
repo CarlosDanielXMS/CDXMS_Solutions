@@ -34,3 +34,9 @@ A versão inicial cobre o plano de controle remoto: catálogo, release manifest,
 ## Saída
 
 Saída pública única: `Resultado`.
+
+## Correções de homologação no dispositivo
+
+- O preflight e a finalização JavaScript são executados em IIFE, evitando `Illegal return statement`.
+- URL, flag de execução e paths de staging são materializados em variáveis escalares antes das ações nativas.
+- Operações `validate_source` e `get_source_status` retornam o preflight sem executar HTTP.

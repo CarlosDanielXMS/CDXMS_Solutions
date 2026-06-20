@@ -11,3 +11,7 @@ python src/scripts/validate_remote_distribution_readiness_v1_0_0.py
 python src/scripts/validate_am_local_apply_v1_0_0.py
 python src/capabilities/remote_source_manager/scripts/validate_remote_source_manager_incremental.py
 ```
+
+## Correção de homologação
+
+Esta consolidação corrige o fluxo JavaScript do Remote Source Manager e a interpretação localizada de booleanos do JCM, mantendo a versão pré-release `1.0.0`.

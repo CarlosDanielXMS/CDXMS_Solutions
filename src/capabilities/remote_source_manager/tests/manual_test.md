@@ -99,3 +99,10 @@ Após os testes:
 ## Critério de conclusão
 
 A capability só deve ser marcada como homologada após importação real e execução dos casos 1–8 no dispositivo. Até lá, `manual_homologation_required` permanece verdadeiro.
+
+## Regressões obrigatórias da homologação
+
+- `validate_source` e `get_source_status` não podem retornar `HTTP_REQUEST_FAILED` nem executar rede.
+- Nenhum JavaScriptAction pode gerar `Illegal return statement`.
+- `Resultado.data.source` e `Resultado.data.request` não podem ficar vazios quando as entradas são válidas.
+- O JCM deve aceitar paths válidos mesmo quando o idioma do MacroDroid exibe booleanos como `Verdadeiro`/`Falso`.

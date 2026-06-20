@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0 — Correções de homologação RSM/JCM
+
+- Mantida versão pré-release `1.0.0`.
+- Corrigido `Illegal return statement` no preflight do Remote Source Manager.
+- Finalização do RSM agora retorna explicitamente o Resultado em todos os fluxos.
+- Mantida ponte escalar para URL e paths usados pelas ações nativas.
+- JCM passa a serializar flags internas como `true`/`false`, evitando localização `Verdadeiro`/`Falso` e falsos `PERMISSION_DENIED`.
+- Adicionadas validações regressivas para esses dois pontos.
+
 ## 1.0.0 — Remote Source Manager
 
 - Mantida versão pré-release `1.0.0`.

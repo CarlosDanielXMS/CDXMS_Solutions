@@ -27,3 +27,7 @@ Nenhuma capability obrigatória além do core.
 ## Distribuição
 
 O export MacroDroid está em `macrodroid/[CDXMS]_Json_Config_Manager.ablock`. A importação continua manual até homologação específica de importação automática.
+
+## Compatibilidade de booleanos do Magic Text
+
+Flags internas reutilizadas por dicionário são armazenadas como texto canônico `true`/`false`. Entradas booleanas aceitam também as representações localizadas `Verdadeiro`/`Falso`, evitando falsos `PERMISSION_DENIED` em dispositivos configurados em português.

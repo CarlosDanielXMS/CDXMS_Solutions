@@ -186,6 +186,13 @@ for relative, expected in checksums.get('files', {}).items():
     if actual != expected:
         error(f'checksum divergente: {relative}')
 
+
+# JCM must not expose localized booleans through dictionary Magic Text.
+jcm_export = load(ROOT / 'capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock')
+jcm_init = next((a.get('scriptText','') for a in jcm_export.get('macro',{}).get('m_actionList',[]) if a.get('m_classType') == 'JavaScriptAction'), '')
+for fragment in ['valid_file_path: safePath(filePath, true) ? "true" : "false"', 'valid_folder_path: safePath(folderPath, false) ? "true" : "false"']:
+    if fragment not in jcm_init: error('JCM sem serialização locale-safe: ' + fragment)
+
 if ERRORS:
     print('VALIDATION FAILED — CDXMS remote distribution readiness v1.0.0')
     for item in ERRORS:

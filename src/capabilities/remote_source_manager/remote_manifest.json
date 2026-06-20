@@ -17,7 +17,7 @@
       "target_path": "capabilities/remote_source_manager/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "31f7eba00627973057af20e7d4218574e7f905680e9b3a75bffc072c095c1d3f"
+      "checksum_sha256": "57cfef08e2bb1d4d1cb1812243a00c5523eda3f175fda55222eeb5333308622a"
     },
     {
       "path": "capabilities/remote_source_manager/contract.json",
@@ -38,7 +38,7 @@
       "target_path": "capabilities/remote_source_manager/macrodroid/[CDXMS]_Remote_Source_Manager.ablock",
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
-      "checksum_sha256": "a843c0a5f2e89bb136b29847098e2e8e4e5d45fbf5a198e72213f3703683a57f"
+      "checksum_sha256": "47ca7c7aa3ed7e669645707443bdfd8c2d24fc2309f993a853d2ac3748a8ebda"
     }
   ],
   "macrodroid_export": {

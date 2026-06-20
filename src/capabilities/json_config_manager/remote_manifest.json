@@ -17,7 +17,7 @@
       "target_path": "capabilities/json_config_manager/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "ce02cb5cdff3e3ede84785d46556c6ae05bb3806f9b1c1c333f0cdaa0377c519"
+      "checksum_sha256": "41a0e4ffa48225eb97da6097f1945855704a42d59c7db8954f40b882459b75a2"
     },
     {
       "path": "capabilities/json_config_manager/contract.json",
@@ -38,7 +38,7 @@
       "target_path": "capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock",
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
-      "checksum_sha256": "94858ca4136cb1a1816c76ace79bad62562409fccf733ad483aa8851181ba6f3"
+      "checksum_sha256": "ea108c23496d8c91917d74d5922107eb3ec3532eed0288e236ec9a632000dd09"
     }
   ],
   "macrodroid_export": {
