@@ -140,6 +140,22 @@ def main() -> None:
     if "__rsmOutput = JSON.stringify(pre);" not in finalizer:
         fail("RSM finalizer não serializa pre_result exatamente uma vez")
 
+    http_actions = [
+        action for action in rsm.get("m_actionList", [])
+        if action.get("m_classType") == "HttpRequestAction"
+    ]
+    if len(http_actions) != 1:
+        fail("RSM deve possuir exatamente uma ação HTTP")
+    request_config = http_actions[0].get("requestConfig", {})
+    if request_config.get("saveResponseType") != 2:
+        fail("RSM saveResponseType divergente do export real homologado")
+    if request_config.get("saveResponseUseAllFilesAccess") is not True:
+        fail("RSM deve salvar resposta com All Files Access")
+    if request_config.get("saveResponseAllFilesAccessPath") != "{lv=Tmp_StagingFilePath}":
+        fail("RSM deve passar o caminho completo do arquivo em saveResponseAllFilesAccessPath")
+    if request_config.get("saveResponseFileName") != "":
+        fail("RSM saveResponseFileName deve ficar vazio no modo homologado")
+
     print("VALIDATION OK — RSM/JCM runtime bridge v1.0.0")
     print("jcm_actions=119")
     print("rsm_actions=21")

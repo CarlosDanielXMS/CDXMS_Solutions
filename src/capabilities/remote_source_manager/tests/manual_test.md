@@ -114,3 +114,27 @@ A capability só deve ser marcada como homologada após importação real e exec
 3. Confirme `Resultado.success = true` e a presença de `Resultado.data.source`.
 4. Execute `get_source_status` e confirme o mesmo comportamento.
 5. O export não pode conter `pre_result_json`; o contexto interno deve usar `pre_result` como objeto.
+
+## Evidência do schema de salvamento HTTP
+
+Um export mínimo criado diretamente no MacroDroid e executado com sucesso confirmou:
+
+```json
+{
+  "saveResponseType": 2,
+  "saveResponseUseAllFilesAccess": true,
+  "saveResponseAllFilesAccessPath": "/caminho/completo/probe.json",
+  "saveResponseFileName": ""
+}
+```
+
+No RSM, o equivalente dinâmico obrigatório é:
+
+```json
+{
+  "saveResponseAllFilesAccessPath": "{lv=Tmp_StagingFilePath}",
+  "saveResponseFileName": ""
+}
+```
+
+A homologação deve falhar se a action voltar a separar pasta e nome nesses dois campos.

@@ -49,3 +49,14 @@ Os JavaScripts de preflight e finalização usam uma variável de saída e a úl
 ## Ponte de Resultado de preflight
 
 Operações sem rede armazenam o Resultado como objeto em `Tmp_RequestWork.pre_result`. O Resultado não é encapsulado como JSON textual dentro de outro JSON, porque o Magic Text do MacroDroid pode alterar escapes durante a interpolação em `JavaScriptAction`.
+
+## Persistência HTTP validada por export real
+
+A configuração interna da ação `HTTP Request` foi alinhada ao export produzido pela mesma versão do MacroDroid usada na homologação:
+
+- `saveResponseType = 2`;
+- `saveResponseUseAllFilesAccess = true`;
+- `saveResponseAllFilesAccessPath = {lv=Tmp_StagingFilePath}`;
+- `saveResponseFileName = ""`.
+
+No modo **All Files Access**, o campo serializado `saveResponseAllFilesAccessPath` recebe o caminho completo do arquivo de destino. Separar pasta e nome do arquivo fez a requisição retornar HTTP 200 sem persistir o corpo.

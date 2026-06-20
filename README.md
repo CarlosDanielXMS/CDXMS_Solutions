@@ -18,7 +18,10 @@ Esta consolidação corrige o fluxo JavaScript do Remote Source Manager e a inte
 
 ## Base remota verificada
 
-Esta consolidação parte do head remoto `feat/create-ecosystem-core` em `dcc8dba9460e54f519555d3d14a8d0c3f72d711c` e corrige exclusivamente os bridges de execução identificados na homologação real do RSM/JCM.
+Esta consolidação parte do head remoto `feat/create-ecosystem-core` em `aad55e5969b41c456bb92e096bde2c381101e385` e corrige exclusivamente os bridges de execução identificados na homologação real do RSM/JCM.
 
+## Persistência da resposta HTTP confirmada no dispositivo
 
-- O RSM mantém resultados de preflight como objeto (`pre_result`), sem JSON textual aninhado.
+A base desta consolidação é o head remoto `feat/create-ecosystem-core` em `aad55e5969b41c456bb92e096bde2c381101e385`.
+
+Um export mínimo criado e executado no MacroDroid confirmou que, no modo All Files Access, `saveResponseAllFilesAccessPath` deve conter o caminho completo do arquivo e `saveResponseFileName` deve permanecer vazio. O Remote Source Manager foi ajustado exclusivamente para esse contrato nativo.

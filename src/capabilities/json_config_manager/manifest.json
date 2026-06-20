@@ -76,7 +76,7 @@
     "recommended_follow_up": "Homologar FileOperation com paths dinâmicos antes de substituir o fallback.",
     "export_checked_against_contract": true,
     "magic_text_boolean_policy": "Flags consumidas por constraints booleanas nativas permanecem booleanas. Quando interpoladas em JavaScript via Magic Text, aceitam true/false e Verdadeiro/Falso.",
-    "latest_remote_base_commit": "dcc8dba9460e54f519555d3d14a8d0c3f72d711c",
+    "latest_remote_base_commit": "aad55e5969b41c456bb92e096bde2c381101e385",
     "homologation_fix": "Corrige incompatibilidade entre string \"true\"/\"false\" e MacroDroidVariableConstraint booleano."
   }
 }

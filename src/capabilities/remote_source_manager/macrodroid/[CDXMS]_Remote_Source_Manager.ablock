@@ -875,8 +875,8 @@
             "keys": []
           },
           "returnHeadersVariableName": "Tmp_HttpHeaders",
-          "saveResponseAllFilesAccessPath": "{lv=Tmp_StagingFolderPath}",
-          "saveResponseFileName": "{lv=Tmp_StagingFileName}",
+          "saveResponseAllFilesAccessPath": "{lv=Tmp_StagingFilePath}",
+          "saveResponseFileName": "",
           "saveResponseFolderPathDisplayName": "",
           "saveResponseFolderPathUri": "",
           "saveResponseType": 2,

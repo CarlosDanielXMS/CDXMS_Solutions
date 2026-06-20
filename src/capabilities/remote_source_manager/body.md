@@ -93,8 +93,9 @@
    - Timeout: 30 segundos no export inicial.
    - Block next action: `true`.
    - Save response: arquivo temporário com All Files Access.
-   - Pasta: `Tmp_RequestWork.staging.folder_path`.
-   - Arquivo: `Tmp_RequestWork.staging.file_name`.
+   - All Files Access Path: `Tmp_RequestWork.staging.file_path` (caminho completo do arquivo).
+   - Save Response File Name: vazio.
+   - Essa serialização foi confirmada por export real do MacroDroid; pasta e nome separados não persistiram o corpo.
    - Código HTTP: `Tmp_HttpStatusCode`.
    - Headers de resposta: `Tmp_HttpHeaders`.
 

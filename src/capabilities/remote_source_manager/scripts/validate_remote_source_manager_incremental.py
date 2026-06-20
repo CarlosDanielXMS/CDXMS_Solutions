@@ -53,6 +53,8 @@ for key,value in checks.items():
     if rc.get(key) != value: error(f'HTTP requestConfig.{key} esperado {value!r}, obtido {rc.get(key)!r}')
 if '/blob/' in rc.get('urlToOpen',''): error('URL /blob/ no export')
 if rc.get('urlToOpen') != '{lv=Tmp_RequestUrl}': error('HTTP URL não usa ponte escalar validada')
+if rc.get('saveResponseAllFilesAccessPath') != '{lv=Tmp_StagingFilePath}': error('HTTP saveResponseAllFilesAccessPath deve receber o caminho completo Tmp_StagingFilePath')
+if rc.get('saveResponseFileName') != '': error('HTTP saveResponseFileName deve permanecer vazio no modo All Files Access homologado')
 
 jcm_calls = [x for x in macro.get('m_actionList',[]) if x.get('m_classType')=='ActionBlockAction']
 for call in jcm_calls:

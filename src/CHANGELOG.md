@@ -1,10 +1,20 @@
 # Changelog
 
+## 1.0.0 — Persistência HTTP alinhada ao export real do MacroDroid
+
+- Mantida versão pré-release `1.0.0`.
+- Base revisada no head remoto `aad55e5969b41c456bb92e096bde2c381101e385`.
+- Confirmado em export real e execução no dispositivo que `saveResponseAllFilesAccessPath` recebe o caminho completo do arquivo.
+- `saveResponseFileName` permanece vazio no modo All Files Access.
+- Corrigido o RSM para persistir efetivamente o corpo de respostas HTTP 200 no staging.
+- Adicionadas regressões estáticas para impedir retorno ao formato pasta + nome separado.
+
+
 
 - Corrigida a ponte interna do RSM: `pre_result` agora é objeto, eliminando `pre_result_json` e a perda de escapes ao interpolar Magic Text em JavaScript.
 ## 1.0.0 — Correção verificada do bridge RSM/JCM
 
-- Base revisada diretamente no head remoto `dcc8dba9460e54f519555d3d14a8d0c3f72d711c`.
+- Base revisada diretamente no head remoto `aad55e5969b41c456bb92e096bde2c381101e385`.
 - Corrigido o JCM: flags usadas por constraints booleanas nativas voltam a ser booleanas.
 - JavaScripts do JCM interpretam também `Verdadeiro`/`Falso` quando recebem Magic Text localizado.
 - Corrigido o RSM: preflight e finalização publicam resultado pela última expressão, sem depender de IIFE.

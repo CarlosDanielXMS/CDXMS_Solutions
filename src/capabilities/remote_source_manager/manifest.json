@@ -45,7 +45,7 @@
     "registry_updates": "out_of_scope"
   },
   "implementation_audit": {
-    "stage": "phase_4_remote_source_manager_v1_0_0_remote_head_verified_fix",
+    "stage": "pre_release_1_0_0_http_response_file_persistence_fix",
     "version_policy": "pre_release_same_version_1_0_0",
     "source_base": "full merged remote distribution readiness package 2026-06-20",
     "manual_homologation_required": true,
@@ -59,7 +59,8 @@
       "A homologação permanece obrigatória até confirmar HTTP 200 e staging físico no dispositivo.",
       "Preflight e finalização publicam o valor pela última expressão do JavaScriptAction, sem return no escopo principal e sem depender do retorno de IIFE.",
       "A macro de homologação deve usar Action Blocks temporários com GUIDs exclusivos para impedir resolução de instâncias antigas no dispositivo.",
-      "O Resultado de preflight é mantido como objeto em pre_result; JSON textual aninhado em pre_result_json é proibido para evitar perda de escapes na interpolação Magic Text."
+      "O Resultado de preflight é mantido como objeto em pre_result; JSON textual aninhado em pre_result_json é proibido para evitar perda de escapes na interpolação Magic Text.",
+      "O modo All Files Access da ação HTTP exige o caminho completo em saveResponseAllFilesAccessPath e saveResponseFileName vazio, conforme export real homologado."
     ],
     "action_profile": {
       "total_actions": 21,
@@ -70,6 +71,13 @@
       "shell_actions": 0
     },
     "export_checked_against_contract": true,
-    "latest_remote_base_commit": "dcc8dba9460e54f519555d3d14a8d0c3f72d711c"
+    "latest_remote_base_commit": "aad55e5969b41c456bb92e096bde2c381101e385",
+    "http_response_save_contract": {
+      "evidence": "MacroDroid export executed successfully on target device",
+      "saveResponseType": 2,
+      "saveResponseUseAllFilesAccess": true,
+      "saveResponseAllFilesAccessPath": "{lv=Tmp_StagingFilePath}",
+      "saveResponseFileName": ""
+    }
   }
 }
