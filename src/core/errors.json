@@ -52,7 +52,6 @@
     "LOGGER_INVALID_SCOPE": "Escopo de log inválido.",
     "LOGGER_WRITE_FAILED": "Não foi possível escrever o registro de log.",
     "LOGGER_RESULT_INVALID": "O Resultado informado para log_result não é válido.",
-    "LOGGER_STATUS_UNAVAILABLE": "Não foi possível obter o status do Logger.",
     "STRING_INVALID_REGEX": "Regex Pattern inválido.",
     "STRING_EMPTY_SEARCH_TEXT": "Search Text é obrigatório para esta operação.",
     "STRING_INVALID_MAX_LENGTH": "Max Length precisa ser um inteiro maior ou igual a zero.",

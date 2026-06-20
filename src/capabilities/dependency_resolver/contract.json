@@ -1,93 +1,144 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "artifact_type": "capability",
+  "artifact_type": "capability_contract",
   "artifact_id": "dependency_resolver",
   "version": "1.0.0",
   "action_block": "[CDXMS] Dependency Resolver",
-  "description": "Contrato do Dependency Resolver v1.0.0.",
+  "description": "Contrato da capability [CDXMS] Dependency Resolver v1.0.0.",
   "inputs": [
     {
       "name": "Operation",
-      "type": "text",
+      "type": "string",
       "required": true,
-      "description": "Operação técnica do Dependency Resolver."
+      "description": "Operação técnica do Dependency Resolver.",
+      "options": [
+        "validate_dependencies",
+        "get_missing_dependencies",
+        "check_version_constraints",
+        "build_dependency_graph",
+        "build_resolution_plan",
+        "detect_dependency_cycles",
+        "sort_install_order",
+        "validate_install_plan"
+      ],
+      "default": "validate_dependencies"
     },
     {
       "name": "Artifact Manifest Json",
-      "type": "text",
+      "type": "string",
       "required": true,
-      "description": "Manifest JSON do artifact alvo cujas dependências serão resolvidas."
+      "description": "Manifest do artifact alvo.",
+      "default": ""
     },
     {
       "name": "Installed Registry Json",
-      "type": "text",
+      "type": "string",
       "required": false,
-      "description": "Registry local atual contendo capabilities, solutions e packages instalados."
+      "description": "Registry instalado.",
+      "default": "{}"
     },
     {
       "name": "Available Catalog Json",
-      "type": "text",
+      "type": "string",
       "required": false,
-      "description": "Catálogo disponível contendo artifacts que podem satisfazer dependências ausentes."
+      "description": "Catálogo disponível.",
+      "default": "{}"
     },
     {
       "name": "Dependency Policy Json",
-      "type": "text",
+      "type": "string",
       "required": false,
-      "description": "Política opcional de resolução, como tratamento de dependências opcionais e prereleases."
+      "description": "Política de resolução.",
+      "default": "{}"
     },
     {
       "name": "Strict Mode?",
       "type": "boolean",
       "required": false,
-      "description": "Quando verdadeiro, bloqueia inconsistências em vez de apenas avisar."
+      "description": "Bloqueia inconsistências.",
+      "default": false
     },
     {
       "name": "Session Id",
-      "type": "text",
+      "type": "string",
       "required": false,
-      "description": "Identificador lógico da sessão."
+      "description": "Id de sessão.",
+      "default": ""
     },
     {
       "name": "Correlation Id",
-      "type": "text",
+      "type": "string",
       "required": false,
-      "description": "Identificador de correlação para logs/resultados."
+      "description": "Id de correlação.",
+      "default": ""
     }
   ],
   "outputs": [
     {
       "name": "Resultado",
       "type": "dictionary",
-      "description": "Resultado CDXMS com data/error/meta."
+      "description": "Saída pública única no contrato CDXMS."
     }
   ],
   "operations": {
     "validate_dependencies": {
-      "description": "Valida a declaração de dependências do manifest."
+      "description": "Executa validate_dependencies."
     },
     "get_missing_dependencies": {
-      "description": "Compara dependências declaradas com o registry instalado e lista ausentes."
+      "description": "Executa get_missing_dependencies."
     },
     "check_version_constraints": {
-      "description": "Valida constraints de versão contra o registry instalado."
+      "description": "Executa check_version_constraints."
     },
     "build_dependency_graph": {
-      "description": "Constrói grafo lógico de dependências a partir do manifest e catálogo."
+      "description": "Executa build_dependency_graph."
     },
     "build_resolution_plan": {
-      "description": "Gera plano seguro de resolução de dependências."
+      "description": "Executa build_resolution_plan."
     },
     "detect_dependency_cycles": {
-      "description": "Detecta ciclos no grafo de dependências."
+      "description": "Executa detect_dependency_cycles."
     },
     "sort_install_order": {
-      "description": "Gera ordem de instalação para dependências conhecidas."
+      "description": "Executa sort_install_order."
     },
     "validate_install_plan": {
-      "description": "Valida se o plano final pode seguir para o Artifact Manager."
+      "description": "Executa validate_install_plan."
     }
+  },
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_JSON",
+    "UNSUPPORTED_OPERATION",
+    "MISSING_DEPENDENCY",
+    "VERSION_CONFLICT",
+    "DEPENDENCY_CYCLE_DETECTED",
+    "DEPENDENCY_RESOLUTION_BLOCKED",
+    "DEPENDENCY_INSTALL_PLAN_INVALID",
+    "DEPENDENCY_RESOLUTION_FAILED"
+  ],
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
   },
   "result_data_contract": {
     "validate_dependencies": [
@@ -132,16 +183,5 @@
       "resolution_plan"
     ]
   },
-  "side_effects": "Nenhum efeito colateral físico; capability apenas calcula e valida planos.",
-  "errors": [
-    "MISSING_REQUIRED_INPUT",
-    "INVALID_JSON",
-    "UNSUPPORTED_OPERATION",
-    "MISSING_DEPENDENCY",
-    "VERSION_CONFLICT",
-    "DEPENDENCY_CYCLE_DETECTED",
-    "DEPENDENCY_RESOLUTION_BLOCKED",
-    "DEPENDENCY_INSTALL_PLAN_INVALID",
-    "DEPENDENCY_RESOLUTION_FAILED"
-  ]
+  "side_effects": "Nenhum efeito colateral físico; capability apenas calcula e valida planos."
 }

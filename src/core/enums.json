@@ -47,16 +47,6 @@
       "backup_file": "backup_file",
       "delete_file": "delete_file"
     },
-    "jcm_json_path_feature": {
-      "root": "$",
-      "child": "child",
-      "index": "index",
-      "filter": "filter",
-      "wildcard": "wildcard",
-      "recursive": "recursive",
-      "slice": "slice",
-      "union": "union"
-    },
     "bootstrap_operation": {
       "initialize_ecosystem": "initialize_ecosystem",
       "verify_core": "verify_core",
@@ -65,12 +55,6 @@
       "load_context": "load_context",
       "get_status": "get_status"
     },
-    "bootstrap_status": {
-      "ready": "ready",
-      "needs_repair": "needs_repair",
-      "blocked": "blocked",
-      "partial": "partial"
-    },
     "result_manager_operation": {
       "build_result": "build_result",
       "normalize_result": "normalize_result",
@@ -78,19 +62,6 @@
       "propagate_result": "propagate_result",
       "wrap_error": "wrap_error",
       "register_result": "register_result"
-    },
-    "result_contract_field": {
-      "schema_version": "schema_version",
-      "namespace": "namespace",
-      "success": "success",
-      "status": "status",
-      "artifact_type": "artifact_type",
-      "artifact_id": "artifact_id",
-      "operation": "operation",
-      "message": "message",
-      "data": "data",
-      "error": "error",
-      "meta": "meta"
     },
     "logger_operation": {
       "log_event": "log_event",
@@ -110,7 +81,8 @@
       "events": "events",
       "results": "results",
       "errors": "errors",
-      "audit": "audit"
+      "audit": "audit",
+      "runtime": "runtime"
     },
     "string_utils_operation": {
       "escape_json_string": "escape_json_string",
@@ -131,27 +103,18 @@
       "sanitize_path_segment": "sanitize_path_segment",
       "truncate": "truncate"
     },
-    "string_utils_case_mode": {
-      "none": "none",
-      "lower": "lower",
-      "upper": "upper",
-      "title": "title"
-    },
-    "string_utils_comparison_mode": {
-      "case_sensitive": "case_sensitive",
-      "case_insensitive": "case_insensitive",
-      "normalized": "normalized"
-    },
     "artifact_manager_operation": {
       "validate_artifact": "validate_artifact",
       "get_artifact_status": "get_artifact_status",
       "build_registry_entry": "build_registry_entry",
       "build_install_plan": "build_install_plan",
+      "build_jcm_apply_plan": "build_jcm_apply_plan",
       "get_target_paths": "get_target_paths",
       "register_artifact": "register_artifact",
       "unregister_artifact": "unregister_artifact",
       "ensure_artifact_files": "ensure_artifact_files",
-      "install_local_artifact": "install_local_artifact"
+      "install_local_artifact": "install_local_artifact",
+      "verify_local_apply": "verify_local_apply"
     },
     "artifact_lifecycle_status": {
       "planned": "planned",
@@ -163,6 +126,7 @@
       "blocked": "blocked",
       "applying": "applying",
       "applied": "applied",
+      "verified": "verified",
       "apply_blocked": "apply_blocked",
       "partially_applied": "partially_applied"
     },
@@ -181,20 +145,8 @@
       "partial": "partial",
       "blocked": "blocked"
     },
-    "dependency_version_operator": {
-      ">=": ">=",
-      "<=": "<=",
-      ">": ">",
-      "<": "<",
-      "=": "=",
-      "^": "^",
-      "~>": "~>",
-      "*": "*"
-    },
-    "artifact_apply_mode": {
-      "dry_run": "dry_run",
-      "controlled_apply": "controlled_apply",
-      "blocked": "blocked"
+    "remote_source_type": {
+      "github_raw": "github_raw"
     }
   }
 }

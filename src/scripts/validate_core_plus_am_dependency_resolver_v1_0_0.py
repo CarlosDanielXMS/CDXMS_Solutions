@@ -1,15 +1,16 @@
+#!/usr/bin/env python3
 import json
 from pathlib import Path
-
-root = Path(__file__).resolve().parents[1]
-release = json.loads((root / 'release.json').read_text(encoding='utf-8'))
-ids = [a['artifact_id'] for a in release['artifacts']]
-required = ['json_config_manager','bootstrap','result_manager','logger','string_utils','artifact_manager','dependency_resolver']
-missing = [x for x in required if x not in ids]
-assert not missing, missing
-for artifact_id in required:
-    manifest = root / 'capabilities' / artifact_id / 'manifest.json'
-    assert manifest.exists(), manifest
-    m = json.loads(manifest.read_text(encoding='utf-8'))
-    assert m['artifact_type'] == 'capability'
-print('VALIDATION OK — CDXMS Core + AM + Dependency Resolver v1.0.0 incremental merged')
+ROOT=Path(__file__).resolve().parents[1]
+errors=[]
+for cap in ['json_config_manager','bootstrap','result_manager','logger','string_utils','artifact_manager','dependency_resolver']:
+ p=ROOT/'capabilities'/cap
+ for f in ['manifest.json','contract.json','config.default.json','remote_manifest.json']:
+  q=p/f
+  if not q.exists():errors.append(f'ausente: {q}')
+  else:
+   try:json.loads(q.read_text(encoding='utf-8'))
+   except Exception as e:errors.append(f'JSON inválido: {q}: {e}')
+if errors:
+ print('VALIDATION FAILED');[print('-',e) for e in errors];raise SystemExit(1)
+print('VALIDATION OK — core capabilities v1.0.0')

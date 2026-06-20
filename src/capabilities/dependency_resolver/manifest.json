@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] Dependency Resolver",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Resolver dependências declaradas entre artifacts CDXMS, validar versões, detectar ciclos e gerar plano seguro de instalação.",
+    "description": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
     "enabled": true,
     "has_config": true
   },
@@ -36,24 +36,35 @@
     "sort_install_order",
     "validate_install_plan"
   ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "purity": "pure",
+  "side_effects": [],
   "lifecycle_scope": {
     "v1_0_0": "dependency_validation_version_constraints_graph_cycle_detection_resolution_plan",
     "side_effects": "none",
     "remote_downloads": "out_of_scope"
   },
-  "result_contract": "core/result_contract.json",
-  "created_at": "",
-  "updated_at": "",
   "implementation_audit": {
     "stage": "phase_3_dependency_resolver_v1_0_0_stateless_dependency_engine",
     "version_policy": "pre_release_same_version_1_0_0",
-    "source_base": "remote feat/create-ecosystem-core updated with AM + DR, remodeled to remove DR -> AM dependency",
+    "source_base": "remote feat/create-ecosystem-core remodeled to remove DR -> AM dependency",
     "scope": "stateless dependency validation and safe resolution plan only",
     "manual_homologation_required": true,
     "notes": [
-      "Dependency Resolver no longer requires Artifact Manager.",
-      "Dependency Resolver remains pure/stateless: no registry write, no file write, no installation, no download.",
-      "Artifact Manager or caller orchestrates lifecycle and may consume the resolution_plan returned by this capability."
-    ]
+      "Dependency Resolver não depende do Artifact Manager.",
+      "Dependency Resolver permanece puro/stateless: sem registry write, file write, instalação ou download.",
+      "Artifact Manager ou chamador consome resolution_plan."
+    ],
+    "action_profile": {
+      "total_actions": 5,
+      "unique_action_classes": 5,
+      "javascript_actions": 1,
+      "shell_actions": 0,
+      "file_operation_actions": 0,
+      "text_manipulation_actions": 0
+    },
+    "export_checked_against_contract": true
   }
 }

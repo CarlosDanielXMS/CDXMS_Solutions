@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "local_catalog",
+  "version": "1.0.0",
+  "solutions": [],
+  "capabilities": [
+    {
+      "artifact_id": "json_config_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Json Config Manager",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/json_config_manager/manifest.json",
+      "remote_manifest_path": "capabilities/json_config_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "bootstrap",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Bootstrap",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/bootstrap/manifest.json",
+      "remote_manifest_path": "capabilities/bootstrap/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "result_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Registrar Resultado",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/result_manager/manifest.json",
+      "remote_manifest_path": "capabilities/result_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "logger",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Logger",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/logger/manifest.json",
+      "remote_manifest_path": "capabilities/logger/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "string_utils",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] String Utils",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/string_utils/manifest.json",
+      "remote_manifest_path": "capabilities/string_utils/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "artifact_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Artifact Manager",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/artifact_manager/manifest.json",
+      "remote_manifest_path": "capabilities/artifact_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "dependency_resolver",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Dependency Resolver",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/dependency_resolver/manifest.json",
+      "remote_manifest_path": "capabilities/dependency_resolver/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    }
+  ],
+  "core": [
+    {
+      "artifact_id": "cdxms_core",
+      "artifact_type": "core",
+      "version": "1.0.0",
+      "manifest_path": "core/manifest.json",
+      "remote_manifest_path": "core/remote_manifest.json"
+    }
+  ],
+  "updated_at": ""
+}

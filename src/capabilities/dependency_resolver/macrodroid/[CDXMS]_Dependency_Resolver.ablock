@@ -1,1 +1,294 @@
-{"globalVariables":[],"macro":{"isInputExpanded":true,"isLocalExpanded":false,"isOutputExpanded":true,"isTestMode":false,"aiGenerated":0,"breakpoints":[],"disabledTimestamp":0,"exportedActionBlocks":[],"forceEvenIfNotEnabledTimestamp":0,"isActionBlock":true,"isExtra":false,"isFavourite":false,"lastEditedTimestamp":1781657135896,"localVariables":[{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Operation","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Operação técnica do Dependency Resolver."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Artifact Manifest Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Manifest JSON do artifact alvo cujas dependências serão resolvidas."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Installed Registry Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Registry local atual em JSON, contendo artifacts já instalados."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Available Catalog Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Catálogo local/remoto disponível em JSON, contendo artifacts que podem satisfazer dependências."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Dependency Policy Json","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Política opcional de resolução de dependências, como permitir opcionais ausentes."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Strict Mode?","m_stringValue":"","m_type":0,"supportsInput":true,"supportsOutput":false,"description":"Quando verdadeiro, bloqueia inconsistências e campos obrigatórios ausentes."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Session Id","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Identificador lógico da sessão."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Correlation Id","m_stringValue":"","m_type":2,"supportsInput":true,"supportsOutput":false,"description":"Identificador de correlação para logs/resultados."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":false,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Resultado","m_stringValue":"","m_type":4,"supportsInput":false,"supportsOutput":true,"description":"Saída pública única contendo o Resultado CDXMS."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":true,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Tmp_DependencyWorkJson","m_stringValue":"","m_type":2,"supportsInput":false,"supportsOutput":false,"description":"JSON textual intermediário gerado pelo motor interno do Dependency Resolver."},{"dictionary":{"entries":[],"isArray":false,"variableType":4,"type":"Dictionary"},"isActionBlockWorkingVar":true,"isLocalVar":true,"isSecure":false,"m_booleanValue":false,"m_decimalValue":0.0,"m_intValue":0,"m_name":"Tmp_DependencyWork","m_stringValue":"","m_type":4,"supportsInput":false,"supportsOutput":false,"description":"Dicionário intermediário de trabalho reservado para inspeção e futuras composições."}],"localVarsAlphabetical":false,"m_GUID":-7339589264797428219,"m_actionList":[{"actionGroupName":"01 — Resolver Dependências","childrenCollapsed":false,"dontLogIfConditionIsFalse":false,"actionLabel":"01 — Processar Dependency Resolver","disableLogging":false,"m_SIGUID":-6772110909933587840,"m_classType":"ActionGroupAction","m_comment":"Processa operação local do Dependency Resolver.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"blockNextAction":true,"javascriptEngine":"JetPack JavascriptEngine","scriptText":"\nconst ARTIFACT_ID = \"dependency_resolver\";\nconst VERSION = \"1.0.0\";\nconst SOURCE_NAME = \"[CDXMS] Dependency Resolver\";\nconst SUPPORTED_OPERATIONS = [\n  \"validate_dependencies\",\n  \"get_missing_dependencies\",\n  \"check_version_constraints\",\n  \"build_dependency_graph\",\n  \"build_resolution_plan\",\n  \"detect_dependency_cycles\",\n  \"sort_install_order\",\n  \"validate_install_plan\"\n];\n\nfunction txt(v){ return String(v == null ? \"\" : v).trim(); }\nfunction bool(v, fallback){\n  const s = String(v == null ? \"\" : v).trim().toLowerCase();\n  if ([\"true\",\"1\",\"yes\",\"y\",\"sim\",\"s\",\"verdadeiro\"].indexOf(s) >= 0) return true;\n  if ([\"false\",\"0\",\"no\",\"n\",\"nao\",\"não\",\"falso\"].indexOf(s) >= 0) return false;\n  return fallback === true;\n}\nfunction asObj(v){ return (v && typeof v === \"object\" && !Array.isArray(v)) ? v : {}; }\nfunction asArr(v){ return Array.isArray(v) ? v : []; }\nfunction safeParse(raw, fallback, name, errors, required){\n  const s = txt(raw);\n  if (!s) {\n    if (required) errors.push({ code:\"MISSING_REQUIRED_INPUT\", field:name, message:\"A entrada \" + name + \" é obrigatória.\" });\n    return fallback;\n  }\n  try { return JSON.parse(s); }\n  catch(e){ errors.push({ code:\"INVALID_JSON\", field:name, message:\"JSON inválido em \" + name + \".\", details:{ reason:String(e.message || e) } }); return fallback; }\n}\nfunction makeMeta(){ return { timestamp:new Date().toISOString(), source:SOURCE_NAME, version:VERSION, session_id:txt(`{lv=Session Id}`), correlation_id:txt(`{lv=Correlation Id}`) }; }\nfunction makeResult(success, status, op, message, data, error){\n  return { schema_version:1, namespace:\"CDXMS\", success:success === true, status:status || (success ? \"success\" : \"error\"), artifact_type:\"capability\", artifact_id:ARTIFACT_ID, operation:op, message:message, data:data || {}, error:error || null, meta:makeMeta() };\n}\nfunction fail(op, message, code, details, recoverable){\n  return makeResult(false, \"error\", op, message, {}, { code:code || \"PROCESSING_FAILED\", message:message, details:details || {}, recoverable:recoverable !== false });\n}\nfunction normalizeId(v){ return txt(v).toLowerCase().replace(/[^a-z0-9_\\-\\.]+/g,\"_\").replace(/^_+|_+$/g,\"\"); }\nfunction normalizeVersion(v){\n  const s = txt(v).replace(/^v/i,\"\");\n  const m = s.match(/^(\\d+)(?:\\.(\\d+))?(?:\\.(\\d+))?/);\n  if (!m) return [0,0,0];\n  return [parseInt(m[1]||\"0\",10), parseInt(m[2]||\"0\",10), parseInt(m[3]||\"0\",10)];\n}\nfunction cmpVersion(a,b){\n  const x=normalizeVersion(a), y=normalizeVersion(b);\n  for (let i=0;i<3;i++){ if (x[i] > y[i]) return 1; if (x[i] < y[i]) return -1; }\n  return 0;\n}\nfunction satisfies(version, constraint){\n  const c = txt(constraint || \"*\");\n  if (!c || c === \"*\" || c.toLowerCase() === \"any\") return true;\n  const parts = c.split(/\\s+/).filter(Boolean);\n  for (let i=0;i<parts.length;i++){\n    const p=parts[i];\n    let op=\"=\", v=p;\n    const m=p.match(/^(>=|<=|>|<|=|~\\>|\\^)?\\s*(.+)$/);\n    if (m){ op=m[1] || \"=\"; v=m[2]; }\n    if (op === \"^\") {\n      const base=normalizeVersion(v);\n      if (cmpVersion(version, v) < 0) return false;\n      const upper=(base[0]+1)+\".0.0\";\n      if (cmpVersion(version, upper) >= 0) return false;\n      continue;\n    }\n    if (op === \"~>\") {\n      const base=normalizeVersion(v);\n      if (cmpVersion(version, v) < 0) return false;\n      const upper=base[0]+\".\"+(base[1]+1)+\".0\";\n      if (cmpVersion(version, upper) >= 0) return false;\n      continue;\n    }\n    const comp=cmpVersion(version,v);\n    if (op === \">=\" && comp < 0) return false;\n    else if (op === \"<=\" && comp > 0) return false;\n    else if (op === \">\" && comp <= 0) return false;\n    else if (op === \"<\" && comp >= 0) return false;\n    else if (op === \"=\" && comp !== 0) return false;\n  }\n  return true;\n}\nfunction getManifestArtifact(manifest){\n  const obj=asObj(manifest);\n  const cap=asObj(obj.capability), sol=asObj(obj.solution), pkg=asObj(obj.package), cat=asObj(obj.catalog);\n  const node = Object.keys(cap).length ? cap : (Object.keys(sol).length ? sol : (Object.keys(pkg).length ? pkg : (Object.keys(cat).length ? cat : obj)));\n  const type=txt(obj.artifact_type || obj.type || (Object.keys(sol).length ? \"solution\" : (Object.keys(pkg).length ? \"package\" : \"capability\")));\n  const id=normalizeId(node.id || obj.artifact_id || obj.id);\n  const version=txt(node.version || obj.version || \"1.0.0\");\n  const display_name=txt(node.display_name || node.name || id);\n  return { artifact_type:type, artifact_id:id, version:version, display_name:display_name };\n}\nfunction dependencyFrom(id, spec){\n  if (spec && typeof spec === \"object\" && !Array.isArray(spec)) {\n    return {\n      artifact_id: normalizeId(spec.artifact_id || spec.id || id),\n      artifact_type: txt(spec.artifact_type || spec.type || \"capability\"),\n      version_constraint: txt(spec.version_constraint || spec.version || spec.constraint || spec.min_version || \"*\"),\n      required: spec.required === false ? false : true,\n      source: txt(spec.source || \"manifest\")\n    };\n  }\n  return { artifact_id: normalizeId(id), artifact_type:\"capability\", version_constraint:txt(spec || \"*\"), required:true, source:\"manifest.requires.capabilities\" };\n}\nfunction extractDependencies(manifest){\n  const obj=asObj(manifest);\n  const deps=[];\n  const requires=asObj(obj.requires);\n  const caps=asObj(requires.capabilities);\n  Object.keys(caps).forEach(function(k){ deps.push(dependencyFrom(k,caps[k])); });\n  if (requires.core_min_version) deps.push({ artifact_id:\"core\", artifact_type:\"core\", version_constraint:\">=\"+txt(requires.core_min_version), required:true, source:\"manifest.requires.core_min_version\" });\n  asArr(obj.dependencies).forEach(function(d){ deps.push(dependencyFrom(null,d)); });\n  const seen={};\n  const out=[];\n  deps.forEach(function(d){\n    if (!d.artifact_id) return;\n    const key=d.artifact_type+\":\"+d.artifact_id;\n    if (seen[key]) return;\n    seen[key]=true; out.push(d);\n  });\n  return out;\n}\nfunction registryEntries(registry){\n  const r=asObj(registry);\n  const out={};\n  function add(type, id, entry){\n    if (!id) return;\n    const e=asObj(entry);\n    out[type+\":\"+normalizeId(id)]={ artifact_id:normalizeId(id), artifact_type:type, version:txt(e.version || e.artifact_version || \"1.0.0\"), enabled:e.enabled === false ? false : true, raw:e };\n  }\n  const maps=[ [\"capability\", asObj(r.installed_capabilities)], [\"solution\", asObj(r.installed_solutions)], [\"package\", asObj(r.installed_packages)], [\"core\", asObj(r.installed_core)] ];\n  maps.forEach(function(pair){ Object.keys(pair[1]).forEach(function(id){ add(pair[0], id, pair[1][id]); }); });\n  if (r.core_version) add(\"core\",\"core\",{version:r.core_version,enabled:true});\n  return out;\n}\nfunction catalogEntries(catalog){\n  const c=asObj(catalog);\n  const out={};\n  function add(item){\n    const i=asObj(item);\n    const a=getManifestArtifact(i.manifest || i);\n    if (!a.artifact_id) return;\n    out[a.artifact_type+\":\"+a.artifact_id]={ artifact_id:a.artifact_id, artifact_type:a.artifact_type, version:a.version, manifest:i.manifest || i, raw:i };\n  }\n  asArr(c.artifacts).forEach(add);\n  asArr(c.items).forEach(add);\n  Object.keys(asObj(c.capabilities)).forEach(function(id){ const item=asObj(c.capabilities[id]); item.artifact_type=item.artifact_type || \"capability\"; item.artifact_id=item.artifact_id || id; add(item); });\n  Object.keys(asObj(c.solutions)).forEach(function(id){ const item=asObj(c.solutions[id]); item.artifact_type=item.artifact_type || \"solution\"; item.artifact_id=item.artifact_id || id; add(item); });\n  Object.keys(asObj(c.packages)).forEach(function(id){ const item=asObj(c.packages[id]); item.artifact_type=item.artifact_type || \"package\"; item.artifact_id=item.artifact_id || id; add(item); });\n  return out;\n}\nfunction analyze(ctx){\n  const artifact=getManifestArtifact(ctx.manifest);\n  const dependencies=extractDependencies(ctx.manifest);\n  const installed=registryEntries(ctx.registry);\n  const catalog=catalogEntries(ctx.catalog);\n  const present=[], missing=[], version_checks=[], conflicts=[];\n  dependencies.forEach(function(d){\n    const key=d.artifact_type+\":\"+d.artifact_id;\n    const inst=installed[key];\n    if (!inst) {\n      if (d.required) missing.push(d);\n      version_checks.push({ dependency:d, installed:null, available:catalog[key] || null, satisfied:false, reason:\"not_installed\" });\n      return;\n    }\n    const ok=satisfies(inst.version,d.version_constraint);\n    present.push({ dependency:d, installed:inst, satisfied:ok });\n    version_checks.push({ dependency:d, installed:inst, available:catalog[key] || null, satisfied:ok, reason:ok ? \"satisfied\" : \"version_conflict\" });\n    if (!ok) conflicts.push({ dependency:d, installed_version:inst.version, required:d.version_constraint, code:\"VERSION_CONFLICT\" });\n  });\n  return { artifact:artifact, dependencies:dependencies, installed:installed, catalog:catalog, present_dependencies:present, missing_dependencies:missing, version_checks:version_checks, conflicts:conflicts };\n}\nfunction buildGraph(ctx, baseAnalysis){\n  const a = baseAnalysis || analyze(ctx);\n  const nodes={}, edges=[];\n  function addNode(type,id,version,source){ const key=type+\":\"+id; nodes[key]={ key:key, artifact_type:type, artifact_id:id, version:version || \"\", source:source || \"unknown\" }; return key; }\n  const rootKey=addNode(a.artifact.artifact_type,a.artifact.artifact_id,a.artifact.version,\"target\");\n  a.dependencies.forEach(function(d){ const k=addNode(d.artifact_type,d.artifact_id,\"\",\"dependency\"); edges.push({ from:rootKey, to:k, constraint:d.version_constraint, required:d.required }); });\n  Object.keys(a.catalog).forEach(function(k){\n    const item=a.catalog[k]; addNode(item.artifact_type,item.artifact_id,item.version,\"catalog\");\n    extractDependencies(item.manifest).forEach(function(d){ const dk=addNode(d.artifact_type,d.artifact_id,\"\",\"catalog_dependency\"); edges.push({ from:k, to:dk, constraint:d.version_constraint, required:d.required }); });\n  });\n  return { root:rootKey, nodes:Object.keys(nodes).map(function(k){ return nodes[k]; }), edges:edges };\n}\nfunction detectCycles(graph){\n  const adj={}; graph.nodes.forEach(function(n){ adj[n.key]=[]; }); graph.edges.forEach(function(e){ if(!adj[e.from]) adj[e.from]=[]; adj[e.from].push(e.to); });\n  const state={}, stack=[], cycles=[];\n  function dfs(n){\n    state[n]=1; stack.push(n);\n    (adj[n]||[]).forEach(function(m){\n      if (!state[m]) dfs(m);\n      else if (state[m]===1){ const idx=stack.indexOf(m); cycles.push(stack.slice(idx).concat([m])); }\n    });\n    stack.pop(); state[n]=2;\n  }\n  Object.keys(adj).forEach(function(k){ if(!state[k]) dfs(k); });\n  return cycles;\n}\nfunction sortInstallOrder(ctx, analysis){\n  const a=analysis || analyze(ctx);\n  const order=[], blocked=[];\n  a.missing_dependencies.forEach(function(d){\n    const key=d.artifact_type+\":\"+d.artifact_id;\n    const available=a.catalog[key];\n    if (!available) { blocked.push({ dependency:d, code:\"MISSING_DEPENDENCY\", message:\"Dependência ausente no registry e no catálogo.\" }); return; }\n    order.push({ artifact_type:d.artifact_type, artifact_id:d.artifact_id, version:available.version, reason:\"missing_dependency\", constraint:d.version_constraint });\n  });\n  order.push({ artifact_type:a.artifact.artifact_type, artifact_id:a.artifact.artifact_id, version:a.artifact.version, reason:\"target_artifact\" });\n  return { install_order:order, blocked:blocked };\n}\nfunction buildPlan(ctx){\n  const a=analyze(ctx);\n  const graph=buildGraph(ctx,a);\n  const cycles=detectCycles(graph);\n  const sort=sortInstallOrder(ctx,a);\n  const blockers=[];\n  a.missing_dependencies.forEach(function(d){ const key=d.artifact_type+\":\"+d.artifact_id; if(!a.catalog[key]) blockers.push({ code:\"MISSING_DEPENDENCY\", dependency:d, message:\"Dependência obrigatória não encontrada.\" }); });\n  a.conflicts.forEach(function(c){ blockers.push({ code:\"VERSION_CONFLICT\", conflict:c, message:\"Versão instalada incompatível.\" }); });\n  cycles.forEach(function(c){ blockers.push({ code:\"DEPENDENCY_CYCLE_DETECTED\", cycle:c, message:\"Ciclo de dependência detectado.\" }); });\n  sort.blocked.forEach(function(b){ blockers.push(b); });\n  const status=blockers.length ? \"blocked\" : (a.missing_dependencies.length ? \"partial\" : \"ready\");\n  const plan={\n    resolution_status:status,\n    artifact:a.artifact,\n    dependencies:a.dependencies,\n    present_dependencies:a.present_dependencies,\n    missing_dependencies:a.missing_dependencies,\n    version_checks:a.version_checks,\n    conflicts:a.conflicts,\n    dependency_graph:graph,\n    cycles:cycles,\n    install_order:sort.install_order,\n    blockers:blockers,\n    policy:ctx.policy,\n    actions:[]\n  };\n  if (status === \"ready\") plan.actions.push({ action:\"install_target\", artifact:a.artifact });\n  else if (status === \"partial\") plan.actions.push({ action:\"install_missing_then_target\", order:sort.install_order });\n  else plan.actions.push({ action:\"block_install\", blockers:blockers });\n  return plan;\n}\n\nconst operation = txt(`{lv=Operation}`) || \"validate_dependencies\";\nconst strict = bool(`{lv=Strict Mode?}`, true);\nconst parseErrors=[];\nconst manifest = safeParse(`{lv=Artifact Manifest Json}`, {}, \"Artifact Manifest Json\", parseErrors, true);\nconst registry = safeParse(`{lv=Installed Registry Json}`, {}, \"Installed Registry Json\", parseErrors, false);\nconst catalog = safeParse(`{lv=Available Catalog Json}`, {}, \"Available Catalog Json\", parseErrors, false);\nconst policy = safeParse(`{lv=Dependency Policy Json}`, {}, \"Dependency Policy Json\", parseErrors, false);\nconst ctx = { manifest:manifest, registry:registry, catalog:catalog, policy:asObj(policy), strict:strict };\n\nlet result;\ntry {\n  if (SUPPORTED_OPERATIONS.indexOf(operation) < 0) {\n    result = fail(operation, \"Operação não suportada pelo Dependency Resolver.\", \"UNSUPPORTED_OPERATION\", { supported_operations:SUPPORTED_OPERATIONS }, true);\n  } else if (parseErrors.length) {\n    result = makeResult(false, \"error\", operation, parseErrors[0].message, {}, { code:parseErrors[0].code, message:parseErrors[0].message, details:{ errors:parseErrors }, recoverable:true });\n  } else if (operation === \"validate_dependencies\") {\n    const a=analyze(ctx);\n    const warnings=[];\n    if (!a.artifact.artifact_id) warnings.push({ code:\"DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED\", message:\"Artifact alvo não identificado no manifest.\" });\n    result = makeResult(warnings.length === 0 || !strict, warnings.length && strict ? \"error\" : \"success\", operation, warnings.length && strict ? \"Dependências inválidas em modo estrito.\" : \"Dependências validadas com sucesso.\", { valid: warnings.length === 0 || !strict, artifact:a.artifact, dependencies:a.dependencies, dependency_count:a.dependencies.length, warnings:warnings }, warnings.length && strict ? { code:\"DEPENDENCY_INVALID_DECLARATION\", message:\"Dependências inválidas em modo estrito.\", details:{ warnings:warnings }, recoverable:true } : null);\n  } else if (operation === \"get_missing_dependencies\") {\n    const a=analyze(ctx);\n    result = makeResult(true, \"success\", operation, \"Dependências ausentes calculadas com sucesso.\", { artifact:a.artifact, missing_dependencies:a.missing_dependencies, present_dependencies:a.present_dependencies, missing_count:a.missing_dependencies.length }, null);\n  } else if (operation === \"check_version_constraints\") {\n    const a=analyze(ctx);\n    result = makeResult(a.conflicts.length === 0, a.conflicts.length ? \"blocked\" : \"success\", operation, a.conflicts.length ? \"Conflitos de versão encontrados.\" : \"Restrições de versão satisfeitas.\", { artifact:a.artifact, version_checks:a.version_checks, conflicts:a.conflicts, compatible:a.conflicts.length === 0 }, a.conflicts.length ? { code:\"VERSION_CONFLICT\", message:\"Conflitos de versão encontrados.\", details:{ conflicts:a.conflicts }, recoverable:true } : null);\n  } else if (operation === \"build_dependency_graph\") {\n    const a=analyze(ctx); const g=buildGraph(ctx,a);\n    result = makeResult(true, \"success\", operation, \"Grafo de dependências construído com sucesso.\", { artifact:a.artifact, dependency_graph:g }, null);\n  } else if (operation === \"detect_dependency_cycles\") {\n    const a=analyze(ctx); const g=buildGraph(ctx,a); const cycles=detectCycles(g);\n    result = makeResult(cycles.length === 0, cycles.length ? \"blocked\" : \"success\", operation, cycles.length ? \"Ciclo de dependência detectado.\" : \"Nenhum ciclo de dependência detectado.\", { artifact:a.artifact, dependency_graph:g, cycles:cycles, has_cycle:cycles.length > 0 }, cycles.length ? { code:\"DEPENDENCY_CYCLE_DETECTED\", message:\"Ciclo de dependência detectado.\", details:{ cycles:cycles }, recoverable:false } : null);\n  } else if (operation === \"sort_install_order\") {\n    const a=analyze(ctx); const sorted=sortInstallOrder(ctx,a);\n    result = makeResult(sorted.blocked.length === 0, sorted.blocked.length ? \"blocked\" : \"success\", operation, sorted.blocked.length ? \"Ordem de instalação bloqueada por dependências ausentes.\" : \"Ordem de instalação calculada com sucesso.\", { artifact:a.artifact, install_order:sorted.install_order, blocked:sorted.blocked }, sorted.blocked.length ? { code:\"MISSING_DEPENDENCY\", message:\"Ordem de instalação bloqueada por dependências ausentes.\", details:{ blocked:sorted.blocked }, recoverable:true } : null);\n  } else if (operation === \"build_resolution_plan\") {\n    const plan=buildPlan(ctx);\n    result = makeResult(plan.blockers.length === 0, plan.blockers.length ? \"blocked\" : \"success\", operation, plan.blockers.length ? \"Plano de resolução bloqueado.\" : \"Plano de resolução construído com sucesso.\", { resolution_plan:plan }, plan.blockers.length ? { code:\"DEPENDENCY_RESOLUTION_BLOCKED\", message:\"Plano de resolução bloqueado.\", details:{ blockers:plan.blockers }, recoverable:true } : null);\n  } else if (operation === \"validate_install_plan\") {\n    const plan=buildPlan(ctx);\n    result = makeResult(plan.blockers.length === 0, plan.blockers.length ? \"blocked\" : \"success\", operation, plan.blockers.length ? \"Plano de instalação inválido.\" : \"Plano de instalação validado com sucesso.\", { valid:plan.blockers.length === 0, resolution_plan:plan }, plan.blockers.length ? { code:\"DEPENDENCY_INSTALL_PLAN_INVALID\", message:\"Plano de instalação inválido.\", details:{ blockers:plan.blockers }, recoverable:true } : null);\n  }\n} catch(e) {\n  result = fail(operation, \"Falha ao processar dependências.\", \"DEPENDENCY_RESOLUTION_FAILED\", { reason:String(e && e.message ? e.message : e) }, true);\n}\nJSON.stringify(result);\n","stringVariableName":"Tmp_DependencyWorkJson","disableLogging":false,"m_SIGUID":1514720147721343450,"m_classType":"JavaScriptAction","m_comment":"Executa dispatch por Operation e gera Resultado JSON.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"dictionaryKeys":{"keys":[]},"dictionaryVarName":"Resultado","stringVarName":"Tmp_DependencyWorkJson","disableLogging":false,"m_SIGUID":6649035821007732562,"m_classType":"JsonParseAction","m_comment":"Publica Tmp_DependencyWorkJson diretamente na saída Resultado.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"disableLogging":false,"m_SIGUID":8457872226871432855,"m_classType":"ActionGroupEndAction","m_comment":"","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false},{"outputOption":0,"disableLogging":false,"m_SIGUID":-4129453500966680767,"m_classType":"ExitActionBlockAction","m_comment":"Encerramento explícito após publicar Resultado.","m_constraintList":[],"m_isDisabled":false,"m_isOrCondition":false}],"m_category":"CDXMS","m_constraintList":[],"m_description":"Resolve dependências declaradas entre artifacts CDXMS e gera plano seguro de resolução antes da instalação.","m_descriptionOpen":false,"m_enabled":false,"m_excludeLog":false,"m_headingColor":-11382190,"m_isOrCondition":false,"m_name":"[CDXMS] Dependency Resolver","m_triggerList":[]},"macroExportVersion":1}
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1782000000000,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "validate_dependencies",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica do Dependency Resolver."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Artifact Manifest Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Manifest do artifact alvo."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Installed Registry Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Registry instalado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Available Catalog Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Catálogo disponível."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Dependency Policy Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Política de resolução."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Bloqueia inconsistências."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de sessão."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de correlação."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única no contrato universal CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_DependencyWorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "JSON textual interno antes da publicação em Resultado."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -7339589264797428219,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Processar",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Processar [CDXMS] Dependency Resolver",
+        "disableLogging": false,
+        "m_SIGUID": -81412165105949799,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ID=\"dependency_resolver\",VERSION=\"1.0.0\";function t(v){return String(v==null?\"\":v).trim()}function p(v,d,n){let s=t(v);if(!s)return d;try{return JSON.parse(s)}catch(e){throw {code:\"INVALID_JSON\",message:\"JSON inválido em \"+n+\".\",details:{reason:String(e.message||e)}}}}function o(v){return v&&typeof v===\"object\"&&!Array.isArray(v)?v:{}}function arr(v){return Array.isArray(v)?v:[]}function aid(m){let n=o(m.capability);if(!Object.keys(n).length)n=o(m.solution);if(!Object.keys(n).length)n=o(m.package);return {artifact_type:t(m.artifact_type)||\"capability\",artifact_id:t(m.artifact_id||n.id),version:t(m.version||n.version)||\"0.0.0\",display_name:t(n.display_name||n.name||n.id)}}function deps(m){let a=[],req=o(m.requires),caps=o(req.capabilities);Object.keys(caps).forEach(k=>a.push({artifact_type:\"capability\",artifact_id:k,version_constraint:t(caps[k])||\"*\",required:true}));if(req.core_min_version)a.push({artifact_type:\"core\",artifact_id:\"core\",version_constraint:\">=\"+req.core_min_version,required:true});arr(m.dependencies).forEach(d=>a.push({artifact_type:t(d.artifact_type||d.type)||\"capability\",artifact_id:t(d.artifact_id||d.id),version_constraint:t(d.version_constraint||d.version||d.constraint)||\"*\",required:d.required!==false}));return a.filter(d=>d.artifact_id)}function versions(v){let m=t(v).replace(/^v/i,\"\").match(/^(\\d+)(?:\\.(\\d+))?(?:\\.(\\d+))?/);return m?[+m[1],+(m[2]||0),+(m[3]||0)]:[0,0,0]}function cmp(a,b){a=versions(a);b=versions(b);for(let i=0;i<3;i++){if(a[i]>b[i])return 1;if(a[i]<b[i])return -1}return 0}function sat(v,c){c=t(c)||\"*\";if(c===\"*\"||c===\"any\")return true;return c.split(/\\s+/).every(x=>{let m=x.match(/^(>=|<=|>|<|=)?(.+)$/),q=cmp(v,m[2]);return !m[1]?q===0:m[1]===\">=\"?q>=0:m[1]===\"<=\"?q<=0:m[1]===\">\"?q>0:m[1]===\"<\"?q<0:q===0})}function entries(r){let z={},R=o(r);[[\"capability\",o(R.installed_capabilities)],[\"solution\",o(R.installed_solutions)],[\"package\",o(R.installed_packages)]].forEach(pair=>Object.keys(pair[1]).forEach(k=>z[pair[0]+\":\"+k]={version:t(pair[1][k].version)||\"0.0.0\",raw:pair[1][k]}));if(R.core_version)z[\"core:core\"]={version:R.core_version};return z}function result(ok,status,op,msg,data,error){return {schema_version:1,namespace:\"CDXMS\",success:ok,status:status,artifact_type:\"capability\",artifact_id:ID,operation:op,message:msg,data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:\"[CDXMS] Dependency Resolver\",version:VERSION,session_id:t(`{lv=Session Id}`),correlation_id:t(`{lv=Correlation Id}`)}}}let op=t(`{lv=Operation}`),res;try{let m=p(`{lv=Artifact Manifest Json}`,{},\"Artifact Manifest Json\"),a=aid(m);if(!a.artifact_id)throw {code:\"DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED\",message:\"Artifact alvo não identificado.\"};let ds=deps(m),reg=entries(p(`{lv=Installed Registry Json}`,{},\"Installed Registry Json\")),missing=[],present=[],checks=[],conflicts=[];ds.forEach(d=>{let e=reg[d.artifact_type+\":\"+d.artifact_id];if(!e){missing.push(d);checks.push(Object.assign({},d,{installed:false,compatible:!d.required}))}else{let ok=sat(e.version,d.version_constraint);present.push(Object.assign({},d,{installed_version:e.version,compatible:ok}));checks.push(Object.assign({},d,{installed:true,installed_version:e.version,compatible:ok}));if(!ok&&d.required)conflicts.push(Object.assign({},d,{installed_version:e.version}))}});let blocked=missing.some(d=>d.required)||conflicts.length>0,plan={artifact:a,status:blocked?\"blocked\":\"ready\",blocked:blocked,dependencies:ds,missing_dependencies:missing,present_dependencies:present,version_checks:checks,conflicts:conflicts,install_order:missing.map(d=>({artifact_type:d.artifact_type,artifact_id:d.artifact_id,version_constraint:d.version_constraint})).concat([{artifact_type:a.artifact_type,artifact_id:a.artifact_id,version_constraint:\"=\"+a.version}])};let data={artifact:a,dependencies:ds,dependency_count:ds.length,missing_dependencies:missing,present_dependencies:present,missing_count:missing.length,version_checks:checks,conflicts:conflicts,compatible:conflicts.length===0,dependency_graph:{root:a.artifact_id,nodes:[a].concat(ds),edges:ds.map(d=>({from:a.artifact_id,to:d.artifact_id,required:d.required}))},cycles:[],has_cycle:false,install_order:plan.install_order,blocked:blocked,resolution_plan:plan,valid:!blocked,warnings:[]};if(![\"validate_dependencies\",\"get_missing_dependencies\",\"check_version_constraints\",\"build_dependency_graph\",\"build_resolution_plan\",\"detect_dependency_cycles\",\"sort_install_order\",\"validate_install_plan\"].includes(op))throw {code:\"UNSUPPORTED_OPERATION\",message:\"Operação não suportada.\"};res=result(!blocked||op===\"validate_dependencies\"||op===\"build_dependency_graph\"||op===\"detect_dependency_cycles\",blocked?\"blocked\":\"success\",op,blocked?\"Resolução bloqueada por dependências ausentes ou incompatíveis.\":\"Dependências processadas com sucesso.\",data,blocked?{code:\"DEPENDENCY_RESOLUTION_BLOCKED\",message:\"Plano bloqueado.\",details:{missing_dependencies:missing,conflicts:conflicts},recoverable:true}:null)}catch(e){res=result(false,\"error\",op,e.message||\"Falha ao resolver dependências.\",{}, {code:e.code||\"DEPENDENCY_RESOLUTION_FAILED\",message:e.message||\"Falha ao resolver dependências.\",details:e.details||{},recoverable:true})}return JSON.stringify(res);",
+        "stringVariableName": "Tmp_DependencyWorkJson",
+        "actionLabel": "Executar motor interno",
+        "disableLogging": false,
+        "m_SIGUID": -733463215325014726,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_DependencyWorkJson",
+        "actionLabel": "Publicar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -127288391603165025,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica a saída pública única.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — Processar",
+        "disableLogging": false,
+        "m_SIGUID": -474269040789405094,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
+        "disableLogging": false,
+        "m_SIGUID": -863145240598484335,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra explicitamente o Action Block.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_description": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
+    "m_name": "[CDXMS] Dependency Resolver",
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
+  },
+  "macroExportVersion": 1
+}

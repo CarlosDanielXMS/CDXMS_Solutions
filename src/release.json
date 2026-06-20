@@ -1,81 +1,84 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_plus_am_dr_capability_hardening",
+  "release_id": "ecosystem_core_remote_distribution_readiness",
+  "artifact_id": "ecosystem_core_remote_distribution_readiness",
+  "artifact_type": "package",
   "version": "1.0.0",
+  "status": "pre_release",
   "created_at": "",
+  "distribution": {
+    "source_id": "cdxms_official_github",
+    "catalog_sources_path": "catalogs/sources.json",
+    "catalog_path": "catalogs/local_catalog.default.json",
+    "checksums_path": "checksums.json",
+    "homologation_ref": "develop"
+  },
   "artifacts": [
+    {
+      "artifact_id": "cdxms_core",
+      "artifact_type": "core",
+      "version": "1.0.0",
+      "path": "core/manifest.json",
+      "remote_manifest_path": "core/remote_manifest.json"
+    },
     {
       "artifact_id": "json_config_manager",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/json_config_manager/manifest.json"
+      "path": "capabilities/json_config_manager/manifest.json",
+      "remote_manifest_path": "capabilities/json_config_manager/remote_manifest.json"
     },
     {
       "artifact_id": "bootstrap",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/bootstrap/manifest.json"
+      "path": "capabilities/bootstrap/manifest.json",
+      "remote_manifest_path": "capabilities/bootstrap/remote_manifest.json"
     },
     {
       "artifact_id": "result_manager",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/result_manager/manifest.json"
+      "path": "capabilities/result_manager/manifest.json",
+      "remote_manifest_path": "capabilities/result_manager/remote_manifest.json"
     },
     {
       "artifact_id": "logger",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/logger/manifest.json"
+      "path": "capabilities/logger/manifest.json",
+      "remote_manifest_path": "capabilities/logger/remote_manifest.json"
     },
     {
       "artifact_id": "string_utils",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/string_utils/manifest.json"
+      "path": "capabilities/string_utils/manifest.json",
+      "remote_manifest_path": "capabilities/string_utils/remote_manifest.json"
     },
     {
       "artifact_id": "artifact_manager",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/artifact_manager/manifest.json"
+      "path": "capabilities/artifact_manager/manifest.json",
+      "remote_manifest_path": "capabilities/artifact_manager/remote_manifest.json"
     },
     {
       "artifact_id": "dependency_resolver",
       "artifact_type": "capability",
       "version": "1.0.0",
-      "path": "capabilities/dependency_resolver/manifest.json"
+      "path": "capabilities/dependency_resolver/manifest.json",
+      "remote_manifest_path": "capabilities/dependency_resolver/remote_manifest.json"
     }
   ],
   "notes": [
-    "Base do ecossistema com JCM, Bootstrap, Result Manager, Logger e String Utils.",
-    "Saneamento pré-release sem alteração de versão pública.",
-    "Ações nativas priorizadas quando seguras, claras e homologadas.",
-    "JavaScript mantido onde reduz complexidade ou implementa engine real.",
-    "Shell restrito ao JCM como fallback controlado até homologação de FileOperation.",
-    "Adiciona Artifact Manager v1.0.0 como início da Fase 3.",
-    "Package incremental mesclado: inclui toda a base homologada anterior mais as alterações do Artifact Manager.",
-    "Escopo inicial focado em validação, paths, registry entry e plano local seguro.",
-    "Download remoto e resolução completa de dependências permanecem fora do escopo desta entrega.",
-    "Adiciona Dependency Resolver v1.0.0 como fechamento lógico da Fase 3 antes da integração com Artifact Manager.",
-    "Dependency Resolver gera plano seguro: dependências ausentes, constraints de versão, ciclos e ordem de instalação.",
-    "Adiciona homologação integrada Artifact Manager + Dependency Resolver v1.0.0 por orquestração.",
-    "Mantém AM e DR desacoplados para evitar ciclo de dependência e acoplamento por GUID.",
-    "A instalação física real continua fora desta etapa; fluxo integrado opera em dry-run.",
-    "Fase remota futura usará develop como ref de homologação.",
-    "Remodela a direção conceitual AM/DR: Artifact Manager orquestra lifecycle; Dependency Resolver é puro/stateless.",
-    "Remove dependência rígida Dependency Resolver -> Artifact Manager.",
-    "Artifact Manager passa a aceitar Dependency Resolution Json para planos dependency-aware em dry-run.",
-    "Mantém sem Action Block intermediário nesta etapa.",
-    "Evolui Artifact Manager para aplicação local real controlada por double-gate.",
-    "Operações elegíveis só aplicam efeitos físicos quando Dry Run? = false e Apply Changes? = true.",
-    "MacroDroid .ablock/.macro continua com importação manual; o apply físico cobre arquivos JSON, registry, runtime state e install marker.",
-    "Auditoria transversal de capabilities v1.0.0 pré-release.",
-    "Artifact Manager local apply reforçado com gates explícitos e diagnóstico de entrada.",
-    "Correção preventiva para evitar sucesso silencioso quando Apply Changes? não é verdadeiro."
+    "Base completa e mesclada do ecossistema atual.",
+    "Artifact Manager consolidado para apply via Json Config Manager.",
+    "Remote manifests schema v1 padronizados preservando source.type, source.ref e source.base_raw_url.",
+    "Homologação remota usa develop; release estável futura usará tag/release.",
+    "Download remoto e Remote Source Manager serão implementados na próxima fase.",
+    "Importação automática de .macro/.ablock continua fora de escopo até homologação específica."
   ],
-  "artifact_id": "ecosystem_core_plus_am_dr_capability_hardening",
-  "artifact_type": "package",
-  "package": "CDXMS_Capabilities_Audit_Hardening_v1_0_0_incremental_merged_package.zip"
+  "package": "CDXMS_Remote_Distribution_Readiness_v1_0_0_full_merged_corrected.zip"
 }

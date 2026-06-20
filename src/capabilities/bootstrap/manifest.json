@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] Bootstrap",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Coordenador local de inicialização do ecossistema CDXMS. Valida core, prepara runtime e carrega contexto local usando o JCM.",
+    "description": "Coordenador local de inicialização do ecossistema CDXMS usando o JCM.",
     "enabled": true,
     "has_config": true
   },
@@ -49,9 +49,10 @@
       "file_operation_actions": 0,
       "text_manipulation_actions": 0
     },
-    "native_action_decision": "Mantém o Bootstrap minimalista, com dependência direta apenas do JCM. Não foi adicionada dependência obrigatória do Result Manager para não fragilizar a inicialização limpa do core.",
+    "native_action_decision": "Bootstrap permanece minimalista, dependente diretamente apenas do JCM.",
     "javascript_policy": "allowed_for_context_aggregation",
     "shell_policy": "not_used",
-    "recommended_follow_up": "A partir do Artifact Manager, usar Result Manager nas novas capabilities; Bootstrap pode continuar publicando Resultado próprio enquanto for bloco de fundação."
+    "recommended_follow_up": "Manter Bootstrap como fundação mínima.",
+    "export_checked_against_contract": true
   }
 }

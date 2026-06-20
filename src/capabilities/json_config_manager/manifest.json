@@ -36,10 +36,13 @@
     "backup_file",
     "delete_file"
   ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
   "json_path_engine": {
     "id": "jcm_json_path_engine",
     "version": "1",
-    "description": "Engine interna do JCM para leitura, escrita e merge em qualquer estrutura JSON suportada pelo padrão prático CDXMS/JsonPath.",
+    "description": "Engine interna do JCM para leitura, escrita e merge em estruturas JSON suportadas.",
     "features": [
       "root",
       "child",
@@ -54,9 +57,6 @@
       "continued_navigation_after_filter"
     ]
   },
-  "result_contract": "core/result_contract.json",
-  "created_at": "",
-  "updated_at": "",
   "implementation_audit": {
     "stage": "pre_release_1_0_0_sanitization",
     "version_policy": "no_version_bump_before_first_official_release",
@@ -70,9 +70,10 @@
       "file_operation_actions": 0,
       "text_manipulation_actions": 0
     },
-    "native_action_decision": "Mantém ações nativas de leitura/escrita/parse onde elas já expressam a intenção; mantém JavaScript como engine interna de JsonPath/merge; mantém ShellScriptAction como fallback controlado para mkdir -p e rm -f até homologação real de FileOperationV21Action/FileOperationAllFilesAction com paths dinâmicos e criação recursiva.",
+    "native_action_decision": "Mantém ações nativas de leitura/escrita/parse, JavaScript como engine de JsonPath/merge e Shell somente como fallback controlado no JCM.",
     "javascript_policy": "justified_engine",
     "shell_policy": "controlled_fallback_pending_real_device_saf_validation",
-    "recommended_follow_up": "Criar teste mínimo real no MacroDroid para FileOperationV21Action com m_folderName dinâmico e FileOperationAllFilesAction delete por all-files path antes de substituir o Shell."
+    "recommended_follow_up": "Homologar FileOperation com paths dinâmicos antes de substituir o fallback.",
+    "export_checked_against_contract": true
   }
 }

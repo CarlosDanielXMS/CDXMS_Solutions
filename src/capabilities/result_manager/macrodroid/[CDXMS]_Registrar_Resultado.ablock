@@ -1,7 +1,7 @@
 {
   "globalVariables": [],
   "macro": {
-    "isInputExpanded": false,
+    "isInputExpanded": true,
     "isLocalExpanded": false,
     "isOutputExpanded": true,
     "isTestMode": false,
@@ -13,7 +13,7 @@
     "isActionBlock": true,
     "isExtra": false,
     "isFavourite": false,
-    "lastEditedTimestamp": 1781620000000,
+    "lastEditedTimestamp": 1782000000000,
     "localVariables": [
       {
         "dictionary": {
@@ -33,7 +33,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Operação técnica. Opções: build_result, normalize_result, validate_result, propagate_result, wrap_error, register_result. Exemplo: build_result monta Resultado a partir das entradas."
+        "description": "Operação técnica do Result Manager."
       },
       {
         "dictionary": {
@@ -53,7 +53,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Tipo técnico do artifact de origem. Opções: core, capability, solution, package, catalog. Exemplo: capability."
+        "description": "Tipo do artifact de origem."
       },
       {
         "dictionary": {
@@ -73,7 +73,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Id técnico do artifact de origem. Exemplo: bootstrap, json_config_manager, result_manager."
+        "description": "Id do artifact de origem."
       },
       {
         "dictionary": {
@@ -93,7 +93,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Operação original registrada no Resultado. Exemplo: read_json, initialize_ecosystem, build_result."
+        "description": "Operação original."
       },
       {
         "dictionary": {
@@ -113,7 +113,7 @@
         "m_type": 0,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Indica sucesso lógico para build_result. true gera status success por padrão; false gera status error."
+        "description": "Sucesso lógico."
       },
       {
         "dictionary": {
@@ -133,7 +133,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Status padronizado. Opções: success, error, cancelled, skipped, not_found, partial, blocked. Se vazio, deriva de Success?."
+        "description": "Status padronizado."
       },
       {
         "dictionary": {
@@ -153,7 +153,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Mensagem humana em português para Resultado.message. Exemplo: Operação executada com sucesso."
+        "description": "Mensagem humana."
       },
       {
         "dictionary": {
@@ -173,7 +173,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Objeto JSON usado como Resultado.data. Exemplos: {}, {\"file_path\":\"core/settings.json\"}. Se raiz não for objeto, será encapsulada em data.value."
+        "description": "Objeto JSON para Resultado.data."
       },
       {
         "dictionary": {
@@ -193,7 +193,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Erro estruturado ou null. Exemplo: {\"code\":\"INVALID_JSON\",\"message\":\"JSON inválido.\",\"details\":{},\"recoverable\":false}."
+        "description": "Erro estruturado ou null."
       },
       {
         "dictionary": {
@@ -213,7 +213,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Resultado bruto para normalize_result, validate_result, propagate_result ou register_result. Deve ser JSON válido."
+        "description": "Resultado bruto."
       },
       {
         "dictionary": {
@@ -233,7 +233,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Contexto adicional opcional. Exemplo: {\"caller\":\"bootstrap\",\"step\":\"verify_core\"}."
+        "description": "Contexto adicional."
       },
       {
         "dictionary": {
@@ -253,7 +253,7 @@
         "m_type": 0,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Quando true, valida campos obrigatórios e bloqueia top-level data_json/error_code/error_message/error_json."
+        "description": "Validação rigorosa."
       },
       {
         "dictionary": {
@@ -273,7 +273,7 @@
         "m_type": 0,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Quando true, inclui resultado bruto em Resultado.data.raw_result para debug. Evitar em produção."
+        "description": "Inclui bruto para debug."
       },
       {
         "dictionary": {
@@ -293,7 +293,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Identificador de sessão propagado para Resultado.meta.session_id. Exemplo: session-001."
+        "description": "Id de sessão."
       },
       {
         "dictionary": {
@@ -313,7 +313,7 @@
         "m_type": 2,
         "supportsInput": true,
         "supportsOutput": false,
-        "description": "Identificador de correlação propagado para Resultado.meta.correlation_id. Exemplo: corr-001."
+        "description": "Id de correlação."
       },
       {
         "dictionary": {
@@ -333,7 +333,7 @@
         "m_type": 4,
         "supportsInput": false,
         "supportsOutput": true,
-        "description": "Saída pública única. Dicionário conforme contrato universal CDXMS. Dados úteis sempre em Resultado.data."
+        "description": "Saída pública única no contrato universal CDXMS."
       },
       {
         "dictionary": {
@@ -353,21 +353,21 @@
         "m_type": 2,
         "supportsInput": false,
         "supportsOutput": false,
-        "description": "JSON textual interno publicado em Resultado via JSON Parse."
+        "description": "JSON textual interno antes da publicação em Resultado."
       }
     ],
-    "localVarsAlphabetical": true,
+    "localVarsAlphabetical": false,
     "m_GUID": -2848404244272762193,
     "m_actionList": [
       {
-        "actionGroupName": "01 — Initialize Runtime",
+        "actionGroupName": "01 — Processar",
         "childrenCollapsed": false,
         "dontLogIfConditionIsFalse": false,
-        "actionLabel": "01 — Initialize Runtime",
+        "actionLabel": "01 — Processar [CDXMS] Registrar Resultado",
         "disableLogging": false,
-        "m_SIGUID": -7091262484763327594,
+        "m_SIGUID": -151250874610809599,
         "m_classType": "ActionGroupAction",
-        "m_comment": "01 — Build/Normalize/Validate Result: capability pura sem efeitos colaterais.",
+        "m_comment": "Capability pura para construir, normalizar, validar e propagar Resultado.",
         "m_constraintList": [],
         "m_isDisabled": false,
         "m_isOrCondition": false
@@ -375,12 +375,13 @@
       {
         "blockNextAction": true,
         "javascriptEngine": "JetPack JavascriptEngine",
-        "scriptText": "\nconst ARTIFACT_ID = \"result_manager\";\nconst VERSION = \"1.0.0\";\nconst SOURCE_NAME = \"[CDXMS] Registrar Resultado\";\nconst SUPPORTED = [\"build_result\",\"normalize_result\",\"validate_result\",\"propagate_result\",\"wrap_error\",\"register_result\"];\nconst STATUS = [\"success\",\"error\",\"cancelled\",\"skipped\",\"not_found\",\"partial\",\"blocked\"];\nconst ARTIFACT_TYPES = [\"core\",\"capability\",\"solution\",\"package\",\"catalog\"];\nconst REQUIRED = [\"schema_version\",\"namespace\",\"success\",\"status\",\"artifact_type\",\"artifact_id\",\"operation\",\"message\",\"data\",\"error\"];\nconst FORBIDDEN = [\"data_json\",\"error_code\",\"error_message\",\"error_json\"];\nfunction txt(v){ return String(v == null ? \"\" : v).trim(); }\nfunction bool(v, fallback){ const s = String(v == null ? \"\" : v).trim().toLowerCase(); if ([\"true\",\"1\",\"yes\",\"y\",\"sim\",\"s\",\"verdadeiro\"].indexOf(s) >= 0) return true; if ([\"false\",\"0\",\"no\",\"n\",\"nao\",\"não\",\"falso\"].indexOf(s) >= 0) return false; return fallback === true; }\nfunction parseJson(raw, fallback, name){\n  const s = txt(raw);\n  if (!s) return fallback;\n  try { return JSON.parse(s); } catch(e) { throw { code:\"INVALID_JSON\", message:\"JSON inválido em \" + name + \".\", details:{ input:name, reason:String(e.message || e) }, recoverable:false }; }\n}\nfunction asObject(value){\n  if (value && typeof value === \"object\" && !Array.isArray(value)) return value;\n  if (value === null || value === undefined || value === \"\") return {};\n  return { value:value };\n}\nfunction normalizeError(value, fallbackCode, fallbackMessage){\n  if (value === null || value === undefined || value === \"\") return null;\n  if (typeof value === \"object\" && !Array.isArray(value)) {\n    return {\n      code: txt(value.code || fallbackCode || \"UNKNOWN_ERROR\") || \"UNKNOWN_ERROR\",\n      message: txt(value.message || fallbackMessage || \"Erro desconhecido.\") || \"Erro desconhecido.\",\n      details: value.details && typeof value.details === \"object\" && !Array.isArray(value.details) ? value.details : {},\n      recoverable: value.recoverable === true\n    };\n  }\n  return { code: fallbackCode || \"UNKNOWN_ERROR\", message: fallbackMessage || \"Erro desconhecido.\", details:{ value:value }, recoverable:false };\n}\nfunction meta(extra){\n  const m = { timestamp:new Date().toISOString(), source:SOURCE_NAME, version:VERSION, session_id:txt(`{lv=Session Id}`), correlation_id:txt(`{lv=Correlation Id}`) };\n  if (extra && typeof extra === \"object\" && !Array.isArray(extra)) {\n    for (const k in extra) m[k] = extra[k];\n  }\n  return m;\n}\nfunction makeResult(success, status, artifactType, artifactId, operation, message, data, error, metaExtra){\n  const ok = success === true;\n  let st = txt(status) || (ok ? \"success\" : \"error\");\n  if (STATUS.indexOf(st) < 0) st = ok ? \"success\" : \"error\";\n  let at = txt(artifactType) || \"capability\";\n  if (ARTIFACT_TYPES.indexOf(at) < 0) at = \"capability\";\n  return {\n    schema_version:1,\n    namespace:\"CDXMS\",\n    success:ok,\n    status:st,\n    artifact_type:at,\n    artifact_id:txt(artifactId) || ARTIFACT_ID,\n    operation:txt(operation),\n    message:txt(message) || (ok ? \"Operação executada com sucesso.\" : \"A operação não pôde ser concluída.\"),\n    data:asObject(data),\n    error:error || null,\n    meta:meta(metaExtra)\n  };\n}\nfunction contractIssues(obj, strict){\n  const missing = [];\n  const forbidden = [];\n  const warnings = [];\n  if (!obj || typeof obj !== \"object\" || Array.isArray(obj)) return { valid:false, missing_fields:REQUIRED.slice(), forbidden_fields:[], warnings:[\"root_not_object\"] };\n  for (const f of REQUIRED) if (!(f in obj)) missing.push(f);\n  for (const f of FORBIDDEN) if (f in obj) forbidden.push(f);\n  if (\"data\" in obj && (!obj.data || typeof obj.data !== \"object\" || Array.isArray(obj.data))) warnings.push(\"data_not_object\");\n  if (\"error\" in obj && obj.error !== null && (typeof obj.error !== \"object\" || Array.isArray(obj.error))) warnings.push(\"error_not_object\");\n  const valid = missing.length === 0 && (!strict || forbidden.length === 0) && warnings.indexOf(\"data_not_object\") < 0 && warnings.indexOf(\"error_not_object\") < 0;\n  return { valid, missing_fields:missing, forbidden_fields:forbidden, warnings };\n}\nfunction normalizeRawResult(raw, strict){\n  const obj = parseJson(raw, {}, \"Result Json\");\n  const issues = contractIssues(obj, strict);\n  if (strict && issues.forbidden_fields.length > 0) {\n    throw { code:\"RESULT_FORBIDDEN_TOP_LEVEL_FIELD\", message:\"O resultado contém campos de topo proibidos.\", details:{ forbidden_fields:issues.forbidden_fields }, recoverable:false };\n  }\n  if (issues.warnings.indexOf(\"data_not_object\") >= 0) {\n    throw { code:\"RESULT_DATA_NOT_OBJECT\", message:\"O campo data do resultado precisa ser um dicionário.\", details:{}, recoverable:false };\n  }\n  if (issues.warnings.indexOf(\"error_not_object\") >= 0) {\n    throw { code:\"RESULT_ERROR_NOT_OBJECT\", message:\"O campo error do resultado precisa ser nulo ou um dicionário.\", details:{}, recoverable:false };\n  }\n  const success = obj.success === true;\n  const data = obj.data && typeof obj.data === \"object\" && !Array.isArray(obj.data) ? obj.data : {};\n  return makeResult(success, obj.status, obj.artifact_type, obj.artifact_id, obj.operation, obj.message, data, normalizeError(obj.error), obj.meta && typeof obj.meta === \"object\" ? obj.meta : {});\n}\nfunction topLevelError(operation, e){\n  const er = normalizeError(e, e && e.code ? e.code : \"PROCESSING_FAILED\", e && e.message ? e.message : \"Falha ao processar resultado.\");\n  return makeResult(false, \"error\", \"capability\", ARTIFACT_ID, operation, er.message, {}, er, null);\n}\nconst op = txt(`{lv=Operation}`);\nconst strict = bool(`{lv=Strict Mode?}`);\nconst includeRaw = bool(`{lv=Include Raw Result?}`);\ntry {\n  if (!op) throw { code:\"MISSING_REQUIRED_INPUT\", message:\"A entrada obrigatória Operation não foi informada.\", details:{ input:\"Operation\" }, recoverable:false };\n  if (SUPPORTED.indexOf(op) < 0) throw { code:\"UNSUPPORTED_OPERATION\", message:\"A operação informada não é suportada pelo Result Manager.\", details:{ operation:op, supported_operations:SUPPORTED }, recoverable:false };\n  const sourceType = txt(`{lv=Source Artifact Type}`) || \"capability\";\n  const sourceId = txt(`{lv=Source Artifact Id}`) || ARTIFACT_ID;\n  const sourceOp = txt(`{lv=Source Operation}`) || op;\n  const message = txt(`{lv=Message}`);\n  const context = parseJson(`{lv=Context Json}`, {}, \"Context Json\");\n  let output;\n  if (op === \"build_result\") {\n    const success = bool(`{lv=Success?}`);\n    const status = txt(`{lv=Status}`) || (success ? \"success\" : \"error\");\n    const data = parseJson(`{lv=Data Json}`, {}, \"Data Json\");\n    const errorRaw = parseJson(`{lv=Error Json}`, null, \"Error Json\");\n    const error = success ? null : (normalizeError(errorRaw, \"UNKNOWN_ERROR\", message || \"A operação não pôde ser concluída.\"));\n    output = makeResult(success, status, sourceType, sourceId, sourceOp, message, Object.assign({}, asObject(data), Object.keys(context).length ? { context } : {}), error, null);\n  } else if (op === \"wrap_error\") {\n    const data = parseJson(`{lv=Data Json}`, {}, \"Data Json\");\n    const errorRaw = parseJson(`{lv=Error Json}`, null, \"Error Json\");\n    const error = normalizeError(errorRaw, \"UNKNOWN_ERROR\", message || \"A operação não pôde ser concluída.\");\n    output = makeResult(false, txt(`{lv=Status}`) || \"error\", sourceType, sourceId, sourceOp, message || error.message, Object.assign({}, asObject(data), Object.keys(context).length ? { context } : {}), error, null);\n  } else if (op === \"validate_result\") {\n    const raw = parseJson(`{lv=Result Json}`, {}, \"Result Json\");\n    const issues = contractIssues(raw, strict);\n    if (!issues.valid) {\n      let code = \"RESULT_INVALID_CONTRACT\";\n      if (issues.forbidden_fields.length > 0) code = \"RESULT_FORBIDDEN_TOP_LEVEL_FIELD\";\n      if (issues.warnings.indexOf(\"data_not_object\") >= 0) code = \"RESULT_DATA_NOT_OBJECT\";\n      if (issues.warnings.indexOf(\"error_not_object\") >= 0) code = \"RESULT_ERROR_NOT_OBJECT\";\n      output = makeResult(false, \"error\", \"capability\", ARTIFACT_ID, \"validate_result\", \"O resultado informado não atende ao contrato CDXMS.\", Object.assign({ valid:false }, issues), normalizeError({code, message:\"O resultado informado não atende ao contrato CDXMS.\", details:issues, recoverable:false}), null);\n    } else {\n      output = makeResult(true, \"success\", \"capability\", ARTIFACT_ID, \"validate_result\", \"Resultado validado com sucesso.\", Object.assign({ valid:true }, issues), null, null);\n    }\n  } else if (op === \"normalize_result\") {\n    const normalized = normalizeRawResult(`{lv=Result Json}`, strict);\n    output = makeResult(true, \"success\", \"capability\", ARTIFACT_ID, \"normalize_result\", \"Resultado normalizado com sucesso.\", { normalized:true, value:normalized, context:Object.keys(context).length ? context : undefined }, null, null);\n    if (output.data.context === undefined) delete output.data.context;\n  } else if (op === \"propagate_result\") {\n    const child = normalizeRawResult(`{lv=Result Json}`, strict);\n    const childSummary = { success:child.success, status:child.status, artifact_type:child.artifact_type, artifact_id:child.artifact_id, operation:child.operation, message:child.message, error_code:child.error ? child.error.code : null };\n    const data = { propagated:true, child_result_summary:childSummary, child_data:child.data };\n    if (Object.keys(context).length) data.context = context;\n    if (includeRaw) data.raw_result = child;\n    output = makeResult(child.success === true, child.status, sourceType, sourceId, sourceOp, message || child.message, data, child.error, { child_source: child.artifact_id });\n  } else if (op === \"register_result\") {\n    const normalized = normalizeRawResult(`{lv=Result Json}`, strict);\n    const data = { registered:true, value:normalized };\n    if (Object.keys(context).length) data.context = context;\n    if (includeRaw) data.raw_result = parseJson(`{lv=Result Json}`, {}, \"Result Json\");\n    output = makeResult(normalized.success === true, normalized.status, normalized.artifact_type, normalized.artifact_id, normalized.operation, message || normalized.message, data, normalized.error, normalized.meta || null);\n  }\n  JSON.stringify(output);\n} catch(e) {\n  JSON.stringify(topLevelError(op || \"unknown\", e));\n}\n",
+        "scriptText": "const ID=\"result_manager\", VERSION=\"1.0.0\";\nfunction t(v){return String(v==null?\"\":v).trim();}\nfunction b(v,d){let s=t(v).toLowerCase();if([\"true\",\"1\",\"sim\",\"s\",\"verdadeiro\"].indexOf(s)>=0)return true;if([\"false\",\"0\",\"não\",\"nao\",\"n\",\"falso\"].indexOf(s)>=0)return false;return d===true;}\nfunction p(v,d,n){let s=t(v);if(!s)return d;try{return JSON.parse(s)}catch(e){throw {code:\"INVALID_JSON\",message:\"JSON inválido em \"+n+\".\",details:{reason:String(e.message||e)}}}}\nfunction obj(v){return v&&typeof v===\"object\"&&!Array.isArray(v)?v:(v==null||v===\"\"?{}:{value:v});}\nfunction err(v,c,m){if(v==null||v===\"\")return null;if(v&&typeof v===\"object\"&&!Array.isArray(v))return {code:t(v.code)||c||\"UNKNOWN_ERROR\",message:t(v.message)||m||\"Erro desconhecido.\",details:obj(v.details),recoverable:v.recoverable===true};return {code:c||\"UNKNOWN_ERROR\",message:m||\"Erro desconhecido.\",details:{value:v},recoverable:false};}\nfunction out(ok,status,atype,aid,op,msg,data,error,extra){return {schema_version:1,namespace:\"CDXMS\",success:ok===true,status:t(status)||(ok?\"success\":\"error\"),artifact_type:t(atype)||\"capability\",artifact_id:t(aid)||ID,operation:t(op),message:t(msg)||(ok?\"Operação executada com sucesso.\":\"A operação não pôde ser concluída.\"),data:obj(data),error:error||null,meta:Object.assign({timestamp:new Date().toISOString(),source:\"[CDXMS] Registrar Resultado\",version:VERSION,session_id:t(`{lv=Session Id}`),correlation_id:t(`{lv=Correlation Id}`)},extra||{})};}\nconst required=[\"schema_version\",\"namespace\",\"success\",\"status\",\"artifact_type\",\"artifact_id\",\"operation\",\"message\",\"data\",\"error\"], forbidden=[\"data_json\",\"error_code\",\"error_message\",\"error_json\"];\nfunction issues(x,strict){let miss=[],bad=[],warn=[];if(!x||typeof x!==\"object\"||Array.isArray(x))return {valid:false,missing_fields:required.slice(),forbidden_fields:[],warnings:[\"root_not_object\"]};required.forEach(k=>{if(!(k in x))miss.push(k)});forbidden.forEach(k=>{if(k in x)bad.push(k)});if(\"data\" in x&&(!x.data||typeof x.data!==\"object\"||Array.isArray(x.data)))warn.push(\"data_not_object\");if(\"error\" in x&&x.error!==null&&(typeof x.error!==\"object\"||Array.isArray(x.error)))warn.push(\"error_not_object\");return {valid:miss.length===0&&(!strict||bad.length===0)&&warn.length===0,missing_fields:miss,forbidden_fields:bad,warnings:warn};}\nlet op=t(`{lv=Operation}`), strict=b(`{lv=Strict Mode?}`,true), res;\ntry{if([\"build_result\",\"normalize_result\",\"validate_result\",\"propagate_result\",\"wrap_error\",\"register_result\"].indexOf(op)<0)throw {code:\"UNSUPPORTED_OPERATION\",message:\"Operação não suportada.\"};let st=t(`{lv=Source Artifact Type}`)||\"capability\",si=t(`{lv=Source Artifact Id}`)||ID,so=t(`{lv=Source Operation}`)||op,msg=t(`{lv=Message}`),ctx=p(`{lv=Context Json}`,{},\"Context Json\");if(op===\"build_result\"){let ok=b(`{lv=Success?}`),data=p(`{lv=Data Json}`,{},\"Data Json\"),er=p(`{lv=Error Json}`,null,\"Error Json\");res=out(ok,t(`{lv=Status}`)||(ok?\"success\":\"error\"),st,si,so,msg,Object.assign({},obj(data),Object.keys(ctx).length?{context:ctx}:{}),ok?null:err(er,\"UNKNOWN_ERROR\",msg));}else if(op===\"wrap_error\"){let er=err(p(`{lv=Error Json}`,null,\"Error Json\"),\"UNKNOWN_ERROR\",msg);res=out(false,t(`{lv=Status}`)||\"error\",st,si,so,msg||er.message,p(`{lv=Data Json}`,{},\"Data Json\"),er);}else{let raw=p(`{lv=Result Json}`,{},\"Result Json\"),is=issues(raw,strict);if(op===\"validate_result\")res=out(is.valid,is.valid?\"success\":\"error\",\"capability\",ID,op,is.valid?\"Resultado validado com sucesso.\":\"O resultado não atende ao contrato CDXMS.\",Object.assign({valid:is.valid},is),is.valid?null:err({code:\"RESULT_INVALID_CONTRACT\",message:\"Contrato inválido.\",details:is}));else{if(!is.valid&&strict)throw {code:\"RESULT_INVALID_CONTRACT\",message:\"O resultado não atende ao contrato CDXMS.\",details:is};let norm=out(raw.success===true,raw.status,raw.artifact_type,raw.artifact_id,raw.operation,raw.message,raw.data,err(raw.error),raw.meta);if(op===\"normalize_result\")res=out(true,\"success\",\"capability\",ID,op,\"Resultado normalizado com sucesso.\",{normalized:true,value:norm},null);else if(op===\"propagate_result\")res=norm;else res=out(true,\"success\",\"capability\",ID,op,\"Resultado registrado logicamente.\",{registered:true,value:norm},null);}}\n}catch(e){let er=err(e,e.code||\"PROCESSING_FAILED\",e.message||\"Falha ao processar resultado.\");res=out(false,\"error\",\"capability\",ID,op,er.message,{},er);}return JSON.stringify(res);",
         "stringVariableName": "Tmp_ResultJson",
+        "actionLabel": "Executar motor interno",
         "disableLogging": false,
-        "m_SIGUID": -5662873323362663032,
+        "m_SIGUID": -1016789158191462129,
         "m_classType": "JavaScriptAction",
-        "m_comment": "Executa dispatch por Operation e gera Tmp_ResultJson conforme contrato universal CDXMS.",
+        "m_comment": "Capability pura para construir, normalizar, validar e propagar Resultado.",
         "m_constraintList": [],
         "m_isDisabled": false,
         "m_isOrCondition": false
@@ -391,44 +392,43 @@
         },
         "dictionaryVarName": "Resultado",
         "stringVarName": "Tmp_ResultJson",
+        "actionLabel": "Publicar Resultado",
         "disableLogging": false,
-        "m_SIGUID": -2424146458439785043,
+        "m_SIGUID": -671784910379785215,
         "m_classType": "JsonParseAction",
-        "m_comment": "Publica Tmp_ResultJson diretamente na saída pública única Resultado.",
+        "m_comment": "Publica a saída pública única.",
         "m_constraintList": [],
         "m_isDisabled": false,
         "m_isOrCondition": false
       },
       {
+        "actionLabel": "Fim — Processar",
         "disableLogging": false,
-        "m_SIGUID": -2451125217236262964,
+        "m_SIGUID": -606477230535547071,
         "m_classType": "ActionGroupEndAction",
-        "m_comment": "",
+        "m_comment": "Fecha o grupo.",
         "m_constraintList": [],
         "m_isDisabled": false,
         "m_isOrCondition": false
       },
       {
         "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
         "disableLogging": false,
-        "m_SIGUID": -2332545089780781344,
+        "m_SIGUID": -277623513403447759,
         "m_classType": "ExitActionBlockAction",
-        "m_comment": "Encerra o Action Block após publicar Resultado.",
+        "m_comment": "Encerra explicitamente o Action Block.",
         "m_constraintList": [],
         "m_isDisabled": false,
         "m_isOrCondition": false
       }
     ],
     "m_category": "CDXMS",
-    "m_constraintList": [],
-    "m_description": "Constrói, normaliza, valida e propaga Resultado conforme contrato universal CDXMS.",
-    "m_descriptionOpen": false,
-    "m_enabled": true,
-    "m_excludeLog": false,
-    "m_headingColor": -11382190,
-    "m_isOrCondition": false,
+    "m_description": "Capability pura para construir, normalizar, validar e propagar Resultado.",
     "m_name": "[CDXMS] Registrar Resultado",
-    "m_triggerList": []
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
   },
   "macroExportVersion": 1
 }

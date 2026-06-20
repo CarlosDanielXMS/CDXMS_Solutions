@@ -2,55 +2,36 @@
 
 ## Entradas
 
-- `Operation`: operação técnica do Dependency Resolver.
-- `Artifact Manifest Json`: manifest JSON do artifact alvo cujas dependências serão resolvidas.
-- `Installed Registry Json`: registry local atual com artifacts instalados.
-- `Available Catalog Json`: catálogo disponível com artifacts que podem satisfazer dependências ausentes.
-- `Dependency Policy Json`: política opcional de resolução.
-- `Strict Mode?`: quando verdadeiro, inconsistências bloqueiam o resultado.
-- `Session Id`: identificador lógico da sessão.
-- `Correlation Id`: identificador de correlação para logs/resultados.
+- `Operation`: Operação técnica do Dependency Resolver.
+- `Artifact Manifest Json`: Manifest do artifact alvo.
+- `Installed Registry Json`: Registry instalado.
+- `Available Catalog Json`: Catálogo disponível.
+- `Dependency Policy Json`: Política de resolução.
+- `Strict Mode?`: Bloqueia inconsistências.
+- `Session Id`: Id de sessão.
+- `Correlation Id`: Id de correlação.
 
 ## Saída
 
-- `Resultado`: dicionário único no contrato CDXMS.
+- `Resultado`: dicionário no contrato universal CDXMS.
 
 ## Variáveis de trabalho
 
-- `Tmp_DependencyWorkJson`: JSON textual intermediário retornado pelo motor interno.
-- `Tmp_DependencyWork`: dicionário reservado para inspeção/futuras composições.
+- Variável textual `Tmp_*Json` para o resultado serializado.
+- Variáveis auxiliares `Tmp_*` somente quando necessárias ao fluxo.
 
 ## Corpo passo a passo
 
-### Ação 1 — Action Group
-
-- Ação: `ActionGroupAction`.
-- Nome: `01 — Resolver Dependências`.
-- Objetivo: agrupar o processamento interno da capability.
-
-### Ação 2 — JavaScript
-
-- Ação: `JavaScriptAction`.
-- Engine: `JetPack JavascriptEngine`.
-- `blockNextAction`: `true`.
-- Saída textual: `Tmp_DependencyWorkJson`.
-- Objetivo: ler as entradas por Magic Text, validar JSONs, extrair dependências, consultar registry/catálogo, calcular constraints, grafo, ciclos, ordem e plano de resolução.
-- Observação: parsing de booleanos aceita `true/false`, `Verdadeiro/Falso`, `sim/não`, `yes/no`, `1/0`.
-
-### Ação 3 — JSON Parse
-
-- Ação: `JsonParseAction`.
-- Entrada: `Tmp_DependencyWorkJson`.
-- Saída: `Resultado`.
-- Objetivo: publicar diretamente o Resultado, evitando passagem frágil de JSON por outro Action Block.
-
-### Ação 4 — End Action Group
-
-- Ação: `ActionGroupEndAction`.
-- Objetivo: encerrar o agrupamento lógico.
-
-### Ação 5 — Exit Action Block
-
-- Ação: `ExitActionBlockAction`.
-- Configuração: saída já publicada em `Resultado`.
-- Objetivo: finalizar a capability explicitamente.
+1. **Action Group — Processar**
+   - Agrupa a execução da capability.
+2. **JavaScriptAction — Motor interno**
+   - Normaliza entradas.
+   - Valida operação e parâmetros.
+   - Executa a regra de domínio.
+   - Monta Resultado textual.
+3. **JsonParseAction — Publicar Resultado**
+   - Converte o JSON textual na saída pública `Resultado`.
+4. **ActionGroupEndAction**
+   - Fecha o grupo.
+5. **ExitActionBlockAction**
+   - Encerra explicitamente o bloco.

@@ -8,34 +8,37 @@
   "source": {
     "type": "github_raw",
     "repository": "CarlosDanielXMS/CDXMS_Solutions",
-    "ref": "v1.0.0",
-    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/v1.0.0/src"
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
   },
   "files": [
     {
       "path": "capabilities/bootstrap/manifest.json",
       "target_path": "capabilities/bootstrap/manifest.json",
       "write_policy": "overwrite_versioned",
-      "checksum_sha256": ""
+      "file_role": "manifest",
+      "checksum_sha256": "36e79d81884717208f1bd82aa7dadd8d3a2adc3a0adc6701051d3bbaf0c8fe6c"
     },
     {
       "path": "capabilities/bootstrap/contract.json",
       "target_path": "capabilities/bootstrap/contract.json",
       "write_policy": "overwrite_versioned",
-      "checksum_sha256": ""
+      "file_role": "contract",
+      "checksum_sha256": "f5d998b1886b6cb0bac4fbb428488a2cf8f40c0d64df2304829db4547cefef5c"
     },
     {
       "path": "capabilities/bootstrap/config.default.json",
       "target_path": "capabilities/bootstrap/config.json",
       "write_policy": "create_if_missing_or_merge",
-      "checksum_sha256": ""
+      "file_role": "default_config",
+      "checksum_sha256": "3e658d1355bed81dc9b5a99c469c9e43b6c4634d632facb21122586839029191"
     },
     {
       "path": "capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock",
       "target_path": "capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock",
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
-      "checksum_sha256": ""
+      "checksum_sha256": "109dc8c4e0107019fefae68a6303b6c672169493fdb1b1e3374d8f91a5f57bab"
     }
   ],
   "macrodroid_export": {
@@ -50,5 +53,6 @@
     "capabilities": {
       "json_config_manager": ">=1.0.0"
     }
-  }
+  },
+  "updated_at": ""
 }

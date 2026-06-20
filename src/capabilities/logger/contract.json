@@ -5,6 +5,7 @@
   "artifact_id": "logger",
   "version": "1.0.0",
   "action_block": "[CDXMS] Logger",
+  "description": "Contrato da capability [CDXMS] Logger v1.0.0.",
   "inputs": [
     {
       "name": "Operation",
@@ -17,183 +18,145 @@
         "log_error",
         "get_log_status"
       ],
-      "examples": [
-        "log_event",
-        "log_result",
-        "log_error"
-      ]
+      "default": "log_event"
     },
     {
       "name": "Level",
       "type": "string",
       "required": false,
-      "description": "Severidade do evento.",
-      "options": [
-        "debug",
-        "info",
-        "warning",
-        "error",
-        "critical"
-      ],
-      "examples": [
-        "info",
-        "warning",
-        "error"
-      ]
+      "description": "debug, info, warning, error ou critical.",
+      "default": "info"
     },
     {
       "name": "Event Type",
       "type": "string",
       "required": false,
-      "description": "Tipo lógico do evento para agrupamento e análise.",
-      "examples": [
-        "bootstrap.started",
-        "jcm.read_json.success",
-        "artifact.install.failed"
-      ]
+      "description": "Tipo lógico do evento.",
+      "default": "event"
     },
     {
       "name": "Message",
       "type": "string",
       "required": false,
-      "description": "Mensagem humana do evento."
+      "description": "Mensagem humana.",
+      "default": "Evento CDXMS registrado."
     },
     {
       "name": "Source Artifact Type",
       "type": "string",
       "required": false,
       "description": "Tipo do artifact de origem.",
-      "examples": [
-        "capability",
-        "solution",
-        "core"
-      ]
+      "default": "capability"
     },
     {
       "name": "Source Artifact Id",
       "type": "string",
       "required": false,
-      "description": "Id técnico do artifact que gerou o evento.",
-      "examples": [
-        "bootstrap",
-        "json_config_manager",
-        "result_manager"
-      ]
+      "description": "Id do artifact de origem.",
+      "default": ""
     },
     {
       "name": "Source Operation",
       "type": "string",
       "required": false,
-      "description": "Operação de origem que gerou o evento.",
-      "examples": [
-        "initialize_ecosystem",
-        "read_json",
-        "build_result"
-      ]
+      "description": "Operação de origem.",
+      "default": ""
     },
     {
       "name": "Result Json",
-      "type": "string(json)",
-      "required": "conditional",
-      "description": "Resultado CDXMS completo para log_result."
+      "type": "string",
+      "required": false,
+      "description": "Resultado completo para log_result.",
+      "default": ""
     },
     {
       "name": "Data Json",
-      "type": "string(json)",
+      "type": "string",
       "required": false,
-      "description": "Dados complementares do evento."
+      "description": "Dados complementares.",
+      "default": "{}"
     },
     {
       "name": "Error Json",
-      "type": "string(json)",
-      "required": "conditional",
-      "description": "Erro estruturado complementar para log_error."
+      "type": "string",
+      "required": false,
+      "description": "Erro estruturado.",
+      "default": "null"
     },
     {
       "name": "Tags Json",
-      "type": "string(json)",
+      "type": "string",
       "required": false,
-      "description": "Tags em JSON para classificação do evento.",
-      "examples": [
-        "[\"bootstrap\",\"core\"]",
-        "{\"feature\":\"jcm\"}"
-      ]
+      "description": "Tags JSON.",
+      "default": "[]"
     },
     {
       "name": "Log Scope",
       "type": "string",
       "required": false,
-      "description": "Escopo do arquivo de log. Auto deriva pelo Operation.",
-      "options": [
-        "auto",
-        "events",
-        "results",
-        "errors",
-        "audit",
-        "runtime"
-      ]
+      "description": "auto, events, results, errors, audit ou runtime.",
+      "default": "auto"
     },
     {
       "name": "Log File Name",
       "type": "string",
       "required": false,
-      "description": "Nome opcional do arquivo .jsonl."
+      "description": "Nome opcional do .jsonl.",
+      "default": ""
     },
     {
       "name": "Config Json",
-      "type": "string(json)",
+      "type": "string",
       "required": false,
-      "description": "Config completa opcional do Logger para evitar consultas repetidas."
+      "description": "Config opcional.",
+      "default": "{}"
     },
     {
       "name": "Strict Mode?",
       "type": "boolean",
       "required": false,
-      "description": "Bloqueia JSON inválido nos campos estruturados quando true."
+      "description": "Bloqueia JSON inválido.",
+      "default": false
     },
     {
       "name": "Session Id",
       "type": "string",
       "required": false,
-      "description": "Identificador de sessão."
+      "description": "Id de sessão.",
+      "default": ""
     },
     {
       "name": "Correlation Id",
       "type": "string",
       "required": false,
-      "description": "Identificador de correlação."
+      "description": "Id de correlação.",
+      "default": ""
     }
   ],
   "outputs": [
     {
       "name": "Resultado",
       "type": "dictionary",
-      "description": "Saída pública única. Dados úteis sempre em Resultado.data."
+      "description": "Saída pública única no contrato CDXMS."
     }
   ],
   "operations": {
     "log_event": {
-      "description": "Registra evento operacional genérico em JSON Lines.",
+      "description": "Registra evento operacional em JSON Lines.",
       "writes_log": true
     },
     "log_result": {
-      "description": "Registra Resultado retornado por outra capability ou macro.",
+      "description": "Registra Resultado de outra capability/macro.",
       "writes_log": true
     },
     "log_error": {
-      "description": "Registra erro estruturado com severidade error/critical por padrão.",
+      "description": "Registra erro estruturado.",
       "writes_log": true
     },
     "get_log_status": {
-      "description": "Retorna status/configuração calculada do Logger sem gravar arquivo.",
+      "description": "Retorna status/configuração sem gravar.",
       "writes_log": false
     }
-  },
-  "storage": {
-    "base_folder": "logs/<scope>/",
-    "default_file_name": "cdxms-<scope>-YYYY-MM-DD.jsonl",
-    "format": "json_lines",
-    "device_target_root": "/storage/emulated/0/Documents/CDXMS_Solutions/"
   },
   "errors": [
     "LOGGER_INVALID_LEVEL",
@@ -226,5 +189,11 @@
       "error_message",
       "error_json"
     ]
+  },
+  "storage": {
+    "base_folder": "logs/<scope>/",
+    "default_file_name": "cdxms-<scope>-YYYY-MM-DD.jsonl",
+    "format": "json_lines",
+    "device_target_root": "/storage/emulated/0/Documents/CDXMS_Solutions/"
   }
 }

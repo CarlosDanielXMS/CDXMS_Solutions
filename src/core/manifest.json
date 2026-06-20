@@ -18,5 +18,11 @@
     "result_contract": "result_contract.json",
     "compatibility": "compatibility.json"
   },
+  "distribution": {
+    "release_manifest": "release.json",
+    "checksums": "checksums.json",
+    "catalog_sources": "catalogs/sources.json",
+    "local_catalog_default": "catalogs/local_catalog.default.json"
+  },
   "updated_at": ""
 }

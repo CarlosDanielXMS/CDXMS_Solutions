@@ -20,12 +20,10 @@
       },
       "status": {
         "type": "enum",
-        "enum_ref": "result_status",
         "required": true
       },
       "artifact_type": {
         "type": "enum",
-        "enum_ref": "artifact_type",
         "required": true
       },
       "artifact_id": {

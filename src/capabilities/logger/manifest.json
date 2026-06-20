@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] Logger",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Capability de observabilidade local para registrar eventos, resultados e erros em JSON Lines no ecossistema CDXMS.",
+    "description": "Capability de observabilidade local para registrar eventos, resultados e erros em JSON Lines.",
     "enabled": true,
     "has_config": true
   },
@@ -32,26 +32,27 @@
     "log_error",
     "get_log_status"
   ],
-  "log_format": "jsonl",
   "result_contract": "core/result_contract.json",
   "created_at": "",
   "updated_at": "",
+  "log_format": "jsonl",
   "implementation_audit": {
     "stage": "pre_release_1_0_0_sanitization",
     "version_policy": "no_version_bump_before_first_official_release",
     "validated_against": "docs/macro_droid_action_catalog_v0_1.md",
     "native_action_policy": "native_first_when_safe_clear_and_homologated",
     "action_profile": {
-      "total_actions": 14,
+      "total_actions": 12,
       "unique_action_classes": 9,
       "javascript_actions": 1,
       "shell_actions": 0,
       "file_operation_actions": 0,
       "text_manipulation_actions": 0
     },
-    "native_action_decision": "Mantém JCM para garantia de estrutura, WriteToFileAction para persistência e Result Manager para publicação; JavaScript fica restrito à montagem da linha JSONL e validação do payload.",
+    "native_action_decision": "Mantém JCM para garantia de estrutura, WriteToFileAction para persistência e JavaScript para payload JSONL.",
     "javascript_policy": "allowed_for_jsonl_payload_building",
     "shell_policy": "not_used",
-    "recommended_follow_up": "Validar append JSONL em dispositivo limpo e permissões all-files/SAF."
+    "recommended_follow_up": "Validar append JSONL em dispositivo limpo.",
+    "export_checked_against_contract": true
   }
 }

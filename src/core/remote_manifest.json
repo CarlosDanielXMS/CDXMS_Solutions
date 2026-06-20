@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "core",
+  "artifact_id": "cdxms_core",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "core/manifest.json",
+      "target_path": "core/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "32b9d1459c567f4ad53d0d23866309b6cad5571bbef36900ae321615318f4e80"
+    },
+    {
+      "path": "core/registry.default.json",
+      "target_path": "core/registry.json",
+      "write_policy": "create_if_missing",
+      "file_role": "default_registry",
+      "checksum_sha256": "0df9da27a46e19de718031031901b6e82f67724a3c2b7ed0e0ce1992fcb3d2ca"
+    },
+    {
+      "path": "core/settings.default.json",
+      "target_path": "core/settings.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "186f0ea388c6d780fda404f690e797950b3966eddec65aa2e58a2569e91a1307"
+    },
+    {
+      "path": "core/enums.json",
+      "target_path": "core/enums.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "enums",
+      "checksum_sha256": "9c7ae0a4c5b2e1e17055762fc7fb047efbe8877790bb0c5c2b1218d5d8acb840"
+    },
+    {
+      "path": "core/errors.json",
+      "target_path": "core/errors.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "errors",
+      "checksum_sha256": "3c6a80a51d28a529b1c65fe590b1a9c49c5d72594b6207d011114c795bbde02c"
+    },
+    {
+      "path": "core/result_contract.json",
+      "target_path": "core/result_contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "result_contract",
+      "checksum_sha256": "8418f110b0c4d871c232aff7e336d12acaffc2d3811a924e6a31a93acd954b4d"
+    },
+    {
+      "path": "core/compatibility.json",
+      "target_path": "core/compatibility.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "compatibility",
+      "checksum_sha256": "ac61cc43577b4c00ca487713508bd96fd539119df0cec3c770340101f493b833"
+    }
+  ],
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  },
+  "updated_at": ""
+}

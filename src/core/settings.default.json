@@ -11,8 +11,11 @@
     "default_log_level": "info",
     "language": "pt-BR",
     "remote_sources_enabled": true,
-    "default_remote_ref": "latest_release",
-    "allow_dev_branch_install": false
+    "default_remote_ref": "develop",
+    "allow_dev_branch_install": true,
+    "default_remote_source_id": "cdxms_official_github",
+    "catalog_sources_path": "catalogs/sources.json",
+    "local_catalog_path": "catalogs/local_catalog.json"
   },
   "updated_at": ""
 }

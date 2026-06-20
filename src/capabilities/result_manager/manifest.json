@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] Registrar Resultado",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Capability pura para construir, normalizar, validar e propagar Resultado conforme contrato universal CDXMS.",
+    "description": "Capability pura para construir, normalizar, validar e propagar Resultado.",
     "enabled": true,
     "has_config": true
   },
@@ -32,10 +32,10 @@
     "register_result"
   ],
   "result_contract": "core/result_contract.json",
-  "purity": "pure",
-  "side_effects": [],
   "created_at": "",
   "updated_at": "",
+  "purity": "pure",
+  "side_effects": [],
   "implementation_audit": {
     "stage": "pre_release_1_0_0_sanitization",
     "version_policy": "no_version_bump_before_first_official_release",
@@ -49,9 +49,10 @@
       "file_operation_actions": 0,
       "text_manipulation_actions": 0
     },
-    "native_action_decision": "Mantém JavaScript por ser fábrica/normalizadora de Resultado. Reescrever em ações visuais aumentaria ações e risco sem ganho.",
+    "native_action_decision": "Mantém JavaScript por ser fábrica/normalizadora de Resultado.",
     "javascript_policy": "justified_contract_normalizer",
     "shell_policy": "not_used",
-    "recommended_follow_up": "Sem ajuste funcional necessário antes da release 1.0.0."
+    "recommended_follow_up": "Sem ajuste funcional necessário antes da release 1.0.0.",
+    "export_checked_against_contract": true
   }
 }

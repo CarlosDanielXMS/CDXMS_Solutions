@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] String Utils",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Capability pura para transformação, normalização, comparação e sanitização de textos no ecossistema CDXMS.",
+    "description": "Capability pura para transformação, normalização, comparação e sanitização de textos.",
     "enabled": true,
     "has_config": true
   },
@@ -44,27 +44,28 @@
     "sanitize_path_segment",
     "truncate"
   ],
-  "purity": "pure",
-  "side_effects": [],
   "result_contract": "core/result_contract.json",
   "created_at": "",
   "updated_at": "",
+  "purity": "pure",
+  "side_effects": [],
   "implementation_audit": {
     "stage": "pre_release_1_0_0_sanitization",
     "version_policy": "no_version_bump_before_first_official_release",
     "validated_against": "docs/macro_droid_action_catalog_v0_1.md",
     "native_action_policy": "native_first_when_safe_clear_and_homologated",
     "action_profile": {
-      "total_actions": 8,
-      "unique_action_classes": 6,
+      "total_actions": 5,
+      "unique_action_classes": 5,
       "javascript_actions": 1,
       "shell_actions": 0,
       "file_operation_actions": 0,
       "text_manipulation_actions": 0
     },
-    "native_action_decision": "Mantém JavaScript centralizado porque o Action Block precisa suportar 17 operações por Operation e retornar Resultado homogêneo. TextManipulationAction será preferida em fluxos externos simples, mas dentro desta capability o script reduz duplicação e edge cases.",
+    "native_action_decision": "Mantém JavaScript centralizado para as operações de texto e Resultado homogêneo.",
     "javascript_policy": "justified_multi_operation_text_engine",
     "shell_policy": "not_used",
-    "recommended_follow_up": "Se a UI do MacroDroid confirmar TextManipulationAction com trim/case/regex adequados, criar teste comparativo antes de trocar branches específicos."
+    "recommended_follow_up": "Criar teste comparativo antes de trocar branches por TextManipulationAction.",
+    "export_checked_against_contract": true
   }
 }

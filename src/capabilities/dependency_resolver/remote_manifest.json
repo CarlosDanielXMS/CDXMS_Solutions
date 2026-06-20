@@ -1,23 +1,59 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
   "artifact_type": "capability",
   "artifact_id": "dependency_resolver",
   "version": "1.0.0",
-  "files": [
-    "manifest.json",
-    "contract.json",
-    "config.default.json",
-    "remote_manifest.json",
-    "README.md",
-    "body.md",
-    "tests/manual_test.md",
-    "macrodroid/[CDXMS]_Dependency_Resolver.ablock"
-  ],
-  "remote_source": {
+  "source": {
     "type": "github_raw",
-    "branch_for_homologation": "develop",
-    "release_ref": "latest_release"
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/dependency_resolver/manifest.json",
+      "target_path": "capabilities/dependency_resolver/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "01d63b30a5d83d72de05b544a42d4eceb6ce4ead642dd3dd2435ec3fcb3a6a4f"
+    },
+    {
+      "path": "capabilities/dependency_resolver/contract.json",
+      "target_path": "capabilities/dependency_resolver/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "3725388bff0c199619cb6bf420deb23461e0b2eb31a529dadbf2633a8f789a00"
+    },
+    {
+      "path": "capabilities/dependency_resolver/config.default.json",
+      "target_path": "capabilities/dependency_resolver/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "cf4c23b105c059b930151facf716d650fc724fae5d65f9e3181763460f3a2f65"
+    },
+    {
+      "path": "capabilities/dependency_resolver/macrodroid/[CDXMS]_Dependency_Resolver.ablock",
+      "target_path": "capabilities/dependency_resolver/macrodroid/[CDXMS]_Dependency_Resolver.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "465c70d161258dbbca4111585c682a05444c31cbb23b38b4f2a1c2f8856ba829"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/dependency_resolver/macrodroid/[CDXMS]_Dependency_Resolver.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Dependency Resolver",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "result_manager": ">=1.0.0",
+      "string_utils": ">=1.0.0"
+    }
   },
   "updated_at": ""
 }
