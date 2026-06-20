@@ -187,11 +187,22 @@ for relative, expected in checksums.get('files', {}).items():
         error(f'checksum divergente: {relative}')
 
 
-# JCM must not expose localized booleans through dictionary Magic Text.
+# JCM bridge: native boolean constraints require actual booleans.
 jcm_export = load(ROOT / 'capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock')
-jcm_init = next((a.get('scriptText','') for a in jcm_export.get('macro',{}).get('m_actionList',[]) if a.get('m_classType') == 'JavaScriptAction'), '')
+jcm_macro = jcm_export.get('macro', {})
+jcm_init = next((a.get('scriptText','') for a in jcm_macro.get('m_actionList',[]) if a.get('m_classType') == 'JavaScriptAction'), '')
+for fragment in ['valid_file_path: safePath(filePath, true),', 'valid_folder_path: safePath(folderPath, false),']:
+    if fragment not in jcm_init: error('JCM sem flag booleana nativa: ' + fragment)
 for fragment in ['valid_file_path: safePath(filePath, true) ? "true" : "false"', 'valid_folder_path: safePath(folderPath, false) ? "true" : "false"']:
-    if fragment not in jcm_init: error('JCM sem serialização locale-safe: ' + fragment)
+    if fragment in jcm_init: error('JCM serializa indevidamente constraint booleana como string: ' + fragment)
+constraint_keys = set()
+for action in jcm_macro.get('m_actionList', []):
+    for constraint in action.get('m_constraintList', []):
+        keys = tuple(constraint.get('dictionaryKeys', {}).get('keys', []))
+        if keys in {('valid_file_path',), ('valid_folder_path',)} and constraint.get('m_booleanValue') is True:
+            constraint_keys.add(keys[0])
+if constraint_keys != {'valid_file_path', 'valid_folder_path'}:
+    error('JCM não preserva constraints booleanas nativas para paths seguros.')
 
 if ERRORS:
     print('VALIDATION FAILED — CDXMS remote distribution readiness v1.0.0')

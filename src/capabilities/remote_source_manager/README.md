@@ -40,3 +40,12 @@ Saída pública única: `Resultado`.
 - O preflight e a finalização JavaScript são executados em IIFE, evitando `Illegal return statement`.
 - URL, flag de execução e paths de staging são materializados em variáveis escalares antes das ações nativas.
 - Operações `validate_source` e `get_source_status` retornam o preflight sem executar HTTP.
+
+## Correção verificada na homologação remota
+
+Os JavaScripts de preflight e finalização usam uma variável de saída e a última expressão do script. Não utilizam `return` no escopo principal nem dependem do valor de retorno de uma IIFE para preencher a variável configurada no `JavaScriptAction`.
+
+
+## Ponte de Resultado de preflight
+
+Operações sem rede armazenam o Resultado como objeto em `Tmp_RequestWork.pre_result`. O Resultado não é encapsulado como JSON textual dentro de outro JSON, porque o Magic Text do MacroDroid pode alterar escapes durante a interpolação em `JavaScriptAction`.

@@ -1,5 +1,16 @@
 # Changelog
 
+
+- Corrigida a ponte interna do RSM: `pre_result` agora é objeto, eliminando `pre_result_json` e a perda de escapes ao interpolar Magic Text em JavaScript.
+## 1.0.0 — Correção verificada do bridge RSM/JCM
+
+- Base revisada diretamente no head remoto `dcc8dba9460e54f519555d3d14a8d0c3f72d711c`.
+- Corrigido o JCM: flags usadas por constraints booleanas nativas voltam a ser booleanas.
+- JavaScripts do JCM interpretam também `Verdadeiro`/`Falso` quando recebem Magic Text localizado.
+- Corrigido o RSM: preflight e finalização publicam resultado pela última expressão, sem depender de IIFE.
+- Adicionada validação regressiva do bridge entre JavaScript, JsonParseAction e constraints nativas.
+- Mantida versão pré-release `1.0.0`.
+
 ## 1.0.0 — Correções de homologação RSM/JCM
 
 - Mantida versão pré-release `1.0.0`.

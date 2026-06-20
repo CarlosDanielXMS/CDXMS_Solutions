@@ -31,3 +31,8 @@ O export MacroDroid está em `macrodroid/[CDXMS]_Json_Config_Manager.ablock`. A 
 ## Compatibilidade de booleanos do Magic Text
 
 Flags internas reutilizadas por dicionário são armazenadas como texto canônico `true`/`false`. Entradas booleanas aceitam também as representações localizadas `Verdadeiro`/`Falso`, evitando falsos `PERMISSION_DENIED` em dispositivos configurados em português.
+
+## Correção verificada na homologação remota
+
+`valid_file_path` e `valid_folder_path` permanecem booleanos porque são consumidos por `MacroDroidVariableConstraint` do tipo booleano. Nos JavaScripts internos, Magic Text aceita também `Verdadeiro`/`Falso`, evitando dependência do idioma do dispositivo.
+

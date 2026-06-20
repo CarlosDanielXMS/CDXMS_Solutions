@@ -58,7 +58,7 @@
    - Valida `Cache Root Path` dentro de `/storage/emulated/0/Documents/CDXMS_Solutions/`.
    - Normaliza timeout para 30 quando fora de 5–120.
    - Monta URL, pasta e arquivo de staging.
-   - Para operações sem rede, já monta o Resultado final em `pre_result_json`.
+   - Para operações sem rede, já monta o Resultado final como objeto em `pre_result`, evitando JSON escapado aninhado e nova interpolação textual.
 
 3. **JSON Parse — Tmp_RequestWorkJson → Tmp_RequestWork**
    - Publica o contexto estruturado para diagnóstico.
@@ -147,4 +147,4 @@
 - SHA-256 não é declarado como validado, pois o catálogo nativo auditado não expõe ação de checksum. Payloads críticos permanecem bloqueados.
 - A v1.0.0 não baixa em lote nem instala artifacts.
 
-- Os JavaScripts de preflight/finalização usam IIFE com retorno explícito para evitar `Illegal return statement`.
+- Os JavaScripts de preflight/finalização usam variável de saída e última expressão para evitar `Illegal return statement`.

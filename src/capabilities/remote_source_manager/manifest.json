@@ -45,7 +45,7 @@
     "registry_updates": "out_of_scope"
   },
   "implementation_audit": {
-    "stage": "phase_4_remote_source_manager_v1_0_0_device_homologation_fix",
+    "stage": "phase_4_remote_source_manager_v1_0_0_remote_head_verified_fix",
     "version_policy": "pre_release_same_version_1_0_0",
     "source_base": "full merged remote distribution readiness package 2026-06-20",
     "manual_homologation_required": true,
@@ -55,9 +55,11 @@
       "O Json Config Manager prepara a pasta e relê o JSON baixado para verificação pós-download.",
       "A v1.0.0 cobre somente documentos JSON de controle: catálogo, release manifest, remote manifest e JSON genérico CDXMS.",
       "Bulk artifact download e checksum SHA-256 permanecem bloqueados até validação nativa ou capability específica, conforme a Knowledge Base.",
-      "JavaScript de preflight e finalização usa IIFE com retorno explícito para compatibilidade com o JetPack JavaScriptEngine.",
       "A ponte escalar evita usar chaves aninhadas de dicionário diretamente em HTTP Request e ações de arquivo.",
-      "A homologação permanece obrigatória até confirmar HTTP 200 e staging físico no dispositivo."
+      "A homologação permanece obrigatória até confirmar HTTP 200 e staging físico no dispositivo.",
+      "Preflight e finalização publicam o valor pela última expressão do JavaScriptAction, sem return no escopo principal e sem depender do retorno de IIFE.",
+      "A macro de homologação deve usar Action Blocks temporários com GUIDs exclusivos para impedir resolução de instâncias antigas no dispositivo.",
+      "O Resultado de preflight é mantido como objeto em pre_result; JSON textual aninhado em pre_result_json é proibido para evitar perda de escapes na interpolação Magic Text."
     ],
     "action_profile": {
       "total_actions": 21,
@@ -67,6 +69,7 @@
       "action_block_calls": 2,
       "shell_actions": 0
     },
-    "export_checked_against_contract": true
+    "export_checked_against_contract": true,
+    "latest_remote_base_commit": "dcc8dba9460e54f519555d3d14a8d0c3f72d711c"
   }
 }

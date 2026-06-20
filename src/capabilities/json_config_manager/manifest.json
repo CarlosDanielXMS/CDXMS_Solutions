@@ -58,7 +58,7 @@
     ]
   },
   "implementation_audit": {
-    "stage": "pre_release_1_0_0_sanitization_locale_safe_booleans",
+    "stage": "pre_release_1_0_0_remote_homologation_bridge_fix",
     "version_policy": "no_version_bump_before_first_official_release",
     "validated_against": "docs/macro_droid_action_catalog_v0_1.md",
     "native_action_policy": "native_first_when_safe_clear_and_homologated",
@@ -75,6 +75,8 @@
     "shell_policy": "controlled_fallback_pending_real_device_saf_validation",
     "recommended_follow_up": "Homologar FileOperation com paths dinâmicos antes de substituir o fallback.",
     "export_checked_against_contract": true,
-    "magic_text_boolean_policy": "Flags reutilizadas via dicionário são serializadas como strings canônicas true/false; entradas aceitam true/false e Verdadeiro/Falso."
+    "magic_text_boolean_policy": "Flags consumidas por constraints booleanas nativas permanecem booleanas. Quando interpoladas em JavaScript via Magic Text, aceitam true/false e Verdadeiro/Falso.",
+    "latest_remote_base_commit": "dcc8dba9460e54f519555d3d14a8d0c3f72d711c",
+    "homologation_fix": "Corrige incompatibilidade entre string \"true\"/\"false\" e MacroDroidVariableConstraint booleano."
   }
 }

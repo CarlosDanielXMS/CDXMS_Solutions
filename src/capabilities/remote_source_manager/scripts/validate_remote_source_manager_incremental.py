@@ -63,16 +63,28 @@ ops = [x.get('inputVarsMap',{}).get('Operation') for x in jcm_calls]
 if ops != ['ensure_folder','read_json']: error(f'operações JCM divergentes: {ops}')
 
 
-# Regressões de homologação: MacroDroid executa JavaScript no escopo principal.
+# Regressões de homologação: JavaScriptAction publica pela última expressão.
 js_actions = [x for x in macro.get('m_actionList',[]) if x.get('m_classType') == 'JavaScriptAction']
 prep = next((x for x in js_actions if x.get('actionLabel') == 'Validar fonte e montar request'), {})
 finalize = next((x for x in js_actions if x.get('actionLabel') == 'Consolidar Resultado remoto'), {})
-if not prep.get('scriptText','').lstrip().startswith('(function(){'):
-    error('preflight JavaScript precisa usar IIFE')
-if not finalize.get('scriptText','').lstrip().startswith('(function(){'):
-    error('finalização JavaScript precisa usar IIFE')
-if 'if (pre) {\n  return pre;' not in finalize.get('scriptText',''):
-    error('finalização não retorna pre_result_json explicitamente')
+for label, action in [('preflight', prep), ('finalização', finalize)]:
+    script = action.get('scriptText','')
+    if script.lstrip().startswith('(function(){'):
+        error(f'{label} JavaScript não deve depender do retorno de IIFE')
+    if not script.rstrip().endswith('__rsmOutput;'):
+        error(f'{label} JavaScript deve publicar pela última expressão')
+prep_script = prep.get('scriptText','')
+finalize_script = finalize.get('scriptText','')
+if 'pre_result_json' in prep_script or 'pre_result_json' in finalize_script:
+    error('JSON textual aninhado pre_result_json é proibido')
+if 'pre_result:preResult' not in prep_script or 'pre_result:r' not in prep_script:
+    error('preflight não publica pre_result como objeto em todos os fluxos')
+if 'work.pre_result && typeof work.pre_result === "object"' not in finalize_script:
+    error('finalização não lê pre_result como objeto')
+if '__rsmOutput = JSON.stringify(pre);' not in finalize_script:
+    error('finalização não serializa pre_result exatamente uma vez')
+if 'return pre;' in finalize.get('scriptText',''):
+    error('finalização ainda usa return no fluxo principal')
 for required_var in ['Tmp_ShouldRequestText','Tmp_RequestUrl','Tmp_StagingFolderPath','Tmp_StagingFileName','Tmp_StagingFilePath','Tmp_JcmReadResultJson']:
     if required_var not in works: error(f'ponte escalar ausente: {required_var}')
 

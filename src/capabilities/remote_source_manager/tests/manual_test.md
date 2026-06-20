@@ -106,3 +106,11 @@ A capability só deve ser marcada como homologada após importação real e exec
 - Nenhum JavaScriptAction pode gerar `Illegal return statement`.
 - `Resultado.data.source` e `Resultado.data.request` não podem ficar vazios quando as entradas são válidas.
 - O JCM deve aceitar paths válidos mesmo quando o idioma do MacroDroid exibe booleanos como `Verdadeiro`/`Falso`.
+
+## Regressão — Resultado de preflight sem JSON aninhado
+
+1. Execute `validate_source` com fonte válida.
+2. Confirme que nenhuma ação HTTP é executada.
+3. Confirme `Resultado.success = true` e a presença de `Resultado.data.source`.
+4. Execute `get_source_status` e confirme o mesmo comportamento.
+5. O export não pode conter `pre_result_json`; o contexto interno deve usar `pre_result` como objeto.
