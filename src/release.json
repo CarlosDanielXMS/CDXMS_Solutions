@@ -82,11 +82,12 @@
   "notes": [
     "Base completa e mesclada do ecossistema atual.",
     "Artifact Manager consolidado para apply via Json Config Manager.",
-    "Remote Source Manager v1.0.0 implementado para fonte GitHub raw e documentos JSON de controle.",
+    "Remote Source Manager v1.0.0 homologado no dispositivo para documentos JSON do plano de controle.",
+    "Homologação concluída com 23/23 verificações aprovadas, staging físico validado e registry preservado.",
     "Downloads usam HTTP Request nativo, staging temporário e releitura/verificação pelo JCM.",
     "Bulk payload download, SHA-256 em runtime e instalação remota permanecem bloqueados até homologação específica.",
     "Importação automática de .macro/.ablock continua fora de escopo.",
-    "Correções de homologação: IIFE no RSM e booleanos locale-safe no JCM."
+    "Source ref exercitado: aad55e5969b41c456bb92e096bde2c381101e385; head remoto na formalização: d79fa8cbed54048900fcb12fcb873408b7a70478."
   ],
-  "package": "CDXMS_Remote_Source_Manager_v1_0_0_homologation_fix_full_merged_package_2026_06_20.zip"
+  "package": "CDXMS_Remote_Source_Manager_v1_0_0_homologated_full_merged_package_2026_06_20.zip"
 }

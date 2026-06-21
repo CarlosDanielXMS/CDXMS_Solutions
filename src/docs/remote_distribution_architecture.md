@@ -1,5 +1,11 @@
 # Distribuição remota GitHub — Remote Source Manager v1.0.0
 
+## Estado de homologação
+
+O plano de controle remoto foi homologado no dispositivo em `2026-06-20` com `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP` e `23/23` verificações aprovadas. O escopo confirmado inclui fonte/URL/path, HTTP GET, persistência em staging, validação JSON, releitura JCM, tratamento de falhas e ausência de alteração no registry.
+
+Payloads de artifacts, SHA-256 em runtime, instalação e importação automática permanecem fora do escopo homologado.
+
 ## Fluxo implementado
 
 ```text

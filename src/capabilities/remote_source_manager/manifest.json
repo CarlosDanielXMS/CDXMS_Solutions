@@ -45,22 +45,21 @@
     "registry_updates": "out_of_scope"
   },
   "implementation_audit": {
-    "stage": "pre_release_1_0_0_http_response_file_persistence_fix",
+    "stage": "homologated_control_plane_v1_0_0",
     "version_policy": "pre_release_same_version_1_0_0",
-    "source_base": "full merged remote distribution readiness package 2026-06-20",
-    "manual_homologation_required": true,
+    "source_base": "feat/create-ecosystem-core@d79fa8cbed54048900fcb12fcb873408b7a70478",
+    "manual_homologation_required": false,
     "notes": [
       "A capability usa HTTP Request nativo e nunca curl para transporte HTTP comum.",
       "Downloads são salvos em staging temporário, nunca diretamente sobre arquivos instalados.",
       "O Json Config Manager prepara a pasta e relê o JSON baixado para verificação pós-download.",
-      "A v1.0.0 cobre somente documentos JSON de controle: catálogo, release manifest, remote manifest e JSON genérico CDXMS.",
-      "Bulk artifact download e checksum SHA-256 permanecem bloqueados até validação nativa ou capability específica, conforme a Knowledge Base.",
+      "A v1.0.0 homologada cobre somente documentos JSON de controle: catálogo, release manifest, remote manifest e JSON genérico CDXMS.",
+      "Bulk artifact download e checksum SHA-256 permanecem bloqueados até validação runtime específica.",
       "A ponte escalar evita usar chaves aninhadas de dicionário diretamente em HTTP Request e ações de arquivo.",
-      "A homologação permanece obrigatória até confirmar HTTP 200 e staging físico no dispositivo.",
-      "Preflight e finalização publicam o valor pela última expressão do JavaScriptAction, sem return no escopo principal e sem depender do retorno de IIFE.",
-      "A macro de homologação deve usar Action Blocks temporários com GUIDs exclusivos para impedir resolução de instâncias antigas no dispositivo.",
-      "O Resultado de preflight é mantido como objeto em pre_result; JSON textual aninhado em pre_result_json é proibido para evitar perda de escapes na interpolação Magic Text.",
-      "O modo All Files Access da ação HTTP exige o caminho completo em saveResponseAllFilesAccessPath e saveResponseFileName vazio, conforme export real homologado."
+      "Preflight e finalização publicam o valor pela última expressão do JavaScriptAction.",
+      "O Resultado de preflight é mantido como objeto em pre_result; pre_result_json é proibido.",
+      "O modo All Files Access exige caminho completo em saveResponseAllFilesAccessPath e saveResponseFileName vazio.",
+      "A macro temporária de homologação é evidência de teste e não integra catálogo, release ou runtime operacional."
     ],
     "action_profile": {
       "total_actions": 21,
@@ -71,13 +70,40 @@
       "shell_actions": 0
     },
     "export_checked_against_contract": true,
-    "latest_remote_base_commit": "aad55e5969b41c456bb92e096bde2c381101e385",
+    "latest_remote_base_commit": "d79fa8cbed54048900fcb12fcb873408b7a70478",
     "http_response_save_contract": {
       "evidence": "MacroDroid export executed successfully on target device",
       "saveResponseType": 2,
       "saveResponseUseAllFilesAccess": true,
       "saveResponseAllFilesAccessPath": "{lv=Tmp_StagingFilePath}",
       "saveResponseFileName": ""
+    },
+    "homologation": {
+      "status": "homologated",
+      "scope": "github_raw_control_plane_json_documents",
+      "completed_at": "2026-06-20",
+      "macro": "[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP",
+      "source_ref": "aad55e5969b41c456bb92e096bde2c381101e385",
+      "repository_head_at_closure": "d79fa8cbed54048900fcb12fcb873408b7a70478",
+      "total_checks": 23,
+      "passed_checks": 23,
+      "failed_checks": 0,
+      "verified_behaviors": [
+        "offline_source_validation",
+        "source_status_without_network",
+        "security_preflight_blocks",
+        "http_200_response_persisted_to_staging",
+        "json_reloaded_by_json_config_manager",
+        "http_404_rejected",
+        "registry_unchanged"
+      ],
+      "excluded_scope": [
+        "artifact_payload_download",
+        "runtime_sha256_verification",
+        "artifact_installation",
+        "registry_update",
+        "automatic_macrodroid_import"
+      ]
     }
   }
 }

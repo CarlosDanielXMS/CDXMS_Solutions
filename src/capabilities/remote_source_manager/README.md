@@ -1,6 +1,18 @@
 # [CDXMS] Remote Source Manager v1.0.0
 
-Capability responsável pela fronteira remota do ecossistema CDXMS durante a homologação com GitHub raw.
+Capability homologada para a fronteira remota do plano de controle do ecossistema CDXMS via GitHub raw.
+
+## Estado de homologação
+
+- status: **homologado**;
+- escopo: documentos JSON de controle;
+- data: `2026-06-20`;
+- macro de evidência: `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP`;
+- verificações: `23/23` aprovadas;
+- source ref exercitado: `aad55e5969b41c456bb92e096bde2c381101e385`;
+- head remoto na formalização: `d79fa8cbed54048900fcb12fcb873408b7a70478`.
+
+A homologação cobre transporte, persistência em staging, validação estrutural/semântica e releitura pelo JCM. Não cobre payloads de artifacts, SHA-256 em runtime, instalação, alteração de registry ou importação automática.
 
 ## Responsabilidade
 
@@ -25,7 +37,7 @@ Capability responsável pela fronteira remota do ecossistema CDXMS durante a hom
 
 ## Escopo v1.0.0
 
-A versão inicial cobre o plano de controle remoto: catálogo, release manifest, remote manifest e JSON CDXMS genérico. Payloads de artifact continuam bloqueados até a homologação de SHA-256 nativo ou de capability específica, conforme a Knowledge Base.
+A versão inicial cobre catálogo, `release.json`, `remote_manifest.json` e JSON CDXMS genérico. Payloads de artifact continuam bloqueados até a homologação de SHA-256 em runtime e do fluxo de download verificado.
 
 ## Dependência
 
@@ -35,28 +47,24 @@ A versão inicial cobre o plano de controle remoto: catálogo, release manifest,
 
 Saída pública única: `Resultado`.
 
-## Correções de homologação no dispositivo
+## Comportamentos confirmados no dispositivo
 
-- O preflight e a finalização JavaScript são executados em IIFE, evitando `Illegal return statement`.
-- URL, flag de execução e paths de staging são materializados em variáveis escalares antes das ações nativas.
-- Operações `validate_source` e `get_source_status` retornam o preflight sem executar HTTP.
+- preflight e finalização publicam pela última expressão do `JavaScriptAction`;
+- `validate_source` e `get_source_status` não executam HTTP;
+- `pre_result` é objeto e não JSON textual aninhado;
+- URL, flag de execução e paths de staging são materializados em variáveis escalares;
+- host inválido, `/blob/`, fonte desabilitada, `Source Id` divergente, traversal e JSON inválido são bloqueados antes da rede;
+- HTTP 200 persiste o corpo no staging e o JCM relê o arquivo;
+- HTTP 404 retorna `HTTP_UNEXPECTED_STATUS`;
+- registry permanece inalterado.
 
-## Correção verificada na homologação remota
+## Persistência HTTP homologada
 
-Os JavaScripts de preflight e finalização usam uma variável de saída e a última expressão do script. Não utilizam `return` no escopo principal nem dependem do valor de retorno de uma IIFE para preencher a variável configurada no `JavaScriptAction`.
-
-
-## Ponte de Resultado de preflight
-
-Operações sem rede armazenam o Resultado como objeto em `Tmp_RequestWork.pre_result`. O Resultado não é encapsulado como JSON textual dentro de outro JSON, porque o Magic Text do MacroDroid pode alterar escapes durante a interpolação em `JavaScriptAction`.
-
-## Persistência HTTP validada por export real
-
-A configuração interna da ação `HTTP Request` foi alinhada ao export produzido pela mesma versão do MacroDroid usada na homologação:
+Configuração confirmada por export real do MacroDroid e execução no dispositivo:
 
 - `saveResponseType = 2`;
 - `saveResponseUseAllFilesAccess = true`;
 - `saveResponseAllFilesAccessPath = {lv=Tmp_StagingFilePath}`;
 - `saveResponseFileName = ""`.
 
-No modo **All Files Access**, o campo serializado `saveResponseAllFilesAccessPath` recebe o caminho completo do arquivo de destino. Separar pasta e nome do arquivo fez a requisição retornar HTTP 200 sem persistir o corpo.
+No modo **All Files Access**, `saveResponseAllFilesAccessPath` recebe o caminho completo do arquivo de destino.

@@ -1,5 +1,17 @@
 # Homologação manual — [CDXMS] Remote Source Manager v1.0.0
 
+## Resultado consolidado
+
+- status: **homologado**;
+- concluído em: `2026-06-20`;
+- macro executada: `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP`;
+- source ref: `aad55e5969b41c456bb92e096bde2c381101e385`;
+- head remoto na formalização: `d79fa8cbed54048900fcb12fcb873408b7a70478`;
+- verificações: `23/23` aprovadas;
+- falhas: `0`.
+
+A macro temporária é somente evidência de homologação e não integra catálogo, release ou runtime operacional.
+
 ## Pré-requisitos
 
 1. Importar `[CDXMS] Json Config Manager`.
@@ -98,7 +110,7 @@ Após os testes:
 
 ## Critério de conclusão
 
-A capability só deve ser marcada como homologada após importação real e execução dos casos 1–8 no dispositivo. Até lá, `manual_homologation_required` permanece verdadeiro.
+Critério atendido: os casos 1–8 e as regressões complementares foram executados no dispositivo com `23/23` verificações aprovadas. `manual_homologation_required` permanece `false` para o escopo do plano de controle homologado.
 
 ## Regressões obrigatórias da homologação
 

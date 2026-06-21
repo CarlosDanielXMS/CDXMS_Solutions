@@ -96,6 +96,17 @@ if supported != expected: error(f'operações divergentes: {supported}')
 if config.get('settings',{}).get('artifact_payload_download_enabled') is not False: error('payload download deve permanecer bloqueado')
 if config.get('settings',{}).get('allowed_hosts') != ['raw.githubusercontent.com']: error('host permitido inválido')
 
+# Formal homologation closure.
+audit = manifest.get('implementation_audit', {})
+if audit.get('stage') != 'homologated_control_plane_v1_0_0': error('stage de homologação formal inválido')
+if audit.get('manual_homologation_required') is not False: error('manual_homologation_required deve ser false após 23/23 checks')
+homologation = audit.get('homologation', {})
+if homologation.get('status') != 'homologated': error('status de homologação inválido')
+if homologation.get('scope') != 'github_raw_control_plane_json_documents': error('escopo de homologação inválido')
+if homologation.get('total_checks') != 23 or homologation.get('passed_checks') != 23 or homologation.get('failed_checks') != 0: error('placar de homologação deve ser 23/23, 0 falhas')
+if homologation.get('macro') != '[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP': error('macro de evidência divergente')
+if 'artifact_payload_download' not in homologation.get('excluded_scope', []): error('payload download deve permanecer explicitamente fora do escopo')
+
 # Integration with catalog/release/core enums/errors.
 catalog = load(ROOT/'catalogs/local_catalog.default.json')
 ids = {x.get('artifact_id') for x in catalog.get('capabilities',[])}

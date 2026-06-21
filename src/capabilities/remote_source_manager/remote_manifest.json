@@ -17,7 +17,7 @@
       "target_path": "capabilities/remote_source_manager/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "9b63539d2288b3cc59c91daf09afc17e109058657f21da06c19b50261db830af"
+      "checksum_sha256": "55e3473da522946f233ff8b24f9a452e3532b2cf26b2b9a00dede4991c1bfa83"
     },
     {
       "path": "capabilities/remote_source_manager/contract.json",

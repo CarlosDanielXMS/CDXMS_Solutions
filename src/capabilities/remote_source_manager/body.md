@@ -1,5 +1,13 @@
 # Corpo do Action Block — [CDXMS] Remote Source Manager v1.0.0
 
+## Estado de homologação
+
+- Homologado no dispositivo em `2026-06-20`.
+- Macro de evidência: `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP`.
+- Resultado: `23/23` verificações aprovadas.
+- Escopo homologado: documentos JSON do plano de controle, staging e releitura JCM.
+- Fora do escopo: payloads, SHA-256 em runtime, instalação, registry e importação automática.
+
 ## Entradas
 
 | Entrada | Tipo | Obrigatória | Descrição |

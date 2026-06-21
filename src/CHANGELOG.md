@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 — Homologação do Remote Source Manager encerrada
+
+- Mantida versão pré-release `1.0.0`.
+- Homologação real concluída em `2026-06-20` com `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP`.
+- Aprovadas `23/23` verificações: `0` falhas.
+- Confirmados preflight sem rede, validações de segurança, HTTP 200, persistência física no staging, releitura JCM, tratamento de HTTP 404 e preservação do registry.
+- Source ref exercitado: `aad55e5969b41c456bb92e096bde2c381101e385`.
+- Head remoto na formalização: `d79fa8cbed54048900fcb12fcb873408b7a70478`.
+- `manual_homologation_required` alterado para `false` somente para o escopo de documentos JSON do plano de controle.
+- Payloads de artifacts, SHA-256 em runtime, instalação remota e importação automática permanecem fora do escopo homologado.
+- A macro temporária de homologação permanece somente como evidência e não integra catálogo ou release.
+
 ## 1.0.0 — Persistência HTTP alinhada ao export real do MacroDroid
 
 - Mantida versão pré-release `1.0.0`.
