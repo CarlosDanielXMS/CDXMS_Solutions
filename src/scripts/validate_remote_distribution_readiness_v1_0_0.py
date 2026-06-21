@@ -8,6 +8,7 @@ WARNINGS = []
 CAPABILITIES = [
     'json_config_manager', 'bootstrap', 'result_manager', 'logger',
     'string_utils', 'artifact_manager', 'dependency_resolver', 'remote_source_manager',
+    'file_integrity',
 ]
 
 def error(message):
@@ -164,6 +165,13 @@ am_text = json.dumps(am_macro, ensure_ascii=False)
 for marker in ['json_config_manager', 'jcm_apply_plan', 'jcm_verification_plan']:
     if marker not in am_text:
         error(f'Artifact Manager: marcador obrigatório ausente: {marker}')
+
+fi_macro = next(m for c, _, m in parsed_exports if c == 'file_integrity')
+fi_shells = [a for a in fi_macro.get('m_actionList', []) if a.get('m_classType') == 'ShellScriptAction']
+if len(fi_shells) != 1:
+    error('File Integrity deve possuir exatamente uma ShellScriptAction controlada.')
+elif '/system/bin/sha256sum' not in fi_shells[0].get('m_script', '') or fi_shells[0].get('useHelper') is not False or fi_shells[0].get('useShizuku') is not False:
+    error('File Integrity não preserva o executor/contexto SHA-256 homologado.')
 
 dr_manifest = load('capabilities/dependency_resolver/manifest.json')
 if dr_manifest.get('purity') != 'pure' or dr_manifest.get('side_effects') not in ([], None):

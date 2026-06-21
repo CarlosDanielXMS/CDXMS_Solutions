@@ -1,0 +1,1432 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1782000000000,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "calculate_sha256",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "File Path",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Caminho absoluto do arquivo dentro de /storage/emulated/0/Documents/CDXMS_Solutions."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Expected SHA-256",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Hash SHA-256 esperado. Obrigatório em verify_sha256 e deve conter 64 caracteres hexadecimais."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Identificador lógico da sessão para rastreabilidade."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Identificador de correlação para chamadas encadeadas."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única no contrato universal CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_WorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Contexto interno de validação, operação e paths temporários."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ShouldExecuteText",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Flag textual para condicionar a execução física do checksum."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_NormalizedFilePath",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Caminho de arquivo normalizado e validado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ReportFolderPath",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Pasta interna temporária usada para transportar o resultado do shell."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ReportFilePath",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Arquivo JSON temporário gerado pelo executor SHA-256."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmEnsureResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Resultado do JCM ao preparar a pasta temporária."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmEnsureResultJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Serialização do Resultado do JCM ao preparar a pasta."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmReadyText",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Flag textual que confirma a preparação da pasta pelo JCM."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ShellReportJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Relatório JSON produzido pelo executor SHA-256."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmDeleteResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Resultado do JCM ao remover o relatório temporário."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmDeleteResultJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Serialização do Resultado do JCM ao remover o relatório temporário."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ResultJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Resultado universal serializado antes da publicação em Resultado."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -4096156049327197001,
+    "m_actionList": [
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197004,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "01 — Preparar integridade",
+        "actionGroupName": "01 — Preparar integridade",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197005,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Valida entradas, restringe o path ao base_path CDXMS e cria paths temporários seguros.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Validar operação e caminho",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ARTIFACT_ID = \"file_integrity\";\nconst VERSION = \"1.0.0\";\nconst SOURCE_NAME = \"[CDXMS] File Integrity\";\nconst BASE_PATH = \"/storage/emulated/0/Documents/CDXMS_Solutions\";\nconst REPORT_FOLDER = BASE_PATH + \"/cache/file_integrity/runtime\";\nconst SUPPORTED = [\"calculate_sha256\", \"verify_sha256\"];\nfunction raw(v){ return String(v == null ? \"\" : v); }\nfunction txt(v){ return raw(v).trim(); }\nfunction result(success,status,operation,message,data,error){\n  return {schema_version:1,namespace:\"CDXMS\",success:success===true,status:status||(success?\"success\":\"error\"),artifact_type:\"capability\",artifact_id:ARTIFACT_ID,operation:operation||\"\",message:message||\"\",data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:SOURCE_NAME,version:VERSION,session_id:txt(`{lv=Session Id}`),correlation_id:txt(`{lv=Correlation Id}`)}};\n}\nfunction err(code,message,details,recoverable){ return {code:code,message:message,details:details||{},recoverable:recoverable===true}; }\nfunction normalizePath(value){\n  let p=txt(value).replace(/\\\\+/g,\"/\").replace(/\\/{2,}/g,\"/\");\n  if(p.length>1 && p.endsWith(\"/\")) p=p.slice(0,-1);\n  return p;\n}\nfunction safePath(path){\n  if(!path || path.indexOf(BASE_PATH + \"/\")!==0) return {valid:false,reason:\"outside_base_path\"};\n  const parts=path.split(\"/\");\n  if(parts.indexOf(\"..\")>=0 || parts.indexOf(\".\")>=0) return {valid:false,reason:\"path_traversal\"};\n  if(/[\\u0000\\r\\n\\\"'`$;&|<>\\\\*?\\[\\]{}()!]/.test(path)) return {valid:false,reason:\"unsafe_character\"};\n  return {valid:true,reason:\"\"};\n}\nconst op=txt(`{lv=Operation}`).toLowerCase();\nconst filePath=normalizePath(`{lv=File Path}`);\nconst expected=txt(`{lv=Expected SHA-256}`).toLowerCase();\nlet preResult=null;\nlet shouldExecute=false;\nlet __fiOutput=\"\";\ntry {\n  if(!op) throw {code:\"MISSING_REQUIRED_INPUT\",message:\"A entrada Operation é obrigatória.\",details:{input:\"Operation\"}};\n  if(SUPPORTED.indexOf(op)<0) throw {code:\"UNSUPPORTED_OPERATION\",message:\"A operação informada não é suportada pelo File Integrity.\",details:{operation:op,supported_operations:SUPPORTED}};\n  if(!filePath) throw {code:\"MISSING_REQUIRED_INPUT\",message:\"A entrada File Path é obrigatória.\",details:{input:\"File Path\"}};\n  const checked=safePath(filePath);\n  if(!checked.valid) throw {code:\"UNSAFE_FILE_PATH\",message:\"O caminho informado é inválido ou está fora do escopo seguro do CDXMS.\",details:{file_path:filePath,reason:checked.reason}};\n  if(op===\"verify_sha256\" && !expected) throw {code:\"MISSING_REQUIRED_INPUT\",message:\"Expected SHA-256 é obrigatório para verify_sha256.\",details:{input:\"Expected SHA-256\"}};\n  if(op===\"verify_sha256\" && !/^[0-9a-f]{64}$/.test(expected)) throw {code:\"INVALID_INPUT_TYPE\",message:\"Expected SHA-256 deve conter exatamente 64 caracteres hexadecimais.\",details:{input:\"Expected SHA-256\",value:expected}};\n  shouldExecute=true;\n} catch(e){\n  const code=e&&e.code?e.code:\"PROCESSING_FAILED\";\n  const message=e&&e.message?e.message:\"Falha ao preparar a validação de integridade.\";\n  preResult=result(false,\"error\",op,message,{algorithm:\"sha256\",executor:\"/system/bin/sha256sum\",file_path:filePath,expected_sha256:expected||\"\",actual_sha256:\"\",matches:false,verification_state:\"preflight_rejected\"},err(code,message,e&&e.details?e.details:{},false));\n}\nconst nonce=Date.now().toString(36)+\"_\"+Math.random().toString(16).slice(2,10);\nconst reportFilePath=REPORT_FOLDER+\"/file_integrity_\"+nonce+\".json\";\n__fiOutput=JSON.stringify({operation:op,file_path:filePath,expected_sha256:expected,should_execute:shouldExecute,report_folder_path:REPORT_FOLDER,report_file_path:reportFilePath,pre_result:preResult});\n__fiOutput;",
+        "stringVariableName": "Tmp_WorkJson"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197006,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Materializa should_execute como texto para constraints nativas.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Extrair flag de execução",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const w=JSON.parse(`{lv=Tmp_WorkJson}`); String(w.should_execute===true);",
+        "stringVariableName": "Tmp_ShouldExecuteText"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197007,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Materializa o caminho seguro para a ShellScriptAction.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Extrair caminho validado",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const w=JSON.parse(`{lv=Tmp_WorkJson}`); String(w.file_path||\"\");",
+        "stringVariableName": "Tmp_NormalizedFilePath"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197008,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Materializa a pasta temporária para o JCM.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Extrair pasta temporária",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const w=JSON.parse(`{lv=Tmp_WorkJson}`); String(w.report_folder_path||\"\");",
+        "stringVariableName": "Tmp_ReportFolderPath"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197009,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Materializa o arquivo temporário de relatório.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Extrair relatório temporário",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const w=JSON.parse(`{lv=Tmp_WorkJson}`); String(w.report_file_path||\"\");",
+        "stringVariableName": "Tmp_ReportFilePath"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197010,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Fim — Preparar integridade"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197011,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "02 — Calcular SHA-256",
+        "actionGroupName": "02 — Calcular SHA-256",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197012,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Prepara somente a pasta efêmera usada como bridge de saída do Shell Script.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197001,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Garantir pasta temporária via JCM",
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Operation": "ensure_folder",
+          "File Path": "",
+          "Folder Path": "{lv=Tmp_ReportFolderPath}",
+          "Json Path": "",
+          "Value Json": "",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Pretty Print?": "true",
+          "Merge Strategy": "deep_merge"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmEnsureResult"
+        }
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197013,
+        "m_classType": "JsonOutputAction",
+        "m_comment": "Serializa o Resultado do JCM para validação segura.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197001,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Serializar preparação JCM",
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Tmp_JcmEnsureResult",
+        "stringVarName": "Tmp_JcmEnsureResultJson"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197014,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Confirma que a pasta temporária foi preparada.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197001,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Extrair disponibilidade do cache",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "let r={}; try{r=JSON.parse(`{lv=Tmp_JcmEnsureResultJson}`);}catch(e){} String(r&&r.success===true);",
+        "stringVariableName": "Tmp_JcmReadyText"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197015,
+        "m_classType": "ShellScriptAction",
+        "m_comment": "Executa exclusivamente /system/bin/sha256sum em contexto non-root, sem Helper e sem Shizuku.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197002,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_JcmReadyText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual que confirma a preparação da pasta pelo JCM."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197003,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Calcular SHA-256 homologado",
+        "blockNextAction": true,
+        "m_nonRoot": true,
+        "m_script": "#!/system/bin/sh\nFILE_PATH=\"{lv=Tmp_NormalizedFilePath}\"\nREPORT_PATH=\"{lv=Tmp_ReportFilePath}\"\nEXECUTOR=\"/system/bin/sha256sum\"\nEXISTS=false\nREGULAR=false\nREADABLE=false\nAVAILABLE=false\nEXIT_CODE=127\nACTUAL=\"\"\nOUTPUT_VALID=false\nif [ -e \"$FILE_PATH\" ]; then EXISTS=true; fi\nif [ -f \"$FILE_PATH\" ]; then REGULAR=true; fi\nif [ -r \"$FILE_PATH\" ]; then READABLE=true; fi\nif [ -x \"$EXECUTOR\" ]; then AVAILABLE=true; fi\nif [ \"$EXISTS\" = true ] && [ \"$REGULAR\" = true ] && [ \"$READABLE\" = true ] && [ \"$AVAILABLE\" = true ]; then\n  OUTPUT=$($EXECUTOR \"$FILE_PATH\" 2>/dev/null)\n  EXIT_CODE=$?\n  set -- $OUTPUT\n  RAW_HASH=\"${1:-}\"\n  ACTUAL=$(printf '%s' \"$RAW_HASH\" | tr 'A-F' 'a-f')\n  case \"$ACTUAL\" in\n    ''|*[!0-9a-f]*) ACTUAL=\"\" ;;\n    *) if [ \"${#ACTUAL}\" -eq 64 ]; then OUTPUT_VALID=true; else ACTUAL=\"\"; fi ;;\n  esac\nfi\nGENERATED_AT=$(date -u '+%Y-%m-%dT%H:%M:%SZ' 2>/dev/null)\nprintf '{\"schema_version\":1,\"namespace\":\"CDXMS\",\"file_type\":\"file_integrity_runtime_report\",\"generated_at\":\"%s\",\"executor\":\"%s\",\"execution_context\":{\"non_root\":true,\"use_helper\":false,\"use_shizuku\":false},\"file\":{\"exists\":%s,\"regular\":%s,\"readable\":%s},\"executor_available\":%s,\"exit_code\":%s,\"actual_sha256\":\"%s\",\"output_valid\":%s}\\n' \"$GENERATED_AT\" \"$EXECUTOR\" \"$EXISTS\" \"$REGULAR\" \"$READABLE\" \"$AVAILABLE\" \"$EXIT_CODE\" \"$ACTUAL\" \"$OUTPUT_VALID\" > \"$REPORT_PATH\"\n",
+        "timeoutSeconds": 30,
+        "useHelper": false,
+        "useShizuku": false
+      },
+      {
+        "allFilesAccessPath": "{lv=Tmp_ReportFilePath}",
+        "staticFilename": false,
+        "useAllFilesAccess": true,
+        "variableName": "Tmp_ShellReportJson",
+        "m_classType": "ReadFileAction",
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197016,
+        "m_comment": "Lê o relatório JSON efêmero produzido pelo executor SHA-256.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197002,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_JcmReadyText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual que confirma a preparação da pasta pelo JCM."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197003,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Ler relatório de integridade"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197017,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Remove o relatório efêmero após a leitura.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197002,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_JcmReadyText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual que confirma a preparação da pasta pelo JCM."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197003,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Remover relatório temporário via JCM",
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Operation": "delete_file",
+          "File Path": "{lv=Tmp_ReportFilePath}",
+          "Folder Path": "",
+          "Json Path": "",
+          "Value Json": "",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Pretty Print?": "true",
+          "Merge Strategy": "deep_merge"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmDeleteResult"
+        }
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197018,
+        "m_classType": "JsonOutputAction",
+        "m_comment": "Registra se o relatório temporário foi removido.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_ShouldExecuteText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual para condicionar a execução física do checksum."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197002,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          },
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0.0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "calculate_sha256",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": false,
+              "description": "Operação técnica. Opções: calculate_sha256 e verify_sha256."
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "true",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": true,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0.0,
+              "m_intValue": 0,
+              "m_name": "Tmp_JcmReadyText",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": false,
+              "supportsOutput": false,
+              "description": "Flag textual que confirma a preparação da pasta pelo JCM."
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4096156049327197003,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Serializar limpeza JCM",
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Tmp_JcmDeleteResult",
+        "stringVarName": "Tmp_JcmDeleteResultJson"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197019,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Fim — Calcular SHA-256"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197020,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "03 — Finalizar Resultado",
+        "actionGroupName": "03 — Finalizar Resultado",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197021,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Classifica existência, executor, saída, comparação e limpeza sem falso sucesso.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Consolidar Resultado de integridade",
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ARTIFACT_ID=\"file_integrity\";\nconst VERSION=\"1.0.0\";\nconst SOURCE_NAME=\"[CDXMS] File Integrity\";\nfunction raw(v){return String(v==null?\"\":v);} function txt(v){return raw(v).trim();}\nfunction parse(v,f){const s=txt(v);if(!s)return f;try{return JSON.parse(s);}catch(e){return f;}}\nfunction result(success,status,operation,message,data,error){return JSON.stringify({schema_version:1,namespace:\"CDXMS\",success:success===true,status:status||(success?\"success\":\"error\"),artifact_type:\"capability\",artifact_id:ARTIFACT_ID,operation:operation||\"\",message:message||\"\",data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:SOURCE_NAME,version:VERSION,session_id:txt(`{lv=Session Id}`),correlation_id:txt(`{lv=Correlation Id}`)}});}\nfunction err(code,message,details,recoverable){return {code:code,message:message,details:details||{},recoverable:recoverable===true};}\nconst work=parse(`{lv=Tmp_WorkJson}`,{});\nconst pre=work.pre_result&&typeof work.pre_result===\"object\"&&!Array.isArray(work.pre_result)?work.pre_result:null;\nlet __fiOutput=\"\";\nif(pre){__fiOutput=JSON.stringify(pre);}else{\n const op=txt(work.operation||`{lv=Operation}`);\n const filePath=txt(work.file_path);\n const expected=txt(work.expected_sha256).toLowerCase();\n const ensure=parse(`{lv=Tmp_JcmEnsureResultJson}`,{});\n const report=parse(`{lv=Tmp_ShellReportJson}`,null);\n const cleanup=parse(`{lv=Tmp_JcmDeleteResultJson}`,{});\n const ensureOk=ensure&&ensure.success===true;\n const cleanupOk=cleanup&&cleanup.success===true;\n const baseData={algorithm:\"sha256\",executor:\"/system/bin/sha256sum\",execution_context:{non_root:true,use_helper:false,use_shizuku:false},file_path:filePath,expected_sha256:expected,actual_sha256:\"\",matches:op===\"verify_sha256\"?false:null,verification_state:\"failed\",runtime:{executor_available:false,exit_code:0,output_valid:false},cleanup:{requested:true,verified:cleanupOk}};\n if(!ensureOk){\n  const message=\"Não foi possível preparar o cache temporário do File Integrity.\";\n  __fiOutput=result(false,\"error\",op,message,baseData,err(\"CHECKSUM_EXECUTION_FAILED\",message,{jcm_status:txt(ensure&&ensure.status),jcm_message:txt(ensure&&ensure.message)},true));\n }else if(!report||report.schema_version!==1||report.namespace!==\"CDXMS\"||report.file_type!==\"file_integrity_runtime_report\"){\n  const message=\"O executor SHA-256 não produziu um relatório válido.\";\n  __fiOutput=result(false,\"error\",op,message,baseData,err(\"CHECKSUM_EXECUTION_FAILED\",message,{report_present:!!report},true));\n }else{\n  const file=report.file||{};\n  const actual=txt(report.actual_sha256).toLowerCase();\n  const exitCode=Number(report.exit_code);\n  const available=report.executor_available===true;\n  const outputValid=report.output_valid===true&&/^[0-9a-f]{64}$/.test(actual);\n  baseData.actual_sha256=actual;\n  baseData.runtime={executor_available:available,exit_code:isFinite(exitCode)?exitCode:0,output_valid:outputValid};\n  if(file.exists!==true){\n   const message=\"O arquivo informado não foi encontrado.\";\n   baseData.verification_state=\"file_not_found\";\n   __fiOutput=result(false,\"not_found\",op,message,baseData,err(\"FILE_NOT_FOUND\",message,{file_path:filePath},true));\n  }else if(file.regular!==true){\n   const message=\"O caminho informado não representa um arquivo regular.\";\n   baseData.verification_state=\"invalid_file_type\";\n   __fiOutput=result(false,\"error\",op,message,baseData,err(\"INVALID_INPUT_TYPE\",message,{file_path:filePath},false));\n  }else if(file.readable!==true){\n   const message=\"O arquivo informado não pode ser lido pelo executor de integridade.\";\n   baseData.verification_state=\"permission_denied\";\n   __fiOutput=result(false,\"error\",op,message,baseData,err(\"PERMISSION_DENIED\",message,{file_path:filePath},true));\n  }else if(!available||exitCode===127){\n   const message=\"O executor SHA-256 homologado não está disponível neste dispositivo.\";\n   baseData.verification_state=\"executor_unavailable\";\n   __fiOutput=result(false,\"blocked\",op,message,baseData,err(\"CHECKSUM_EXECUTOR_UNAVAILABLE\",message,{executor:\"/system/bin/sha256sum\",exit_code:exitCode},true));\n  }else if(exitCode!==0){\n   const message=\"O executor SHA-256 falhou ao processar o arquivo.\";\n   baseData.verification_state=\"execution_failed\";\n   __fiOutput=result(false,\"error\",op,message,baseData,err(\"CHECKSUM_EXECUTION_FAILED\",message,{executor:\"/system/bin/sha256sum\",exit_code:exitCode},true));\n  }else if(!outputValid){\n   const message=\"O executor SHA-256 retornou uma saída inválida.\";\n   baseData.verification_state=\"invalid_output\";\n   __fiOutput=result(false,\"error\",op,message,baseData,err(\"CHECKSUM_INVALID_OUTPUT\",message,{actual_sha256:actual,exit_code:exitCode},false));\n  }else if(op===\"verify_sha256\"){\n   const matches=actual===expected;\n   baseData.matches=matches;\n   baseData.verification_state=matches?\"verified\":\"mismatch\";\n   if(matches){__fiOutput=result(true,cleanupOk?\"success\":\"partial\",op,\"O SHA-256 do arquivo corresponde ao valor esperado.\",baseData,null);}\n   else{const message=\"O SHA-256 do arquivo não corresponde ao valor esperado.\";__fiOutput=result(false,\"error\",op,message,baseData,err(\"CHECKSUM_MISMATCH\",message,{expected_sha256:expected,actual_sha256:actual,file_path:filePath},false));}\n  }else{\n   baseData.verification_state=\"calculated\";\n   __fiOutput=result(true,cleanupOk?\"success\":\"partial\",op,\"SHA-256 calculado com sucesso.\",baseData,null);\n  }\n }\n}\n__fiOutput;",
+        "stringVariableName": "Tmp_ResultJson"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197022,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica a saída única Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Publicar Resultado",
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197023,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Fim — File Integrity"
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -4096156049327197024,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra explicitamente o Action Block.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false,
+        "actionLabel": "Encerrar Action Block",
+        "outputOption": 0
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_description": "Calcula e verifica SHA-256 de arquivos dentro do escopo seguro CDXMS usando executor homologado no dispositivo.",
+    "m_name": "[CDXMS] File Integrity",
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
+  },
+  "macroExportVersion": 1
+}

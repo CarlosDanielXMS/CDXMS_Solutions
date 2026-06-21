@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_remote_source_manager",
-  "artifact_id": "ecosystem_core_remote_source_manager",
+  "release_id": "ecosystem_core_file_integrity",
+  "artifact_id": "ecosystem_core_file_integrity",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -77,17 +77,24 @@
       "version": "1.0.0",
       "path": "capabilities/remote_source_manager/manifest.json",
       "remote_manifest_path": "capabilities/remote_source_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "file_integrity",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/file_integrity/manifest.json",
+      "remote_manifest_path": "capabilities/file_integrity/remote_manifest.json"
     }
   ],
   "notes": [
     "Base completa e mesclada do ecossistema atual.",
-    "Artifact Manager consolidado para apply via Json Config Manager.",
-    "Remote Source Manager v1.0.0 homologado no dispositivo para documentos JSON do plano de controle.",
-    "Homologação concluída com 23/23 verificações aprovadas, staging físico validado e registry preservado.",
-    "Downloads usam HTTP Request nativo, staging temporário e releitura/verificação pelo JCM.",
-    "Bulk payload download, SHA-256 em runtime e instalação remota permanecem bloqueados até homologação específica.",
+    "Remote Source Manager v1.0.0 permanece homologado para documentos JSON do plano de controle.",
+    "SHA-256 em runtime homologado no dispositivo com /system/bin/sha256sum em contexto non-root, sem Helper e sem Shizuku.",
+    "Adicionada [CDXMS] File Integrity v1.0.0 com calculate_sha256 e verify_sha256.",
+    "A capability de produção ainda requer homologação própria antes da integração com o Remote Source Manager.",
+    "Payloads remotos, instalação automática e atualização de registry continuam bloqueados.",
     "Importação automática de .macro/.ablock continua fora de escopo.",
-    "Source ref exercitado: aad55e5969b41c456bb92e096bde2c381101e385; head remoto na formalização: d79fa8cbed54048900fcb12fcb873408b7a70478."
+    "Base remota: feat/create-ecosystem-core@19564636b8eb90f97ed4c3460ebdea1648c3a444."
   ],
-  "package": "CDXMS_Remote_Source_Manager_v1_0_0_homologated_full_merged_package_2026_06_20.zip"
+  "package": "CDXMS_File_Integrity_v1_0_0_ready_for_homologation_full_merged_package_2026_06_21.zip"
 }

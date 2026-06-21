@@ -1,5 +1,38 @@
 # Changelog
 
+## 1.0.0 — File Integrity preparada para homologação
+
+- Homologado `/system/bin/sha256sum` no dispositivo com `7/7` verificações.
+- Contexto aprovado: non-root, sem MacroDroid Helper e sem Shizuku.
+- Criada `[CDXMS] File Integrity` com `calculate_sha256` e `verify_sha256`.
+- Paths ficam restritos ao base path CDXMS e caracteres de shell são bloqueados.
+- O comando é fixo e o Resultado valida existência, leitura, exit code e digest de 64 hexadecimais.
+- Mismatch retorna `CHECKSUM_MISMATCH` e nunca falso sucesso.
+- JCM prepara e remove o relatório efêmero do bridge Shell Script.
+- Adicionada macro TEMP com 11 verificações para homologar a capability de produção.
+- RSM e payloads continuam bloqueados até essa homologação e integração posterior.
+
+## 1.0.0 — Probe SHA-256 v1.0.1 corrige o contexto Shell Script
+
+- A tentativa v1.0.0 foi inconclusiva: o relatório fallback não foi sobrescrito e nenhum candidato SHA-256 chegou a ser testado.
+- O resultado anterior não significa ausência de SHA-256 no dispositivo.
+- Corrigido `ShellScriptAction.useHelper` de `true` para `false`, alinhando o harness ao export nativo auditado do MacroDroid.
+- Adicionados `probe_stage=fallback|shell_started|completed` e `shell_execution_confirmed` para diagnóstico observável.
+- O shell sobrescreve o relatório no primeiro comando e grava o relatório completo apenas ao final.
+- Mantidos non-root, sem Shizuku, sem instalação, sem registry e sem payloads remotos.
+
+## 1.0.0 — Harness de homologação SHA-256 em runtime preparado
+
+- Mantida versão pré-release `1.0.0`.
+- Base: `feat/create-ecosystem-core@19564636b8eb90f97ed4c3460ebdea1648c3a444`.
+- Adicionada a macro temporária `[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP`.
+- O harness testa cinco candidatos sem assumir previamente qual existe no dispositivo.
+- Exige sete verificações: valor conhecido, determinismo, conteúdo alterado, arquivo vazio, path com espaços, arquivo multi-bloco e rejeição de arquivo inexistente.
+- O shell é não-root, executa sem Helper e grava somente em `cache/`.
+- Nenhuma capability de produção foi criada; payloads, instalação e registry permanecem bloqueados.
+- Adicionado validador estático e de execução host para impedir regressões no harness.
+- A homologação real permanece pendente até execução no dispositivo.
+
 ## 1.0.0 — Homologação do Remote Source Manager encerrada
 
 - Mantida versão pré-release `1.0.0`.

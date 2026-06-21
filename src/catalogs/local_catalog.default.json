@@ -84,6 +84,16 @@
       "remote_manifest_path": "capabilities/remote_source_manager/remote_manifest.json",
       "installable": true,
       "visible": false
+    },
+    {
+      "artifact_id": "file_integrity",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] File Integrity",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/file_integrity/manifest.json",
+      "remote_manifest_path": "capabilities/file_integrity/remote_manifest.json",
+      "installable": true,
+      "visible": false
     }
   ],
   "core": [

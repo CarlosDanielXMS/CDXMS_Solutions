@@ -161,6 +161,23 @@
       "remote_artifact_manifest": "remote_artifact_manifest",
       "release_manifest": "release_manifest",
       "cdxms_json_document": "cdxms_json_document"
+    },
+    "file_integrity_operation": {
+      "calculate_sha256": "calculate_sha256",
+      "verify_sha256": "verify_sha256"
+    },
+    "file_integrity_verification_state": {
+      "calculated": "calculated",
+      "verified": "verified",
+      "mismatch": "mismatch",
+      "file_not_found": "file_not_found",
+      "invalid_file_type": "invalid_file_type",
+      "permission_denied": "permission_denied",
+      "executor_unavailable": "executor_unavailable",
+      "execution_failed": "execution_failed",
+      "invalid_output": "invalid_output",
+      "preflight_rejected": "preflight_rejected",
+      "failed": "failed"
     }
   }
 }

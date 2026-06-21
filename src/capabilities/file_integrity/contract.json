@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "file_integrity",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] File Integrity",
+  "description": "Contrato da capability de cálculo e verificação SHA-256 de arquivos locais dentro do escopo seguro CDXMS.",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica da capability.",
+      "options": [
+        "calculate_sha256",
+        "verify_sha256"
+      ]
+    },
+    {
+      "name": "File Path",
+      "type": "string",
+      "required": true,
+      "description": "Caminho absoluto de arquivo sob /storage/emulated/0/Documents/CDXMS_Solutions."
+    },
+    {
+      "name": "Expected SHA-256",
+      "type": "string",
+      "required": "conditional",
+      "description": "Hash esperado com 64 caracteres hexadecimais; obrigatório em verify_sha256."
+    },
+    {
+      "name": "Session Id",
+      "type": "string",
+      "required": false,
+      "description": "Id lógico da sessão."
+    },
+    {
+      "name": "Correlation Id",
+      "type": "string",
+      "required": false,
+      "description": "Id de correlação."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato universal CDXMS."
+    }
+  ],
+  "operations": {
+    "calculate_sha256": {
+      "description": "Calcula o SHA-256 do arquivo e retorna o digest normalizado em lowercase.",
+      "required_inputs": [
+        "Operation",
+        "File Path"
+      ]
+    },
+    "verify_sha256": {
+      "description": "Calcula o SHA-256 e compara com o valor esperado.",
+      "required_inputs": [
+        "Operation",
+        "File Path",
+        "Expected SHA-256"
+      ]
+    }
+  },
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_INPUT_TYPE",
+    "UNSAFE_FILE_PATH",
+    "FILE_NOT_FOUND",
+    "PERMISSION_DENIED",
+    "CHECKSUM_EXECUTOR_UNAVAILABLE",
+    "CHECKSUM_EXECUTION_FAILED",
+    "CHECKSUM_INVALID_OUTPUT",
+    "CHECKSUM_MISMATCH",
+    "UNSUPPORTED_OPERATION"
+  ],
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  }
+}

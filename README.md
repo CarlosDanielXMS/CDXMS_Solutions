@@ -11,7 +11,9 @@ A árvore operacional está em `src/`. Esta entrega mantém a versão pré-relea
 - resultado: `23/23` verificações aprovadas;
 - source ref exercitado: `aad55e5969b41c456bb92e096bde2c381101e385`;
 - head remoto na formalização: `d79fa8cbed54048900fcb12fcb873408b7a70478`;
-- payloads de artifacts e validação SHA-256 em runtime permanecem fora do escopo homologado.
+- SHA-256 runtime homologado com `/system/bin/sha256sum`, 7/7 verificações, non-root, sem Helper e sem Shizuku;
+- `[CDXMS] File Integrity v1.0.0` implementado e aguardando homologação própria;
+- payloads remotos permanecem bloqueados até a integração RSM + File Integrity.
 
 ## Validação
 
@@ -20,6 +22,9 @@ python src/capabilities/remote_source_manager/scripts/validate_remote_source_man
 python src/scripts/validate_rsm_jcm_runtime_bridge_v1_0_0.py
 python src/scripts/validate_remote_distribution_readiness_v1_0_0.py
 python src/scripts/validate_am_local_apply_v1_0_0.py
+python src/scripts/validate_sha256_runtime_probe_v1_0_1.py
+python src/capabilities/file_integrity/scripts/validate_file_integrity_incremental.py
+python src/scripts/validate_file_integrity_homologation_v1_0_0.py
 ```
 
 ## Evidência de runtime
@@ -33,3 +38,8 @@ A homologação confirmou no MacroDroid real:
 - HTTP `404` tratado como `HTTP_UNEXPECTED_STATUS`;
 - ausência de alteração no registry;
 - contrato All Files Access com caminho completo em `saveResponseAllFilesAccessPath` e `saveResponseFileName` vazio.
+
+
+## File Integrity preparado para homologação
+
+O package preserva a evidência `[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP` e inclui `[CDXMS] Homologar File Integrity v1.0.0 TEMP`. A nova macro testa 11 casos diretamente sobre a capability de produção.

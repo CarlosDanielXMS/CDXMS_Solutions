@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_id": "file_integrity",
+  "artifact_type": "capability_config",
+  "version": "1.0.0",
+  "settings": {
+    "algorithm": "sha256",
+    "executor": "/system/bin/sha256sum",
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "runtime_context": {
+      "non_root": true,
+      "use_helper": false,
+      "use_shizuku": false
+    },
+    "timeout_seconds": 30,
+    "lowercase_output": true
+  }
+}

@@ -77,7 +77,11 @@
     "HTTP_UNEXPECTED_STATUS": "A requisição HTTP retornou status inesperado.",
     "HTTP_EMPTY_RESPONSE": "A resposta HTTP está vazia.",
     "HTTP_INVALID_RESPONSE": "A resposta HTTP não atende ao contrato esperado.",
-    "REMOTE_CACHE_VERIFICATION_FAILED": "O staging remoto não pôde ser verificado pelo Json Config Manager."
+    "REMOTE_CACHE_VERIFICATION_FAILED": "O staging remoto não pôde ser verificado pelo Json Config Manager.",
+    "UNSAFE_FILE_PATH": "Caminho de arquivo inseguro ou fora do escopo permitido.",
+    "CHECKSUM_EXECUTOR_UNAVAILABLE": "Executor de checksum indisponível.",
+    "CHECKSUM_EXECUTION_FAILED": "Falha ao executar o cálculo de checksum.",
+    "CHECKSUM_INVALID_OUTPUT": "A saída do executor de checksum é inválida."
   },
   "updated_at": ""
 }

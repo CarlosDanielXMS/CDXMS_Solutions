@@ -68,3 +68,8 @@ Configuração confirmada por export real do MacroDroid e execução no disposit
 - `saveResponseFileName = ""`.
 
 No modo **All Files Access**, `saveResponseAllFilesAccessPath` recebe o caminho completo do arquivo de destino.
+
+
+## SHA-256 runtime homologado
+
+O dispositivo confirmou `/system/bin/sha256sum` com `7/7` verificações em contexto non-root, sem Helper e sem Shizuku. O RSM ainda não baixa payloads: a abertura desse fluxo depende da homologação própria de `[CDXMS] File Integrity` e de uma integração posterior de staging verificado.
