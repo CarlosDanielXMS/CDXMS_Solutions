@@ -52,7 +52,19 @@
     "native_action_decision": "Bootstrap permanece minimalista, dependente diretamente apenas do JCM.",
     "javascript_policy": "allowed_for_context_aggregation",
     "shell_policy": "not_used",
-    "recommended_follow_up": "Manter Bootstrap como fundação mínima.",
-    "export_checked_against_contract": true
+    "recommended_follow_up": "Homologar a importação de uma única macro com Bootstrap e JCM incorporados antes de criar o Solutions Manager completo.",
+    "export_checked_against_contract": true,
+    "single_entry_role": "embedded_foundation_for_solutions_manager",
+    "standalone_installer_role": "not_adopted_in_v1",
+    "offline_bootstrap_required": true,
+    "single_entry_homologation": {
+      "status": "ready_for_device_homologation",
+      "macro": "[CDXMS] Homologar Entrada Única Bootstrap v1.0.0 TEMP",
+      "embedded_capabilities": [
+        "bootstrap",
+        "json_config_manager"
+      ],
+      "requires_preinstalled_cdxms_components": false
+    }
   }
 }

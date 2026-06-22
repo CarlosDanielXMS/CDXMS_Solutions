@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 — Entrada única preparada para homologação
+
+- Formalizada `[CDXMS] Solutions Manager` como única macro permanente da arquitetura v1.
+- Removido o Installer separado do fluxo oficial da v1.
+- Definido modo bootstrap na primeira execução e modo manager nas demais.
+- Bootstrap permanece capability local, offline e dependente apenas do JCM.
+- Preparada `[CDXMS] Homologar Entrada Única Bootstrap v1.0.0 TEMP` com Bootstrap e JCM incorporados por GUIDs exclusivos.
+- A macro exige `7/7` verificações e não usa HTTP, Shell, payloads ou importação automática.
+- File Integrity formalizado como homologado com `11/11` verificações.
+- Solutions Manager completo, UI, payload verificado e importação guiada permanecem nas próximas fases.
+- Base remota consultada: `feat/create-ecosystem-core@626c37a02fe0beb5b806b4df33f801749ba6bf9b`.
+
 ## 1.0.0 — File Integrity preparada para homologação
 
 - Homologado `/system/bin/sha256sum` no dispositivo com `7/7` verificações.

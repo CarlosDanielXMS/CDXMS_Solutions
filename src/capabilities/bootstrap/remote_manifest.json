@@ -17,7 +17,7 @@
       "target_path": "capabilities/bootstrap/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "36e79d81884717208f1bd82aa7dadd8d3a2adc3a0adc6701051d3bbaf0c8fe6c"
+      "checksum_sha256": "60daa761cfbd4f7c45aa534868ee33232597a91eebbbdcc16d180a07c7571bb5"
     },
     {
       "path": "capabilities/bootstrap/contract.json",

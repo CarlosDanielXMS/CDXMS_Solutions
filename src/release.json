@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_file_integrity",
-  "artifact_id": "ecosystem_core_file_integrity",
+  "release_id": "ecosystem_core_single_entry_bootstrap_probe",
+  "artifact_id": "ecosystem_core_single_entry_bootstrap_probe",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -88,13 +88,13 @@
   ],
   "notes": [
     "Base completa e mesclada do ecossistema atual.",
-    "Remote Source Manager v1.0.0 permanece homologado para documentos JSON do plano de controle.",
-    "SHA-256 em runtime homologado no dispositivo com /system/bin/sha256sum em contexto non-root, sem Helper e sem Shizuku.",
-    "Adicionada [CDXMS] File Integrity v1.0.0 com calculate_sha256 e verify_sha256.",
-    "A capability de produção ainda requer homologação própria antes da integração com o Remote Source Manager.",
-    "Payloads remotos, instalação automática e atualização de registry continuam bloqueados.",
-    "Importação automática de .macro/.ablock continua fora de escopo.",
-    "Base remota: feat/create-ecosystem-core@19564636b8eb90f97ed4c3460ebdea1648c3a444."
+    "Remote Source Manager control-plane permanece homologado com 23/23.",
+    "File Integrity foi formalizado como homologado com 11/11.",
+    "A arquitetura v1 adota [CDXMS] Solutions Manager como única macro permanente de entrada.",
+    "Não haverá macro Installer separada na v1.",
+    "Incluída prova TEMP de uma macro com Bootstrap e JCM incorporados por GUIDs exclusivos.",
+    "Solutions Manager completo, payload verificado, UI e importação guiada permanecem fora desta entrega.",
+    "Base remota consultada: feat/create-ecosystem-core@626c37a02fe0beb5b806b4df33f801749ba6bf9b."
   ],
-  "package": "CDXMS_File_Integrity_v1_0_0_ready_for_homologation_full_merged_package_2026_06_21.zip"
+  "package": "CDXMS_Single_Entry_Bootstrap_Probe_v1_0_0_full_merged_package_2026_06_21.zip"
 }

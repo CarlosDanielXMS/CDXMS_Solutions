@@ -37,9 +37,9 @@
     "temporary_runtime_report_created_and_removed"
   ],
   "implementation_audit": {
-    "stage": "pre_release_1_0_0_ready_for_device_homologation",
+    "stage": "homologated_v1_0_0",
     "version_policy": "no_version_bump_before_first_official_release",
-    "source_base": "feat/create-ecosystem-core@19564636b8eb90f97ed4c3460ebdea1648c3a444",
+    "source_base": "feat/create-ecosystem-core@626c37a02fe0beb5b806b4df33f801749ba6bf9b",
     "runtime_evidence": {
       "status": "homologated_executor",
       "completed_at": "2026-06-21",
@@ -55,8 +55,26 @@
       }
     },
     "production_capability_homologation": {
-      "status": "pending",
-      "manual_homologation_required": true
+      "status": "homologated",
+      "manual_homologation_required": false,
+      "completed_at": "2026-06-21",
+      "macro": "[CDXMS] Homologar File Integrity v1.0.0 TEMP",
+      "total_checks": 11,
+      "passed_checks": 11,
+      "failed_checks": 0,
+      "verified_behaviors": [
+        "calculate_known_sha256",
+        "verify_matching_sha256",
+        "reject_checksum_mismatch",
+        "hash_empty_file",
+        "support_path_with_spaces",
+        "hash_multi_block_file",
+        "reject_missing_file",
+        "reject_malformed_expected_sha256",
+        "reject_unsafe_path",
+        "reject_unsupported_operation",
+        "preserve_registry"
+      ]
     },
     "action_profile": {
       "total_actions": 21,

@@ -1,14 +1,15 @@
 # [CDXMS] File Integrity v1.0.0
 
-Capability responsável por calcular e verificar SHA-256 de arquivos locais dentro do escopo seguro do CDXMS.
+Capability homologada para calcular e verificar SHA-256 de arquivos locais dentro do escopo seguro do CDXMS.
 
 ## Estado
 
-- executor runtime homologado no dispositivo: `/system/bin/sha256sum`;
+- executor runtime homologado: `/system/bin/sha256sum`;
 - contexto homologado: non-root, sem MacroDroid Helper e sem Shizuku;
-- probe de evidência: `[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP`;
-- resultado do probe: `7/7` verificações aprovadas;
-- capability de produção: implementada e aguardando homologação própria.
+- probe de executor: `[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP` — `7/7`;
+- homologação da capability de produção: `[CDXMS] Homologar File Integrity v1.0.0 TEMP` — `11/11`;
+- concluída em `2026-06-21`;
+- alteração indevida de registry: nenhuma.
 
 ## Responsabilidade
 

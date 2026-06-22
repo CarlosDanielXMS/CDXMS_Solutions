@@ -10,7 +10,7 @@ Este documento consolida o Artifact Manager após a decisão arquitetural de rem
 Artifact Manager = planner/orchestrator de lifecycle
 Json Config Manager = executor físico de filesystem/JSON
 Dependency Resolver = resolvedor puro/stateless
-Solutions Manager = interface/orquestrador do usuário
+Solutions Manager = macro permanente de entrada, bootstrap e orquestração do usuário
 GitHub Distribution Layer = origem remota/cache de packages
 ```
 
@@ -55,7 +55,7 @@ Entrada
 ## Fluxo futuro com GitHub
 
 ```text
-Installer ou Manager
+Solutions Manager
   -> GitHub Distribution Layer
       -> baixa release/catalog/package
       -> valida HTTP/status/JSON/checksum
@@ -96,3 +96,10 @@ apply.executor = json_config_manager
 - Shell como executor normal do AM.
 - Dependency Resolver gravando arquivos.
 - Manager baixando remoto e escrevendo em produção sem cache/validação.
+
+
+## Entrada única
+
+A arquitetura v1 não usa uma macro Installer separada. `[CDXMS] Solutions Manager` incorpora o runtime mínimo necessário, executa Bootstrap na primeira abertura e atua como manager nas execuções seguintes.
+
+O Artifact Manager permanece interno e não deve ser chamado diretamente pelo usuário. Ele recebe somente artifacts locais ou staged_verified e continua proibido de declarar instalação sem apply e verificação JCM.

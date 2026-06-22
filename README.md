@@ -2,44 +2,37 @@
 
 Ecossistema modular de solutions e capabilities para MacroDroid.
 
-A árvore operacional está em `src/`. Esta entrega mantém a versão pré-release `1.0.0`, consolida o Artifact Manager com apply via JCM e formaliza a homologação do `[CDXMS] Remote Source Manager` para documentos JSON do plano de controle via GitHub raw.
+Esta consolidação fecha a homologação do `[CDXMS] File Integrity` e formaliza a arquitetura de **entrada única** da v1.
 
-## Estado desta consolidação
+## Estado
 
-- Remote Source Manager v1.0.0: **homologado no dispositivo para o plano de controle remoto**;
-- macro de evidência: `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP`;
-- resultado: `23/23` verificações aprovadas;
-- source ref exercitado: `aad55e5969b41c456bb92e096bde2c381101e385`;
-- head remoto na formalização: `d79fa8cbed54048900fcb12fcb873408b7a70478`;
-- SHA-256 runtime homologado com `/system/bin/sha256sum`, 7/7 verificações, non-root, sem Helper e sem Shizuku;
-- `[CDXMS] File Integrity v1.0.0` implementado e aguardando homologação própria;
-- payloads remotos permanecem bloqueados até a integração RSM + File Integrity.
+- branch-base: `feat/create-ecosystem-core`;
+- commit-base consultado: `626c37a02fe0beb5b806b4df33f801749ba6bf9b`;
+- Remote Source Manager, plano de controle: homologado `23/23`;
+- SHA-256 runtime: homologado `7/7`;
+- File Integrity de produção: homologado `11/11`;
+- Solutions Manager: ainda não implementado;
+- prova de macro única + Action Blocks incorporados: pronta para homologação.
 
-## Validação
+## Decisão de entrada
 
-```bash
-python src/capabilities/remote_source_manager/scripts/validate_remote_source_manager_incremental.py
-python src/scripts/validate_rsm_jcm_runtime_bridge_v1_0_0.py
-python src/scripts/validate_remote_distribution_readiness_v1_0_0.py
-python src/scripts/validate_am_local_apply_v1_0_0.py
-python src/scripts/validate_sha256_runtime_probe_v1_0_1.py
-python src/capabilities/file_integrity/scripts/validate_file_integrity_incremental.py
-python src/scripts/validate_file_integrity_homologation_v1_0_0.py
+O usuário importará apenas:
+
+```text
+[CDXMS] Solutions Manager
 ```
 
-## Evidência de runtime
+Na primeira execução, a macro atuará como bootstrapper. Nas seguintes, como manager. Não haverá uma macro Installer separada na arquitetura v1.
 
-A homologação confirmou no MacroDroid real:
+## Próximo gate
 
-- `validate_source` e `get_source_status` sem acesso à rede;
-- bloqueios de host, `/blob/`, fonte desabilitada, `Source Id` divergente, traversal e JSON inválido;
-- HTTP `200` com persistência física no staging;
-- releitura do JSON pelo `[CDXMS] Json Config Manager`;
-- HTTP `404` tratado como `HTTP_UNEXPECTED_STATUS`;
-- ausência de alteração no registry;
-- contrato All Files Access com caminho completo em `saveResponseAllFilesAccessPath` e `saveResponseFileName` vazio.
+Importar `[CDXMS] Homologar Entrada Única Bootstrap v1.0.0 TEMP` em um ambiente sem os Action Blocks TEMP correspondentes e confirmar `7/7` verificações.
 
+## Validação estática
 
-## File Integrity preparado para homologação
-
-O package preserva a evidência `[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP` e inclui `[CDXMS] Homologar File Integrity v1.0.0 TEMP`. A nova macro testa 11 casos diretamente sobre a capability de produção.
+```bash
+python src/scripts/validate_single_entry_bootstrap_homologation_v1_0_0.py
+python src/capabilities/bootstrap/scripts/validate_bootstrap_incremental.py
+python src/capabilities/file_integrity/scripts/validate_file_integrity_incremental.py
+python src/scripts/validate_remote_distribution_readiness_v1_0_0.py
+```
