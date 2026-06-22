@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "juif_ui_builder",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/juif_ui_builder/manifest.json",
+      "target_path": "capabilities/juif_ui_builder/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "3212343f27962f758597c7ff316baa4a1543d37a4ee84a6becb9d117fc4038c1"
+    },
+    {
+      "path": "capabilities/juif_ui_builder/contract.json",
+      "target_path": "capabilities/juif_ui_builder/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "1e9526519dd4424f6c9a4716c1101749367fc2a0d49d5a989f1d5e3ff1a2f3f6"
+    },
+    {
+      "path": "capabilities/juif_ui_builder/config.default.json",
+      "target_path": "capabilities/juif_ui_builder/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "65ad1827d8d1f8d9a074bdfa4fc4fdf38054413e25160b086d78d7b423262b0d"
+    },
+    {
+      "path": "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
+      "target_path": "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "72e05debdc7a26c89cffa1f008a9ca6ede8cdb01ea85bd6586314e1a16b4e242"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] JUIF UI Builder",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "java_ui_framework": ">=1.0.0"
+    }
+  },
+  "updated_at": ""
+}

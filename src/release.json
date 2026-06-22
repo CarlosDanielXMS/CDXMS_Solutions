@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_single_entry_bootstrap_probe",
-  "artifact_id": "ecosystem_core_single_entry_bootstrap_probe",
+  "release_id": "ecosystem_core_ui_capabilities",
+  "artifact_id": "ecosystem_core_ui_capabilities",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -84,17 +84,29 @@
       "version": "1.0.0",
       "path": "capabilities/file_integrity/manifest.json",
       "remote_manifest_path": "capabilities/file_integrity/remote_manifest.json"
+    },
+    {
+      "artifact_id": "java_ui_framework",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/java_ui_framework/manifest.json",
+      "remote_manifest_path": "capabilities/java_ui_framework/remote_manifest.json"
+    },
+    {
+      "artifact_id": "juif_ui_builder",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/juif_ui_builder/manifest.json",
+      "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json"
     }
   ],
   "notes": [
-    "Base completa e mesclada do ecossistema atual.",
-    "Remote Source Manager control-plane permanece homologado com 23/23.",
-    "File Integrity foi formalizado como homologado com 11/11.",
-    "A arquitetura v1 adota [CDXMS] Solutions Manager como única macro permanente de entrada.",
-    "Não haverá macro Installer separada na v1.",
-    "Incluída prova TEMP de uma macro com Bootstrap e JCM incorporados por GUIDs exclusivos.",
-    "Solutions Manager completo, payload verificado, UI e importação guiada permanecem fora desta entrega.",
-    "Base remota consultada: feat/create-ecosystem-core@626c37a02fe0beb5b806b4df33f801749ba6bf9b."
+    "Base incremental das capabilities de UI antes do Solutions Manager.",
+    "Java UI Framework e JUIF UI Builder foram adaptados ao padrão CDXMS.",
+    "Os 26 componentes do protótipo foram preservados e 10 foram adicionados.",
+    "As capabilities de UI ainda requerem homologação real no MacroDroid.",
+    "Solutions Manager permanece a próxima etapa.",
+    "Base remota consultada: feat/create-ecosystem-core em 2026-06-21."
   ],
-  "package": "CDXMS_Single_Entry_Bootstrap_Probe_v1_0_0_full_merged_package_2026_06_21.zip"
+  "package": "CDXMS_UI_Capabilities_v1_0_0_delta_2026_06_21.zip"
 }

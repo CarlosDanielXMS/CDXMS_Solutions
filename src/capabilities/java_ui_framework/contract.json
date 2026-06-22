@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "java_ui_framework",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Java UI Framework",
+  "description": "Contrato do renderer declarativo JUIF em overlay Android.",
+  "inputs": [
+    {
+      "name": "JUIF UI Json",
+      "type": "string(json)",
+      "required": true,
+      "description": "Contrato JUIF com pages em objeto, state e shell opcional."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato universal CDXMS."
+    }
+  ],
+  "operations": {
+    "render_ui": {
+      "description": "Renderiza overlay JUIF e inicializa state/eventos.",
+      "required_inputs": [
+        "JUIF UI Json"
+      ],
+      "side_effects": "application_overlay"
+    }
+  },
+  "result_data_contract": [
+    "current_page",
+    "state",
+    "using_default_ui",
+    "component_catalog_version",
+    "supported_component_count",
+    "shell_enabled"
+  ],
+  "runtime_events": {
+    "payload_fields": [
+      "action",
+      "current_page",
+      "state"
+    ],
+    "working_variables": [
+      "Tmp_JuifVisible",
+      "Tmp_JuifClicked",
+      "Tmp_JuifAction",
+      "Tmp_JuifPayload",
+      "Tmp_JuifState",
+      "Tmp_JuifCurrentPage",
+      "Tmp_ResultJson"
+    ]
+  },
+  "component_catalog_path": "capabilities/java_ui_framework/component_catalog.json",
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_JSON",
+    "PROCESSING_FAILED"
+  ],
+  "side_effects": [
+    "Exibe overlay TYPE_APPLICATION_OVERLAY.",
+    "Atualiza variáveis internas de state/eventos.",
+    "Pode copiar texto para clipboard somente por ação explícita."
+  ]
+}

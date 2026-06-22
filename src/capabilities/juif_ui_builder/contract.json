@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "juif_ui_builder",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] JUIF UI Builder",
+  "description": "Contrato do builder declarativo JUIF.",
+  "inputs": [
+    {
+      "name": "Config Json",
+      "type": "string(json)",
+      "required": true,
+      "description": "Objeto com valores usados pelos binds do schema. Use {} quando não houver configuração."
+    },
+    {
+      "name": "UI Schema Json",
+      "type": "string(json)",
+      "required": true,
+      "description": "Schema multipágina declarativo com state, pages, sections/components e shell opcional."
+    },
+    {
+      "name": "Escape Json",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "Também gera versão escapada para fronteiras textuais do MacroDroid."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato universal CDXMS."
+    }
+  ],
+  "operations": {
+    "build_ui": {
+      "description": "Valida, hidrata, normaliza e serializa o contrato JUIF.",
+      "required_inputs": [
+        "Config Json",
+        "UI Schema Json"
+      ],
+      "side_effects": false
+    }
+  },
+  "result_data_contract": [
+    "juif_ui_json",
+    "juif_ui_json_escaped",
+    "mapping_json",
+    "component_catalog_version",
+    "supported_components",
+    "supported_component_count"
+  ],
+  "schema_contract": {
+    "pages_input_type": "array",
+    "page_required_fields": [
+      "id"
+    ],
+    "supports": [
+      "state",
+      "sections",
+      "fields",
+      "lists",
+      "components",
+      "actions",
+      "shell"
+    ],
+    "shell_properties": [
+      "top_app_bar",
+      "bottom_navigation",
+      "navigation_rail",
+      "navigation_drawer",
+      "tab_bar"
+    ],
+    "component_catalog_path": "capabilities/java_ui_framework/component_catalog.json"
+  },
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_INPUT_TYPE",
+    "INVALID_JSON",
+    "INVALID_ENUM_VALUE",
+    "PROCESSING_FAILED"
+  ],
+  "side_effects": false
+}

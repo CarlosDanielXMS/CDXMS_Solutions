@@ -94,6 +94,26 @@
       "remote_manifest_path": "capabilities/file_integrity/remote_manifest.json",
       "installable": true,
       "visible": false
+    },
+    {
+      "artifact_id": "java_ui_framework",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Java UI Framework",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/java_ui_framework/manifest.json",
+      "remote_manifest_path": "capabilities/java_ui_framework/remote_manifest.json",
+      "installable": true,
+      "visible": true
+    },
+    {
+      "artifact_id": "juif_ui_builder",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] JUIF UI Builder",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/juif_ui_builder/manifest.json",
+      "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json",
+      "installable": true,
+      "visible": true
     }
   ],
   "core": [

@@ -1,0 +1,503 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "juif_component_catalog",
+  "artifact_id": "java_ui_framework",
+  "version": "1.0.0",
+  "component_count": 36,
+  "backward_compatible_with_prototype": true,
+  "shell": {
+    "supported": true,
+    "properties": [
+      "top_app_bar",
+      "bottom_navigation",
+      "navigation_rail",
+      "navigation_drawer",
+      "tab_bar"
+    ],
+    "description": "Shell opcional persistente em ui.shell. Os mesmos tipos também podem ser usados como componentes inline."
+  },
+  "components": [
+    {
+      "type": "text",
+      "category": "content",
+      "description": "Texto tipográfico com variantes visuais.",
+      "properties": [
+        "text",
+        "variant"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "button",
+      "category": "actions",
+      "description": "Ação primária, secundária, danger ou ghost.",
+      "properties": [
+        "text",
+        "variant",
+        "action",
+        "target"
+      ],
+      "emits": [
+        "action"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "button_group",
+      "category": "actions",
+      "description": "Agrupa botões horizontalmente.",
+      "properties": [
+        "buttons"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "input",
+      "category": "forms",
+      "description": "Entrada de uma linha.",
+      "properties": [
+        "key",
+        "hint",
+        "value",
+        "input_type"
+      ],
+      "emits": [
+        "input_changed"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "textarea",
+      "category": "forms",
+      "description": "Entrada multilinha.",
+      "properties": [
+        "key",
+        "hint",
+        "value",
+        "min_lines"
+      ],
+      "emits": [
+        "input_changed"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "checkbox",
+      "category": "forms",
+      "description": "Seleção booleana por caixa.",
+      "properties": [
+        "key",
+        "text",
+        "checked"
+      ],
+      "emits": [
+        "input_changed"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "switch",
+      "category": "forms",
+      "description": "Seleção booleana por chave.",
+      "properties": [
+        "key",
+        "text",
+        "checked"
+      ],
+      "emits": [
+        "input_changed"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "select",
+      "category": "forms",
+      "description": "Seleção única em popup.",
+      "properties": [
+        "key",
+        "label",
+        "value",
+        "options"
+      ],
+      "emits": [
+        "input_changed"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "radio_group",
+      "category": "forms",
+      "description": "Seleção única por opções de rádio.",
+      "properties": [
+        "key",
+        "value",
+        "options"
+      ],
+      "emits": [
+        "input_changed"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "card",
+      "category": "layout",
+      "description": "Superfície agrupadora.",
+      "properties": [
+        "children"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "section",
+      "category": "layout",
+      "description": "Agrupa conteúdo com título e subtítulo.",
+      "properties": [
+        "title",
+        "subtitle",
+        "children"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "container",
+      "category": "layout",
+      "description": "Container configurável por padding/surface.",
+      "properties": [
+        "variant",
+        "children",
+        "padding_*",
+        "radius"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "column",
+      "category": "layout",
+      "description": "Organiza filhos verticalmente.",
+      "properties": [
+        "children"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "row",
+      "category": "layout",
+      "description": "Organiza filhos horizontalmente com pesos iguais.",
+      "properties": [
+        "children"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "spacer",
+      "category": "layout",
+      "description": "Espaçamento vertical.",
+      "properties": [
+        "height"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "divider",
+      "category": "layout",
+      "description": "Divisor horizontal. ",
+      "properties": [],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "alert",
+      "category": "feedback",
+      "description": "Mensagem contextual por variante.",
+      "properties": [
+        "variant",
+        "title",
+        "text"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "badge",
+      "category": "feedback",
+      "description": "Rótulo compacto por variante.",
+      "properties": [
+        "text",
+        "variant"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "key_value",
+      "category": "data",
+      "description": "Linha chave/valor.",
+      "properties": [
+        "label",
+        "value"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "list_item",
+      "category": "data",
+      "description": "Item clicável de lista.",
+      "properties": [
+        "key",
+        "title",
+        "subtitle",
+        "value",
+        "action"
+      ],
+      "emits": [
+        "item_selected"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "copyable_text",
+      "category": "data",
+      "description": "Texto com ação de copiar.",
+      "properties": [
+        "label",
+        "text",
+        "copy_text"
+      ],
+      "emits": [
+        "copied"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "stat_card",
+      "category": "data",
+      "description": "Indicador numérico compacto.",
+      "properties": [
+        "label",
+        "value",
+        "variant"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "progress_bar",
+      "category": "feedback",
+      "description": "Progresso de 0 a 100.",
+      "properties": [
+        "label",
+        "progress",
+        "variant"
+      ],
+      "emits": [],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "code_block",
+      "category": "developer",
+      "description": "Bloco de código copiável e formatável.",
+      "properties": [
+        "key",
+        "title",
+        "language",
+        "code",
+        "auto_indent"
+      ],
+      "emits": [
+        "copied"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "dynamic_list",
+      "category": "data",
+      "description": "Renderiza lista de state com template.",
+      "properties": [
+        "key",
+        "source",
+        "empty_text",
+        "item_template"
+      ],
+      "emits": [
+        "item_selected"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "sandbox",
+      "category": "developer",
+      "description": "Editor e preview interativo de JSON JUIF.",
+      "properties": [
+        "key",
+        "initial_json"
+      ],
+      "emits": [
+        "sandbox_formatted",
+        "sandbox_rendered",
+        "sandbox_copied"
+      ],
+      "introduced_in": "prototype"
+    },
+    {
+      "type": "top_app_bar",
+      "category": "navigation",
+      "description": "Barra superior com título, navegação e ações.",
+      "properties": [
+        "title",
+        "subtitle",
+        "navigation_action",
+        "navigation_target",
+        "navigation_text",
+        "actions"
+      ],
+      "emits": [
+        "app_bar_action"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "bottom_navigation",
+      "category": "navigation",
+      "description": "Navegação persistente ou inline na base.",
+      "properties": [
+        "key",
+        "selected",
+        "items"
+      ],
+      "emits": [
+        "navigation_selected"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "navigation_rail",
+      "category": "navigation",
+      "description": "Navegação lateral vertical compacta.",
+      "properties": [
+        "key",
+        "selected",
+        "items"
+      ],
+      "emits": [
+        "navigation_selected"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "navigation_drawer",
+      "category": "navigation",
+      "description": "Painel lateral com itens de navegação.",
+      "properties": [
+        "title",
+        "subtitle",
+        "key",
+        "selected",
+        "items",
+        "width"
+      ],
+      "emits": [
+        "drawer_opened",
+        "drawer_closed",
+        "navigation_selected"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "tab_bar",
+      "category": "navigation",
+      "description": "Abas horizontais roláveis.",
+      "properties": [
+        "key",
+        "selected",
+        "items"
+      ],
+      "emits": [
+        "tab_selected"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "search_bar",
+      "category": "forms",
+      "description": "Campo de pesquisa com eventos de alteração e envio.",
+      "properties": [
+        "key",
+        "value",
+        "hint",
+        "change_action",
+        "submit_action"
+      ],
+      "emits": [
+        "search_changed",
+        "search_submitted"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "chip",
+      "category": "forms",
+      "description": "Filtro booleano compacto.",
+      "properties": [
+        "key",
+        "text",
+        "selected",
+        "action"
+      ],
+      "emits": [
+        "chip_changed"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "chip_group",
+      "category": "forms",
+      "description": "Grupo de filtros single ou multiple.",
+      "properties": [
+        "key",
+        "selected",
+        "selection_mode",
+        "items",
+        "action"
+      ],
+      "emits": [
+        "chip_group_changed"
+      ],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "empty_state",
+      "category": "feedback",
+      "description": "Estado vazio com ação opcional.",
+      "properties": [
+        "icon",
+        "title",
+        "text",
+        "action"
+      ],
+      "emits": [],
+      "introduced_in": "1.0.0"
+    },
+    {
+      "type": "loading_indicator",
+      "category": "feedback",
+      "description": "Indicador de carregamento indeterminado.",
+      "properties": [
+        "text",
+        "variant"
+      ],
+      "emits": [],
+      "introduced_in": "1.0.0"
+    }
+  ],
+  "updated_at": ""
+}
