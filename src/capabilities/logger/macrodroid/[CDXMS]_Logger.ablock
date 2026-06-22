@@ -1,0 +1,756 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1782000000000,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "log_event",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica do Logger."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Level",
+        "m_stringValue": "info",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "debug, info, warning, error ou critical."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Event Type",
+        "m_stringValue": "event",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Tipo lógico do evento."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Message",
+        "m_stringValue": "Evento CDXMS registrado.",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Mensagem humana."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Source Artifact Type",
+        "m_stringValue": "capability",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Tipo do artifact de origem."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Source Artifact Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id do artifact de origem."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Source Operation",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação de origem."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Result Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Resultado completo para log_result."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Data Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Dados complementares."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Error Json",
+        "m_stringValue": "null",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Erro estruturado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tags Json",
+        "m_stringValue": "[]",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Tags JSON."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Log Scope",
+        "m_stringValue": "auto",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "auto, events, results, errors, audit ou runtime."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Log File Name",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Nome opcional do .jsonl."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Config Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Config opcional."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Bloqueia JSON inválido."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de sessão."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de correlação."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_LogWorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Plano e Resultado do Logger."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_LogWork",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Plano parseado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Resultado do JCM ao garantir pasta."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -5243109817748102241,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Processar Logger",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Processar Logger",
+        "disableLogging": false,
+        "m_SIGUID": -442320906463674511,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Capability de observabilidade local para registrar eventos, resultados e erros em JSON Lines.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ID=\"logger\",VERSION=\"1.0.0\";function t(v){return String(v==null?\"\":v).trim()}function p(v,d,n,strict){let s=t(v);if(!s)return d;try{return JSON.parse(s)}catch(e){if(strict)throw {code:\"INVALID_JSON\",message:\"JSON inválido em \"+n+\".\"};return d}}function b(v){return [\"true\",\"1\",\"sim\",\"s\",\"verdadeiro\"].includes(t(v).toLowerCase())}function out(ok,status,op,msg,data,error){return {schema_version:1,namespace:\"CDXMS\",success:ok,status:status,artifact_type:\"capability\",artifact_id:ID,operation:op,message:msg,data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:\"[CDXMS] Logger\",version:VERSION,session_id:t(`{lv=Session Id}`),correlation_id:t(`{lv=Correlation Id}`)}}}let op=t(`{lv=Operation}`),strict=b(`{lv=Strict Mode?}`),res,scope=t(`{lv=Log Scope}`)||\"auto\";try{if(![\"log_event\",\"log_result\",\"log_error\",\"get_log_status\"].includes(op))throw {code:\"UNSUPPORTED_OPERATION\",message:\"Operação não suportada.\"};if(scope===\"auto\")scope=op===\"log_result\"?\"results\":op===\"log_error\"?\"errors\":\"events\";if(![\"events\",\"results\",\"errors\",\"audit\",\"runtime\"].includes(scope))throw {code:\"LOGGER_INVALID_SCOPE\",message:\"Escopo de log inválido.\"};let level=t(`{lv=Level}`)||\"info\";if(![\"debug\",\"info\",\"warning\",\"error\",\"critical\"].includes(level))throw {code:\"LOGGER_INVALID_LEVEL\",message:\"Nível de log inválido.\"};let file=t(`{lv=Log File Name}`)||(\"cdxms-\"+scope+\".jsonl\"),folder=\"/storage/emulated/0/Documents/CDXMS_Solutions/logs/\"+scope+\"/\";let entry={timestamp:new Date().toISOString(),level:level,event_type:t(`{lv=Event Type}`)||op,message:t(`{lv=Message}`),source:{artifact_type:t(`{lv=Source Artifact Type}`)||\"capability\",artifact_id:t(`{lv=Source Artifact Id}`),operation:t(`{lv=Source Operation}`)},data:p(`{lv=Data Json}`,{},\"Data Json\",strict),error:p(`{lv=Error Json}`,null,\"Error Json\",strict),result:p(`{lv=Result Json}`,null,\"Result Json\",strict),tags:p(`{lv=Tags Json}`,[],\"Tags Json\",strict),session_id:t(`{lv=Session Id}`),correlation_id:t(`{lv=Correlation Id}`)};let write=op!==\"get_log_status\";res=out(true,\"success\",op,write?\"Registro de log preparado com sucesso.\":\"Status do Logger obtido com sucesso.\",{enabled:true,should_write:write,folder_path:folder,file_name:file,line:JSON.stringify(entry),scope:scope,level:level},null)}catch(e){res=out(false,\"error\",op,e.message||\"Falha no Logger.\",{}, {code:e.code||\"LOGGER_WRITE_FAILED\",message:e.message||\"Falha no Logger.\",details:{},recoverable:true})}return JSON.stringify(res);",
+        "stringVariableName": "Tmp_LogWorkJson",
+        "actionLabel": "Preparar evento JSONL",
+        "disableLogging": false,
+        "m_SIGUID": -654515637690145409,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Valida entradas, monta linha JSONL e Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Tmp_LogWork",
+        "stringVarName": "Tmp_LogWorkJson",
+        "actionLabel": "Parsear plano do Logger",
+        "disableLogging": false,
+        "m_SIGUID": -354278273829983672,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Disponibiliza plano de escrita.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "actionLabel": "Escrever somente quando should_write = true",
+        "disableLogging": false,
+        "m_SIGUID": -629983987773568438,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Escrever somente quando should_write = true",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": [
+                "data",
+                "should_write"
+              ]
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Tmp_LogWork",
+              "m_stringValue": "",
+              "m_type": 4,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -140297585039647404,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Operation": "ensure_folder",
+          "File Path": "",
+          "Folder Path": "{lv=Tmp_LogWork[data][folder_path]}",
+          "Json Path": "",
+          "Value Json": "",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Pretty Print?": "true",
+          "Merge Strategy": "deep_merge"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "actionLabel": "Garantir pasta de log via JCM",
+        "disableLogging": false,
+        "m_SIGUID": -131471782934288232,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Filesystem delegado ao JCM.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "actionLabel": "Persistir somente quando o JCM confirmou a pasta",
+        "disableLogging": false,
+        "m_SIGUID": -782698459885581350,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Persistir somente quando o JCM confirmou a pasta",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": [
+                "success"
+              ]
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Tmp_JcmResult",
+              "m_stringValue": "",
+              "m_type": 4,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -285756701556839715,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "allFilesPath": "{lv=Tmp_LogWork[data][folder_path]}",
+        "m_append": true,
+        "m_filename": "{lv=Tmp_LogWork[data][file_name]}",
+        "m_logText": "{lv=Tmp_LogWork[data][line]}",
+        "m_prepend": false,
+        "overwrite": false,
+        "useAllFilesAccess": true,
+        "actionLabel": "Append JSONL",
+        "disableLogging": false,
+        "m_SIGUID": -985446555649242494,
+        "m_classType": "WriteToFileAction",
+        "m_comment": "Persiste uma linha JSONL quando a operação exige escrita.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — JCM success",
+        "disableLogging": false,
+        "m_SIGUID": -453288487844697654,
+        "m_classType": "EndIfAction",
+        "m_comment": "Fecha validação do JCM.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — should_write",
+        "disableLogging": false,
+        "m_SIGUID": -272481929561132104,
+        "m_classType": "EndIfAction",
+        "m_comment": "Fecha gate de escrita.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_LogWorkJson",
+        "actionLabel": "Publicar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -239599320188546574,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — Logger",
+        "disableLogging": false,
+        "m_SIGUID": -362824403634016943,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
+        "disableLogging": false,
+        "m_SIGUID": -1029349295042867656,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra Logger.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_description": "Capability de observabilidade local para registrar eventos, resultados e erros em JSON Lines.",
+    "m_name": "[CDXMS] Logger",
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
+  },
+  "macroExportVersion": 1
+}

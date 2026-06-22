@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "core",
+  "core": {
+    "id": "cdxms_core",
+    "name": "CDXMS Core",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Núcleo compartilhado mínimo do ecossistema CDXMS Solutions.",
+    "enabled": true
+  },
+  "files": {
+    "registry": "registry.json",
+    "settings": "settings.json",
+    "enums": "enums.json",
+    "errors": "errors.json",
+    "result_contract": "result_contract.json",
+    "compatibility": "compatibility.json"
+  },
+  "distribution": {
+    "release_manifest": "release.json",
+    "checksums": "checksums.json",
+    "catalog_sources": "catalogs/sources.json",
+    "local_catalog_default": "catalogs/local_catalog.default.json"
+  },
+  "updated_at": ""
+}

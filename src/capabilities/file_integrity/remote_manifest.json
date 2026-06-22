@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "file_integrity",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/file_integrity/manifest.json",
+      "target_path": "capabilities/file_integrity/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "caeddaef9accf271abb8ffced05b66d58d2ef2a38c32332037cb3e6f306aadb4"
+    },
+    {
+      "path": "capabilities/file_integrity/contract.json",
+      "target_path": "capabilities/file_integrity/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "38d946f926287f5f9fa71ad4e801c4e23092c5c69014953502b0a8b66ac4fe71"
+    },
+    {
+      "path": "capabilities/file_integrity/config.default.json",
+      "target_path": "capabilities/file_integrity/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "120bb021dffd28050a64023a6f75b6999e04d4df3fea43ac3a0d321803e2f89c"
+    },
+    {
+      "path": "capabilities/file_integrity/macrodroid/[CDXMS]_File_Integrity.ablock",
+      "target_path": "capabilities/file_integrity/macrodroid/[CDXMS]_File_Integrity.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "326de0c002a8e46dcf77dda9cfec7477e1c0aed9cb8c7d6d2abd28e868e53827"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/file_integrity/macrodroid/[CDXMS]_File_Integrity.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] File Integrity",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "updated_at": ""
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "artifact_id": "dependency_resolver",
+  "file_type": "capability_config",
+  "settings": {
+    "strict_mode_default": true,
+    "allow_optional_missing": true,
+    "allow_prerelease": false,
+    "supported_version_operators": [
+      ">=",
+      "<=",
+      ">",
+      "<",
+      "=",
+      "^",
+      "~>",
+      "*"
+    ],
+    "max_graph_nodes": 128
+  },
+  "updated_at": ""
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "java_ui_framework",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Java UI Framework",
+  "description": "Contrato do renderer declarativo JUIF em overlay Android.",
+  "inputs": [
+    {
+      "name": "JUIF UI Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Contrato JUIF normal produzido pelo Builder ou escrito manualmente. Quando vazio, usa a UI de demonstração embarcada."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato universal CDXMS."
+    }
+  ],
+  "operations": {
+    "render_ui": {
+      "description": "Renderiza overlay JUIF e publica o resultado de inicialização. Entrada vazia usa a demonstração embarcada.",
+      "required_inputs": [],
+      "side_effects": "application_overlay"
+    }
+  },
+  "result_data_contract": [
+    "current_page",
+    "state",
+    "using_default_ui",
+    "component_catalog_version",
+    "supported_component_count",
+    "shell_enabled",
+    "shell_mode",
+    "drawer_available"
+  ],
+  "runtime_events": {
+    "payload_fields": [
+      "action",
+      "current_page",
+      "state"
+    ],
+    "working_variables": [
+      "Tmp_JuifVisible",
+      "Tmp_JuifClicked",
+      "Tmp_JuifAction",
+      "Tmp_JuifPayload",
+      "Tmp_JuifState",
+      "Tmp_JuifCurrentPage",
+      "Tmp_ResultJson",
+      "Tmp_JuifUiJsonEscaped",
+      "Tmp_DefaultUiJson"
+    ]
+  },
+  "component_catalog_path": "capabilities/java_ui_framework/component_catalog.json",
+  "errors": [
+    "INVALID_JSON",
+    "PERMISSION_DENIED",
+    "PROCESSING_FAILED",
+    "UI_RUNTIME_ERROR",
+    "UNKNOWN_ERROR"
+  ],
+  "side_effects": [
+    "Exibe overlay TYPE_APPLICATION_OVERLAY.",
+    "Mantém shell persistente e conteúdo rolável em hosts independentes.",
+    "Atualiza variáveis internas de state/eventos.",
+    "Pode copiar texto para clipboard somente por ação explícita."
+  ],
+  "result_contract": "core/result_contract.json",
+  "forbidden_result_fields": [
+    "data_json",
+    "error_code",
+    "error_message",
+    "error_json"
+  ],
+  "shell_contract": {
+    "mode": "persistent_hosts",
+    "persistent_shell": true,
+    "hosts": [
+      "top_app_bar",
+      "tab_bar",
+      "navigation_rail",
+      "content_scroll",
+      "bottom_navigation",
+      "navigation_drawer"
+    ],
+    "supported": [
+      "top_app_bar",
+      "tab_bar",
+      "navigation_rail",
+      "bottom_navigation",
+      "navigation_drawer"
+    ],
+    "visibility_filters": [
+      "visible_pages",
+      "hidden_pages"
+    ],
+    "navigation_item_matching": [
+      "target",
+      "active_pages",
+      "active_prefix",
+      "selected"
+    ],
+    "drawer_actions": [
+      "open_drawer",
+      "close_drawer"
+    ]
+  },
+  "runtime_guards": {
+    "navigation_dispatch": "posted_main_loop",
+    "page_rendering": "transactional_staging",
+    "shell_rendering": "transactional_build_before_commit",
+    "failure_capture": "Throwable",
+    "failure_visibility": [
+      "Resultado",
+      "Tmp_JuifPayload",
+      "toast",
+      "inline_error_banner"
+    ]
+  }
+}

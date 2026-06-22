@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "artifact_manager",
+    "name": "Artifact Manager",
+    "display_name": "[CDXMS] Artifact Manager",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Gerenciador de lifecycle de artifacts CDXMS. Planeja, valida, registra e orquestra aplicação local usando o Json Config Manager como único executor físico de filesystem/JSON.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/artifact_manager/macrodroid/[CDXMS]_Artifact_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Artifact Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0",
+      "result_manager": ">=1.0.0",
+      "logger": ">=1.0.0",
+      "string_utils": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "validate_artifact",
+    "get_artifact_status",
+    "build_registry_entry",
+    "build_install_plan",
+    "build_jcm_apply_plan",
+    "get_target_paths",
+    "register_artifact",
+    "unregister_artifact",
+    "ensure_artifact_files",
+    "install_local_artifact",
+    "verify_local_apply"
+  ],
+  "lifecycle_scope": {
+    "v1_0_0": "dependency_aware_lifecycle_plan_with_jcm_apply_plan_and_required_post_write_verification",
+    "apply_executor": "json_config_manager",
+    "filesystem_owner": "json_config_manager",
+    "side_effects": "controlled_by_dry_run_false_and_apply_changes_true_and_executed_only_through_jcm",
+    "remote_downloads": "out_of_scope_until_github_distribution_layer"
+  },
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "implementation_audit": {
+    "stage": "phase_3_artifact_manager_v1_0_0_jcm_apply_consolidation",
+    "version_policy": "pre_release_same_version_1_0_0",
+    "source_base": "remote feat/create-ecosystem-core capability_hardening_2026_06_17",
+    "scope": "artifact lifecycle planning, JCM apply-plan generation and strict post-write verification contract",
+    "manual_homologation_required": true,
+    "notes": [
+      "Artifact Manager permanece como planner/orchestrator de lifecycle, não como executor de filesystem.",
+      "ShellScriptAction foi bloqueado como executor normal do Artifact Manager.",
+      "Toda criação de diretório, escrita, merge, leitura, backup, delete e verificação física deve ser feita pelo Json Config Manager.",
+      "Operações elegíveis a apply só podem declarar sucesso físico quando resultados JCM pós-escrita comprovarem applied=true e verified=true.",
+      "A capability gera jcm_apply_plan e jcm_verification_plan para execução controlada por JCM.",
+      "Automatic MacroDroid .ablock/.macro import remains manual/out of scope until installer/manager homologation."
+    ],
+    "hardening_revision": "am_jcm_apply_consolidation_2026_06_18",
+    "action_profile": {
+      "total_actions": 5,
+      "unique_action_classes": 5,
+      "javascript_actions": 1,
+      "shell_actions": 0,
+      "file_operation_actions": 0,
+      "text_manipulation_actions": 0
+    },
+    "export_checked_against_contract": true
+  },
+  "integrates_with": {
+    "capabilities": {
+      "dependency_resolver": ">=1.0.0",
+      "json_config_manager": ">=1.0.0"
+    }
+  }
+}

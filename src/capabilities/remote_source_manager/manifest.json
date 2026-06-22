@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "remote_source_manager",
+    "name": "Remote Source Manager",
+    "display_name": "[CDXMS] Remote Source Manager",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Gerencia fontes remotas GitHub raw e baixa documentos JSON de controle para staging local validado, sem executar lifecycle ou instalação de artifacts.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/remote_source_manager/macrodroid/[CDXMS]_Remote_Source_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Remote Source Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "validate_source",
+    "get_source_status",
+    "fetch_catalog",
+    "fetch_release_manifest",
+    "fetch_remote_manifest",
+    "fetch_json"
+  ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "lifecycle_scope": {
+    "v1_0_0": "github_raw_control_plane_validation_and_staging",
+    "transport": "macrodroid_http_request",
+    "staging_verification": "json_config_manager",
+    "artifact_payload_downloads": "blocked_until_file_integrity_capability_is_homologated_and_integrated",
+    "artifact_installation": "out_of_scope",
+    "registry_updates": "out_of_scope"
+  },
+  "implementation_audit": {
+    "stage": "homologated_control_plane_v1_0_0",
+    "version_policy": "pre_release_same_version_1_0_0",
+    "source_base": "feat/create-ecosystem-core@d79fa8cbed54048900fcb12fcb873408b7a70478",
+    "manual_homologation_required": false,
+    "notes": [
+      "A capability usa HTTP Request nativo e nunca curl para transporte HTTP comum.",
+      "Downloads são salvos em staging temporário, nunca diretamente sobre arquivos instalados.",
+      "O Json Config Manager prepara a pasta e relê o JSON baixado para verificação pós-download.",
+      "A v1.0.0 homologada cobre somente documentos JSON de controle: catálogo, release manifest, remote manifest e JSON genérico CDXMS.",
+      "A ponte escalar evita usar chaves aninhadas de dicionário diretamente em HTTP Request e ações de arquivo.",
+      "Preflight e finalização publicam o valor pela última expressão do JavaScriptAction.",
+      "O Resultado de preflight é mantido como objeto em pre_result; pre_result_json é proibido.",
+      "O modo All Files Access exige caminho completo em saveResponseAllFilesAccessPath e saveResponseFileName vazio.",
+      "A macro temporária de homologação é evidência de teste e não integra catálogo, release ou runtime operacional.",
+      "O executor SHA-256 /system/bin/sha256sum foi homologado em runtime; payloads continuam bloqueados até a homologação e integração da capability File Integrity."
+    ],
+    "action_profile": {
+      "total_actions": 21,
+      "unique_action_classes": 9,
+      "javascript_actions": 7,
+      "http_request_actions": 1,
+      "action_block_calls": 2,
+      "shell_actions": 0
+    },
+    "export_checked_against_contract": true,
+    "latest_remote_base_commit": "d79fa8cbed54048900fcb12fcb873408b7a70478",
+    "http_response_save_contract": {
+      "evidence": "MacroDroid export executed successfully on target device",
+      "saveResponseType": 2,
+      "saveResponseUseAllFilesAccess": true,
+      "saveResponseAllFilesAccessPath": "{lv=Tmp_StagingFilePath}",
+      "saveResponseFileName": ""
+    },
+    "homologation": {
+      "status": "homologated",
+      "scope": "github_raw_control_plane_json_documents",
+      "completed_at": "2026-06-20",
+      "macro": "[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP",
+      "source_ref": "aad55e5969b41c456bb92e096bde2c381101e385",
+      "repository_head_at_closure": "d79fa8cbed54048900fcb12fcb873408b7a70478",
+      "total_checks": 23,
+      "passed_checks": 23,
+      "failed_checks": 0,
+      "verified_behaviors": [
+        "offline_source_validation",
+        "source_status_without_network",
+        "security_preflight_blocks",
+        "http_200_response_persisted_to_staging",
+        "json_reloaded_by_json_config_manager",
+        "http_404_rejected",
+        "registry_unchanged"
+      ],
+      "excluded_scope": [
+        "artifact_payload_download",
+        "artifact_payload_checksum_integration",
+        "artifact_installation",
+        "registry_update",
+        "automatic_macrodroid_import"
+      ]
+    },
+    "sha256_runtime_evidence": {
+      "status": "homologated",
+      "completed_at": "2026-06-21",
+      "macro": "[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP",
+      "executor": "/system/bin/sha256sum",
+      "execution_context": {
+        "non_root": true,
+        "use_helper": false,
+        "use_shizuku": false
+      },
+      "total_checks": 7,
+      "passed_checks": 7,
+      "failed_checks": 0,
+      "file_integrity_integration": "pending"
+    }
+  }
+}

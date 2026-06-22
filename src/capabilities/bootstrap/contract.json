@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "bootstrap",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] Bootstrap",
+  "description": "Contrato da capability [CDXMS] Bootstrap v1.0.0.",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica do Bootstrap.",
+      "options": [
+        "initialize_ecosystem",
+        "verify_core",
+        "repair_core",
+        "ensure_runtime",
+        "load_context",
+        "get_status"
+      ]
+    },
+    {
+      "name": "Requested Artifact Type",
+      "type": "string",
+      "required": false,
+      "description": "Tipo do artifact solicitado pelo chamador."
+    },
+    {
+      "name": "Requested Artifact Id",
+      "type": "string",
+      "required": false,
+      "description": "Id do artifact solicitado pelo chamador."
+    },
+    {
+      "name": "Force Repair?",
+      "type": "boolean",
+      "required": false,
+      "description": "Autoriza reparo controlado do core."
+    },
+    {
+      "name": "Load Context?",
+      "type": "boolean",
+      "required": false,
+      "description": "Carrega contexto local após inicialização."
+    },
+    {
+      "name": "Config Json",
+      "type": "string(json)",
+      "required": false,
+      "description": "Config completa opcional para evitar leituras repetidas."
+    },
+    {
+      "name": "Session Id",
+      "type": "string",
+      "required": false,
+      "description": "Identificador de sessão."
+    },
+    {
+      "name": "Correlation Id",
+      "type": "string",
+      "required": false,
+      "description": "Identificador de correlação."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato CDXMS."
+    }
+  ],
+  "operations": {
+    "initialize_ecosystem": {
+      "description": "Garante core mínimo via JCM, prepara runtime e opcionalmente carrega contexto.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "optional_inputs": [
+        "Load Context?",
+        "Config Json",
+        "Session Id",
+        "Correlation Id"
+      ],
+      "calls_jcm": [
+        "ensure_core",
+        "ensure_folder",
+        "ensure_file",
+        "read_json"
+      ],
+      "data_fields": [
+        "bootstrap_status",
+        "core",
+        "runtime",
+        "context"
+      ]
+    },
+    "verify_core": {
+      "description": "Valida presença mínima dos arquivos core sem reparar.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "calls_jcm": [
+        "exists",
+        "read_json"
+      ],
+      "data_fields": [
+        "bootstrap_status",
+        "checks",
+        "missing_files",
+        "invalid_files"
+      ]
+    },
+    "repair_core": {
+      "description": "Reaplica core mínimo via JCM e revalida.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "optional_inputs": [
+        "Force Repair?"
+      ],
+      "calls_jcm": [
+        "repair_core",
+        "exists",
+        "read_json"
+      ],
+      "data_fields": [
+        "bootstrap_status",
+        "repaired",
+        "checks"
+      ]
+    },
+    "ensure_runtime": {
+      "description": "Cria estrutura local de runtime/cache/logs/backups.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "calls_jcm": [
+        "ensure_folder",
+        "ensure_file"
+      ],
+      "data_fields": [
+        "runtime",
+        "created_paths"
+      ]
+    },
+    "load_context": {
+      "description": "Carrega settings, registry e config contextual.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "optional_inputs": [
+        "Requested Artifact Type",
+        "Requested Artifact Id",
+        "Config Json"
+      ],
+      "calls_jcm": [
+        "read_json"
+      ],
+      "data_fields": [
+        "context",
+        "settings",
+        "registry",
+        "artifact_config"
+      ]
+    },
+    "get_status": {
+      "description": "Retorna resumo local sem reparar.",
+      "required_inputs": [
+        "Operation"
+      ],
+      "calls_jcm": [
+        "exists",
+        "read_json"
+      ],
+      "data_fields": [
+        "bootstrap_status",
+        "core_version",
+        "installed_capabilities",
+        "installed_solutions",
+        "last_result"
+      ]
+    }
+  },
+  "errors": [
+    "BOOTSTRAP_CORE_UNAVAILABLE",
+    "BOOTSTRAP_CORE_INVALID",
+    "BOOTSTRAP_REPAIR_REQUIRED",
+    "BOOTSTRAP_RUNTIME_UNAVAILABLE",
+    "BOOTSTRAP_CONTEXT_LOAD_FAILED",
+    "BOOTSTRAP_DEPENDENCY_FAILED",
+    "MISSING_DEPENDENCY",
+    "PROCESSING_FAILED",
+    "UNSUPPORTED_OPERATION"
+  ],
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  }
+}

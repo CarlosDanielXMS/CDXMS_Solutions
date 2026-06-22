@@ -1,0 +1,496 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1781815812816,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica do Artifact Manager."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Artifact Type",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Tipo do artifact: core, capability, solution, package ou catalog."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Artifact Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id técnico do artifact."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Manifest Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Manifest JSON do artifact a validar/processar."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Contract Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Contract JSON associado ao artifact, quando aplicável."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Config Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Config/default JSON associado ao artifact, quando aplicável."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Registry Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Registry local atual em JSON, quando disponível."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Package Manifest Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Manifest do package/local bundle, quando aplicável."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Dependency Resolution Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Resultado JSON ou resolution_plan retornado pelo Dependency Resolver."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Local Package Path",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Caminho local do package/artifact de origem."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Target Root Path",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Raiz de destino CDXMS local."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Preserve User Config?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Define se configs existentes devem ser preservadas."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Dry Run?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Quando verdadeiro, retorna apenas plano."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Apply Changes?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Gate explícito obrigatório para efeitos colaterais físicos via JCM."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Quando verdadeiro, valida campos obrigatórios com mais rigor."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Identificador lógico da sessão."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Identificador de correlação para logs/resultados."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única contendo o Resultado CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ArtifactWorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "JSON textual intermediário gerado pelo motor interno do Artifact Manager."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ArtifactWork",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "Dicionário intermediário reservado para futuras execuções/inspeções."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -8347192073345589123,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Processar Artifact",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Processar Artifact Manager",
+        "disableLogging": false,
+        "m_SIGUID": -1402621072237265938,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Processa operação local do Artifact Manager. O apply físico é delegado ao Json Config Manager.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ARTIFACT_ID = \"artifact_manager\";\nconst VERSION = \"1.0.0\";\nconst HARDENING_REVISION = \"am_jcm_apply_consolidation_2026_06_18\";\nconst SOURCE_NAME = \"[CDXMS] Artifact Manager\";\nconst BASE_PATH = \"/storage/emulated/0/Documents/CDXMS_Solutions\";\nconst APPLY_EXECUTOR = \"json_config_manager\";\n\nfunction raw(value) {\n  if (value === null || value === undefined) return \"\";\n  return String(value);\n}\n\nfunction trim(value) {\n  return raw(value).trim();\n}\n\nfunction lower(value) {\n  return trim(value).toLowerCase();\n}\n\nfunction parseBool(value, fallback) {\n  const v = lower(value);\n  if ([\"true\", \"1\", \"yes\", \"y\", \"sim\", \"s\", \"verdadeiro\", \"v\"].indexOf(v) >= 0) return true;\n  if ([\"false\", \"0\", \"no\", \"n\", \"não\", \"nao\", \"falso\", \"f\"].indexOf(v) >= 0) return false;\n  if (typeof fallback === \"boolean\") return fallback;\n  return false;\n}\n\nfunction tryJson(value, fieldName, warnings) {\n  const text = trim(value);\n  if (!text) return { provided: false, value: null, text: \"\" };\n  try {\n    return { provided: true, value: JSON.parse(text), text: text };\n  } catch (err) {\n    warnings.push({ field: fieldName, code: \"INVALID_JSON\", message: \"JSON inválido em \" + fieldName + \".\", detail: String(err && err.message || err) });\n    return { provided: true, value: null, text: text, invalid: true };\n  }\n}\n\nfunction result(success, status, operation, message, data, error, metaExtra) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: !!success,\n    status: status || (success ? \"success\" : \"error\"),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: operation || \"\",\n    message: message || \"\",\n    data: data || {},\n    error: error || null,\n    meta: Object.assign({\n      source: SOURCE_NAME,\n      version: VERSION,\n      hardening_revision: HARDENING_REVISION,\n      apply_executor: APPLY_EXECUTOR,\n      generated_at: new Date().toISOString()\n    }, metaExtra || {})\n  });\n}\n\nfunction normalizeType(value) {\n  const v = lower(value || \"capability\");\n  if ([\"core\", \"capability\", \"solution\", \"package\", \"catalog\"].indexOf(v) >= 0) return v;\n  return v || \"capability\";\n}\n\nfunction pluralDir(type) {\n  if (type === \"capability\") return \"capabilities\";\n  if (type === \"solution\") return \"solutions\";\n  if (type === \"catalog\") return \"catalogs\";\n  if (type === \"package\") return \"packages\";\n  if (type === \"core\") return \"core\";\n  return type + \"s\";\n}\n\nfunction joinPath() {\n  const parts = Array.prototype.slice.call(arguments).filter(Boolean).map(function (p) { return String(p).replace(/^\\/+|\\/+$/g, \"\"); });\n  if (!parts.length) return \"\";\n  if (String(arguments[0] || \"\").indexOf(\"/\") === 0) return \"/\" + parts.join(\"/\");\n  return parts.join(\"/\");\n}\n\nfunction artifactFromManifest(manifest, fallbackType, fallbackId) {\n  const cap = manifest && manifest.capability || {};\n  const sol = manifest && manifest.solution || {};\n  const type = normalizeType((manifest && manifest.artifact_type) || fallbackType || \"capability\");\n  const id = trim((manifest && manifest.artifact_id) || cap.id || sol.id || fallbackId || \"\");\n  const version = trim((manifest && manifest.version) || cap.version || sol.version || \"0.0.0\");\n  const displayName = trim(cap.display_name || sol.display_name || cap.name || sol.name || id);\n  return { artifact_type: type, artifact_id: id, version: version, display_name: displayName };\n}\n\nfunction makeRegistryEntry(artifact, operation, dependencyResolution) {\n  return {\n    id: artifact.artifact_id,\n    artifact_id: artifact.artifact_id,\n    artifact_type: artifact.artifact_type,\n    version: artifact.version,\n    display_name: artifact.display_name,\n    status: operation === \"unregister_artifact\" ? \"unregistered\" : \"installed\",\n    enabled: operation !== \"unregister_artifact\",\n    installed_at: \"\",\n    updated_at: \"\",\n    source: \"artifact_manager\",\n    apply_executor: APPLY_EXECUTOR,\n    dependencies: dependencyResolution && dependencyResolution.dependencies ? dependencyResolution.dependencies : []\n  };\n}\n\nfunction makePaths(root, artifact) {\n  const dir = pluralDir(artifact.artifact_type);\n  const baseRel = artifact.artifact_type === \"core\" ? \"core\" : joinPath(dir, artifact.artifact_id);\n  return {\n    target_root: root,\n    artifact_base: baseRel,\n    manifest_file: artifact.artifact_type === \"core\" ? \"core/manifest.json\" : joinPath(baseRel, \"manifest.json\"),\n    contract_file: artifact.artifact_type === \"core\" ? \"core/result_contract.json\" : joinPath(baseRel, \"contract.json\"),\n    config_file: artifact.artifact_type === \"core\" ? \"core/settings.json\" : joinPath(baseRel, \"config.json\"),\n    registry_file: \"core/registry.json\",\n    runtime_state_file: joinPath(\"runtime\", dir, artifact.artifact_id + \".state.json\"),\n    install_marker_file: joinPath(\"packages\", \"installed\", dir, artifact.artifact_id, \"install_manifest.json\"),\n    macrodroid_dir: artifact.artifact_type === \"core\" ? \"core\" : joinPath(baseRel, \"macrodroid\")\n  };\n}\n\nfunction jcmOp(operation, args) {\n  return Object.assign({ executor: APPLY_EXECUTOR, operation: operation }, args || {});\n}\n\nfunction buildJcmPlans(operation, artifact, paths, manifestText, contractText, configText, registryEntry, preserveUserConfig) {\n  const applyOps = [];\n  const verifyOps = [];\n  const dir = pluralDir(artifact.artifact_type);\n\n  applyOps.push(jcmOp(\"ensure_folder\", { folder_path: artifact.artifact_type === \"core\" ? \"core\" : joinPath(dir, artifact.artifact_id) }));\n  applyOps.push(jcmOp(\"ensure_folder\", { folder_path: \"core\" }));\n  applyOps.push(jcmOp(\"ensure_folder\", { folder_path: joinPath(\"runtime\", dir) }));\n  applyOps.push(jcmOp(\"ensure_folder\", { folder_path: joinPath(\"packages\", \"installed\", dir, artifact.artifact_id) }));\n\n  if (manifestText) {\n    applyOps.push(jcmOp(\"write_json\", { file_path: paths.manifest_file, value_json: manifestText, pretty_print: true }));\n    verifyOps.push(jcmOp(\"read_json\", { file_path: paths.manifest_file, json_path: \"$\" }));\n  }\n\n  if (contractText) {\n    applyOps.push(jcmOp(\"write_json\", { file_path: paths.contract_file, value_json: contractText, pretty_print: true }));\n    verifyOps.push(jcmOp(\"read_json\", { file_path: paths.contract_file, json_path: \"$\" }));\n  }\n\n  if (configText) {\n    if (preserveUserConfig) {\n      applyOps.push(jcmOp(\"merge_json\", { file_path: paths.config_file, value_json: configText, merge_strategy: \"preserve_existing\", pretty_print: true }));\n    } else {\n      applyOps.push(jcmOp(\"write_json\", { file_path: paths.config_file, value_json: configText, pretty_print: true }));\n    }\n    verifyOps.push(jcmOp(\"read_json\", { file_path: paths.config_file, json_path: \"$\" }));\n  }\n\n  const registryPatch = {};\n  registryPatch[dir] = {};\n  registryPatch[dir][artifact.artifact_id] = registryEntry;\n  applyOps.push(jcmOp(\"merge_json\", { file_path: paths.registry_file, value_json: JSON.stringify(registryPatch), merge_strategy: \"deep_merge\", pretty_print: true }));\n  verifyOps.push(jcmOp(\"read_json\", { file_path: paths.registry_file, json_path: \"$\" }));\n\n  const state = {\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    artifact_type: artifact.artifact_type,\n    artifact_id: artifact.artifact_id,\n    version: artifact.version,\n    status: operation === \"unregister_artifact\" ? \"unregistered\" : \"installed\",\n    apply_executor: APPLY_EXECUTOR,\n    updated_at: \"\"\n  };\n  applyOps.push(jcmOp(\"write_json\", { file_path: paths.runtime_state_file, value_json: JSON.stringify(state), pretty_print: true }));\n  verifyOps.push(jcmOp(\"read_json\", { file_path: paths.runtime_state_file, json_path: \"$\" }));\n\n  const marker = {\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    artifact: artifact,\n    operation: operation,\n    registry_entry: registryEntry,\n    paths: paths,\n    apply_executor: APPLY_EXECUTOR,\n    created_at: \"\"\n  };\n  applyOps.push(jcmOp(\"write_json\", { file_path: paths.install_marker_file, value_json: JSON.stringify(marker), pretty_print: true }));\n  verifyOps.push(jcmOp(\"read_json\", { file_path: paths.install_marker_file, json_path: \"$\" }));\n\n  return {\n    apply: { executor: APPLY_EXECUTOR, operations: applyOps, operation_count: applyOps.length },\n    verify: { executor: APPLY_EXECUTOR, operations: verifyOps, operation_count: verifyOps.length }\n  };\n}\n\nconst Operation = lower(String.raw`{lv=Operation}`);\nconst ArtifactType = String.raw`{lv=Artifact Type}`;\nconst ArtifactId = String.raw`{lv=Artifact Id}`;\nconst ManifestJson = String.raw`{lv=Manifest Json}`;\nconst ContractJson = String.raw`{lv=Contract Json}`;\nconst ConfigJson = String.raw`{lv=Config Json}`;\nconst RegistryJson = String.raw`{lv=Registry Json}`;\nconst PackageManifestJson = String.raw`{lv=Package Manifest Json}`;\nconst DependencyResolutionJson = String.raw`{lv=Dependency Resolution Json}`;\nconst LocalPackagePath = String.raw`{lv=Local Package Path}`;\nconst TargetRootPath = trim(String.raw`{lv=Target Root Path}`) || BASE_PATH;\nconst PreserveUserConfig = parseBool(String.raw`{lv=Preserve User Config?}`, true);\nconst DryRun = parseBool(String.raw`{lv=Dry Run?}`, true);\nconst ApplyChanges = parseBool(String.raw`{lv=Apply Changes?}`, false);\nconst StrictMode = parseBool(String.raw`{lv=Strict Mode?}`, false);\nconst SessionId = trim(String.raw`{lv=Session Id}`);\nconst CorrelationId = trim(String.raw`{lv=Correlation Id}`);\n\ntry {\n  const allowed = [\"validate_artifact\", \"get_artifact_status\", \"build_registry_entry\", \"build_install_plan\", \"build_jcm_apply_plan\", \"get_target_paths\", \"register_artifact\", \"unregister_artifact\", \"ensure_artifact_files\", \"install_local_artifact\", \"verify_local_apply\"];\n  const operation = Operation || \"validate_artifact\";\n  if (allowed.indexOf(operation) < 0) {\n    throw { code: \"UNSUPPORTED_OPERATION\", message: \"Operação não suportada pelo Artifact Manager.\", details: { operation: operation } };\n  }\n\n  const warnings = [];\n  const manifestParsed = tryJson(ManifestJson, \"Manifest Json\", warnings);\n  const contractParsed = tryJson(ContractJson, \"Contract Json\", warnings);\n  const configParsed = tryJson(ConfigJson, \"Config Json\", warnings);\n  const packageParsed = tryJson(PackageManifestJson, \"Package Manifest Json\", warnings);\n  const dependencyParsed = tryJson(DependencyResolutionJson, \"Dependency Resolution Json\", warnings);\n  const registryParsed = tryJson(RegistryJson, \"Registry Json\", warnings);\n\n  const artifact = artifactFromManifest(manifestParsed.value || packageParsed.value || {}, ArtifactType, ArtifactId);\n  if (!artifact.artifact_id && operation !== \"get_artifact_status\") {\n    throw { code: \"MISSING_REQUIRED_INPUT\", message: \"Artifact Id é obrigatório quando não puder ser derivado do manifest.\", details: { input: \"Artifact Id\" } };\n  }\n\n  const invalidJson = warnings.filter(function (w) { return w.code === \"INVALID_JSON\"; });\n  if (invalidJson.length && StrictMode) {\n    throw { code: \"INVALID_JSON\", message: \"Uma ou mais entradas JSON são inválidas.\", details: { warnings: invalidJson } };\n  }\n\n  const dependencyResolution = dependencyParsed.value || {};\n  const dependencyBlocked = !!(dependencyResolution && (dependencyResolution.blocked === true || dependencyResolution.status === \"blocked\" || dependencyResolution.success === false));\n  const registryEntry = makeRegistryEntry(artifact, operation, dependencyResolution);\n  const paths = makePaths(TargetRootPath, artifact);\n  const plans = buildJcmPlans(operation, artifact, paths, manifestParsed.text, contractParsed.text, configParsed.text, registryEntry, PreserveUserConfig);\n\n  const eligibleApplyOps = [\"register_artifact\", \"unregister_artifact\", \"ensure_artifact_files\", \"install_local_artifact\"];\n  const applyEligible = eligibleApplyOps.indexOf(operation) >= 0;\n  const gateOpen = applyEligible && !DryRun && ApplyChanges === true && !dependencyBlocked && invalidJson.length === 0;\n  const blockedReason = !applyEligible ? \"operation_not_apply_eligible\" : (DryRun ? \"dry_run_enabled\" : (!ApplyChanges ? \"apply_changes_gate_disabled\" : (dependencyBlocked ? \"dependency_resolution_blocked\" : (invalidJson.length ? \"invalid_json\" : \"\"))));\n\n  const installPlan = {\n    artifact: artifact,\n    target_root: TargetRootPath,\n    local_package_path: trim(LocalPackagePath),\n    side_effects_enabled: gateOpen,\n    apply_executor: APPLY_EXECUTOR,\n    preserve_user_config: PreserveUserConfig,\n    remote_downloads: \"out_of_scope\",\n    macrodroid_export_import: \"manual_required\"\n  };\n\n  const apply = {\n    should_apply: gateOpen,\n    applied: false,\n    verified: false,\n    executor: APPLY_EXECUTOR,\n    dry_run: DryRun,\n    apply_changes: ApplyChanges,\n    requires_jcm_execution: gateOpen,\n    requires_post_write_verification: gateOpen,\n    blocked_reason: gateOpen ? \"\" : blockedReason\n  };\n\n  const data = {\n    artifact: artifact,\n    valid: invalidJson.length === 0 && !!artifact.artifact_id,\n    warnings: warnings,\n    manifest_summary: manifestParsed.value ? artifact : null,\n    registry_entry: registryEntry,\n    dependency_resolution: dependencyResolution,\n    install_plan: installPlan,\n    target_root: TargetRootPath,\n    paths: paths,\n    apply: apply,\n    jcm_apply_plan: gateOpen ? plans.apply : { executor: APPLY_EXECUTOR, operations: [], operation_count: 0, blocked_reason: blockedReason },\n    jcm_verification_plan: gateOpen ? plans.verify : { executor: APPLY_EXECUTOR, operations: [], operation_count: 0, blocked_reason: blockedReason },\n    debug_inputs: {\n      operation: operation,\n      artifact_type_input: ArtifactType,\n      artifact_id_input: ArtifactId,\n      dry_run: DryRun,\n      apply_changes: ApplyChanges,\n      strict_mode: StrictMode,\n      preserve_user_config: PreserveUserConfig,\n      has_manifest_json: manifestParsed.provided,\n      has_contract_json: contractParsed.provided,\n      has_config_json: configParsed.provided,\n      has_registry_json: registryParsed.provided,\n      has_package_manifest_json: packageParsed.provided,\n      has_dependency_resolution_json: dependencyParsed.provided\n    }\n  };\n\n  let message = \"Operação do Artifact Manager planejada com sucesso.\";\n  let status = \"success\";\n  let success = true;\n  if (gateOpen) {\n    message = \"Plano de aplicação via Json Config Manager gerado com sucesso. Execute o jcm_apply_plan e depois o jcm_verification_plan antes de considerar o artifact aplicado.\";\n  } else if (applyEligible && !DryRun && !ApplyChanges) {\n    status = StrictMode ? \"blocked\" : \"success\";\n    success = !StrictMode;\n    message = StrictMode ? \"Aplicação bloqueada: Apply Changes? precisa ser verdadeiro para efeitos colaterais.\" : \"Plano gerado sem aplicar porque Apply Changes? está desativado.\";\n  } else if (DryRun) {\n    message = \"Dry-run concluído. Nenhum efeito colateral foi executado.\";\n  }\n\n  if (operation === \"verify_local_apply\") {\n    data.apply.should_apply = false;\n    data.apply.applied = false;\n    data.apply.verified = false;\n    data.apply.blocked_reason = \"verification_requires_jcm_results_payload\";\n    message = \"verify_local_apply requer payload consolidado de resultados JCM em etapa orquestrada posterior.\";\n  }\n\n  return result(success, status, operation, message, data, success ? null : {\n    code: \"ARTIFACT_APPLY_GATE_DISABLED\",\n    message: \"A aplicação física foi bloqueada pelo gate de segurança.\",\n    details: { blocked_reason: blockedReason },\n    recoverable: true\n  }, { session_id: SessionId, correlation_id: CorrelationId });\n} catch (err) {\n  const error = {\n    code: err && err.code || \"PROCESSING_FAILED\",\n    message: err && err.message || \"Falha ao processar Artifact Manager.\",\n    details: err && err.details || { raw_error: String(err) },\n    recoverable: true\n  };\n  return result(false, \"error\", Operation || \"\", error.message, {}, error, { session_id: SessionId, correlation_id: CorrelationId });\n}",
+        "stringVariableName": "Tmp_ArtifactWorkJson",
+        "actionLabel": "Gerar plano de lifecycle/JCM",
+        "disableLogging": false,
+        "m_SIGUID": -62412899920260618,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Gera Resultado e jcm_apply_plan sem executar filesystem diretamente.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ArtifactWorkJson",
+        "actionLabel": "Publicar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -62412900020260618,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Parseia o JSON produzido pelo motor interno para a saída pública Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — Processar Artifact Manager",
+        "disableLogging": false,
+        "m_SIGUID": -62412900120260618,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo de processamento.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
+        "disableLogging": false,
+        "m_SIGUID": -62412900220260618,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra explicitamente o Artifact Manager.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_constraintList": [],
+    "m_description": "Artifact Manager v1.0.0 consolidado: lifecycle planner com apply físico delegado ao Json Config Manager.",
+    "m_enabled": true,
+    "m_headingColor": 0,
+    "m_isOrCondition": false,
+    "m_name": "[CDXMS] Artifact Manager",
+    "m_triggerList": []
+  },
+  "macroExportVersion": 1
+}

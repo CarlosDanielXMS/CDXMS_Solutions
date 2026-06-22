@@ -1,0 +1,454 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1782000000000,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "normalize_text",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica da String Utils."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Text",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Texto principal."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Search Text",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Texto de busca."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Replace Text",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Texto substituto."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Regex Pattern",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Regex opcional."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Regex Flags",
+        "m_stringValue": "g",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Flags da regex."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Case Mode",
+        "m_stringValue": "none",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "none, lower, upper ou title."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Comparison Mode",
+        "m_stringValue": "case_sensitive",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Modo de comparação."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Separator",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Reservado para compatibilidade."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Max Length",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Comprimento máximo opcional."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Allow Slash?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Preserva / em sanitize_path_segment."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Validação rígida."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Config Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Config opcional."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Context Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Contexto adicional."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de sessão."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de correlação."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única no contrato universal CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_StringWorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "JSON textual interno antes da publicação em Resultado."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -3034207520900123987,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Processar",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Processar [CDXMS] String Utils",
+        "disableLogging": false,
+        "m_SIGUID": -705584347448475128,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Capability pura para transformação, normalização, comparação e sanitização de textos.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ID=\"string_utils\",VERSION=\"1.0.0\";function t(v){return String(v==null?\"\":v)}function tr(v){return t(v).trim()}function b(v,d){let s=tr(v).toLowerCase();if([\"true\",\"1\",\"sim\",\"s\",\"verdadeiro\"].includes(s))return true;if([\"false\",\"0\",\"não\",\"nao\",\"n\",\"falso\"].includes(s))return false;return d===true}function norm(s){return tr(s).normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g,\"\").replace(/\\s+/g,\" \")}function snake(s){return norm(s).replace(/([a-z0-9])([A-Z])/g,\"$1_$2\").replace(/[^A-Za-z0-9]+/g,\"_\").replace(/^_+|_+$/g,\"\").toLowerCase()}function kebab(s){return snake(s).replace(/_/g,\"-\")}function out(ok,op,msg,data,error){return {schema_version:1,namespace:\"CDXMS\",success:ok,status:ok?\"success\":\"error\",artifact_type:\"capability\",artifact_id:ID,operation:op,message:msg,data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:\"[CDXMS] String Utils\",version:VERSION,session_id:tr(`{lv=Session Id}`),correlation_id:tr(`{lv=Correlation Id}`)}}}let op=tr(`{lv=Operation}`),x=t(`{lv=Text}`),q=t(`{lv=Search Text}`),r=t(`{lv=Replace Text}`),rx=t(`{lv=Regex Pattern}`),rf=t(`{lv=Regex Flags}`)||\"g\",allowSlash=b(`{lv=Allow Slash?}`),mode=tr(`{lv=Comparison Mode}`)||\"case_sensitive\",cm=tr(`{lv=Case Mode}`)||\"none\",max=parseInt(tr(`{lv=Max Length}`)||\"0\",10),res;try{let value=x,boolean_value=null;if(op===\"escape_json_string\")value=JSON.stringify(x).slice(1,-1);else if(op===\"unescape_json_string\")value=JSON.parse('\"'+x.replace(/\"/g,'\\\\\"')+'\"');else if(op===\"normalize_text\")value=norm(x);else if(op===\"normalize_id\"||op===\"to_snake_case\")value=snake(x);else if(op===\"to_kebab_case\")value=kebab(x);else if(op===\"trim\")value=tr(x);else if(op===\"collapse_whitespace\")value=x.replace(/\\s+/g,\" \").trim();else if(op===\"replace_text\"){if(!q)throw {code:\"STRING_EMPTY_SEARCH_TEXT\",message:\"Search Text é obrigatório.\"};value=rx?x.replace(new RegExp(rx,rf.indexOf(\"g\")>=0?rf:rf+\"g\"),r):x.split(q).join(r)}else if([\"contains_text\",\"equals_text\",\"starts_with\",\"ends_with\"].includes(op)){let a=x,c=q;if(mode===\"case_insensitive\"){a=a.toLowerCase();c=c.toLowerCase()}else if(mode===\"normalized\"){a=norm(a).toLowerCase();c=norm(c).toLowerCase()}if(op===\"contains_text\")boolean_value=a.indexOf(c)>=0;if(op===\"equals_text\")boolean_value=a===c;if(op===\"starts_with\")boolean_value=a.indexOf(c)===0;if(op===\"ends_with\")boolean_value=c===\"\"||a.slice(-c.length)===c;value=boolean_value}else if(op===\"is_blank\"){boolean_value=tr(x)===\"\";value=boolean_value}else if(op===\"sanitize_file_name\")value=tr(x).replace(/[\\\\/:*?\"<>|\\x00-\\x1F]/g,\"_\").replace(/\\.+$/g,\"\")||\"unnamed\";else if(op===\"sanitize_path_segment\")value=allowSlash?tr(x).split(\"/\").map(v=>v.replace(/[\\\\\\x00-\\x1F]/g,\"_\").replace(/^\\.+|\\.+$/g,\"\")||\"segment\").join(\"/\"):tr(x).replace(/[\\\\/\\x00-\\x1F]/g,\"_\").replace(/^\\.+|\\.+$/g,\"\")||\"segment\";else if(op===\"truncate\"){if(isNaN(max)||max<0)throw {code:\"STRING_INVALID_MAX_LENGTH\",message:\"Max Length inválido.\"};value=max===0?\"\":Array.from(x).slice(0,max).join(\"\")}else throw {code:\"UNSUPPORTED_OPERATION\",message:\"Operação não suportada.\"};if(typeof value===\"string\"){if(cm===\"lower\")value=value.toLowerCase();if(cm===\"upper\")value=value.toUpperCase();if(cm===\"title\")value=value.toLowerCase().replace(/(^|\\s)\\S/g,m=>m.toUpperCase())}res=out(true,op,\"Operação de texto executada com sucesso.\",{value:value,boolean_value:boolean_value,length:typeof value===\"string\"?Array.from(value).length:null},null)}catch(e){res=out(false,op,e.message||\"Falha ao transformar texto.\",{}, {code:e.code||\"STRING_TRANSFORM_FAILED\",message:e.message||\"Falha ao transformar texto.\",details:{},recoverable:true})}return JSON.stringify(res);",
+        "stringVariableName": "Tmp_StringWorkJson",
+        "actionLabel": "Executar motor interno",
+        "disableLogging": false,
+        "m_SIGUID": -392954864966054536,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Capability pura para transformação, normalização, comparação e sanitização de textos.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_StringWorkJson",
+        "actionLabel": "Publicar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -891698440930557694,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica a saída pública única.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — Processar",
+        "disableLogging": false,
+        "m_SIGUID": -465439337763813780,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
+        "disableLogging": false,
+        "m_SIGUID": -947035047173639086,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra explicitamente o Action Block.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_description": "Capability pura para transformação, normalização, comparação e sanitização de textos.",
+    "m_name": "[CDXMS] String Utils",
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
+  },
+  "macroExportVersion": 1
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_config",
+  "artifact_id": "json_config_manager",
+  "version": "1.0.0",
+  "config": {
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "allow_relative_paths": true,
+    "allowed_base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "default_pretty_print": true,
+    "json_path_engine": "jcm_json_path_engine_v1",
+    "allow_multiple_write_matches": false,
+    "allowed_operations": [
+      "ensure_core",
+      "repair_core",
+      "ensure_folder",
+      "validate_json",
+      "read_json",
+      "exists",
+      "write_json",
+      "merge_json",
+      "ensure_file",
+      "backup_file",
+      "delete_file"
+    ],
+    "allowed_merge_strategies": [
+      "deep_merge",
+      "preserve_existing",
+      "overwrite_existing",
+      "replace"
+    ],
+    "shell_usage": {
+      "enabled": true,
+      "reason": "mkdir -p e rm -f por disponibilidade prática no MacroDroid exportado; substituir por ação nativa de arquivo quando validado no dispositivo alvo."
+    }
+  },
+  "updated_at": ""
+}

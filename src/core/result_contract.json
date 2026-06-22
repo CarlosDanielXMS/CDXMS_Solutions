@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "core_result_contract",
+  "result_contract": {
+    "output_variable": "Resultado",
+    "type": "dictionary",
+    "fields": {
+      "schema_version": {
+        "type": "number",
+        "required": true
+      },
+      "namespace": {
+        "type": "string",
+        "required": true
+      },
+      "success": {
+        "type": "boolean",
+        "required": true
+      },
+      "status": {
+        "type": "enum",
+        "required": true
+      },
+      "artifact_type": {
+        "type": "enum",
+        "required": true
+      },
+      "artifact_id": {
+        "type": "string",
+        "required": true
+      },
+      "operation": {
+        "type": "string",
+        "required": true
+      },
+      "message": {
+        "type": "string",
+        "required": true
+      },
+      "data": {
+        "type": "object",
+        "required": true
+      },
+      "error": {
+        "type": "object|null",
+        "required": true
+      },
+      "meta": {
+        "type": "object",
+        "required": false
+      }
+    },
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  }
+}

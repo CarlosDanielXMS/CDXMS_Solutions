@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "json_config_manager",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/json_config_manager/manifest.json",
+      "target_path": "capabilities/json_config_manager/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "f266cfb60d7dac5f056f5e924e3e20040280d34b86ae8a82ad2345ae4454d616"
+    },
+    {
+      "path": "capabilities/json_config_manager/contract.json",
+      "target_path": "capabilities/json_config_manager/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "5fdfe52bcc5437bc25b47d0a4b862caa82a7d4dfad604d63e38192d335d48e1c"
+    },
+    {
+      "path": "capabilities/json_config_manager/config.default.json",
+      "target_path": "capabilities/json_config_manager/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "275447513f863b3a81d44d6b722ca7a7a1f3d3afb7e031a2341d34b72e420794"
+    },
+    {
+      "path": "capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock",
+      "target_path": "capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "28e565935d117e4ec66968c2f8672a28edbc83084d97d3ac01007856ba1c476c"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/json_config_manager/macrodroid/[CDXMS]_Json_Config_Manager.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Json Config Manager",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  },
+  "updated_at": ""
+}

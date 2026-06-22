@@ -1,0 +1,434 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1782000000000,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "build_result",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica do Result Manager."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Source Artifact Type",
+        "m_stringValue": "capability",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Tipo do artifact de origem."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Source Artifact Id",
+        "m_stringValue": "result_manager",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id do artifact de origem."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Source Operation",
+        "m_stringValue": "build_result",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação original."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Success?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Sucesso lógico."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Status",
+        "m_stringValue": "success",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Status padronizado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Message",
+        "m_stringValue": "Operação executada com sucesso.",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Mensagem humana."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Data Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Objeto JSON para Resultado.data."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Error Json",
+        "m_stringValue": "null",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Erro estruturado ou null."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Result Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Resultado bruto."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Context Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Contexto adicional."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Validação rigorosa."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Include Raw Result?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Inclui bruto para debug."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de sessão."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de correlação."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única no contrato universal CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ResultJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "JSON textual interno antes da publicação em Resultado."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -2848404244272762193,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Processar",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Processar [CDXMS] Registrar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -151250874610809599,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Capability pura para construir, normalizar, validar e propagar Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ID=\"result_manager\", VERSION=\"1.0.0\";\nfunction t(v){return String(v==null?\"\":v).trim();}\nfunction b(v,d){let s=t(v).toLowerCase();if([\"true\",\"1\",\"sim\",\"s\",\"verdadeiro\"].indexOf(s)>=0)return true;if([\"false\",\"0\",\"não\",\"nao\",\"n\",\"falso\"].indexOf(s)>=0)return false;return d===true;}\nfunction p(v,d,n){let s=t(v);if(!s)return d;try{return JSON.parse(s)}catch(e){throw {code:\"INVALID_JSON\",message:\"JSON inválido em \"+n+\".\",details:{reason:String(e.message||e)}}}}\nfunction obj(v){return v&&typeof v===\"object\"&&!Array.isArray(v)?v:(v==null||v===\"\"?{}:{value:v});}\nfunction err(v,c,m){if(v==null||v===\"\")return null;if(v&&typeof v===\"object\"&&!Array.isArray(v))return {code:t(v.code)||c||\"UNKNOWN_ERROR\",message:t(v.message)||m||\"Erro desconhecido.\",details:obj(v.details),recoverable:v.recoverable===true};return {code:c||\"UNKNOWN_ERROR\",message:m||\"Erro desconhecido.\",details:{value:v},recoverable:false};}\nfunction out(ok,status,atype,aid,op,msg,data,error,extra){return {schema_version:1,namespace:\"CDXMS\",success:ok===true,status:t(status)||(ok?\"success\":\"error\"),artifact_type:t(atype)||\"capability\",artifact_id:t(aid)||ID,operation:t(op),message:t(msg)||(ok?\"Operação executada com sucesso.\":\"A operação não pôde ser concluída.\"),data:obj(data),error:error||null,meta:Object.assign({timestamp:new Date().toISOString(),source:\"[CDXMS] Registrar Resultado\",version:VERSION,session_id:t(`{lv=Session Id}`),correlation_id:t(`{lv=Correlation Id}`)},extra||{})};}\nconst required=[\"schema_version\",\"namespace\",\"success\",\"status\",\"artifact_type\",\"artifact_id\",\"operation\",\"message\",\"data\",\"error\"], forbidden=[\"data_json\",\"error_code\",\"error_message\",\"error_json\"];\nfunction issues(x,strict){let miss=[],bad=[],warn=[];if(!x||typeof x!==\"object\"||Array.isArray(x))return {valid:false,missing_fields:required.slice(),forbidden_fields:[],warnings:[\"root_not_object\"]};required.forEach(k=>{if(!(k in x))miss.push(k)});forbidden.forEach(k=>{if(k in x)bad.push(k)});if(\"data\" in x&&(!x.data||typeof x.data!==\"object\"||Array.isArray(x.data)))warn.push(\"data_not_object\");if(\"error\" in x&&x.error!==null&&(typeof x.error!==\"object\"||Array.isArray(x.error)))warn.push(\"error_not_object\");return {valid:miss.length===0&&(!strict||bad.length===0)&&warn.length===0,missing_fields:miss,forbidden_fields:bad,warnings:warn};}\nlet op=t(`{lv=Operation}`), strict=b(`{lv=Strict Mode?}`,true), res;\ntry{if([\"build_result\",\"normalize_result\",\"validate_result\",\"propagate_result\",\"wrap_error\",\"register_result\"].indexOf(op)<0)throw {code:\"UNSUPPORTED_OPERATION\",message:\"Operação não suportada.\"};let st=t(`{lv=Source Artifact Type}`)||\"capability\",si=t(`{lv=Source Artifact Id}`)||ID,so=t(`{lv=Source Operation}`)||op,msg=t(`{lv=Message}`),ctx=p(`{lv=Context Json}`,{},\"Context Json\");if(op===\"build_result\"){let ok=b(`{lv=Success?}`),data=p(`{lv=Data Json}`,{},\"Data Json\"),er=p(`{lv=Error Json}`,null,\"Error Json\");res=out(ok,t(`{lv=Status}`)||(ok?\"success\":\"error\"),st,si,so,msg,Object.assign({},obj(data),Object.keys(ctx).length?{context:ctx}:{}),ok?null:err(er,\"UNKNOWN_ERROR\",msg));}else if(op===\"wrap_error\"){let er=err(p(`{lv=Error Json}`,null,\"Error Json\"),\"UNKNOWN_ERROR\",msg);res=out(false,t(`{lv=Status}`)||\"error\",st,si,so,msg||er.message,p(`{lv=Data Json}`,{},\"Data Json\"),er);}else{let raw=p(`{lv=Result Json}`,{},\"Result Json\"),is=issues(raw,strict);if(op===\"validate_result\")res=out(is.valid,is.valid?\"success\":\"error\",\"capability\",ID,op,is.valid?\"Resultado validado com sucesso.\":\"O resultado não atende ao contrato CDXMS.\",Object.assign({valid:is.valid},is),is.valid?null:err({code:\"RESULT_INVALID_CONTRACT\",message:\"Contrato inválido.\",details:is}));else{if(!is.valid&&strict)throw {code:\"RESULT_INVALID_CONTRACT\",message:\"O resultado não atende ao contrato CDXMS.\",details:is};let norm=out(raw.success===true,raw.status,raw.artifact_type,raw.artifact_id,raw.operation,raw.message,raw.data,err(raw.error),raw.meta);if(op===\"normalize_result\")res=out(true,\"success\",\"capability\",ID,op,\"Resultado normalizado com sucesso.\",{normalized:true,value:norm},null);else if(op===\"propagate_result\")res=norm;else res=out(true,\"success\",\"capability\",ID,op,\"Resultado registrado logicamente.\",{registered:true,value:norm},null);}}\n}catch(e){let er=err(e,e.code||\"PROCESSING_FAILED\",e.message||\"Falha ao processar resultado.\");res=out(false,\"error\",\"capability\",ID,op,er.message,{},er);}return JSON.stringify(res);",
+        "stringVariableName": "Tmp_ResultJson",
+        "actionLabel": "Executar motor interno",
+        "disableLogging": false,
+        "m_SIGUID": -1016789158191462129,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Capability pura para construir, normalizar, validar e propagar Resultado.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "actionLabel": "Publicar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -671784910379785215,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica a saída pública única.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — Processar",
+        "disableLogging": false,
+        "m_SIGUID": -606477230535547071,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
+        "disableLogging": false,
+        "m_SIGUID": -277623513403447759,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra explicitamente o Action Block.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_description": "Capability pura para construir, normalizar, validar e propagar Resultado.",
+    "m_name": "[CDXMS] Registrar Resultado",
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
+  },
+  "macroExportVersion": 1
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "logger",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/logger/manifest.json",
+      "target_path": "capabilities/logger/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "a3b177eac46cef2cd7c2b755e90244c6ea53755d5a2b5eeb16578615e847dce7"
+    },
+    {
+      "path": "capabilities/logger/contract.json",
+      "target_path": "capabilities/logger/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "d2475ccbb8a3570b0ff8865575f0b58ffea05b74e7753e36db9ab647ddfe8fca"
+    },
+    {
+      "path": "capabilities/logger/config.default.json",
+      "target_path": "capabilities/logger/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "b9c0163e92dc14df8a2ba00d7bac87fdb1769036d7e12d50f0f2fe1b2abac3f4"
+    },
+    {
+      "path": "capabilities/logger/macrodroid/[CDXMS]_Logger.ablock",
+      "target_path": "capabilities/logger/macrodroid/[CDXMS]_Logger.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "416aa88e6b80dfc08f3e66bf1b2a99df704332e010cb3c0349d6050f3e3030a8"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/logger/macrodroid/[CDXMS]_Logger.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Logger",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0",
+      "result_manager": ">=1.0.0"
+    }
+  },
+  "updated_at": ""
+}

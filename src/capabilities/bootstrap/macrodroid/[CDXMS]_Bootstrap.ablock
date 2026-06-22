@@ -1,0 +1,3576 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1781632707140,
+    "localVariables": [
+      {
+        "description": "Operação técnica do Bootstrap. Opções: initialize_ecosystem, verify_core, repair_core, ensure_runtime, load_context, get_status. Exemplo: initialize_ecosystem garante core, runtime e opcionalmente contexto local.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "initialize_ecosystem",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Tipo de artifact contextual usado em load_context. Opções: core, capability, solution, package, catalog. Exemplo: capability.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Requested Artifact Type",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Id técnico do artifact contextual. Exemplos: json_config_manager, bootstrap, solutions_manager. Usado para carregar config completa em load_context.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Requested Artifact Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Quando true, indica que repair_core foi solicitado explicitamente. Não habilita download nem lifecycle remoto.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Force Repair?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Quando true, carrega settings, registry e config contextual uma única vez e retorna em Resultado.data.context.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": true,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Load Context?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Config completa do Bootstrap já carregada por orquestrador. Quando informada, evita consulta repetida ao JCM para a config própria.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Config Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Identificador da sessão de bootstrap. Exemplo: session_20260616_001.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Identificador de correlação entre macro, Bootstrap e JCM. Exemplo: corr_20260616_001.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false
+      },
+      {
+        "description": "Saída pública única. Dicionário conforme contrato universal CDXMS. Dados úteis sempre em Resultado.data.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true
+      },
+      {
+        "description": "JSON textual interno usado para publicar Resultado via JSON Parse.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ResultJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno genérico da última chamada ao [CDXMS] Json Config Manager.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_JcmResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da verificação de .cdxms_root.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_RootResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da verificação de core/manifest.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_CoreManifestResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da leitura/verificação de core/settings.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_SettingsResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da leitura/verificação de core/registry.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_RegistryResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da verificação de core/enums.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_EnumsResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da verificação de core/errors.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ErrorsResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da verificação de core/result_contract.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ResultContractResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da verificação de core/compatibility.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_CompatibilityResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da leitura/criação de capabilities/bootstrap/config.json.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_BootstrapConfigResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      },
+      {
+        "description": "Retorno da leitura de config contextual de capability/solution.",
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0,
+        "m_intValue": 0,
+        "m_name": "Tmp_ArtifactConfigResult",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": false
+      }
+    ],
+    "localVarsAlphabetical": true,
+    "m_GUID": -8974663416693308000,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Initialize Runtime",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Initialize Runtime",
+        "disableLogging": false,
+        "m_SIGUID": -5909601187089823000,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Valida a operação do Bootstrap e publica erro padronizado antes de qualquer efeito colateral.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nconst SUPPORTED = [\"initialize_ecosystem\",\"verify_core\",\"repair_core\",\"ensure_runtime\",\"load_context\",\"get_status\"];\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: {\n      timestamp: new Date().toISOString(),\n      source: \"[CDXMS] Bootstrap\",\n      version: VERSION,\n      session_id: String(`{lv=Session Id}` || \"\"),\n      correlation_id: String(`{lv=Correlation Id}` || \"\")\n    }\n  });\n}\nfunction err(code, message, details, recoverable) {\n  return { code: String(code || \"UNKNOWN_ERROR\"), message: String(message || \"Erro desconhecido.\"), details: details || {}, recoverable: recoverable === true };\n}\nconst op = String(`{lv=Operation}` || \"\").trim();\nif (!op) {\n  result(false, \"error\", op, \"A operação do Bootstrap não foi informada.\", {}, err(\"MISSING_REQUIRED_INPUT\", \"A entrada obrigatória Operation não foi informada.\", { input: \"Operation\" }, false));\n} else if (SUPPORTED.indexOf(op) < 0) {\n  result(false, \"error\", op, \"A operação informada não é suportada pelo Bootstrap.\", { supported_operations: SUPPORTED }, err(\"UNSUPPORTED_OPERATION\", \"A operação informada não é suportada.\", { operation: op }, false));\n} else {\n  result(true, \"success\", op, \"Operação validada para execução pelo Bootstrap.\", {\n    bootstrap_status: \"validated\",\n    requested_artifact_type: String(`{lv=Requested Artifact Type}` || \"\"),\n    requested_artifact_id: String(`{lv=Requested Artifact Id}` || \"\"),\n    load_context: String(`{lv=Load Context?}`).toLowerCase() === \"true\",\n    force_repair: String(`{lv=Force Repair?}`).toLowerCase() === \"true\"\n  }, null);\n}\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -3959916641090148400,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Valida Operation e prepara Resultado inicial.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -5941606963279948000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado inicial/erro de validação.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -5171553151224107000,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Guard clause: interrompe se a validação inicial falhou.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": [
+                "success"
+              ]
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Resultado",
+              "m_stringValue": "",
+              "m_type": 4,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -3082821090675546600,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -2959794331185184300,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Sai imediatamente em caso de entrada inválida.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -3764277086432109000,
+        "m_classType": "EndIfAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -122048850799307710,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionGroupName": "02 — Dispatch Operation",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "02 — Dispatch Operation",
+        "disableLogging": false,
+        "m_SIGUID": -7362007565898493000,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Executa a branch correspondente à Operation validada.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -1537071883758855000,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Branch: initialize_ecosystem.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "initialize_ecosystem",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -3800473618561288000,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_core",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5078123774572388000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante core mínimo local via JCM.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": true,
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -7176196755180897000,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Guard clause: core indisponível após chamada ao JCM.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": [
+                "success"
+              ]
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Tmp_JcmResult",
+              "m_stringValue": "",
+              "m_type": 4,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -803677372937951500,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nfunction result(success,status,operation,message,data,error){return JSON.stringify({schema_version:1,namespace:\"CDXMS\",success:success===true,status:String(status),artifact_type:\"capability\",artifact_id:\"bootstrap\",operation:String(operation),message:String(message),data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:\"[CDXMS] Bootstrap\",version:\"1.0.0\",session_id:String(`{lv=Session Id}`||\"\"),correlation_id:String(`{lv=Correlation Id}`||\"\")}});}\nresult(false,\"error\",\"initialize_ecosystem\",\"O Bootstrap não conseguiu garantir o core mínimo local.\",{},{code:\"BOOTSTRAP_CORE_UNAVAILABLE\",message:\"O Bootstrap não conseguiu garantir o core mínimo local.\",details:{},recoverable:false});\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -649299187198117200,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta erro de core indisponível.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -6510527202014089000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica erro de core indisponível.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -3557832581640170000,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Interrompe initialize_ecosystem quando o core não está disponível.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -5659952538586518000,
+        "m_classType": "EndIfAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "runtime"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5934468960314257000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: runtime.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "runtime/capabilities"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -3839077670445662000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: runtime/capabilities.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "runtime/solutions"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8336178018246813000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: runtime/solutions.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "logs"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2755383818819354000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: logs.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "cache"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -6527346390247618000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: cache.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "cache/remote"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -7947392442689594000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: cache/remote.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "packages"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1100458725374824100,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: packages.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "packages/downloaded"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8011299937490668000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: packages/downloaded.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "packages/installed"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2805703332937411600,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: packages/installed.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "backups"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -846208538129824400,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: backups.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "catalogs"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -832335390285356000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: catalogs.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "capabilities/bootstrap"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2466585868290950000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: capabilities/bootstrap.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "capabilities/bootstrap/macrodroid"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5520643371382554000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta local: capabilities/bootstrap/macrodroid.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_file",
+          "Default Json": "{\n  \"schema_version\": 1,\n  \"namespace\": \"CDXMS\",\n  \"file_type\": \"capability_config\",\n  \"artifact_id\": \"bootstrap\",\n  \"settings\": {\n    \"base_path\": \"/storage/emulated/0/Documents/CDXMS_Solutions\",\n    \"auto_repair_on_initialize\": false,\n    \"load_context_by_default\": true,\n    \"preserve_user_config\": true,\n    \"runtime_paths\": [\n      \"runtime\",\n      \"runtime/capabilities\",\n      \"runtime/solutions\",\n      \"logs\",\n      \"cache\",\n      \"cache/remote\",\n      \"packages/downloaded\",\n      \"packages/installed\",\n      \"backups\"\n    ],\n    \"required_core_files\": [\n      \".cdxms_root.json\",\n      \"core/manifest.json\",\n      \"core/registry.json\",\n      \"core/settings.json\",\n      \"core/enums.json\",\n      \"core/errors.json\",\n      \"core/result_contract.json\",\n      \"core/compatibility.json\"\n    ]\n  },\n  \"updated_at\": \"\"\n}",
+          "Create If Missing?": "true",
+          "Value Json": "",
+          "File Path": "capabilities/bootstrap/config.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1873955034647857400,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante config local do Bootstrap preservando arquivo existente.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -4213385783360129000,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Carrega contexto completo quando solicitado.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 0,
+            "enableRegex": false,
+            "m_booleanValue": true,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Load Context?",
+              "m_stringValue": "",
+              "m_type": 0,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4585049521777482000,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/settings.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_SettingsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -4774484384992469000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega core/settings.json completo uma única vez.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/registry.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RegistryResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -6494315998361400000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega core/registry.json completo uma única vez.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "capabilities/bootstrap/config.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_BootstrapConfigResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1214553185451003400,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega config completa do Bootstrap uma única vez.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -5660992194273686000,
+        "m_classType": "EndIfAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nfunction parseMaybe(raw) {\n  const s = String(raw || \"\").trim();\n  if (!s) return {};\n  try { return JSON.parse(s); } catch(e) { return s; }\n}\nfunction boolText(raw) { return String(raw || \"\").toLowerCase() === \"true\"; }\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: { timestamp: new Date().toISOString(), source: \"[CDXMS] Bootstrap\", version: VERSION, session_id: String(`{lv=Session Id}` || \"\"), correlation_id: String(`{lv=Correlation Id}` || \"\") }\n  });\n}\nconst extra = { bootstrap_status:\"initialized\", core:{ ensured:true }, runtime:{ ensured:true }, context_requested: String(`{lv=Load Context?}`).toLowerCase()===\"true\", context:{ settings: parseMaybe(`{lv=Tmp_SettingsResult[data][value]}`), registry: parseMaybe(`{lv=Tmp_RegistryResult[data][value]}`), bootstrap_config: parseMaybe(`{lv=Tmp_BootstrapConfigResult[data][value]}`) } };\nresult(true, \"success\", \"initialize_ecosystem\", \"Ecossistema inicializado localmente pelo Bootstrap.\", extra, null);\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -1579898622054772700,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta Resultado final de initialize_ecosystem.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -4088675059302054000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado de initialize_ecosystem.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -7467550578429730000,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra initialize_ecosystem.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -4260411560087579600,
+        "m_classType": "ElseIfConditionAction",
+        "m_comment": "Branch: verify_core.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "verify_core",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -2795019861640057300,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": ".cdxms_root.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RootResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -268936632930185020,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: .cdxms_root.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/manifest.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_CoreManifestResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -6549154011732259000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/manifest.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/settings.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_SettingsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1909676472254566100,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/settings.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/registry.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RegistryResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -6239409008777602000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/registry.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/enums.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_EnumsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8960891014641170000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/enums.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/errors.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_ErrorsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1359414284553452000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/errors.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/result_contract.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_ResultContractResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -3519178054047927300,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/result_contract.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/compatibility.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_CompatibilityResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -760954725042294700,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica arquivo obrigatório: core/compatibility.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nfunction parseMaybe(raw) {\n  const s = String(raw || \"\").trim();\n  if (!s) return {};\n  try { return JSON.parse(s); } catch(e) { return s; }\n}\nfunction boolText(raw) { return String(raw || \"\").toLowerCase() === \"true\"; }\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: { timestamp: new Date().toISOString(), source: \"[CDXMS] Bootstrap\", version: VERSION, session_id: String(`{lv=Session Id}` || \"\"), correlation_id: String(`{lv=Correlation Id}` || \"\") }\n  });\n}\nconst extra = (() => { const checks = [\n {file_path:\".cdxms_root.json\", exists: boolText(`{lv=Tmp_RootResult[data][exists]}`)},\n {file_path:\"core/manifest.json\", exists: boolText(`{lv=Tmp_CoreManifestResult[data][exists]}`)},\n {file_path:\"core/settings.json\", exists: boolText(`{lv=Tmp_SettingsResult[data][exists]}`)},\n {file_path:\"core/registry.json\", exists: boolText(`{lv=Tmp_RegistryResult[data][exists]}`)},\n {file_path:\"core/enums.json\", exists: boolText(`{lv=Tmp_EnumsResult[data][exists]}`)},\n {file_path:\"core/errors.json\", exists: boolText(`{lv=Tmp_ErrorsResult[data][exists]}`)},\n {file_path:\"core/result_contract.json\", exists: boolText(`{lv=Tmp_ResultContractResult[data][exists]}`)},\n {file_path:\"core/compatibility.json\", exists: boolText(`{lv=Tmp_CompatibilityResult[data][exists]}`)}\n]; const missing = checks.filter(x=>!x.exists).map(x=>x.file_path); return { bootstrap_status: missing.length===0 ? \"core_valid\" : \"core_incomplete\", checks, missing_files: missing, valid: missing.length===0 }; })();\nresult(true, \"success\", \"verify_core\", \"Verificação local do core concluída.\", extra, null);\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -8446158946792208000,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta Resultado de verify_core com arquivos ausentes.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -1847168617869497000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado de verify_core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -1397259515475462700,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra verify_core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -5937469571233351000,
+        "m_classType": "ElseIfConditionAction",
+        "m_comment": "Branch: repair_core.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "repair_core",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -3967567113339972600,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "repair_core",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1381595026086805200,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Reaplica seed mínimo do core via JCM.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": ".cdxms_root.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RootResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1272482871414472700,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: .cdxms_root.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/manifest.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_CoreManifestResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5792903975050844000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/manifest.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/settings.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_SettingsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8998271121916214000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/settings.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/registry.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RegistryResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -6134595909252402000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/registry.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/enums.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_EnumsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -4554232841886644000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/enums.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/errors.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_ErrorsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8108734717118635000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/errors.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/result_contract.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_ResultContractResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -3655128410092301300,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/result_contract.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/compatibility.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_CompatibilityResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2221686476211601700,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Revalida arquivo obrigatório após repair_core: core/compatibility.json.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nfunction parseMaybe(raw) {\n  const s = String(raw || \"\").trim();\n  if (!s) return {};\n  try { return JSON.parse(s); } catch(e) { return s; }\n}\nfunction boolText(raw) { return String(raw || \"\").toLowerCase() === \"true\"; }\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: { timestamp: new Date().toISOString(), source: \"[CDXMS] Bootstrap\", version: VERSION, session_id: String(`{lv=Session Id}` || \"\"), correlation_id: String(`{lv=Correlation Id}` || \"\") }\n  });\n}\nconst extra = (() => { const checks = [\n {file_path:\".cdxms_root.json\", exists: boolText(`{lv=Tmp_RootResult[data][exists]}`)},\n {file_path:\"core/manifest.json\", exists: boolText(`{lv=Tmp_CoreManifestResult[data][exists]}`)},\n {file_path:\"core/settings.json\", exists: boolText(`{lv=Tmp_SettingsResult[data][exists]}`)},\n {file_path:\"core/registry.json\", exists: boolText(`{lv=Tmp_RegistryResult[data][exists]}`)},\n {file_path:\"core/enums.json\", exists: boolText(`{lv=Tmp_EnumsResult[data][exists]}`)},\n {file_path:\"core/errors.json\", exists: boolText(`{lv=Tmp_ErrorsResult[data][exists]}`)},\n {file_path:\"core/result_contract.json\", exists: boolText(`{lv=Tmp_ResultContractResult[data][exists]}`)},\n {file_path:\"core/compatibility.json\", exists: boolText(`{lv=Tmp_CompatibilityResult[data][exists]}`)}\n]; const missing = checks.filter(x=>!x.exists).map(x=>x.file_path); return { bootstrap_status: missing.length===0 ? \"core_repaired_valid\" : \"core_repaired_incomplete\", checks, missing_files: missing, valid: missing.length===0 }; })();\nresult(true, \"success\", \"repair_core\", \"Reparo local do core concluído pelo Bootstrap.\", extra, null);\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -1995189698082607000,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta Resultado de repair_core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -4441710320520242000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado de repair_core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -4183413370014474000,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra repair_core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -7793504650387128000,
+        "m_classType": "ElseIfConditionAction",
+        "m_comment": "Branch: ensure_runtime.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "ensure_runtime",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -2780321197738476000,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "runtime"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -7202626997887601000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: runtime.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "runtime/capabilities"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8759548552808141000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: runtime/capabilities.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "runtime/solutions"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1336354416717738800,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: runtime/solutions.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "logs"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8504584030746457000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: logs.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "cache"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8466521307173609000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: cache.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "cache/remote"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5095607418803004000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: cache/remote.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "packages"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8267054457390655000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: packages.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "packages/downloaded"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -4204515487583469000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: packages/downloaded.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "packages/installed"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -394835482776729540,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: packages/installed.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "backups"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -7049628875869828000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: backups.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "catalogs"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5013124786197415000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: catalogs.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "capabilities/bootstrap"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -3177330316950418400,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: capabilities/bootstrap.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_folder",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "",
+          "Json Path": "",
+          "Folder Path": "capabilities/bootstrap/macrodroid"
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -6633795305028847000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante pasta runtime/local: capabilities/bootstrap/macrodroid.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "ensure_file",
+          "Default Json": "{\n  \"schema_version\": 1,\n  \"namespace\": \"CDXMS\",\n  \"file_type\": \"capability_config\",\n  \"artifact_id\": \"bootstrap\",\n  \"settings\": {\n    \"base_path\": \"/storage/emulated/0/Documents/CDXMS_Solutions\",\n    \"auto_repair_on_initialize\": false,\n    \"load_context_by_default\": true,\n    \"preserve_user_config\": true,\n    \"runtime_paths\": [\n      \"runtime\",\n      \"runtime/capabilities\",\n      \"runtime/solutions\",\n      \"logs\",\n      \"cache\",\n      \"cache/remote\",\n      \"packages/downloaded\",\n      \"packages/installed\",\n      \"backups\"\n    ],\n    \"required_core_files\": [\n      \".cdxms_root.json\",\n      \"core/manifest.json\",\n      \"core/registry.json\",\n      \"core/settings.json\",\n      \"core/enums.json\",\n      \"core/errors.json\",\n      \"core/result_contract.json\",\n      \"core/compatibility.json\"\n    ]\n  },\n  \"updated_at\": \"\"\n}",
+          "Create If Missing?": "true",
+          "Value Json": "",
+          "File Path": "capabilities/bootstrap/config.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_JcmResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -4853610494899697000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Garante config local do Bootstrap.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nfunction parseMaybe(raw) {\n  const s = String(raw || \"\").trim();\n  if (!s) return {};\n  try { return JSON.parse(s); } catch(e) { return s; }\n}\nfunction boolText(raw) { return String(raw || \"\").toLowerCase() === \"true\"; }\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: { timestamp: new Date().toISOString(), source: \"[CDXMS] Bootstrap\", version: VERSION, session_id: String(`{lv=Session Id}` || \"\"), correlation_id: String(`{lv=Correlation Id}` || \"\") }\n  });\n}\nconst extra = { bootstrap_status:\"runtime_ready\", created_paths:[\"runtime\",\"runtime/capabilities\",\"runtime/solutions\",\"logs\",\"cache\",\"cache/remote\",\"packages\",\"packages/downloaded\",\"packages/installed\",\"backups\",\"catalogs\",\"capabilities/bootstrap\",\"capabilities/bootstrap/macrodroid\"] };\nresult(true, \"success\", \"ensure_runtime\", \"Estrutura local de runtime preparada.\", extra, null);\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -2979904946199191000,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta Resultado de ensure_runtime.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -3606353581726670300,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado de ensure_runtime.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -4186853872280355300,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra ensure_runtime.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -1916804866757416200,
+        "m_classType": "ElseIfConditionAction",
+        "m_comment": "Branch: load_context.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "load_context",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -1266217720904291600,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/settings.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_SettingsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1952170404210989300,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega settings completo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/registry.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RegistryResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2664498002715766000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega registry completo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "capabilities/bootstrap/config.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_BootstrapConfigResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -1536816780009523500,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega config completa do Bootstrap.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -8447825711428897000,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Carrega config contextual de capability quando solicitada.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "capability",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Requested Artifact Type",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -4015801272528776000,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "capabilities/{lv=Requested Artifact Id}/config.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_ArtifactConfigResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -4473753317754412000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega config completa da capability solicitada.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -8456839613946166000,
+        "m_classType": "EndIfAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -3584764843944663000,
+        "m_classType": "IfConditionAction",
+        "m_comment": "Carrega config contextual de solution quando solicitada.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "solution",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Requested Artifact Type",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -7310864807781930000,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "read_json",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "solutions/{lv=Requested Artifact Id}/config.json",
+          "Json Path": "$",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_ArtifactConfigResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2639187013820414500,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Carrega config completa da solution solicitada.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -6974047037095833000,
+        "m_classType": "EndIfAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nfunction parseMaybe(raw) {\n  const s = String(raw || \"\").trim();\n  if (!s) return {};\n  try { return JSON.parse(s); } catch(e) { return s; }\n}\nfunction boolText(raw) { return String(raw || \"\").toLowerCase() === \"true\"; }\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: { timestamp: new Date().toISOString(), source: \"[CDXMS] Bootstrap\", version: VERSION, session_id: String(`{lv=Session Id}` || \"\"), correlation_id: String(`{lv=Correlation Id}` || \"\") }\n  });\n}\nconst extra = { bootstrap_status:\"context_loaded\", requested_artifact_type:String(`{lv=Requested Artifact Type}`||\"\"), requested_artifact_id:String(`{lv=Requested Artifact Id}`||\"\"), context:{ settings:parseMaybe(`{lv=Tmp_SettingsResult[data][value]}`), registry:parseMaybe(`{lv=Tmp_RegistryResult[data][value]}`), bootstrap_config:parseMaybe(`{lv=Tmp_BootstrapConfigResult[data][value]}`), artifact_config:parseMaybe(`{lv=Tmp_ArtifactConfigResult[data][value]}`) } };\nresult(true, \"success\", \"load_context\", \"Contexto local carregado pelo Bootstrap.\", extra, null);\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -3398246305929203700,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta Resultado de load_context com contexto completo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -7709496150699726000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado de load_context.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -6696886574186182000,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra load_context.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dontLogIfConditionIsFalse": true,
+        "disableLogging": false,
+        "m_SIGUID": -739467003198517800,
+        "m_classType": "ElseIfConditionAction",
+        "m_comment": "Branch: get_status.",
+        "m_constraintList": [
+          {
+            "checkCase": true,
+            "dictionaryKeys": {
+              "keys": []
+            },
+            "dictionaryType": 2,
+            "enableRegex": false,
+            "m_booleanValue": false,
+            "m_doubleValue": 0,
+            "m_intCompareVariable": false,
+            "m_intGreaterThan": false,
+            "m_intLessThan": false,
+            "m_intNotEqual": false,
+            "m_intValue": 0,
+            "m_otherValueToCompare": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "m_stringComparisonType": 0,
+            "m_stringEqual": true,
+            "m_stringValue": "get_status",
+            "m_variable": {
+              "dictionary": {
+                "entries": [],
+                "isArray": false,
+                "variableType": 4,
+                "type": "Dictionary"
+              },
+              "isActionBlockWorkingVar": false,
+              "isLocalVar": true,
+              "isSecure": false,
+              "m_booleanValue": false,
+              "m_decimalValue": 0,
+              "m_intValue": 0,
+              "m_name": "Operation",
+              "m_stringValue": "",
+              "m_type": 2,
+              "supportsInput": true,
+              "supportsOutput": true
+            },
+            "disableLogging": false,
+            "m_SIGUID": -6781308185993419000,
+            "m_classType": "MacroDroidVariableConstraint",
+            "m_comment": "",
+            "m_constraintList": [],
+            "m_isDisabled": false,
+            "m_isOrCondition": false
+          }
+        ],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": ".cdxms_root.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RootResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2498830949842264000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica sentinel raiz.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/manifest.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_CoreManifestResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -5242202618556208000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica manifest do core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/settings.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_SettingsResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -8498288843361137000,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica settings do core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionBlockId": -8263168847136168061,
+        "actionBlockName": "[CDXMS] Json Config Manager",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {
+          "Merge Strategy": "deep_merge",
+          "Pretty Print?": "true",
+          "Operation": "exists",
+          "Default Json": "",
+          "Create If Missing?": "false",
+          "Value Json": "",
+          "File Path": "core/registry.json",
+          "Json Path": "",
+          "Folder Path": ""
+        },
+        "outputDictionaryMap": {
+          "Resultado": {
+            "keys": []
+          }
+        },
+        "outputVarsMap": {
+          "Resultado": "Tmp_RegistryResult"
+        },
+        "disableLogging": false,
+        "m_SIGUID": -2161616589573885200,
+        "m_classType": "ActionBlockAction",
+        "m_comment": "Verifica registry do core.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nconst ARTIFACT_ID = \"bootstrap\";\nconst VERSION = \"1.0.0\";\nfunction parseMaybe(raw) {\n  const s = String(raw || \"\").trim();\n  if (!s) return {};\n  try { return JSON.parse(s); } catch(e) { return s; }\n}\nfunction boolText(raw) { return String(raw || \"\").toLowerCase() === \"true\"; }\nfunction result(success, status, operation, message, data, error) {\n  return JSON.stringify({\n    schema_version: 1,\n    namespace: \"CDXMS\",\n    success: success === true,\n    status: String(status || (success ? \"success\" : \"error\")),\n    artifact_type: \"capability\",\n    artifact_id: ARTIFACT_ID,\n    operation: String(operation || \"\"),\n    message: String(message || \"\"),\n    data: data && typeof data === \"object\" && !Array.isArray(data) ? data : {},\n    error: error || null,\n    meta: { timestamp: new Date().toISOString(), source: \"[CDXMS] Bootstrap\", version: VERSION, session_id: String(`{lv=Session Id}` || \"\"), correlation_id: String(`{lv=Correlation Id}` || \"\") }\n  });\n}\nconst extra = (() => { const files = { root: boolText(`{lv=Tmp_RootResult[data][exists]}`), core_manifest: boolText(`{lv=Tmp_CoreManifestResult[data][exists]}`), settings: boolText(`{lv=Tmp_SettingsResult[data][exists]}`), registry: boolText(`{lv=Tmp_RegistryResult[data][exists]}`) }; const ready = files.root && files.core_manifest && files.settings && files.registry; return { bootstrap_status: ready ? \"ready\" : \"incomplete\", ready, files }; })();\nresult(true, \"success\", \"get_status\", \"Status local do Bootstrap obtido.\", extra, null);\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -8447460448419062000,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta Resultado de get_status.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -8299632909775453000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica Resultado de get_status.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -5225950906414000000,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra get_status.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dontLogIfConditionIsFalse": false,
+        "disableLogging": false,
+        "m_SIGUID": -5467968645521319000,
+        "m_classType": "ElseAction",
+        "m_comment": "Fallback de segurança para operação não roteada.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "\nfunction result(success,status,operation,message,data,error){return JSON.stringify({schema_version:1,namespace:\"CDXMS\",success:success===true,status:String(status),artifact_type:\"capability\",artifact_id:\"bootstrap\",operation:String(operation),message:String(message),data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:\"[CDXMS] Bootstrap\",version:\"1.0.0\",session_id:String(`{lv=Session Id}`||\"\"),correlation_id:String(`{lv=Correlation Id}`||\"\")}});}\nresult(false,\"error\",\"{lv=Operation}\",\"A operação informada não foi roteada pelo Bootstrap.\",{},{code:\"UNSUPPORTED_OPERATION\",message:\"A operação informada não foi roteada pelo Bootstrap.\",details:{},recoverable:false});\n",
+        "stringVariableName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -5772629204452427000,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Monta erro de fallback.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_ResultJson",
+        "disableLogging": false,
+        "m_SIGUID": -5724594696467150000,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica erro de fallback.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "disableLogging": false,
+        "m_SIGUID": -8970428862199487000,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra fallback.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -8928120692835320000,
+        "m_classType": "EndIfAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "disableLogging": false,
+        "m_SIGUID": -865963000946992300,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_constraintList": [],
+    "m_description": "Coordenador local de inicialização do ecossistema CDXMS. Usa o JCM para garantir core, runtime e carregar contexto local. Não conhece GitHub/CDN e não executa lifecycle de artifacts.",
+    "m_descriptionOpen": true,
+    "m_enabled": true,
+    "m_excludeLog": false,
+    "m_headingColor": -11382190,
+    "m_isOrCondition": false,
+    "m_name": "[CDXMS] Bootstrap",
+    "m_triggerList": []
+  },
+  "macroExportVersion": 1
+}

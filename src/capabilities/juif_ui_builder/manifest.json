@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "juif_ui_builder",
+    "name": "JUIF UI Builder",
+    "display_name": "[CDXMS] JUIF UI Builder",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Transforma Config Json e UI Schema Json em contrato JUIF normalizado, com bindings, mapping e shell persistente opcional.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] JUIF UI Builder",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "java_ui_framework": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "build_ui"
+  ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "purity": "pure",
+  "side_effects": [],
+  "component_catalog": {
+    "version": "1.0.0",
+    "source": "capabilities/java_ui_framework/component_catalog.json",
+    "supported_component_count": 36
+  },
+  "implementation_audit": {
+    "stage": "professionally_redesigned_ready_for_device_homologation",
+    "source_base": "feat/create-ecosystem-core@8fdb41c5eebcb9bd03d6da6f91df0f6fd53b6b08",
+    "prototype_preserved": true,
+    "manual_homologation_required": true,
+    "action_profile": {
+      "total_actions": 5,
+      "javascript_actions": 1,
+      "json_parse_actions": 1
+    },
+    "export_checked_against_contract": true,
+    "result_contract_verified": true,
+    "forbidden_result_fields_removed": true,
+    "default_ui_pages": 7,
+    "default_ui_component_coverage": 36,
+    "default_ui_shell": "persistent_hosts",
+    "catalog_navigation_state_unified": true
+  }
+}

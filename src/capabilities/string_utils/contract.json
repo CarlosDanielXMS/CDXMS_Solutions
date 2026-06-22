@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability_contract",
+  "artifact_id": "string_utils",
+  "version": "1.0.0",
+  "action_block": "[CDXMS] String Utils",
+  "description": "Contrato da capability [CDXMS] String Utils v1.0.0.",
+  "inputs": [
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "description": "Operação técnica da String Utils.",
+      "options": [
+        "escape_json_string",
+        "unescape_json_string",
+        "normalize_text",
+        "normalize_id",
+        "to_snake_case",
+        "to_kebab_case",
+        "trim",
+        "collapse_whitespace",
+        "replace_text",
+        "contains_text",
+        "equals_text",
+        "starts_with",
+        "ends_with",
+        "is_blank",
+        "sanitize_file_name",
+        "sanitize_path_segment",
+        "truncate"
+      ]
+    },
+    {
+      "name": "Text",
+      "type": "string",
+      "required": "conditional",
+      "description": "Texto principal."
+    },
+    {
+      "name": "Search Text",
+      "type": "string",
+      "required": "conditional",
+      "description": "Texto de busca."
+    },
+    {
+      "name": "Replace Text",
+      "type": "string",
+      "required": "conditional",
+      "description": "Texto substituto."
+    },
+    {
+      "name": "Regex Pattern",
+      "type": "string",
+      "required": false,
+      "description": "Regex opcional."
+    },
+    {
+      "name": "Regex Flags",
+      "type": "string",
+      "required": false,
+      "description": "Flags da regex."
+    },
+    {
+      "name": "Case Mode",
+      "type": "string",
+      "required": false,
+      "description": "none, lower, upper ou title."
+    },
+    {
+      "name": "Comparison Mode",
+      "type": "string",
+      "required": false,
+      "description": "Modo de comparação."
+    },
+    {
+      "name": "Separator",
+      "type": "string",
+      "required": false,
+      "description": "Reservado para compatibilidade."
+    },
+    {
+      "name": "Max Length",
+      "type": "string",
+      "required": false,
+      "description": "Comprimento máximo opcional."
+    },
+    {
+      "name": "Allow Slash?",
+      "type": "boolean",
+      "required": false,
+      "description": "Preserva / em sanitize_path_segment."
+    },
+    {
+      "name": "Strict Mode?",
+      "type": "boolean",
+      "required": false,
+      "description": "Validação rígida."
+    },
+    {
+      "name": "Config Json",
+      "type": "string",
+      "required": false,
+      "description": "Config opcional."
+    },
+    {
+      "name": "Context Json",
+      "type": "string",
+      "required": false,
+      "description": "Contexto adicional."
+    },
+    {
+      "name": "Session Id",
+      "type": "string",
+      "required": false,
+      "description": "Id de sessão."
+    },
+    {
+      "name": "Correlation Id",
+      "type": "string",
+      "required": false,
+      "description": "Id de correlação."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Saída pública única no contrato CDXMS."
+    }
+  ],
+  "operations": {
+    "escape_json_string": {
+      "description": "Executa escape_json_string."
+    },
+    "unescape_json_string": {
+      "description": "Executa unescape_json_string."
+    },
+    "normalize_text": {
+      "description": "Executa normalize_text."
+    },
+    "normalize_id": {
+      "description": "Executa normalize_id."
+    },
+    "to_snake_case": {
+      "description": "Executa to_snake_case."
+    },
+    "to_kebab_case": {
+      "description": "Executa to_kebab_case."
+    },
+    "trim": {
+      "description": "Executa trim."
+    },
+    "collapse_whitespace": {
+      "description": "Executa collapse_whitespace."
+    },
+    "replace_text": {
+      "description": "Executa replace_text."
+    },
+    "contains_text": {
+      "description": "Executa contains_text."
+    },
+    "equals_text": {
+      "description": "Executa equals_text."
+    },
+    "starts_with": {
+      "description": "Executa starts_with."
+    },
+    "ends_with": {
+      "description": "Executa ends_with."
+    },
+    "is_blank": {
+      "description": "Executa is_blank."
+    },
+    "sanitize_file_name": {
+      "description": "Executa sanitize_file_name."
+    },
+    "sanitize_path_segment": {
+      "description": "Executa sanitize_path_segment."
+    },
+    "truncate": {
+      "description": "Executa truncate."
+    }
+  },
+  "errors": [
+    "STRING_INVALID_REGEX",
+    "STRING_EMPTY_SEARCH_TEXT",
+    "STRING_INVALID_MAX_LENGTH",
+    "STRING_TRANSFORM_FAILED",
+    "INVALID_JSON",
+    "MISSING_REQUIRED_INPUT",
+    "UNSUPPORTED_OPERATION"
+  ],
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  }
+}

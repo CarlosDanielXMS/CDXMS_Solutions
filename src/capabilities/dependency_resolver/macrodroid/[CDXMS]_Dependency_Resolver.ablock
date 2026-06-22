@@ -1,0 +1,294 @@
+{
+  "globalVariables": [],
+  "macro": {
+    "isInputExpanded": true,
+    "isLocalExpanded": false,
+    "isOutputExpanded": true,
+    "isTestMode": false,
+    "aiGenerated": 0,
+    "breakpoints": [],
+    "disabledTimestamp": 0,
+    "exportedActionBlocks": [],
+    "forceEvenIfNotEnabledTimestamp": 0,
+    "isActionBlock": true,
+    "isExtra": false,
+    "isFavourite": false,
+    "lastEditedTimestamp": 1782000000000,
+    "localVariables": [
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Operation",
+        "m_stringValue": "validate_dependencies",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Operação técnica do Dependency Resolver."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Artifact Manifest Json",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Manifest do artifact alvo."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Installed Registry Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Registry instalado."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Available Catalog Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Catálogo disponível."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Dependency Policy Json",
+        "m_stringValue": "{}",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Política de resolução."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Strict Mode?",
+        "m_stringValue": "",
+        "m_type": 0,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Bloqueia inconsistências."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Session Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de sessão."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Correlation Id",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": true,
+        "supportsOutput": false,
+        "description": "Id de correlação."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": false,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Resultado",
+        "m_stringValue": "",
+        "m_type": 4,
+        "supportsInput": false,
+        "supportsOutput": true,
+        "description": "Saída pública única no contrato universal CDXMS."
+      },
+      {
+        "dictionary": {
+          "entries": [],
+          "isArray": false,
+          "variableType": 4,
+          "type": "Dictionary"
+        },
+        "isActionBlockWorkingVar": true,
+        "isLocalVar": true,
+        "isSecure": false,
+        "m_booleanValue": false,
+        "m_decimalValue": 0.0,
+        "m_intValue": 0,
+        "m_name": "Tmp_DependencyWorkJson",
+        "m_stringValue": "",
+        "m_type": 2,
+        "supportsInput": false,
+        "supportsOutput": false,
+        "description": "JSON textual interno antes da publicação em Resultado."
+      }
+    ],
+    "localVarsAlphabetical": false,
+    "m_GUID": -7339589264797428219,
+    "m_actionList": [
+      {
+        "actionGroupName": "01 — Processar",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false,
+        "actionLabel": "01 — Processar [CDXMS] Dependency Resolver",
+        "disableLogging": false,
+        "m_SIGUID": -81412165105949799,
+        "m_classType": "ActionGroupAction",
+        "m_comment": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": "const ID=\"dependency_resolver\",VERSION=\"1.0.0\";function t(v){return String(v==null?\"\":v).trim()}function p(v,d,n){let s=t(v);if(!s)return d;try{return JSON.parse(s)}catch(e){throw {code:\"INVALID_JSON\",message:\"JSON inválido em \"+n+\".\",details:{reason:String(e.message||e)}}}}function o(v){return v&&typeof v===\"object\"&&!Array.isArray(v)?v:{}}function arr(v){return Array.isArray(v)?v:[]}function aid(m){let n=o(m.capability);if(!Object.keys(n).length)n=o(m.solution);if(!Object.keys(n).length)n=o(m.package);return {artifact_type:t(m.artifact_type)||\"capability\",artifact_id:t(m.artifact_id||n.id),version:t(m.version||n.version)||\"0.0.0\",display_name:t(n.display_name||n.name||n.id)}}function deps(m){let a=[],req=o(m.requires),caps=o(req.capabilities);Object.keys(caps).forEach(k=>a.push({artifact_type:\"capability\",artifact_id:k,version_constraint:t(caps[k])||\"*\",required:true}));if(req.core_min_version)a.push({artifact_type:\"core\",artifact_id:\"core\",version_constraint:\">=\"+req.core_min_version,required:true});arr(m.dependencies).forEach(d=>a.push({artifact_type:t(d.artifact_type||d.type)||\"capability\",artifact_id:t(d.artifact_id||d.id),version_constraint:t(d.version_constraint||d.version||d.constraint)||\"*\",required:d.required!==false}));return a.filter(d=>d.artifact_id)}function versions(v){let m=t(v).replace(/^v/i,\"\").match(/^(\\d+)(?:\\.(\\d+))?(?:\\.(\\d+))?/);return m?[+m[1],+(m[2]||0),+(m[3]||0)]:[0,0,0]}function cmp(a,b){a=versions(a);b=versions(b);for(let i=0;i<3;i++){if(a[i]>b[i])return 1;if(a[i]<b[i])return -1}return 0}function sat(v,c){c=t(c)||\"*\";if(c===\"*\"||c===\"any\")return true;return c.split(/\\s+/).every(x=>{let m=x.match(/^(>=|<=|>|<|=)?(.+)$/),q=cmp(v,m[2]);return !m[1]?q===0:m[1]===\">=\"?q>=0:m[1]===\"<=\"?q<=0:m[1]===\">\"?q>0:m[1]===\"<\"?q<0:q===0})}function entries(r){let z={},R=o(r);[[\"capability\",o(R.installed_capabilities)],[\"solution\",o(R.installed_solutions)],[\"package\",o(R.installed_packages)]].forEach(pair=>Object.keys(pair[1]).forEach(k=>z[pair[0]+\":\"+k]={version:t(pair[1][k].version)||\"0.0.0\",raw:pair[1][k]}));if(R.core_version)z[\"core:core\"]={version:R.core_version};return z}function result(ok,status,op,msg,data,error){return {schema_version:1,namespace:\"CDXMS\",success:ok,status:status,artifact_type:\"capability\",artifact_id:ID,operation:op,message:msg,data:data||{},error:error||null,meta:{timestamp:new Date().toISOString(),source:\"[CDXMS] Dependency Resolver\",version:VERSION,session_id:t(`{lv=Session Id}`),correlation_id:t(`{lv=Correlation Id}`)}}}let op=t(`{lv=Operation}`),res;try{let m=p(`{lv=Artifact Manifest Json}`,{},\"Artifact Manifest Json\"),a=aid(m);if(!a.artifact_id)throw {code:\"DEPENDENCY_TARGET_ARTIFACT_UNIDENTIFIED\",message:\"Artifact alvo não identificado.\"};let ds=deps(m),reg=entries(p(`{lv=Installed Registry Json}`,{},\"Installed Registry Json\")),missing=[],present=[],checks=[],conflicts=[];ds.forEach(d=>{let e=reg[d.artifact_type+\":\"+d.artifact_id];if(!e){missing.push(d);checks.push(Object.assign({},d,{installed:false,compatible:!d.required}))}else{let ok=sat(e.version,d.version_constraint);present.push(Object.assign({},d,{installed_version:e.version,compatible:ok}));checks.push(Object.assign({},d,{installed:true,installed_version:e.version,compatible:ok}));if(!ok&&d.required)conflicts.push(Object.assign({},d,{installed_version:e.version}))}});let blocked=missing.some(d=>d.required)||conflicts.length>0,plan={artifact:a,status:blocked?\"blocked\":\"ready\",blocked:blocked,dependencies:ds,missing_dependencies:missing,present_dependencies:present,version_checks:checks,conflicts:conflicts,install_order:missing.map(d=>({artifact_type:d.artifact_type,artifact_id:d.artifact_id,version_constraint:d.version_constraint})).concat([{artifact_type:a.artifact_type,artifact_id:a.artifact_id,version_constraint:\"=\"+a.version}])};let data={artifact:a,dependencies:ds,dependency_count:ds.length,missing_dependencies:missing,present_dependencies:present,missing_count:missing.length,version_checks:checks,conflicts:conflicts,compatible:conflicts.length===0,dependency_graph:{root:a.artifact_id,nodes:[a].concat(ds),edges:ds.map(d=>({from:a.artifact_id,to:d.artifact_id,required:d.required}))},cycles:[],has_cycle:false,install_order:plan.install_order,blocked:blocked,resolution_plan:plan,valid:!blocked,warnings:[]};if(![\"validate_dependencies\",\"get_missing_dependencies\",\"check_version_constraints\",\"build_dependency_graph\",\"build_resolution_plan\",\"detect_dependency_cycles\",\"sort_install_order\",\"validate_install_plan\"].includes(op))throw {code:\"UNSUPPORTED_OPERATION\",message:\"Operação não suportada.\"};res=result(!blocked||op===\"validate_dependencies\"||op===\"build_dependency_graph\"||op===\"detect_dependency_cycles\",blocked?\"blocked\":\"success\",op,blocked?\"Resolução bloqueada por dependências ausentes ou incompatíveis.\":\"Dependências processadas com sucesso.\",data,blocked?{code:\"DEPENDENCY_RESOLUTION_BLOCKED\",message:\"Plano bloqueado.\",details:{missing_dependencies:missing,conflicts:conflicts},recoverable:true}:null)}catch(e){res=result(false,\"error\",op,e.message||\"Falha ao resolver dependências.\",{}, {code:e.code||\"DEPENDENCY_RESOLUTION_FAILED\",message:e.message||\"Falha ao resolver dependências.\",details:e.details||{},recoverable:true})}return JSON.stringify(res);",
+        "stringVariableName": "Tmp_DependencyWorkJson",
+        "actionLabel": "Executar motor interno",
+        "disableLogging": false,
+        "m_SIGUID": -733463215325014726,
+        "m_classType": "JavaScriptAction",
+        "m_comment": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "Resultado",
+        "stringVarName": "Tmp_DependencyWorkJson",
+        "actionLabel": "Publicar Resultado",
+        "disableLogging": false,
+        "m_SIGUID": -127288391603165025,
+        "m_classType": "JsonParseAction",
+        "m_comment": "Publica a saída pública única.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "actionLabel": "Fim — Processar",
+        "disableLogging": false,
+        "m_SIGUID": -474269040789405094,
+        "m_classType": "ActionGroupEndAction",
+        "m_comment": "Fecha o grupo.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      },
+      {
+        "outputOption": 0,
+        "actionLabel": "Encerrar Action Block",
+        "disableLogging": false,
+        "m_SIGUID": -863145240598484335,
+        "m_classType": "ExitActionBlockAction",
+        "m_comment": "Encerra explicitamente o Action Block.",
+        "m_constraintList": [],
+        "m_isDisabled": false,
+        "m_isOrCondition": false
+      }
+    ],
+    "m_category": "CDXMS",
+    "m_description": "Resolvedor puro/stateless de dependências, versões, ciclos e ordem de instalação.",
+    "m_name": "[CDXMS] Dependency Resolver",
+    "m_triggerList": [],
+    "m_constraintList": [],
+    "m_enabled": true
+  },
+  "macroExportVersion": 1
+}

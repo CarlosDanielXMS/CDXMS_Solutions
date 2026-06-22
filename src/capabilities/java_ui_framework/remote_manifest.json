@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "java_ui_framework",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/java_ui_framework/manifest.json",
+      "target_path": "capabilities/java_ui_framework/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "e757b3bc516caa120a55af4cadbbb51d9035786594abd5d36745d2df7b576999"
+    },
+    {
+      "path": "capabilities/java_ui_framework/contract.json",
+      "target_path": "capabilities/java_ui_framework/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "dc8dc144e53fd2721ebb87cf09bd79d1dabf8c2fdf7045819a3c5eb40e5d5fae"
+    },
+    {
+      "path": "capabilities/java_ui_framework/config.default.json",
+      "target_path": "capabilities/java_ui_framework/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "9bfe188a6cae3bcd4a6b38366c010783b20bf7b26590f0bdf89fb31a5a668534"
+    },
+    {
+      "path": "capabilities/java_ui_framework/component_catalog.json",
+      "target_path": "capabilities/java_ui_framework/component_catalog.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "component_catalog",
+      "checksum_sha256": "361a9f062b1e82fbf2a603c57bdac92600eec11e9e3e9ad29515c84d91b926b0"
+    },
+    {
+      "path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
+      "target_path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "4168ffc4573020100e267a1e174457c67b65701e9d1e000e852ff0983efce206"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Java UI Framework",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  },
+  "updated_at": "2026-06-22"
+}

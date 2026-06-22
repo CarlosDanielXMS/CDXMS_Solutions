@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "core_enums",
+  "updated_at": "",
+  "enums": {
+    "artifact_type": {
+      "core": "core",
+      "capability": "capability",
+      "solution": "solution",
+      "package": "package",
+      "catalog": "catalog"
+    },
+    "result_status": {
+      "success": "success",
+      "error": "error",
+      "cancelled": "cancelled",
+      "skipped": "skipped",
+      "not_found": "not_found",
+      "partial": "partial",
+      "blocked": "blocked"
+    },
+    "write_policy": {
+      "create_if_missing": "create_if_missing",
+      "overwrite_versioned": "overwrite_versioned",
+      "create_if_missing_or_merge": "create_if_missing_or_merge",
+      "merge_preserve_user": "merge_preserve_user",
+      "append": "append",
+      "skip_if_exists": "skip_if_exists"
+    },
+    "merge_strategy": {
+      "deep_merge": "deep_merge",
+      "preserve_existing": "preserve_existing",
+      "overwrite_existing": "overwrite_existing",
+      "replace": "replace"
+    },
+    "jcm_operation": {
+      "ensure_core": "ensure_core",
+      "repair_core": "repair_core",
+      "ensure_folder": "ensure_folder",
+      "validate_json": "validate_json",
+      "read_json": "read_json",
+      "exists": "exists",
+      "write_json": "write_json",
+      "merge_json": "merge_json",
+      "ensure_file": "ensure_file",
+      "backup_file": "backup_file",
+      "delete_file": "delete_file"
+    },
+    "bootstrap_operation": {
+      "initialize_ecosystem": "initialize_ecosystem",
+      "verify_core": "verify_core",
+      "repair_core": "repair_core",
+      "ensure_runtime": "ensure_runtime",
+      "load_context": "load_context",
+      "get_status": "get_status"
+    },
+    "result_manager_operation": {
+      "build_result": "build_result",
+      "normalize_result": "normalize_result",
+      "validate_result": "validate_result",
+      "propagate_result": "propagate_result",
+      "wrap_error": "wrap_error",
+      "register_result": "register_result"
+    },
+    "logger_operation": {
+      "log_event": "log_event",
+      "log_result": "log_result",
+      "log_error": "log_error",
+      "get_log_status": "get_log_status"
+    },
+    "log_level": {
+      "debug": "debug",
+      "info": "info",
+      "warning": "warning",
+      "error": "error",
+      "critical": "critical"
+    },
+    "log_scope": {
+      "auto": "auto",
+      "events": "events",
+      "results": "results",
+      "errors": "errors",
+      "audit": "audit",
+      "runtime": "runtime"
+    },
+    "string_utils_operation": {
+      "escape_json_string": "escape_json_string",
+      "unescape_json_string": "unescape_json_string",
+      "normalize_text": "normalize_text",
+      "normalize_id": "normalize_id",
+      "to_snake_case": "to_snake_case",
+      "to_kebab_case": "to_kebab_case",
+      "trim": "trim",
+      "collapse_whitespace": "collapse_whitespace",
+      "replace_text": "replace_text",
+      "contains_text": "contains_text",
+      "equals_text": "equals_text",
+      "starts_with": "starts_with",
+      "ends_with": "ends_with",
+      "is_blank": "is_blank",
+      "sanitize_file_name": "sanitize_file_name",
+      "sanitize_path_segment": "sanitize_path_segment",
+      "truncate": "truncate"
+    },
+    "artifact_manager_operation": {
+      "validate_artifact": "validate_artifact",
+      "get_artifact_status": "get_artifact_status",
+      "build_registry_entry": "build_registry_entry",
+      "build_install_plan": "build_install_plan",
+      "build_jcm_apply_plan": "build_jcm_apply_plan",
+      "get_target_paths": "get_target_paths",
+      "register_artifact": "register_artifact",
+      "unregister_artifact": "unregister_artifact",
+      "ensure_artifact_files": "ensure_artifact_files",
+      "install_local_artifact": "install_local_artifact",
+      "verify_local_apply": "verify_local_apply"
+    },
+    "artifact_lifecycle_status": {
+      "planned": "planned",
+      "valid": "valid",
+      "invalid": "invalid",
+      "not_installed": "not_installed",
+      "installed": "installed",
+      "disabled": "disabled",
+      "blocked": "blocked",
+      "applying": "applying",
+      "applied": "applied",
+      "verified": "verified",
+      "apply_blocked": "apply_blocked",
+      "partially_applied": "partially_applied"
+    },
+    "dependency_resolver_operation": {
+      "validate_dependencies": "validate_dependencies",
+      "get_missing_dependencies": "get_missing_dependencies",
+      "check_version_constraints": "check_version_constraints",
+      "build_dependency_graph": "build_dependency_graph",
+      "build_resolution_plan": "build_resolution_plan",
+      "detect_dependency_cycles": "detect_dependency_cycles",
+      "sort_install_order": "sort_install_order",
+      "validate_install_plan": "validate_install_plan"
+    },
+    "dependency_resolution_status": {
+      "ready": "ready",
+      "partial": "partial",
+      "blocked": "blocked"
+    },
+    "remote_source_type": {
+      "github_raw": "github_raw"
+    },
+    "remote_source_manager_operation": {
+      "validate_source": "validate_source",
+      "get_source_status": "get_source_status",
+      "fetch_catalog": "fetch_catalog",
+      "fetch_release_manifest": "fetch_release_manifest",
+      "fetch_remote_manifest": "fetch_remote_manifest",
+      "fetch_json": "fetch_json"
+    },
+    "remote_document_type": {
+      "local_catalog": "local_catalog",
+      "remote_artifact_manifest": "remote_artifact_manifest",
+      "release_manifest": "release_manifest",
+      "cdxms_json_document": "cdxms_json_document"
+    },
+    "file_integrity_operation": {
+      "calculate_sha256": "calculate_sha256",
+      "verify_sha256": "verify_sha256"
+    },
+    "file_integrity_verification_state": {
+      "calculated": "calculated",
+      "verified": "verified",
+      "mismatch": "mismatch",
+      "file_not_found": "file_not_found",
+      "invalid_file_type": "invalid_file_type",
+      "permission_denied": "permission_denied",
+      "executor_unavailable": "executor_unavailable",
+      "execution_failed": "execution_failed",
+      "invalid_output": "invalid_output",
+      "preflight_rejected": "preflight_rejected",
+      "failed": "failed"
+    }
+  }
+}

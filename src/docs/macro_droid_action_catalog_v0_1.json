@@ -1,0 +1,4185 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "source_file": "All_Actions.ablock",
+  "macro_name": "All Actions",
+  "macro_export_version": 1,
+  "total_actions": 189,
+  "unique_action_classes": 171,
+  "actions": [
+    {
+      "class_type": "ActionBlockAction",
+      "count": 1,
+      "config_keys": [
+        "actionBlockId",
+        "actionBlockName",
+        "continueActionsWithoutWaiting",
+        "inputDictionaryMap",
+        "inputVarsMap",
+        "outputDictionaryMap",
+        "outputVarsMap"
+      ],
+      "sample_index": 119,
+      "sample_config": {
+        "actionBlockId": -8974663416693308765,
+        "actionBlockName": "[CDXMS] Bootstrap",
+        "continueActionsWithoutWaiting": false,
+        "inputDictionaryMap": {},
+        "inputVarsMap": {},
+        "outputDictionaryMap": {},
+        "outputVarsMap": {}
+      }
+    },
+    {
+      "class_type": "ActionGroupAction",
+      "count": 1,
+      "config_keys": [
+        "actionGroupName",
+        "childrenCollapsed",
+        "dontLogIfConditionIsFalse"
+      ],
+      "sample_index": 99,
+      "sample_config": {
+        "actionGroupName": "teste",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      }
+    },
+    {
+      "class_type": "ActionGroupEndAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 100,
+      "sample_config": {}
+    },
+    {
+      "class_type": "AddCalendarEntryAction",
+      "count": 1,
+      "config_keys": [
+        "enableNotification",
+        "m_allDayEvent",
+        "m_availability",
+        "m_calendarId",
+        "m_detail",
+        "m_durationValue",
+        "m_fixedDay",
+        "m_fixedDays",
+        "m_fixedHour",
+        "m_fixedHourText",
+        "m_fixedMinute",
+        "m_fixedMinuteText",
+        "m_fixedMonth",
+        "m_fixedMonths",
+        "m_fixedTime",
+        "m_fixedYear",
+        "m_relativeDays",
+        "m_relativeHours",
+        "m_relativeMinutes",
+        "m_timeUnitForVariable",
+        "m_title",
+        "m_useFixedDate",
+        "m_useVariableTimeInFuture",
+        "notificationMinutesBefore"
+      ],
+      "sample_index": 146,
+      "sample_config": {
+        "enableNotification": false,
+        "m_allDayEvent": false,
+        "m_availability": 0,
+        "m_calendarId": "1",
+        "m_detail": "teste",
+        "m_durationValue": "0",
+        "m_fixedDay": "16",
+        "m_fixedDays": 0,
+        "m_fixedHour": 0,
+        "m_fixedHourText": "0",
+        "m_fixedMinute": 0,
+        "m_fixedMinuteText": "0",
+        "m_fixedMonth": "6",
+        "m_fixedMonths": 0,
+        "m_fixedTime": false,
+        "m_fixedYear": "2026",
+        "m_relativeDays": 0,
+        "m_relativeHours": 1,
+        "m_relativeMinutes": 0,
+        "m_timeUnitForVariable": 0,
+        "m_title": "teste",
+        "m_useFixedDate": false,
+        "m_useVariableTimeInFuture": true,
+        "notificationMinutesBefore": 0
+      }
+    },
+    {
+      "class_type": "AndroidShortcutsAction",
+      "count": 5,
+      "config_keys": [
+        "m_option"
+      ],
+      "sample_index": 20,
+      "sample_config": {
+        "m_option": 0
+      }
+    },
+    {
+      "class_type": "AndroidWearAction",
+      "count": 3,
+      "config_keys": [
+        "m_actionEnabledStates",
+        "m_actionIcons",
+        "m_actionMacroGuids",
+        "m_actionNames",
+        "m_brightness",
+        "m_notificationSubject",
+        "m_notificationText",
+        "m_option",
+        "m_vibratePattern",
+        "m_wifiOption"
+      ],
+      "sample_index": 63,
+      "sample_config": {
+        "m_actionEnabledStates": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "m_actionIcons": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "m_actionMacroGuids": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "m_actionNames": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "m_brightness": 0,
+        "m_option": 4,
+        "m_vibratePattern": 0,
+        "m_wifiOption": 0
+      }
+    },
+    {
+      "class_type": "AnimationOverlayAction",
+      "count": 1,
+      "config_keys": [
+        "animName",
+        "animationType",
+        "drawOverSystemApps",
+        "height",
+        "hideOnClick",
+        "hideOnLongClick",
+        "ignoreCache",
+        "isClearAnimation",
+        "longClickMacroGuidToRun",
+        "longClickMacroNameToRun",
+        "macroGuidToRun",
+        "macroNameToRun",
+        "opacity",
+        "optionValue",
+        "selectedAnimation",
+        "selectedAnimationId",
+        "showOption",
+        "useAllFilesAccessGif",
+        "width",
+        "xPosition",
+        "yPosition"
+      ],
+      "sample_index": 144,
+      "sample_config": {
+        "animName": "Sino",
+        "animationType": 0,
+        "drawOverSystemApps": false,
+        "height": 1.0,
+        "hideOnClick": false,
+        "hideOnLongClick": false,
+        "ignoreCache": false,
+        "isClearAnimation": false,
+        "longClickMacroGuidToRun": 0,
+        "longClickMacroNameToRun": "(Desativada)",
+        "macroGuidToRun": 0,
+        "macroNameToRun": "(Desativada)",
+        "opacity": 1.0,
+        "optionValue": 1,
+        "selectedAnimation": {
+          "animationId": "BELL",
+          "descriptionId": 2132018425,
+          "legacyResourceId": 2131886083,
+          "resourceId": 2131951619
+        },
+        "selectedAnimationId": "BELL",
+        "showOption": 0,
+        "useAllFilesAccessGif": false,
+        "width": 1.0,
+        "xPosition": 0.5,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "AnswerCallAction",
+      "count": 1,
+      "config_keys": [
+        "m_selectedIndex"
+      ],
+      "sample_index": 167,
+      "sample_config": {
+        "m_selectedIndex": 1
+      }
+    },
+    {
+      "class_type": "ArrayManipulationAction",
+      "count": 1,
+      "config_keys": [
+        "endIndex",
+        "inputArrayKeys",
+        "inputArrayVarName",
+        "numericalExpressionFilterText",
+        "option",
+        "outputArrayKeys",
+        "outputArrayVarName",
+        "startIndex",
+        "stringFilterIgnoreCase",
+        "stringFilterOption",
+        "stringFilterRegex",
+        "stringFilterText"
+      ],
+      "sample_index": 181,
+      "sample_config": {
+        "endIndex": 0,
+        "inputArrayKeys": {
+          "keys": []
+        },
+        "inputArrayVarName": "0 entradas",
+        "numericalExpressionFilterText": "",
+        "option": 3,
+        "outputArrayKeys": {
+          "keys": []
+        },
+        "outputArrayVarName": "0 entradas",
+        "startIndex": 0,
+        "stringFilterIgnoreCase": true,
+        "stringFilterOption": 0,
+        "stringFilterRegex": false,
+        "stringFilterText": "teste"
+      }
+    },
+    {
+      "class_type": "AuthenticateUserAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "option",
+        "preventPasswordPin",
+        "subtitle",
+        "title",
+        "variableName"
+      ],
+      "sample_index": 1,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "option": 0,
+        "preventPasswordPin": false,
+        "subtitle": "teste",
+        "title": "teste",
+        "variableName": "teste"
+      }
+    },
+    {
+      "class_type": "BlockTouchesAction",
+      "count": 1,
+      "config_keys": [
+        "bgColor",
+        "height",
+        "option",
+        "showBlockedArea",
+        "useAccessibilityService",
+        "width",
+        "xPosition",
+        "yPosition"
+      ],
+      "sample_index": 151,
+      "sample_config": {
+        "bgColor": 2130706432,
+        "height": 1.0,
+        "option": 1,
+        "showBlockedArea": false,
+        "useAccessibilityService": false,
+        "width": 1.0,
+        "xPosition": 0.5,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "BreakFromLoopAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 58,
+      "sample_config": {}
+    },
+    {
+      "class_type": "BubbleNotificationAction",
+      "count": 1,
+      "config_keys": [
+        "autoExpand",
+        "blockNextAction",
+        "dimBackground",
+        "disableHtml",
+        "displayOverStatusBar",
+        "iconText",
+        "iconType",
+        "liveNotification",
+        "m_backgroundColor",
+        "m_iconBgColor",
+        "m_imageResourceId",
+        "m_macroGUIDToRun",
+        "m_notificationChannelType",
+        "m_notificationSubject",
+        "m_notificationText",
+        "m_overwriteExisting",
+        "m_priority",
+        "m_ringtoneIndex",
+        "m_ringtoneName",
+        "m_runMacroWhenPressed",
+        "m_secondaryClassType",
+        "m_textColor",
+        "maintainSpaces",
+        "notificationActionButtons",
+        "notificationChannelName",
+        "notificationIdString",
+        "notificatonId",
+        "preventAndroid16Grouping",
+        "preventBackButtonClosing",
+        "preventRemovalByBin",
+        "showAsOverlayOption",
+        "yPosition"
+      ],
+      "sample_index": 137,
+      "sample_config": {
+        "m_secondaryClassType": "BubbleNotificationAction",
+        "autoExpand": true,
+        "blockNextAction": false,
+        "dimBackground": true,
+        "disableHtml": false,
+        "displayOverStatusBar": false,
+        "iconText": "",
+        "iconType": 0,
+        "liveNotification": false,
+        "m_backgroundColor": -16777216,
+        "m_iconBgColor": -769226,
+        "m_imageResourceId": 0,
+        "m_macroGUIDToRun": 0,
+        "m_notificationChannelType": 0,
+        "m_notificationSubject": "teste",
+        "m_notificationText": "teste",
+        "m_overwriteExisting": false,
+        "m_priority": 0,
+        "m_ringtoneIndex": 0,
+        "m_ringtoneName": "Padrão",
+        "m_runMacroWhenPressed": false,
+        "m_textColor": -1,
+        "maintainSpaces": false,
+        "notificationActionButtons": [
+          {
+            "clearOnPress": false,
+            "label": "teste",
+            "macroGuid": 0
+          }
+        ],
+        "notificationChannelName": "Ação de notificação",
+        "notificationIdString": "0",
+        "notificatonId": 0,
+        "preventAndroid16Grouping": false,
+        "preventBackButtonClosing": false,
+        "preventRemovalByBin": false,
+        "showAsOverlayOption": 1,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "CameraFlashLightAction",
+      "count": 1,
+      "config_keys": [
+        "brightnessPercent",
+        "m_launchForeground",
+        "m_state",
+        "supportsBrightness"
+      ],
+      "sample_index": 14,
+      "sample_config": {
+        "brightnessPercent": 100,
+        "m_launchForeground": false,
+        "m_state": 2,
+        "supportsBrightness": true
+      }
+    },
+    {
+      "class_type": "CameraNotificationCircleAction",
+      "count": 1,
+      "config_keys": [
+        "alpha",
+        "circleHeightDp",
+        "circleWidthDp",
+        "colors",
+        "drawOverSystemApps",
+        "featherEffect",
+        "horizontalPositionPercent",
+        "option",
+        "thicknessDp",
+        "timeoutSeconds",
+        "verticalPositionPercent"
+      ],
+      "sample_index": 133,
+      "sample_config": {
+        "alpha": 1.0,
+        "circleHeightDp": 32,
+        "circleWidthDp": 24,
+        "colors": [
+          -65536,
+          -16711936
+        ],
+        "drawOverSystemApps": false,
+        "featherEffect": 0.0,
+        "horizontalPositionPercent": 50.0,
+        "option": 0,
+        "thicknessDp": 6,
+        "timeoutSeconds": 10,
+        "verticalPositionPercent": 19
+      }
+    },
+    {
+      "class_type": "CancelActiveMacroAction",
+      "count": 1,
+      "config_keys": [
+        "getByName",
+        "m_GUID",
+        "m_macroName"
+      ],
+      "sample_index": 120,
+      "sample_config": {
+        "getByName": false,
+        "m_GUID": 111,
+        "m_macroName": "[Esta Macro]"
+      }
+    },
+    {
+      "class_type": "CaptureNextClickXYAction",
+      "count": 2,
+      "config_keys": [
+        "dictionaryKeys",
+        "passThroughClick",
+        "variableName"
+      ],
+      "sample_index": 2,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "passThroughClick": false,
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "CarModeAction",
+      "count": 1,
+      "config_keys": [
+        "m_option"
+      ],
+      "sample_index": 79,
+      "sample_config": {
+        "m_option": 0
+      }
+    },
+    {
+      "class_type": "CheckPixelColorAction",
+      "count": 1,
+      "config_keys": [
+        "booleanResultVarName",
+        "dictionaryOutVarKeys",
+        "dictionaryOutVarName",
+        "usePercentForLocation",
+        "xLocation",
+        "yLocation"
+      ],
+      "sample_index": 163,
+      "sample_config": {
+        "booleanResultVarName": "teste",
+        "dictionaryOutVarKeys": {
+          "keys": []
+        },
+        "dictionaryOutVarName": "teste1",
+        "usePercentForLocation": false,
+        "xLocation": 0,
+        "yLocation": 0
+      }
+    },
+    {
+      "class_type": "CheckTextInScreenshotAction",
+      "count": 1,
+      "config_keys": [
+        "booleanVariableName",
+        "charsetOption",
+        "enableRegex",
+        "ignoreCase",
+        "locationDictionaryKeys",
+        "locationVariableName",
+        "matchOption",
+        "textToCheck"
+      ],
+      "sample_index": 164,
+      "sample_config": {
+        "booleanVariableName": "teste",
+        "charsetOption": 0,
+        "enableRegex": false,
+        "ignoreCase": true,
+        "locationDictionaryKeys": {
+          "keys": []
+        },
+        "locationVariableName": "teste1",
+        "matchOption": 0,
+        "textToCheck": "teste"
+      }
+    },
+    {
+      "class_type": "CheckTextOnScreenAction",
+      "count": 1,
+      "config_keys": [
+        "booleanVariableName",
+        "enableRegex",
+        "forceScreenRefresh",
+        "ignoreCase",
+        "ignoreHiddenText",
+        "includeOverlays",
+        "locationDictionaryKeys",
+        "locationVariableName",
+        "matchOption",
+        "textToCheck",
+        "viewIdStringVariableName"
+      ],
+      "sample_index": 165,
+      "sample_config": {
+        "booleanVariableName": "teste",
+        "enableRegex": false,
+        "forceScreenRefresh": true,
+        "ignoreCase": true,
+        "ignoreHiddenText": true,
+        "includeOverlays": true,
+        "locationDictionaryKeys": {
+          "keys": []
+        },
+        "locationVariableName": "teste1",
+        "matchOption": 0,
+        "textToCheck": "teste",
+        "viewIdStringVariableName": "teste2"
+      }
+    },
+    {
+      "class_type": "ClearCallLogAction",
+      "count": 1,
+      "config_keys": [
+        "m_nonContact",
+        "m_specificContact",
+        "m_type",
+        "usePhoneNumber",
+        "useRegex"
+      ],
+      "sample_index": 171,
+      "sample_config": {
+        "m_nonContact": false,
+        "m_specificContact": false,
+        "m_type": 5,
+        "usePhoneNumber": false,
+        "useRegex": false
+      }
+    },
+    {
+      "class_type": "ClearDialogAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 101,
+      "sample_config": {}
+    },
+    {
+      "class_type": "ClearDictionaryArrayEntryAction",
+      "count": 1,
+      "config_keys": [
+        "clearOption",
+        "dictionaryKeys",
+        "isAllEntries",
+        "variableName"
+      ],
+      "sample_index": 177,
+      "sample_config": {
+        "clearOption": 0,
+        "dictionaryKeys": [],
+        "isAllEntries": false,
+        "variableName": "0 entradas"
+      }
+    },
+    {
+      "class_type": "ClearLogAction",
+      "count": 1,
+      "config_keys": [
+        "m_userLog",
+        "systemLogMode"
+      ],
+      "sample_index": 148,
+      "sample_config": {
+        "m_userLog": true,
+        "systemLogMode": 0
+      }
+    },
+    {
+      "class_type": "ClearNotificationsAction",
+      "count": 1,
+      "config_keys": [
+        "enableRegex",
+        "ignoreCase",
+        "m_ageInSeconds",
+        "m_applicationNameList",
+        "m_clearPersistent",
+        "m_excludes",
+        "m_matchOption",
+        "m_matchText",
+        "m_option",
+        "m_packageNameList",
+        "matchOptionMessage",
+        "matchOptionTitle",
+        "separateTitleAndMessage"
+      ],
+      "sample_index": 141,
+      "sample_config": {
+        "enableRegex": false,
+        "ignoreCase": true,
+        "m_ageInSeconds": 3600,
+        "m_applicationNameList": [],
+        "m_clearPersistent": false,
+        "m_excludes": false,
+        "m_matchOption": 3,
+        "m_matchText": "teste",
+        "m_option": 0,
+        "m_packageNameList": [],
+        "matchOptionMessage": 0,
+        "matchOptionTitle": 0,
+        "separateTitleAndMessage": false
+      }
+    },
+    {
+      "class_type": "ClearVariablesAction",
+      "count": 1,
+      "config_keys": [
+        "variableNames"
+      ],
+      "sample_index": 178,
+      "sample_config": {
+        "variableNames": [
+          "teste1",
+          "teste2"
+        ]
+      }
+    },
+    {
+      "class_type": "ClipboardAction",
+      "count": 1,
+      "config_keys": [
+        "m_clipboardText"
+      ],
+      "sample_index": 17,
+      "sample_config": {
+        "m_clipboardText": "teste"
+      }
+    },
+    {
+      "class_type": "ConfigureWidgetButtonAction",
+      "count": 1,
+      "config_keys": [
+        "iconTintEnabled",
+        "m_faded",
+        "m_iconText",
+        "m_imagePackageName",
+        "m_imageResourceName",
+        "m_macroId",
+        "m_triggerGUID",
+        "m_widgetLabel",
+        "tintColor"
+      ],
+      "sample_index": 102,
+      "sample_config": {
+        "iconTintEnabled": false,
+        "m_faded": false,
+        "m_iconText": "",
+        "m_imagePackageName": "com.ubercab",
+        "m_imageResourceName": "com.ubercab",
+        "m_macroId": -5258442412292756735,
+        "m_triggerGUID": -7944727215643156988,
+        "m_widgetLabel": "Chamar Uber",
+        "tintColor": -1
+      }
+    },
+    {
+      "class_type": "ConfirmNextAction",
+      "count": 1,
+      "config_keys": [
+        "cancelAfterTimeout",
+        "m_message",
+        "m_title",
+        "negativeText",
+        "positiveText",
+        "timeoutSeconds"
+      ],
+      "sample_index": 53,
+      "sample_config": {
+        "cancelAfterTimeout": true,
+        "m_message": "Deseja executar a macro?",
+        "m_title": "Confirmar Macro",
+        "negativeText": "Cancelar",
+        "positiveText": "OK",
+        "timeoutSeconds": 30
+      }
+    },
+    {
+      "class_type": "ConnectivityCheckAction",
+      "count": 1,
+      "config_keys": [
+        "blockActions",
+        "site",
+        "timeout",
+        "variable"
+      ],
+      "sample_index": 67,
+      "sample_config": {
+        "blockActions": true,
+        "site": "www.google.com",
+        "timeout": 3000,
+        "variable": {
+          "dictionary": {
+            "entries": [],
+            "isArray": false,
+            "variableType": 4,
+            "type": "Dictionary"
+          },
+          "isActionBlockWorkingVar": false,
+          "isLocalVar": true,
+          "isSecure": false,
+          "m_booleanValue": false,
+          "m_decimalValue": 0.0,
+          "m_intValue": 0,
+          "m_name": "teste",
+          "m_stringValue": "",
+          "m_type": 0,
+          "supportsInput": false,
+          "supportsOutput": true
+        }
+      }
+    },
+    {
+      "class_type": "ContactViaAppAction",
+      "count": 1,
+      "config_keys": [
+        "appName",
+        "appPackage",
+        "contact",
+        "id",
+        "mimeType"
+      ],
+      "sample_index": 168,
+      "sample_config": {
+        "appName": "WhatsApp",
+        "appPackage": "com.whatsapp",
+        "contact": {
+          "m_id": "84",
+          "m_lookupKey": "1474i3a9d76968cb53b10.3789r463-2B2F2B3133433B2B",
+          "m_name": "Academia"
+        },
+        "id": "2216",
+        "mimeType": "vnd.android.cursor.item/vnd.com.whatsapp.profile"
+      }
+    },
+    {
+      "class_type": "ContinueLoopAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 54,
+      "sample_config": {}
+    },
+    {
+      "class_type": "ControlMediaAction",
+      "count": 1,
+      "config_keys": [
+        "m_option",
+        "m_sendMediaPlayerCommands",
+        "m_simulateMediaButton",
+        "optionInt"
+      ],
+      "sample_index": 129,
+      "sample_config": {
+        "m_option": "Tocar/Pausar",
+        "m_sendMediaPlayerCommands": false,
+        "m_simulateMediaButton": true,
+        "optionInt": 0
+      }
+    },
+    {
+      "class_type": "CreateChartAction",
+      "count": 1,
+      "config_keys": [
+        "backgroundColor",
+        "blockNextActions",
+        "chartHeight",
+        "chartTitle",
+        "chartType",
+        "chartWidth",
+        "customBarColors",
+        "displayMode",
+        "foregroundColor",
+        "lineMode",
+        "linePointColor",
+        "maxYAxisValue",
+        "minYAxisValue",
+        "startXAxisAtZero",
+        "startYAxisAtZero",
+        "useCustomBarColors",
+        "useFixedYAxisRange",
+        "variableName",
+        "xAxisLabel",
+        "xAxisLabelRotation",
+        "yAxisLabel"
+      ],
+      "sample_index": 37,
+      "sample_config": {
+        "backgroundColor": -13421773,
+        "blockNextActions": true,
+        "chartHeight": "800",
+        "chartTitle": "teste",
+        "chartType": "COLUMN",
+        "chartWidth": "800",
+        "customBarColors": [],
+        "displayMode": "DISPLAY_IMMEDIATELY",
+        "foregroundColor": -1118482,
+        "lineMode": "CUBIC_BEZIER",
+        "linePointColor": -1118482,
+        "maxYAxisValue": "100",
+        "minYAxisValue": "0",
+        "startXAxisAtZero": false,
+        "startYAxisAtZero": false,
+        "useCustomBarColors": false,
+        "useFixedYAxisRange": false,
+        "variableName": "teste1",
+        "xAxisLabel": "teste1",
+        "xAxisLabelRotation": 0,
+        "yAxisLabel": "teste2"
+      }
+    },
+    {
+      "class_type": "CustomSceneAction",
+      "count": 1,
+      "config_keys": [
+        "sceneDescription"
+      ],
+      "sample_index": 103,
+      "sample_config": {
+        "sceneDescription": {
+          "itemList": {
+            "items": [
+              {
+                "type": "SceneButton",
+                "sceneButtonConfig": {
+                  "buttonColor": -1,
+                  "closeSceneOnPress": true,
+                  "htmlFormatting": false,
+                  "padding": "8",
+                  "text": "Botão",
+                  "textAlignment": "Center",
+                  "textColor": -13421773,
+                  "textSize": "20"
+                },
+                "guid": -6392093540271712664,
+                "iconRes": 2131231211,
+                "lastRefreshValue": 0
+              }
+            ]
+          },
+          "sceneConfig": {
+            "backgroundColor": -13421773,
+            "backgroundImageDisplayMode": "CENTER_CROP",
+            "blockNextActions": true,
+            "closeOnBackgroundTouch": false,
+            "contentPadding": 8,
+            "dismissOnBackPress": true,
+            "dismissOnHomeTaskSwitch": false,
+            "displayOption": {
+              "type": "FullScreen",
+              "nameRes": 2132021886
+            },
+            "foregroundColor": -1118482,
+            "name": "Scene1",
+            "roundedCornerAmount": 0,
+            "showOnLockScreen": false,
+            "updateValuesOnSceneClose": false
+          }
+        }
+      }
+    },
+    {
+      "class_type": "DeleteMacroAction",
+      "count": 1,
+      "config_keys": [
+        "m_GUID",
+        "m_macroName",
+        "matchOption"
+      ],
+      "sample_index": 122,
+      "sample_config": {
+        "m_GUID": 111,
+        "m_macroName": "[Esta Macro]",
+        "matchOption": 0
+      }
+    },
+    {
+      "class_type": "DeleteVariableAction",
+      "count": 1,
+      "config_keys": [
+        "variableName"
+      ],
+      "sample_index": 176,
+      "sample_config": {
+        "variableName": "0 entradas"
+      }
+    },
+    {
+      "class_type": "DimScreenAction",
+      "count": 1,
+      "config_keys": [
+        "m_dimScreenOn",
+        "m_percent",
+        "overlayStatusBar"
+      ],
+      "sample_index": 154,
+      "sample_config": {
+        "m_dimScreenOn": true,
+        "m_percent": 50,
+        "overlayStatusBar": false
+      }
+    },
+    {
+      "class_type": "DisableCategoryAction",
+      "count": 1,
+      "config_keys": [
+        "categoriesList",
+        "enableMacrosOption",
+        "m_enable",
+        "m_state"
+      ],
+      "sample_index": 84,
+      "sample_config": {
+        "categoriesList": [
+          "Automações"
+        ],
+        "enableMacrosOption": 0,
+        "m_enable": true,
+        "m_state": 2
+      }
+    },
+    {
+      "class_type": "DisableMacroAction",
+      "count": 1,
+      "config_keys": [
+        "getByName",
+        "m_GUID",
+        "m_enable",
+        "m_macroName",
+        "m_state",
+        "m_userPromptTitle"
+      ],
+      "sample_index": 118,
+      "sample_config": {
+        "getByName": true,
+        "m_GUID": 0,
+        "m_enable": true,
+        "m_macroName": "teste",
+        "m_state": 2,
+        "m_userPromptTitle": "Ativar/Desativar macro"
+      }
+    },
+    {
+      "class_type": "DisableMacroDroidAction",
+      "count": 1,
+      "config_keys": [
+        "state"
+      ],
+      "sample_index": 97,
+      "sample_config": {
+        "state": 0
+      }
+    },
+    {
+      "class_type": "DisableTriggerAction",
+      "count": 1,
+      "config_keys": [
+        "enableOption",
+        "macroGuid",
+        "macroName",
+        "triggerGuid",
+        "triggerName"
+      ],
+      "sample_index": 85,
+      "sample_config": {
+        "enableOption": 2,
+        "macroGuid": -9091763993056564646,
+        "macroName": "Brilho",
+        "triggerGuid": -8697504587152569922,
+        "triggerName": "Botão flutuante"
+      }
+    },
+    {
+      "class_type": "EdgeLightingAction",
+      "count": 1,
+      "config_keys": [
+        "alpha",
+        "borderWidthDps",
+        "color1",
+        "color2",
+        "colors",
+        "cornerRadius",
+        "drawOverSystemApps",
+        "featherEffect",
+        "option",
+        "timeoutSeconds"
+      ],
+      "sample_index": 139,
+      "sample_config": {
+        "alpha": 1.0,
+        "borderWidthDps": 8,
+        "color1": -65536,
+        "color2": -16711936,
+        "colors": [
+          -65536,
+          -16711936
+        ],
+        "cornerRadius": 41,
+        "drawOverSystemApps": false,
+        "featherEffect": 0.0,
+        "option": 0,
+        "timeoutSeconds": 10
+      }
+    },
+    {
+      "class_type": "EmptyAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 86,
+      "sample_config": {}
+    },
+    {
+      "class_type": "EncryptDecryptTextAction",
+      "count": 1,
+      "config_keys": [
+        "option",
+        "outputVariableName",
+        "password",
+        "sourceText",
+        "successVariableName"
+      ],
+      "sample_index": 174,
+      "sample_config": {
+        "option": 0,
+        "outputVariableName": "teste2",
+        "password": "teste",
+        "sourceText": "teste",
+        "successVariableName": "teste"
+      }
+    },
+    {
+      "class_type": "EndIfAction",
+      "count": 2,
+      "config_keys": [],
+      "sample_index": 52,
+      "sample_config": {}
+    },
+    {
+      "class_type": "EndLoopAction",
+      "count": 2,
+      "config_keys": [],
+      "sample_index": 57,
+      "sample_config": {}
+    },
+    {
+      "class_type": "ExitActionBlockAction",
+      "count": 2,
+      "config_keys": [
+        "outputOption"
+      ],
+      "sample_index": 124,
+      "sample_config": {
+        "outputOption": 0
+      }
+    },
+    {
+      "class_type": "ExpandCollapseStatusBarAction",
+      "count": 2,
+      "config_keys": [
+        "m_option"
+      ],
+      "sample_index": 9,
+      "sample_config": {
+        "m_option": 0
+      }
+    },
+    {
+      "class_type": "ExportLogAction",
+      "count": 1,
+      "config_keys": [
+        "displayPath",
+        "fileName",
+        "filePath",
+        "needsFileReconfiguration",
+        "pathUri",
+        "showMilliseconds",
+        "useHtmlFormat",
+        "userLog"
+      ],
+      "sample_index": 147,
+      "sample_config": {
+        "displayPath": "Documents/CDXMS_Solutions",
+        "fileName": "teste",
+        "filePath": "Documents/CDXMS_Solutions",
+        "needsFileReconfiguration": false,
+        "pathUri": "content://com.android.externalstorage.documents/tree/primary%3ADocuments%2FCDXMS_Solutions",
+        "showMilliseconds": false,
+        "useHtmlFormat": false,
+        "userLog": true
+      }
+    },
+    {
+      "class_type": "ExportMacrosAction",
+      "count": 1,
+      "config_keys": [
+        "allFilesPath",
+        "encryptOutput",
+        "encryptionPassword",
+        "m_fileName",
+        "needsFileReconfiguration",
+        "option",
+        "useAllFilesAccess"
+      ],
+      "sample_index": 98,
+      "sample_config": {
+        "allFilesPath": "teste",
+        "encryptOutput": false,
+        "encryptionPassword": "",
+        "m_fileName": "geste",
+        "needsFileReconfiguration": false,
+        "option": 0,
+        "useAllFilesAccess": true
+      }
+    },
+    {
+      "class_type": "FileOperationAllFilesAction",
+      "count": 1,
+      "config_keys": [
+        "fileExtensions",
+        "fileOption",
+        "filePattern",
+        "fromPath",
+        "listFilesOutputType",
+        "listFilesSortAscending",
+        "listFilesSortBy",
+        "option",
+        "toPath",
+        "waitToComplete"
+      ],
+      "sample_index": 45,
+      "sample_config": {
+        "fileExtensions": [],
+        "fileOption": 0,
+        "filePattern": "*",
+        "fromPath": "teste",
+        "listFilesOutputType": 0,
+        "listFilesSortAscending": true,
+        "listFilesSortBy": 0,
+        "option": 0,
+        "toPath": "teste",
+        "waitToComplete": true
+      }
+    },
+    {
+      "class_type": "FileOperationV21Action",
+      "count": 5,
+      "config_keys": [
+        "listFilesDictionaryKeys",
+        "listFilesOutputType",
+        "listFilesSortAscending",
+        "listFilesSortBy",
+        "listFilesVariableName",
+        "m_fileExtensions",
+        "m_fileOption",
+        "m_filePattern",
+        "m_folderName",
+        "m_fromName",
+        "m_fromUriString",
+        "m_option",
+        "m_toName",
+        "m_toUriString",
+        "waitToComplete"
+      ],
+      "sample_index": 39,
+      "sample_config": {
+        "listFilesOutputType": 0,
+        "listFilesSortAscending": true,
+        "listFilesSortBy": 0,
+        "m_fileExtensions": [],
+        "m_fileOption": 0,
+        "m_filePattern": "*",
+        "m_fromName": "CDXMS_Solutions",
+        "m_fromUriString": "content://com.android.externalstorage.documents/tree/primary%3ADocuments%2FCDXMS_Solutions",
+        "m_option": 0,
+        "m_toName": "CDXMS_Solutions",
+        "m_toUriString": "content://com.android.externalstorage.documents/tree/primary%3ADocuments%2FCDXMS_Solutions",
+        "waitToComplete": true
+      }
+    },
+    {
+      "class_type": "FloatingButtonConfigureAction",
+      "count": 1,
+      "config_keys": [
+        "alpha",
+        "drawOverSystemApps",
+        "enableOption",
+        "fixedLocation",
+        "iconBgColor",
+        "iconText",
+        "iconTextColor",
+        "iconTintColor",
+        "iconTintEnabled",
+        "iconType",
+        "identifier",
+        "imageResourceId",
+        "isInitialised",
+        "macroGuid",
+        "macroName",
+        "padding",
+        "preventRemoveByDrag",
+        "size",
+        "transparentBackground",
+        "triggerGuid",
+        "updateLocation",
+        "usePercentForLocation",
+        "xLocation",
+        "yLocation"
+      ],
+      "sample_index": 91,
+      "sample_config": {
+        "alpha": 100,
+        "drawOverSystemApps": true,
+        "enableOption": 0,
+        "fixedLocation": false,
+        "iconBgColor": -9079435,
+        "iconText": "",
+        "iconTextColor": -1,
+        "iconTintColor": -1,
+        "iconTintEnabled": false,
+        "iconType": 0,
+        "identifier": "config",
+        "imageResourceId": 0,
+        "isInitialised": true,
+        "macroGuid": -9091763993056564646,
+        "macroName": "Brilho",
+        "padding": 20,
+        "preventRemoveByDrag": false,
+        "size": 0,
+        "transparentBackground": false,
+        "triggerGuid": -8697504587152569922,
+        "updateLocation": true,
+        "usePercentForLocation": false,
+        "xLocation": 50,
+        "yLocation": 50
+      }
+    },
+    {
+      "class_type": "FloatingTextAction",
+      "count": 1,
+      "config_keys": [
+        "alignment",
+        "alpha",
+        "autoHideAfterDelay",
+        "autoHideSeconds",
+        "bgColor",
+        "corners",
+        "drawOverSystemApps",
+        "enableShadow",
+        "forceFullScreen",
+        "hideOnClick",
+        "hideOnLongClick",
+        "htmlFormattingEnabled",
+        "identifier",
+        "isInitialised",
+        "longClickMacroGuidToRun",
+        "longClickMacroNameToRun",
+        "macroGuidToRun",
+        "macroNameToRun",
+        "moveOption",
+        "option",
+        "padding",
+        "preventRemoveByDrag",
+        "shadowColor",
+        "showOverStatusBar",
+        "singleLineScrollingEnabled",
+        "textColor",
+        "textSize",
+        "textToDisplay",
+        "updateLocation",
+        "updateVariableOnMove",
+        "variableWidth",
+        "vibrateOnClick",
+        "widthPercentage",
+        "xPosition",
+        "yPosition"
+      ],
+      "sample_index": 106,
+      "sample_config": {
+        "alignment": 2,
+        "alpha": 100,
+        "autoHideAfterDelay": false,
+        "autoHideSeconds": 0,
+        "bgColor": -16777216,
+        "corners": 12,
+        "drawOverSystemApps": true,
+        "enableShadow": true,
+        "forceFullScreen": true,
+        "hideOnClick": true,
+        "hideOnLongClick": false,
+        "htmlFormattingEnabled": true,
+        "identifier": "teste",
+        "isInitialised": true,
+        "longClickMacroGuidToRun": 0,
+        "longClickMacroNameToRun": "(Desativada)",
+        "macroGuidToRun": 0,
+        "macroNameToRun": "(Desativada)",
+        "moveOption": 0,
+        "option": 0,
+        "padding": 8,
+        "preventRemoveByDrag": true,
+        "shadowColor": -16777216,
+        "showOverStatusBar": false,
+        "singleLineScrollingEnabled": false,
+        "textColor": -1,
+        "textSize": 14,
+        "textToDisplay": "teste",
+        "updateLocation": true,
+        "updateVariableOnMove": false,
+        "variableWidth": true,
+        "vibrateOnClick": false,
+        "widthPercentage": 90,
+        "xPosition": 0.5,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "FontScaleAction",
+      "count": 1,
+      "config_keys": [
+        "scalePercent"
+      ],
+      "sample_index": 77,
+      "sample_config": {
+        "scalePercent": 100
+      }
+    },
+    {
+      "class_type": "ForceLocationUpdateAction",
+      "count": 1,
+      "config_keys": [
+        "blockNextAction",
+        "dictionaryVarDictionaryKeys",
+        "dictionaryVariableName",
+        "timeoutSeconds"
+      ],
+      "sample_index": 116,
+      "sample_config": {
+        "blockNextAction": false,
+        "dictionaryVarDictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVariableName": "teste1",
+        "timeoutSeconds": 30
+      }
+    },
+    {
+      "class_type": "ForceMacroRunAction",
+      "count": 1,
+      "config_keys": [
+        "getByName",
+        "isCategoryLocked",
+        "m_GUID",
+        "m_category",
+        "m_ignoreConstraints",
+        "m_macroName",
+        "m_useOffStatus",
+        "m_userPromptTitle",
+        "m_waitToComplete"
+      ],
+      "sample_index": 123,
+      "sample_config": {
+        "getByName": false,
+        "isCategoryLocked": false,
+        "m_GUID": 0,
+        "m_category": "[Todas as categorias]",
+        "m_ignoreConstraints": true,
+        "m_macroName": "[Prompt de usuário]",
+        "m_useOffStatus": false,
+        "m_userPromptTitle": "Executar macro",
+        "m_waitToComplete": false
+      }
+    },
+    {
+      "class_type": "ForceScreenRotationAction",
+      "count": 1,
+      "config_keys": [
+        "m_option"
+      ],
+      "sample_index": 155,
+      "sample_config": {
+        "m_option": 4
+      }
+    },
+    {
+      "class_type": "GenerateQRCodeAction",
+      "count": 1,
+      "config_keys": [
+        "displayMode",
+        "fullScreenMode",
+        "qrText",
+        "themeMode"
+      ],
+      "sample_index": 49,
+      "sample_config": {
+        "displayMode": "DISPLAY_IMMEDIATELY",
+        "fullScreenMode": true,
+        "qrText": "teste",
+        "themeMode": "USE_DEVICE_THEME"
+      }
+    },
+    {
+      "class_type": "GetCalendarEventsAction",
+      "count": 1,
+      "config_keys": [
+        "calendarId",
+        "calendarName",
+        "durationUnit",
+        "durationValue",
+        "outputDictionaryVarName",
+        "startOffsetUnit",
+        "startOffsetValue"
+      ],
+      "sample_index": 149,
+      "sample_config": {
+        "calendarId": "1",
+        "calendarName": "My calendar",
+        "durationUnit": 2,
+        "durationValue": "1",
+        "outputDictionaryVarName": "teste1",
+        "startOffsetUnit": 0,
+        "startOffsetValue": "0"
+      }
+    },
+    {
+      "class_type": "GetContactsAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "dictionaryVarName",
+        "makeVariableSecure"
+      ],
+      "sample_index": 172,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "teste1",
+        "makeVariableSecure": true
+      }
+    },
+    {
+      "class_type": "GetDataUsedAction",
+      "count": 1,
+      "config_keys": [
+        "billingDay",
+        "calendarScope",
+        "networkType",
+        "periodKind",
+        "rollingAmount",
+        "rollingUnitMinutes",
+        "unit",
+        "varDictionaryKeys",
+        "variableName"
+      ],
+      "sample_index": 71,
+      "sample_config": {
+        "billingDay": 1,
+        "calendarScope": 2,
+        "networkType": 0,
+        "periodKind": 0,
+        "rollingAmount": 24,
+        "rollingUnitMinutes": 60,
+        "unit": 1,
+        "varDictionaryKeys": {
+          "keys": [
+            "teste"
+          ]
+        },
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "GetInstalledAppsAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "dictionaryVarName",
+        "extendedDetail",
+        "includeNonLaunchable"
+      ],
+      "sample_index": 34,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "teste1",
+        "extendedDetail": true,
+        "includeNonLaunchable": true
+      }
+    },
+    {
+      "class_type": "GetLightLevelAction",
+      "count": 1,
+      "config_keys": [
+        "varDictionaryKeys",
+        "variableName"
+      ],
+      "sample_index": 15,
+      "sample_config": {
+        "varDictionaryKeys": {
+          "keys": [
+            "teste"
+          ]
+        },
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "GetTextByViewIdAction",
+      "count": 1,
+      "config_keys": [
+        "booleanVariableName",
+        "enableRegex",
+        "forceScreenRefresh",
+        "ignoreCase",
+        "includeOverlays",
+        "stringVariableName",
+        "viewId"
+      ],
+      "sample_index": 161,
+      "sample_config": {
+        "booleanVariableName": "teste",
+        "enableRegex": false,
+        "forceScreenRefresh": false,
+        "ignoreCase": true,
+        "includeOverlays": false,
+        "stringVariableName": "teste2",
+        "viewId": "teste"
+      }
+    },
+    {
+      "class_type": "GotoAction",
+      "count": 1,
+      "config_keys": [
+        "targetLabel"
+      ],
+      "sample_index": 55,
+      "sample_config": {
+        "targetLabel": "teste rotulo"
+      }
+    },
+    {
+      "class_type": "HideSceneAction",
+      "count": 1,
+      "config_keys": [
+        "enableRegex",
+        "ignoreCase",
+        "matchOption",
+        "sceneNameToMatch"
+      ],
+      "sample_index": 104,
+      "sample_config": {
+        "enableRegex": false,
+        "ignoreCase": true,
+        "matchOption": 0,
+        "sceneNameToMatch": "Scene1"
+      }
+    },
+    {
+      "class_type": "HttpRequestAction",
+      "count": 1,
+      "config_keys": [
+        "requestConfig"
+      ],
+      "sample_index": 111,
+      "sample_config": {
+        "requestConfig": {
+          "allFilesAccessPath": "",
+          "allowAnyCertificate": false,
+          "basicAuthEnabled": false,
+          "basicAuthPassword": "",
+          "basicAuthUsername": "",
+          "blockNextAction": false,
+          "clientCertEnabled": false,
+          "clientCertKeyStoreDisplayName": "",
+          "clientCertKeyStoreUri": "",
+          "clientCertPassword": "",
+          "contentBodyDynamicFileName": "",
+          "contentBodyFileDisplayName": "",
+          "contentBodyFileUri": "",
+          "contentBodyFolderDisplayName": "",
+          "contentBodyFolderUri": "",
+          "contentBodySource": 0,
+          "contentBodyText": "",
+          "contentType": "",
+          "followRedirects": true,
+          "headerParams": [
+            {
+              "paramName": "teste",
+              "paramValue": "teste"
+            }
+          ],
+          "localFileUri": "",
+          "prettifyJson": false,
+          "proxyEnabled": false,
+          "proxyHost": "",
+          "proxyPort": 8080,
+          "proxyType": 0,
+          "queryParams": [
+            {
+              "paramName": "teste",
+              "paramValue": "teste"
+            }
+          ],
+          "requestTimeOutSeconds": 30,
+          "requestType": 0,
+          "returnCodeDictionaryKeys": {
+            "keys": [
+              "teste"
+            ]
+          },
+          "returnCodeVariableName": "teste1",
+          "returnHeadersDictionaryKeys": {
+            "keys": []
+          },
+          "returnHeadersVariableName": "teste1",
+          "saveResponseAllFilesAccessPath": "",
+          "saveResponseFileName": "",
+          "saveResponseFolderPathDisplayName": "",
+          "saveResponseFolderPathUri": "",
+          "saveResponseType": 0,
+          "saveResponseUseAllFilesAccess": false,
+          "saveReturnCodeToVariable": true,
+          "saveReturnHeadersToVariable": true,
+          "urlToOpen": "teste",
+          "useAllFilesAccess": false,
+          "useLocalFileUri": false,
+          "useStaticContentBodyFile": true
+        }
+      }
+    },
+    {
+      "class_type": "HttpServerResponseAction",
+      "count": 2,
+      "config_keys": [
+        "headerParams",
+        "htmlText",
+        "option",
+        "responseCode",
+        "text"
+      ],
+      "sample_index": 112,
+      "sample_config": {
+        "headerParams": [],
+        "htmlText": "<html>\n    <head>\n        <title>MacroDroid</title>\n    </head>\n    <body>\n        <!-- Content Here -->\n    </body>\n</html>",
+        "option": 1,
+        "responseCode": "OK",
+        "text": ""
+      }
+    },
+    {
+      "class_type": "IfConditionAction",
+      "count": 1,
+      "config_keys": [
+        "childrenCollapsed",
+        "dontLogIfConditionIsFalse"
+      ],
+      "sample_index": 51,
+      "sample_config": {
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": true
+      }
+    },
+    {
+      "class_type": "IfConfirmedThenAction",
+      "count": 1,
+      "config_keys": [
+        "cancelAfterTimeout",
+        "childrenCollapsed",
+        "dontLogIfConditionIsFalse",
+        "negativeText",
+        "positiveText",
+        "quitOnBackPressed",
+        "text",
+        "timeoutSeconds",
+        "title"
+      ],
+      "sample_index": 61,
+      "sample_config": {
+        "cancelAfterTimeout": true,
+        "negativeText": "Cancelar",
+        "positiveText": "OK",
+        "quitOnBackPressed": true,
+        "text": "Você quer rodar estas ações ?",
+        "timeoutSeconds": 30,
+        "title": "Confirme ações",
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      }
+    },
+    {
+      "class_type": "InputKeyEventAction",
+      "count": 1,
+      "config_keys": [
+        "keyCode",
+        "keyPressOption",
+        "modifierMask"
+      ],
+      "sample_index": 8,
+      "sample_config": {
+        "keyCode": 15,
+        "keyPressOption": 0,
+        "modifierMask": 1052683
+      }
+    },
+    {
+      "class_type": "IterateDictionaryAction",
+      "count": 1,
+      "config_keys": [
+        "childrenCollapsed",
+        "dictionaryKeys",
+        "dontLogIfConditionIsFalse",
+        "isArray",
+        "m_fixedOptionCount",
+        "m_option",
+        "timedDurationValue",
+        "timedTimeUnit",
+        "variableName"
+      ],
+      "sample_index": 56,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "isArray": false,
+        "variableName": "teste1",
+        "m_fixedOptionCount": 1,
+        "m_option": 0,
+        "timedDurationValue": 1,
+        "timedTimeUnit": 0,
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      }
+    },
+    {
+      "class_type": "JavaAction",
+      "count": 1,
+      "config_keys": [
+        "blockNextAction",
+        "runInBackgroundThread",
+        "scriptText"
+      ],
+      "sample_index": 29,
+      "sample_config": {
+        "blockNextAction": true,
+        "runInBackgroundThread": true,
+        "scriptText": ""
+      }
+    },
+    {
+      "class_type": "JavaScriptAction",
+      "count": 1,
+      "config_keys": [
+        "blockNextAction",
+        "javascriptEngine",
+        "scriptText"
+      ],
+      "sample_index": 30,
+      "sample_config": {
+        "blockNextAction": true,
+        "javascriptEngine": "JetPack JavascriptEngine",
+        "scriptText": ""
+      }
+    },
+    {
+      "class_type": "JsonOutputAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "dictionaryVarName",
+        "stringVarName"
+      ],
+      "sample_index": 110,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "teste1",
+        "stringVarName": "teste2"
+      }
+    },
+    {
+      "class_type": "JsonParseAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "dictionaryVarName",
+        "stringVarName"
+      ],
+      "sample_index": 109,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "teste1",
+        "stringVarName": "teste2"
+      }
+    },
+    {
+      "class_type": "KeepAwakeAction",
+      "count": 1,
+      "config_keys": [
+        "m_enabled",
+        "m_permanent",
+        "m_screenOption",
+        "m_secondsToStayAwakeFor"
+      ],
+      "sample_index": 160,
+      "sample_config": {
+        "m_enabled": true,
+        "m_permanent": false,
+        "m_screenOption": 0,
+        "m_secondsToStayAwakeFor": 60
+      }
+    },
+    {
+      "class_type": "KillBackgroundAppAction",
+      "count": 1,
+      "config_keys": [
+        "m_applicationNameList",
+        "m_packageNameList",
+        "option"
+      ],
+      "sample_index": 31,
+      "sample_config": {
+        "m_applicationNameList": [
+          "[Todos os aplicativos]"
+        ],
+        "m_packageNameList": [
+          "all.applications"
+        ],
+        "option": 1
+      }
+    },
+    {
+      "class_type": "LaunchActivityAction",
+      "count": 1,
+      "config_keys": [
+        "m_applicationName",
+        "m_excludeFromRecents",
+        "m_packageToLaunch",
+        "m_startNew",
+        "option"
+      ],
+      "sample_index": 27,
+      "sample_config": {
+        "m_applicationName": "Agenda",
+        "m_excludeFromRecents": false,
+        "m_packageToLaunch": "com.google.android.calendar",
+        "m_startNew": true,
+        "option": 0
+      }
+    },
+    {
+      "class_type": "LaunchAppActivityAction",
+      "count": 1,
+      "config_keys": [
+        "activityName",
+        "activityToLaunch",
+        "applicationName",
+        "forceNew",
+        "packageToLaunch"
+      ],
+      "sample_index": 33,
+      "sample_config": {
+        "activityName": "CseRedirectUriReceiverActivity",
+        "activityToLaunch": "com.google.apps.security.cse.xplat.identity.oidc.appauth.android.CseRedirectUriReceiverActivity",
+        "applicationName": "Agenda",
+        "forceNew": false,
+        "packageToLaunch": "com.google.android.calendar"
+      }
+    },
+    {
+      "class_type": "LaunchHomeScreenAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 0,
+      "sample_config": {}
+    },
+    {
+      "class_type": "LaunchShortcutAction",
+      "count": 1,
+      "config_keys": [
+        "m_appName",
+        "m_intentEncoded",
+        "m_name"
+      ],
+      "sample_index": 32,
+      "sample_config": {
+        "m_appName": "Atalho do MacroDroid",
+        "m_intentEncoded": "#Intent;action=com.arlosoft.macrodroid.ShortcutDispatch;type=macrodroid/macro;launchFlags=0x14008000;extendedLaunchFlags=0x4;S.action_block_dictionary_keys=;l.guid=-9091763993056564646;S.com.arlosoft.macrodroid.MACRO_NAME=Brilho;S.action_block_out_dictionary_keys=;B.is_action_block=false;end",
+        "m_name": "Brilho"
+      }
+    },
+    {
+      "class_type": "LogAction",
+      "count": 1,
+      "config_keys": [
+        "logLevel",
+        "logMacro",
+        "m_logText"
+      ],
+      "sample_index": 150,
+      "sample_config": {
+        "logLevel": "STANDARD",
+        "logMacro": true,
+        "m_logText": "teste"
+      }
+    },
+    {
+      "class_type": "LoopAction",
+      "count": 1,
+      "config_keys": [
+        "childrenCollapsed",
+        "dontLogIfConditionIsFalse",
+        "m_fixedOptionCount",
+        "m_option",
+        "timedDurationValue",
+        "timedTimeUnit"
+      ],
+      "sample_index": 59,
+      "sample_config": {
+        "m_fixedOptionCount": 1,
+        "m_option": 2,
+        "timedDurationValue": 1,
+        "timedTimeUnit": 0,
+        "childrenCollapsed": false,
+        "dontLogIfConditionIsFalse": false
+      }
+    },
+    {
+      "class_type": "MacroDroidDrawerAction",
+      "count": 1,
+      "config_keys": [
+        "drawerType",
+        "m_option",
+        "swipeAreaColour",
+        "swipeAreaHeight",
+        "swipeAreaOpacity",
+        "swipeAreaOption",
+        "swipeAreaVerticalOffset",
+        "swipeAreaVisibleWidth",
+        "swipeAreaWidth"
+      ],
+      "sample_index": 88,
+      "sample_config": {
+        "drawerType": 0,
+        "m_option": 2,
+        "swipeAreaColour": -7829368,
+        "swipeAreaHeight": 45,
+        "swipeAreaOpacity": 50,
+        "swipeAreaOption": 0,
+        "swipeAreaVerticalOffset": 50,
+        "swipeAreaVisibleWidth": 10,
+        "swipeAreaWidth": 10
+      }
+    },
+    {
+      "class_type": "MacroDroidNotificationTextAction",
+      "count": 1,
+      "config_keys": [
+        "body",
+        "showCustom",
+        "title"
+      ],
+      "sample_index": 94,
+      "sample_config": {
+        "body": "",
+        "showCustom": false,
+        "title": ""
+      }
+    },
+    {
+      "class_type": "MacroDroidSettingAction",
+      "count": 1,
+      "config_keys": [
+        "m_activityRecognitionUpdateRate",
+        "m_audioStreamSecondaryOption",
+        "m_booleanSecondayOption",
+        "m_cellTowerUpdateRate",
+        "m_lightSensorBgOption",
+        "m_notificationPriorityOption",
+        "m_option",
+        "m_wifiScanRate"
+      ],
+      "sample_index": 92,
+      "sample_config": {
+        "m_activityRecognitionUpdateRate": 0,
+        "m_audioStreamSecondaryOption": 0,
+        "m_booleanSecondayOption": true,
+        "m_cellTowerUpdateRate": 0,
+        "m_lightSensorBgOption": 0,
+        "m_notificationPriorityOption": 0,
+        "m_option": 8,
+        "m_wifiScanRate": 0
+      }
+    },
+    {
+      "class_type": "MakeCallAction",
+      "count": 1,
+      "config_keys": [
+        "m_contact",
+        "slotId"
+      ],
+      "sample_index": 170,
+      "sample_config": {
+        "m_contact": {
+          "m_id": "Last_Number_Called",
+          "m_lookupKey": "Last_Number_Called",
+          "m_name": "[Último Número Chamado]"
+        },
+        "slotId": -1
+      }
+    },
+    {
+      "class_type": "MessageDialogAction",
+      "count": 1,
+      "config_keys": [
+        "autoExpand",
+        "blockNextAction",
+        "dimBackground",
+        "disableHtml",
+        "displayOverStatusBar",
+        "hasSetColors",
+        "iconText",
+        "iconType",
+        "liveNotification",
+        "m_backgroundColor",
+        "m_iconBgColor",
+        "m_imageResourceId",
+        "m_macroGUIDToRun",
+        "m_notificationChannelType",
+        "m_notificationSubject",
+        "m_notificationText",
+        "m_overwriteExisting",
+        "m_priority",
+        "m_ringtoneIndex",
+        "m_ringtoneName",
+        "m_runMacroWhenPressed",
+        "m_secondaryClassType",
+        "m_textColor",
+        "maintainSpaces",
+        "notificationActionButtons",
+        "notificationChannelName",
+        "notificationIdString",
+        "notificatonId",
+        "preventAndroid16Grouping",
+        "preventBackButtonClosing",
+        "preventRemovalByBin",
+        "showAsOverlayOption",
+        "yPosition"
+      ],
+      "sample_index": 135,
+      "sample_config": {
+        "hasSetColors": true,
+        "m_secondaryClassType": "MessageDialogAction",
+        "autoExpand": true,
+        "blockNextAction": false,
+        "dimBackground": true,
+        "disableHtml": false,
+        "displayOverStatusBar": false,
+        "iconText": "",
+        "iconType": 0,
+        "liveNotification": false,
+        "m_backgroundColor": -13421773,
+        "m_iconBgColor": -769226,
+        "m_imageResourceId": 0,
+        "m_macroGUIDToRun": 0,
+        "m_notificationChannelType": 0,
+        "m_notificationSubject": "teste",
+        "m_notificationText": "teste",
+        "m_overwriteExisting": false,
+        "m_priority": 0,
+        "m_ringtoneIndex": 0,
+        "m_ringtoneName": "Padrão",
+        "m_runMacroWhenPressed": false,
+        "m_textColor": -1118482,
+        "maintainSpaces": false,
+        "notificationActionButtons": [],
+        "notificationChannelName": "Ação de notificação",
+        "notificationIdString": "0",
+        "notificatonId": 0,
+        "preventAndroid16Grouping": false,
+        "preventBackButtonClosing": false,
+        "preventRemovalByBin": false,
+        "showAsOverlayOption": 1,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "NotificationAction",
+      "count": 1,
+      "config_keys": [
+        "actionBlockData",
+        "autoExpand",
+        "blockNextAction",
+        "dimBackground",
+        "disableHtml",
+        "displayOverStatusBar",
+        "group",
+        "iconText",
+        "iconType",
+        "liveNotification",
+        "m_backgroundColor",
+        "m_iconBgColor",
+        "m_imageResourceId",
+        "m_macroGUIDToRun",
+        "m_notificationChannelType",
+        "m_notificationSubject",
+        "m_notificationText",
+        "m_overwriteExisting",
+        "m_priority",
+        "m_ringtoneIndex",
+        "m_ringtoneName",
+        "m_runMacroWhenPressed",
+        "m_textColor",
+        "macroNameToRun",
+        "maintainSpaces",
+        "notificationActionButtons",
+        "notificationChannelName",
+        "notificationIdString",
+        "notificatonId",
+        "preventAndroid16Grouping",
+        "preventBackButtonClosing",
+        "preventRemovalByBin",
+        "shortCriticalText",
+        "showAsOverlayOption",
+        "yPosition"
+      ],
+      "sample_index": 136,
+      "sample_config": {
+        "actionBlockData": {
+          "actionBlockGuid": -8974663416693308765,
+          "actionBlockName": "[CDXMS] Bootstrap",
+          "inputDictionaryMap": {},
+          "inputVarsMap": {},
+          "outputDictionaryMap": {},
+          "outputVarsMap": {}
+        },
+        "autoExpand": true,
+        "blockNextAction": false,
+        "dimBackground": true,
+        "disableHtml": false,
+        "displayOverStatusBar": false,
+        "group": "teste",
+        "iconText": "",
+        "iconType": 0,
+        "liveNotification": true,
+        "m_backgroundColor": -16777216,
+        "m_iconBgColor": -769226,
+        "m_imageResourceId": 0,
+        "m_macroGUIDToRun": -8974663416693308765,
+        "m_notificationChannelType": 0,
+        "m_notificationSubject": "teste",
+        "m_notificationText": "teste",
+        "m_overwriteExisting": true,
+        "m_priority": 0,
+        "m_ringtoneIndex": 0,
+        "m_ringtoneName": "Padrão",
+        "m_runMacroWhenPressed": true,
+        "m_textColor": -1,
+        "macroNameToRun": "[CDXMS] Bootstrap",
+        "maintainSpaces": false,
+        "notificationActionButtons": [],
+        "notificationChannelName": "Ação de notificação",
+        "notificationIdString": "0",
+        "notificatonId": 0,
+        "preventAndroid16Grouping": false,
+        "preventBackButtonClosing": false,
+        "preventRemovalByBin": false,
+        "shortCriticalText": "teste",
+        "showAsOverlayOption": 1,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "NotificationInteractionAction",
+      "count": 1,
+      "config_keys": [
+        "actionsOption",
+        "applicationName",
+        "enableRegex",
+        "excludesApps",
+        "ignoreCase",
+        "matchOption",
+        "matchOptionMessage",
+        "matchOptionTitle",
+        "matchText",
+        "messageContent",
+        "packageName",
+        "separateTitleAndMessage",
+        "titleContent",
+        "useNotificationTrigger"
+      ],
+      "sample_index": 138,
+      "sample_config": {
+        "actionsOption": 0,
+        "applicationName": "AliExpress",
+        "enableRegex": false,
+        "excludesApps": false,
+        "ignoreCase": true,
+        "matchOption": 0,
+        "matchOptionMessage": 1,
+        "matchOptionTitle": 3,
+        "matchText": "",
+        "messageContent": "teste",
+        "packageName": "com.alibaba.aliexpresshd",
+        "separateTitleAndMessage": true,
+        "titleContent": "testeteste",
+        "useNotificationTrigger": false
+      }
+    },
+    {
+      "class_type": "NotificationReplyAction",
+      "count": 1,
+      "config_keys": [
+        "applicationName",
+        "enableRegex",
+        "ignoreCase",
+        "matchOption",
+        "matchText",
+        "packageName",
+        "replyText",
+        "useNotificationTrigger"
+      ],
+      "sample_index": 142,
+      "sample_config": {
+        "applicationName": "",
+        "enableRegex": false,
+        "ignoreCase": true,
+        "matchOption": 0,
+        "matchText": "",
+        "packageName": "",
+        "replyText": "teste",
+        "useNotificationTrigger": true
+      }
+    },
+    {
+      "class_type": "OCRAction",
+      "count": 1,
+      "config_keys": [
+        "charsetOption",
+        "dictionaryKeys",
+        "fileDisplayName",
+        "flashOption",
+        "isLocalVar",
+        "option",
+        "useFrontCamera",
+        "variableName"
+      ],
+      "sample_index": 162,
+      "sample_config": {
+        "charsetOption": 0,
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "fileDisplayName": "",
+        "flashOption": 0,
+        "isLocalVar": false,
+        "option": 0,
+        "useFrontCamera": false,
+        "variableName": "0 entradas"
+      }
+    },
+    {
+      "class_type": "OpenCallLogAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 166,
+      "sample_config": {}
+    },
+    {
+      "class_type": "OpenFileAction",
+      "count": 1,
+      "config_keys": [
+        "allFilesAccessPath",
+        "m_appName",
+        "m_className",
+        "m_packageName",
+        "useAllFilesAccess",
+        "useStaticFilename",
+        "useUri"
+      ],
+      "sample_index": 36,
+      "sample_config": {
+        "allFilesAccessPath": "teste",
+        "m_appName": "Drive",
+        "m_className": "com.google.android.apps.docs.common.opener.DocumentOpenerActivity",
+        "m_packageName": "com.google.android.apps.docs",
+        "useAllFilesAccess": true,
+        "useStaticFilename": false,
+        "useUri": false
+      }
+    },
+    {
+      "class_type": "OpenLastPhotoAction",
+      "count": 1,
+      "config_keys": [
+        "appName",
+        "packageName"
+      ],
+      "sample_index": 46,
+      "sample_config": {
+        "appName": "Fotos",
+        "packageName": "com.google.android.apps.photos"
+      }
+    },
+    {
+      "class_type": "OpenMacroDroidLogAction",
+      "count": 1,
+      "config_keys": [
+        "m_logType"
+      ],
+      "sample_index": 145,
+      "sample_config": {
+        "m_logType": 0
+      }
+    },
+    {
+      "class_type": "OpenWebPageAction",
+      "count": 1,
+      "config_keys": [
+        "allowAnyCertificate",
+        "blockNextAction",
+        "m_disableUrlEncode",
+        "m_httpGet",
+        "m_urlToOpen",
+        "m_variableSuccessResponse",
+        "m_variableToSaveResponse"
+      ],
+      "sample_index": 28,
+      "sample_config": {
+        "allowAnyCertificate": true,
+        "blockNextAction": true,
+        "m_disableUrlEncode": false,
+        "m_httpGet": true,
+        "m_urlToOpen": "teste",
+        "m_variableSuccessResponse": {
+          "dictionary": {
+            "entries": [],
+            "isArray": false,
+            "variableType": 4,
+            "type": "Dictionary"
+          },
+          "isActionBlockWorkingVar": false,
+          "isLocalVar": true,
+          "isSecure": false,
+          "m_booleanValue": false,
+          "m_decimalValue": 0.0,
+          "m_intValue": 0,
+          "m_name": "teste",
+          "m_stringValue": "",
+          "m_type": 0,
+          "supportsInput": true,
+          "supportsOutput": true
+        },
+        "m_variableToSaveResponse": {
+          "dictionary": {
+            "entries": [],
+            "isArray": false,
+            "variableType": 4,
+            "type": "Dictionary"
+          },
+          "isActionBlockWorkingVar": false,
+          "isLocalVar": true,
+          "isSecure": false,
+          "m_booleanValue": false,
+          "m_decimalValue": 0.0,
+          "m_intValue": 0,
+          "m_name": "teste2",
+          "m_stringValue": "",
+          "m_type": 2,
+          "supportsInput": true,
+          "supportsOutput": true
+        }
+      }
+    },
+    {
+      "class_type": "OptionDialogAction",
+      "count": 1,
+      "config_keys": [
+        "actionBlockData",
+        "blockNextAction",
+        "continueOnBackPress",
+        "m_actionMacroGuids",
+        "m_buttonNames",
+        "m_defaultButton",
+        "m_defaultTimeOutSecs",
+        "m_message",
+        "m_title",
+        "preventBackButtonClosing"
+      ],
+      "sample_index": 89,
+      "sample_config": {
+        "actionBlockData": [
+          {
+            "actionBlockGuid": -8974663416693308765,
+            "actionBlockName": "[CDXMS] Bootstrap",
+            "inputDictionaryMap": {},
+            "inputVarsMap": {
+              "Requested Artifact Type": "teste",
+              "Requested Artifact Id": "teste",
+              "Operation": "twste",
+              "Config Json": "tws"
+            },
+            "outputDictionaryMap": {},
+            "outputVarsMap": {}
+          },
+          null,
+          null
+        ],
+        "blockNextAction": true,
+        "continueOnBackPress": false,
+        "m_actionMacroGuids": [
+          -8974663416693308765,
+          0,
+          0
+        ],
+        "m_buttonNames": [
+          "tssre",
+          "",
+          ""
+        ],
+        "m_defaultButton": 1,
+        "m_defaultTimeOutSecs": 30,
+        "m_message": "Escolher uma opção entre valores abaixo.",
+        "m_title": "Selecione uma opção",
+        "preventBackButtonClosing": false
+      }
+    },
+    {
+      "class_type": "OverlayDialogAction",
+      "count": 1,
+      "config_keys": [
+        "autoExpand",
+        "blockNextAction",
+        "dimBackground",
+        "disableHtml",
+        "displayOverStatusBar",
+        "iconText",
+        "iconType",
+        "liveNotification",
+        "m_backgroundColor",
+        "m_iconBgColor",
+        "m_imageResourceId",
+        "m_macroGUIDToRun",
+        "m_notificationChannelType",
+        "m_notificationSubject",
+        "m_notificationText",
+        "m_overwriteExisting",
+        "m_priority",
+        "m_ringtoneIndex",
+        "m_ringtoneName",
+        "m_runMacroWhenPressed",
+        "m_secondaryClassType",
+        "m_textColor",
+        "maintainSpaces",
+        "notificationActionButtons",
+        "notificationChannelName",
+        "notificationIdString",
+        "notificatonId",
+        "preventAndroid16Grouping",
+        "preventBackButtonClosing",
+        "preventRemovalByBin",
+        "showAsOverlayOption",
+        "yPosition"
+      ],
+      "sample_index": 87,
+      "sample_config": {
+        "m_secondaryClassType": "OverlayDialogAction",
+        "autoExpand": true,
+        "blockNextAction": false,
+        "dimBackground": true,
+        "disableHtml": false,
+        "displayOverStatusBar": true,
+        "iconText": "",
+        "iconType": 0,
+        "liveNotification": false,
+        "m_backgroundColor": -587202560,
+        "m_iconBgColor": -769226,
+        "m_imageResourceId": 0,
+        "m_macroGUIDToRun": 0,
+        "m_notificationChannelType": 0,
+        "m_notificationSubject": "teste",
+        "m_notificationText": "teste",
+        "m_overwriteExisting": false,
+        "m_priority": 0,
+        "m_ringtoneIndex": 0,
+        "m_ringtoneName": "Padrão",
+        "m_runMacroWhenPressed": false,
+        "m_textColor": -1,
+        "maintainSpaces": false,
+        "notificationActionButtons": [
+          {
+            "clearOnPress": true,
+            "label": "teste",
+            "macroGuid": 0
+          }
+        ],
+        "notificationChannelName": "Ação de notificação",
+        "notificationIdString": "0",
+        "notificatonId": 0,
+        "preventAndroid16Grouping": false,
+        "preventBackButtonClosing": false,
+        "preventRemovalByBin": true,
+        "showAsOverlayOption": 1,
+        "yPosition": 0.5
+      }
+    },
+    {
+      "class_type": "PauseAction",
+      "count": 1,
+      "config_keys": [
+        "m_delayInMilliSeconds",
+        "m_delayInSeconds",
+        "m_useAlarm",
+        "unitForVariables"
+      ],
+      "sample_index": 117,
+      "sample_config": {
+        "m_delayInMilliSeconds": 0,
+        "m_delayInSeconds": 1,
+        "m_useAlarm": true,
+        "unitForVariables": 0
+      }
+    },
+    {
+      "class_type": "PinUnlockAction",
+      "count": 1,
+      "config_keys": [
+        "digitClickDelay",
+        "pinNumber",
+        "swipeUpDelay"
+      ],
+      "sample_index": 5,
+      "sample_config": {
+        "digitClickDelay": 200,
+        "pinNumber": "qOE4TVNL3VM=\n",
+        "swipeUpDelay": 800
+      }
+    },
+    {
+      "class_type": "PlaySoundAction",
+      "count": 1,
+      "config_keys": [
+        "audioStream",
+        "m_selectedIndex",
+        "specifyAudioStream",
+        "staticFilename",
+        "useAllFilesAccess",
+        "waitToFinish"
+      ],
+      "sample_index": 132,
+      "sample_config": {
+        "audioStream": 0,
+        "m_selectedIndex": 1,
+        "specifyAudioStream": false,
+        "staticFilename": true,
+        "useAllFilesAccess": false,
+        "waitToFinish": false
+      }
+    },
+    {
+      "class_type": "PressBackAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 18,
+      "sample_config": {}
+    },
+    {
+      "class_type": "ReadFileAction",
+      "count": 1,
+      "config_keys": [
+        "allFilesAccessPath",
+        "dictionaryKeys",
+        "staticFilename",
+        "useAllFilesAccess",
+        "variableName"
+      ],
+      "sample_index": 44,
+      "sample_config": {
+        "allFilesAccessPath": "teste",
+        "dictionaryKeys": {
+          "keys": [
+            "teste"
+          ]
+        },
+        "staticFilename": false,
+        "useAllFilesAccess": true,
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "ReadQRCodeAction",
+      "count": 1,
+      "config_keys": [
+        "fileDisplayName",
+        "flashOption",
+        "isLocalVar",
+        "option",
+        "useAllFilesAccess",
+        "useFrontCamera",
+        "variableName"
+      ],
+      "sample_index": 158,
+      "sample_config": {
+        "fileDisplayName": "",
+        "flashOption": 0,
+        "isLocalVar": false,
+        "option": 0,
+        "useAllFilesAccess": false,
+        "useFrontCamera": false,
+        "variableName": "teste2"
+      }
+    },
+    {
+      "class_type": "ReadScreenContentsAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "forceScreenRefresh",
+        "includeOverlays",
+        "includeScreenLocation",
+        "includeWithoutText",
+        "isLocalVar",
+        "variableName"
+      ],
+      "sample_index": 157,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "forceScreenRefresh": true,
+        "includeOverlays": true,
+        "includeScreenLocation": true,
+        "includeWithoutText": true,
+        "isLocalVar": true,
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "ReadScreenshotContentsAction",
+      "count": 1,
+      "config_keys": [
+        "charsetOption",
+        "dictionaryKeys",
+        "includeScreenLocation",
+        "isLocalVar",
+        "variableName"
+      ],
+      "sample_index": 156,
+      "sample_config": {
+        "charsetOption": 0,
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "includeScreenLocation": true,
+        "isLocalVar": false,
+        "variableName": "0 entradas"
+      }
+    },
+    {
+      "class_type": "RecordMicrophoneAction",
+      "count": 1,
+      "config_keys": [
+        "allFilesPath",
+        "audioBitRate",
+        "audioSamplingRate",
+        "m_recordTimeString",
+        "m_recordingFormat",
+        "m_secondsToRecordFor",
+        "source",
+        "useAllFilesAccess"
+      ],
+      "sample_index": 131,
+      "sample_config": {
+        "allFilesPath": "teste",
+        "audioBitRate": 96000,
+        "audioSamplingRate": 44100,
+        "m_recordTimeString": "30 segundos",
+        "m_recordingFormat": 0,
+        "m_secondsToRecordFor": 30,
+        "source": 0,
+        "useAllFilesAccess": true
+      }
+    },
+    {
+      "class_type": "RecordVideoAction",
+      "count": 1,
+      "config_keys": [
+        "allFilesPath",
+        "blockNextAction",
+        "duration",
+        "option",
+        "recordUntilStopped",
+        "rotationOverride",
+        "selectedCamera",
+        "selectedQuality",
+        "timeUnit",
+        "useAllFilesAccess"
+      ],
+      "sample_index": 130,
+      "sample_config": {
+        "allFilesPath": "teste",
+        "blockNextAction": true,
+        "duration": "30",
+        "option": 0,
+        "recordUntilStopped": false,
+        "rotationOverride": 0,
+        "selectedCamera": "Rear",
+        "selectedQuality": "HD",
+        "timeUnit": 0,
+        "useAllFilesAccess": true
+      }
+    },
+    {
+      "class_type": "RejectCallAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 173,
+      "sample_config": {}
+    },
+    {
+      "class_type": "RestoreNotificationsAction",
+      "count": 1,
+      "config_keys": [
+        "m_applicationNameList",
+        "m_excludes",
+        "m_option",
+        "m_packageNameList"
+      ],
+      "sample_index": 143,
+      "sample_config": {
+        "m_applicationNameList": [],
+        "m_excludes": false,
+        "m_option": 0,
+        "m_packageNameList": []
+      }
+    },
+    {
+      "class_type": "SamsungRoutinesAction",
+      "count": 1,
+      "config_keys": [
+        "actionMode",
+        "endPreviousBeforeStart",
+        "routineName",
+        "routineUuid"
+      ],
+      "sample_index": 25,
+      "sample_config": {
+        "actionMode": 2,
+        "endPreviousBeforeStart": true,
+        "routineName": "Sono",
+        "routineUuid": -1
+      }
+    },
+    {
+      "class_type": "SayTimeAction",
+      "count": 1,
+      "config_keys": [
+        "m_12Hour"
+      ],
+      "sample_index": 83,
+      "sample_config": {
+        "m_12Hour": false
+      }
+    },
+    {
+      "class_type": "ScreenOnAction",
+      "count": 1,
+      "config_keys": [
+        "m_pieLockScreen",
+        "m_screenOff",
+        "m_screenOffNoLock",
+        "m_screenOnAlternative"
+      ],
+      "sample_index": 159,
+      "sample_config": {
+        "m_pieLockScreen": false,
+        "m_screenOff": true,
+        "m_screenOffNoLock": false,
+        "m_screenOnAlternative": false
+      }
+    },
+    {
+      "class_type": "SelectionDialogAction",
+      "count": 1,
+      "config_keys": [
+        "bgColor",
+        "buttonStyle",
+        "continueMacroOnBackPress",
+        "customEntries",
+        "defaultButtonIndex",
+        "defaultKey",
+        "defaultTimeOutSecs",
+        "dictionaryKeys",
+        "dictionaryVarName",
+        "hasDefault",
+        "message",
+        "option",
+        "preventBackButtonClose",
+        "saveIndexVariable",
+        "saveKeyVariable",
+        "saveValueVariable",
+        "showDictionaryKeys",
+        "textColor"
+      ],
+      "sample_index": 90,
+      "sample_config": {
+        "bgColor": -13619152,
+        "buttonStyle": 0,
+        "continueMacroOnBackPress": true,
+        "customEntries": [],
+        "defaultButtonIndex": 0,
+        "defaultKey": "",
+        "defaultTimeOutSecs": 30,
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "dictionaryVarName": "teste1",
+        "hasDefault": false,
+        "message": "teste",
+        "option": 1,
+        "preventBackButtonClose": false,
+        "saveIndexVariable": {
+          "variableName": "teste1",
+          "keys": {
+            "keys": [
+              "teste"
+            ]
+          }
+        },
+        "saveKeyVariable": {
+          "variableName": "teste2",
+          "keys": {
+            "keys": []
+          }
+        },
+        "saveValueVariable": {
+          "variableName": "teste2",
+          "keys": {
+            "keys": []
+          }
+        },
+        "showDictionaryKeys": false,
+        "textColor": -1118482
+      }
+    },
+    {
+      "class_type": "SendEmailAction",
+      "count": 1,
+      "config_keys": [
+        "blockNextAction",
+        "m_attachLog",
+        "m_attachUserLog",
+        "m_body",
+        "m_emailAddress",
+        "m_fromEmailAddress",
+        "m_subject",
+        "sendOption",
+        "useHtml",
+        "useHtmlForLogs",
+        "userLogChannelsList",
+        "variable"
+      ],
+      "sample_index": 127,
+      "sample_config": {
+        "blockNextAction": true,
+        "m_attachLog": false,
+        "m_attachUserLog": false,
+        "m_body": "5este",
+        "m_emailAddress": "teste",
+        "m_fromEmailAddress": "",
+        "m_subject": "teste",
+        "sendOption": 0,
+        "useHtml": true,
+        "useHtmlForLogs": false,
+        "userLogChannelsList": [],
+        "variable": {
+          "dictionary": {
+            "entries": [],
+            "isArray": false,
+            "variableType": 4,
+            "type": "Dictionary"
+          },
+          "isActionBlockWorkingVar": false,
+          "isLocalVar": true,
+          "isSecure": false,
+          "m_booleanValue": false,
+          "m_decimalValue": 0.0,
+          "m_intValue": 0,
+          "m_name": "teste",
+          "m_stringValue": "",
+          "m_type": 0,
+          "supportsInput": false,
+          "supportsOutput": true
+        }
+      }
+    },
+    {
+      "class_type": "SendIntentAction",
+      "count": 1,
+      "config_keys": [
+        "EXTRA_TYPE_AUTO",
+        "EXTRA_TYPE_BOOLEAN",
+        "EXTRA_TYPE_DOUBLE",
+        "EXTRA_TYPE_FLOAT",
+        "EXTRA_TYPE_INT",
+        "EXTRA_TYPE_LONG",
+        "EXTRA_TYPE_STRING",
+        "EXTRA_TYPE_STRING_ARRAY",
+        "m_action",
+        "m_category",
+        "m_className",
+        "m_data",
+        "m_extra1Name",
+        "m_extra1Type",
+        "m_extra1Value",
+        "m_extra2Name",
+        "m_extra2Type",
+        "m_extra2Value",
+        "m_extra3Name",
+        "m_extra3Type",
+        "m_extra3Value",
+        "m_extra4Name",
+        "m_extra4Type",
+        "m_extra4Value",
+        "m_extra5Name",
+        "m_extra5Type",
+        "m_extra5Value",
+        "m_extra6Name",
+        "m_extra6Type",
+        "m_extra6Value",
+        "m_flags",
+        "m_mimeType",
+        "m_packageName",
+        "m_target",
+        "useCustomCategory"
+      ],
+      "sample_index": 7,
+      "sample_config": {
+        "EXTRA_TYPE_AUTO": 0,
+        "EXTRA_TYPE_BOOLEAN": 2,
+        "EXTRA_TYPE_DOUBLE": 6,
+        "EXTRA_TYPE_FLOAT": 5,
+        "EXTRA_TYPE_INT": 3,
+        "EXTRA_TYPE_LONG": 4,
+        "EXTRA_TYPE_STRING": 1,
+        "EXTRA_TYPE_STRING_ARRAY": 7,
+        "m_action": "teste",
+        "m_category": "android.intent.category.APP_BROWSER",
+        "m_className": "teste",
+        "m_data": "teste",
+        "m_extra1Name": "",
+        "m_extra1Type": 0,
+        "m_extra1Value": "",
+        "m_extra2Name": "",
+        "m_extra2Type": 0,
+        "m_extra2Value": "",
+        "m_extra3Name": "",
+        "m_extra3Type": 0,
+        "m_extra3Value": "",
+        "m_extra4Name": "",
+        "m_extra4Type": 0,
+        "m_extra4Value": "",
+        "m_extra5Name": "",
+        "m_extra5Type": 0,
+        "m_extra5Value": "",
+        "m_extra6Name": "",
+        "m_extra6Type": 0,
+        "m_extra6Value": "",
+        "m_flags": 0,
+        "m_mimeType": "teste",
+        "m_packageName": "teste",
+        "m_target": "Activity",
+        "useCustomCategory": false
+      }
+    },
+    {
+      "class_type": "SendSMSAction",
+      "count": 1,
+      "config_keys": [
+        "m_addToMessageLog",
+        "m_contact",
+        "m_messageContent",
+        "m_number",
+        "m_prePopulate",
+        "m_simId"
+      ],
+      "sample_index": 126,
+      "sample_config": {
+        "m_addToMessageLog": false,
+        "m_contact": {
+          "m_id": "Hardwired_Number",
+          "m_lookupKey": "Hardwired_Number",
+          "m_name": "[Selecionar número]"
+        },
+        "m_messageContent": "teste",
+        "m_number": "teste",
+        "m_prePopulate": false,
+        "m_simId": 1
+      }
+    },
+    {
+      "class_type": "SetAirplaneModeAction",
+      "count": 1,
+      "config_keys": [
+        "configComplete",
+        "m_keepBluetoothOn",
+        "m_keepWifiOn",
+        "m_state",
+        "mechanismOption"
+      ],
+      "sample_index": 66,
+      "sample_config": {
+        "configComplete": true,
+        "m_keepBluetoothOn": false,
+        "m_keepWifiOn": false,
+        "m_state": 1,
+        "mechanismOption": 1
+      }
+    },
+    {
+      "class_type": "SetAlarmClockAction",
+      "count": 1,
+      "config_keys": [
+        "m_dayOption",
+        "m_daysOfWeek",
+        "m_delayInHours",
+        "m_delayInMinutes",
+        "m_hour",
+        "m_label",
+        "m_minute",
+        "m_oneOff",
+        "m_option",
+        "m_relative"
+      ],
+      "sample_index": 82,
+      "sample_config": {
+        "m_dayOption": 0,
+        "m_daysOfWeek": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "m_delayInHours": 0,
+        "m_delayInMinutes": 0,
+        "m_hour": 8,
+        "m_label": "teste",
+        "m_minute": 15,
+        "m_oneOff": true,
+        "m_option": 1,
+        "m_relative": true
+      }
+    },
+    {
+      "class_type": "SetAutoRotateAction",
+      "count": 1,
+      "config_keys": [
+        "m_state"
+      ],
+      "sample_index": 78,
+      "sample_config": {
+        "m_state": 0
+      }
+    },
+    {
+      "class_type": "SetAutoSyncAction",
+      "count": 1,
+      "config_keys": [
+        "m_selectAccounts",
+        "m_state"
+      ],
+      "sample_index": 70,
+      "sample_config": {
+        "m_selectAccounts": false,
+        "m_state": 2
+      }
+    },
+    {
+      "class_type": "SetBrightnessAction",
+      "count": 1,
+      "config_keys": [
+        "autoBrightnessOn",
+        "forceValue",
+        "forceValueEnabled",
+        "m_brightness",
+        "m_brightnessPercent",
+        "m_forcePieMode",
+        "migrated",
+        "setAutoBrightness",
+        "setBrightnessValue"
+      ],
+      "sample_index": 152,
+      "sample_config": {
+        "autoBrightnessOn": false,
+        "forceValue": 0,
+        "forceValueEnabled": false,
+        "m_brightness": 0,
+        "m_brightnessPercent": 50,
+        "m_forcePieMode": false,
+        "migrated": true,
+        "setAutoBrightness": true,
+        "setBrightnessValue": true
+      }
+    },
+    {
+      "class_type": "SetHotspotAction",
+      "count": 1,
+      "config_keys": [
+        "a16PlusMechanism",
+        "state",
+        "turnWifiOn",
+        "useLegacyMechanism"
+      ],
+      "sample_index": 69,
+      "sample_config": {
+        "a16PlusMechanism": 0,
+        "state": 0,
+        "turnWifiOn": false,
+        "useLegacyMechanism": false
+      }
+    },
+    {
+      "class_type": "SetKeyboardAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 80,
+      "sample_config": {}
+    },
+    {
+      "class_type": "SetKeyguardAction",
+      "count": 1,
+      "config_keys": [
+        "m_keyguardOn"
+      ],
+      "sample_index": 74,
+      "sample_config": {
+        "m_keyguardOn": true
+      }
+    },
+    {
+      "class_type": "SetLocationUpdateRateAction",
+      "count": 1,
+      "config_keys": [
+        "m_updateRate",
+        "m_updateRateSeconds"
+      ],
+      "sample_index": 115,
+      "sample_config": {
+        "m_updateRate": 0,
+        "m_updateRateSeconds": 600
+      }
+    },
+    {
+      "class_type": "SetMacroDroidIconAction",
+      "count": 1,
+      "config_keys": [
+        "iconText",
+        "iconType",
+        "imagePackageName",
+        "m_imageResourceName"
+      ],
+      "sample_index": 95,
+      "sample_config": {
+        "iconText": "",
+        "iconType": 0,
+        "imagePackageName": "com.samsung.android.mydevice",
+        "m_imageResourceName": "com.samsung.android.mydevice"
+      }
+    },
+    {
+      "class_type": "SetModeAction",
+      "count": 1,
+      "config_keys": [
+        "blockNextAction",
+        "m_mode"
+      ],
+      "sample_index": 93,
+      "sample_config": {
+        "blockNextAction": true,
+        "m_mode": "Carro"
+      }
+    },
+    {
+      "class_type": "SetNotificationBarIconAction",
+      "count": 1,
+      "config_keys": [
+        "buttonId",
+        "buttonNumber",
+        "imageId"
+      ],
+      "sample_index": 96,
+      "sample_config": {
+        "buttonId": 1,
+        "buttonNumber": 1,
+        "imageId": 0
+      }
+    },
+    {
+      "class_type": "SetNotificationSoundAction",
+      "count": 1,
+      "config_keys": [
+        "m_ringtoneUri"
+      ],
+      "sample_index": 134,
+      "sample_config": {
+        "m_ringtoneUri": "content://media/internal/audio/media/84?title=Old%20Camera&canonical=1"
+      }
+    },
+    {
+      "class_type": "SetPriorityMode",
+      "count": 1,
+      "config_keys": [
+        "m_option"
+      ],
+      "sample_index": 185,
+      "sample_config": {
+        "m_option": 2
+      }
+    },
+    {
+      "class_type": "SetQuickSettingsStateAction",
+      "count": 1,
+      "config_keys": [
+        "iconRes",
+        "iconResName",
+        "label",
+        "m_tileOption",
+        "m_toggleOption",
+        "setImage",
+        "setLabel",
+        "setSubtitle",
+        "setToggleState",
+        "subtitle"
+      ],
+      "sample_index": 73,
+      "sample_config": {
+        "iconRes": 2131233796,
+        "iconResName": "notification_icon_cog_box",
+        "label": "teste",
+        "m_tileOption": 0,
+        "m_toggleOption": 0,
+        "setImage": false,
+        "setLabel": true,
+        "setSubtitle": true,
+        "setToggleState": true,
+        "subtitle": "teste"
+      }
+    },
+    {
+      "class_type": "SetRingtoneAction",
+      "count": 1,
+      "config_keys": [
+        "m_ringtoneUri"
+      ],
+      "sample_index": 169,
+      "sample_config": {
+        "m_ringtoneUri": "content://media/internal/audio/media/139?title=Galaxy%20Bells&canonical=1"
+      }
+    },
+    {
+      "class_type": "SetScreenTimeoutAction",
+      "count": 1,
+      "config_keys": [
+        "m_customValueDelay",
+        "m_timeUnit",
+        "m_timeoutDelay",
+        "m_timeoutDelayString",
+        "m_valueType"
+      ],
+      "sample_index": 153,
+      "sample_config": {
+        "m_customValueDelay": 0,
+        "m_timeUnit": 0,
+        "m_timeoutDelay": 15,
+        "m_timeoutDelayString": "15 segundos",
+        "m_valueType": 0
+      }
+    },
+    {
+      "class_type": "SetVariableAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "dictionaryOrArrayType",
+        "existingManualKeyType",
+        "m_booleanInvert",
+        "m_darkMode",
+        "m_doubleRandomMax",
+        "m_doubleRandomMin",
+        "m_falseLabel",
+        "m_intExpression",
+        "m_intRandom",
+        "m_intRandomMax",
+        "m_intRandomMin",
+        "m_intValueDecrement",
+        "m_intValueIncrement",
+        "m_newBooleanValue",
+        "m_newDoubleValue",
+        "m_newIntValue",
+        "m_trueLabel",
+        "m_userPrompt",
+        "m_userPromptEmptyAtStart",
+        "m_userPromptPassword",
+        "m_userPromptPasswordToggle",
+        "m_userPromptShowCancel",
+        "m_userPromptStopAfterCancel",
+        "m_variable"
+      ],
+      "sample_index": 175,
+      "sample_config": {
+        "dictionaryKeys": [],
+        "dictionaryOrArrayType": -1,
+        "existingManualKeyType": 0,
+        "m_booleanInvert": false,
+        "m_darkMode": -1,
+        "m_doubleRandomMax": 0.0,
+        "m_doubleRandomMin": 0.0,
+        "m_falseLabel": "Falso",
+        "m_intExpression": false,
+        "m_intRandom": false,
+        "m_intRandomMax": 0,
+        "m_intRandomMin": 0,
+        "m_intValueDecrement": false,
+        "m_intValueIncrement": false,
+        "m_newBooleanValue": false,
+        "m_newDoubleValue": 0.0,
+        "m_newIntValue": 0,
+        "m_trueLabel": "Verdadeiro",
+        "m_userPrompt": false,
+        "m_userPromptEmptyAtStart": false,
+        "m_userPromptPassword": false,
+        "m_userPromptPasswordToggle": false,
+        "m_userPromptShowCancel": true,
+        "m_userPromptStopAfterCancel": true,
+        "m_variable": {
+          "dictionary": {
+            "entries": [],
+            "isArray": false,
+            "variableType": 4,
+            "type": "Dictionary"
+          },
+          "isActionBlockWorkingVar": false,
+          "isLocalVar": true,
+          "isSecure": false,
+          "m_booleanValue": false,
+          "m_decimalValue": 0.0,
+          "m_intValue": 0,
+          "m_name": "teste",
+          "m_stringValue": "",
+          "m_type": 0,
+          "supportsInput": false,
+          "supportsOutput": true
+        }
+      }
+    },
+    {
+      "class_type": "SetVibrateAction",
+      "count": 1,
+      "config_keys": [
+        "m_option",
+        "m_optionInt"
+      ],
+      "sample_index": 188,
+      "sample_config": {
+        "m_option": "Ligar vibração ao tocar",
+        "m_optionInt": 2
+      }
+    },
+    {
+      "class_type": "SetVolumeAction",
+      "count": 1,
+      "config_keys": [
+        "m_forceVibrateOff",
+        "m_streamIndexArray",
+        "m_streamVolumeArray",
+        "m_variables",
+        "m_volume",
+        "setInForeground",
+        "varDictionaryKeys"
+      ],
+      "sample_index": 182,
+      "sample_config": {
+        "m_forceVibrateOff": false,
+        "m_streamIndexArray": [
+          true,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true,
+          false
+        ],
+        "m_streamVolumeArray": [
+          100,
+          0,
+          0,
+          82,
+          0,
+          0,
+          0,
+          0
+        ],
+        "m_variables": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "dictionary": {
+              "entries": [],
+              "isArray": true,
+              "variableType": 5,
+              "type": "Dictionary"
+            },
+            "isActionBlockWorkingVar": true,
+            "isLocalVar": true,
+            "isSecure": false,
+            "m_booleanValue": false,
+            "m_decimalValue": 0.0,
+            "m_intValue": 0,
+            "m_name": "0 entradas",
+            "m_stringValue": "",
+            "m_type": 5,
+            "supportsInput": false,
+            "supportsOutput": true
+          },
+          null
+        ],
+        "m_volume": -1,
+        "setInForeground": true,
+        "varDictionaryKeys": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          {
+            "keys": [
+              "0"
+            ]
+          },
+          null
+        ]
+      }
+    },
+    {
+      "class_type": "SetWallpaperAction",
+      "count": 1,
+      "config_keys": [
+        "localFileUri",
+        "m_option",
+        "m_screenOption",
+        "optimiseImage",
+        "useDynamicFileName",
+        "useUri"
+      ],
+      "sample_index": 76,
+      "sample_config": {
+        "localFileUri": "teste",
+        "m_option": 0,
+        "m_screenOption": 0,
+        "optimiseImage": true,
+        "useDynamicFileName": false,
+        "useUri": true
+      }
+    },
+    {
+      "class_type": "ShareLocationAction",
+      "count": 1,
+      "config_keys": [
+        "m_email",
+        "m_oldVariableFormat",
+        "m_outputChannel",
+        "m_simId",
+        "m_variable",
+        "useSmtpEmail"
+      ],
+      "sample_index": 114,
+      "sample_config": {
+        "m_email": "",
+        "m_oldVariableFormat": true,
+        "m_outputChannel": 5,
+        "m_simId": 0,
+        "m_variable": {
+          "dictionary": {
+            "entries": [],
+            "isArray": false,
+            "variableType": 4,
+            "type": "Dictionary"
+          },
+          "isActionBlockWorkingVar": false,
+          "isLocalVar": true,
+          "isSecure": false,
+          "m_booleanValue": false,
+          "m_decimalValue": 0.0,
+          "m_intValue": 0,
+          "m_name": "teste2",
+          "m_stringValue": "",
+          "m_type": 2,
+          "supportsInput": false,
+          "supportsOutput": true
+        },
+        "useSmtpEmail": false
+      }
+    },
+    {
+      "class_type": "ShareTextAction",
+      "count": 1,
+      "config_keys": [
+        "m_appName",
+        "m_className",
+        "m_packageName",
+        "textToShare"
+      ],
+      "sample_index": 4,
+      "sample_config": {
+        "m_appName": "Alexa",
+        "m_className": "com.amazon.deecomms.sharing.ShareSheetActivity",
+        "m_packageName": "com.amazon.dee.app",
+        "textToShare": "teste"
+      }
+    },
+    {
+      "class_type": "ShellScriptAction",
+      "count": 1,
+      "config_keys": [
+        "blockNextAction",
+        "m_nonRoot",
+        "m_script",
+        "timeoutSeconds",
+        "useHelper",
+        "useShizuku"
+      ],
+      "sample_index": 35,
+      "sample_config": {
+        "blockNextAction": false,
+        "m_nonRoot": true,
+        "m_script": "teste",
+        "timeoutSeconds": 600,
+        "useHelper": false,
+        "useShizuku": false
+      }
+    },
+    {
+      "class_type": "ShowVolumePopupAction",
+      "count": 1,
+      "config_keys": [
+        "audioStream"
+      ],
+      "sample_index": 186,
+      "sample_config": {
+        "audioStream": 1
+      }
+    },
+    {
+      "class_type": "SilentModeVibrateOffAction",
+      "count": 1,
+      "config_keys": [
+        "mechanism",
+        "option"
+      ],
+      "sample_index": 187,
+      "sample_config": {
+        "mechanism": 0,
+        "option": 0
+      }
+    },
+    {
+      "class_type": "SpeakTextAction",
+      "count": 1,
+      "config_keys": [
+        "m_audioStream",
+        "m_pitch",
+        "m_queue",
+        "m_readNumbersIndividually",
+        "m_skipEmojis",
+        "m_specifyAudioStream",
+        "m_speed",
+        "m_textToSay",
+        "m_waitToFinish"
+      ],
+      "sample_index": 11,
+      "sample_config": {
+        "m_audioStream": 0,
+        "m_pitch": 1.0,
+        "m_queue": true,
+        "m_readNumbersIndividually": true,
+        "m_skipEmojis": true,
+        "m_specifyAudioStream": false,
+        "m_speed": 1.0,
+        "m_textToSay": "teste",
+        "m_waitToFinish": true
+      }
+    },
+    {
+      "class_type": "SpeakerPhoneAction",
+      "count": 1,
+      "config_keys": [
+        "m_state"
+      ],
+      "sample_index": 183,
+      "sample_config": {
+        "m_state": 1
+      }
+    },
+    {
+      "class_type": "StopWatchAction",
+      "count": 1,
+      "config_keys": [
+        "m_option",
+        "m_stopwatchName"
+      ],
+      "sample_index": 81,
+      "sample_config": {
+        "m_option": 3,
+        "m_stopwatchName": "Timeout"
+      }
+    },
+    {
+      "class_type": "SummariseMacrosAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "includeVariables",
+        "isLocalVar",
+        "option",
+        "variableName",
+        "variablesOption"
+      ],
+      "sample_index": 105,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "includeVariables": false,
+        "isLocalVar": false,
+        "option": 0,
+        "variableName": "CDXMS_Solutions",
+        "variablesOption": 0
+      }
+    },
+    {
+      "class_type": "SystemSettingAction",
+      "count": 1,
+      "config_keys": [
+        "settingString",
+        "tableOption",
+        "useHelper",
+        "valueString",
+        "valueType"
+      ],
+      "sample_index": 75,
+      "sample_config": {
+        "settingString": "teste",
+        "tableOption": 0,
+        "useHelper": false,
+        "valueString": "teste",
+        "valueType": 0
+      }
+    },
+    {
+      "class_type": "TakePictureAction",
+      "count": 1,
+      "config_keys": [
+        "actionLabel",
+        "applyAutoFocus",
+        "m_comment",
+        "m_flashOption",
+        "m_showIcon",
+        "m_useFrontCamera",
+        "pathName",
+        "pathUri",
+        "useAllFilesAccess"
+      ],
+      "sample_index": 50,
+      "sample_config": {
+        "applyAutoFocus": true,
+        "m_flashOption": 0,
+        "m_showIcon": true,
+        "m_useFrontCamera": true,
+        "pathName": "primary:Documents/CDXMS_Solutions",
+        "pathUri": "content://com.android.externalstorage.documents/tree/primary%3ADocuments%2FCDXMS_Solutions",
+        "useAllFilesAccess": false,
+        "actionLabel": "teste rotulo",
+        "m_comment": "teste"
+      }
+    },
+    {
+      "class_type": "TakeScreenshotAction",
+      "count": 1,
+      "config_keys": [
+        "emailSubject",
+        "m_mechanismOption",
+        "m_option",
+        "saveToJpeg",
+        "screenshotFormat",
+        "uiOption",
+        "useSmtpEmail"
+      ],
+      "sample_index": 47,
+      "sample_config": {
+        "emailSubject": "Captura de tela",
+        "m_mechanismOption": 0,
+        "m_option": 0,
+        "saveToJpeg": false,
+        "screenshotFormat": 1,
+        "uiOption": 1,
+        "useSmtpEmail": false
+      }
+    },
+    {
+      "class_type": "TerminateRunningAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 121,
+      "sample_config": {}
+    },
+    {
+      "class_type": "TextManipulationAction",
+      "count": 2,
+      "config_keys": [
+        "m_option",
+        "m_text",
+        "m_textManipulation",
+        "varDictionaryKeys",
+        "variableName"
+      ],
+      "sample_index": 179,
+      "sample_config": {
+        "m_option": 1,
+        "m_text": "teste",
+        "m_textManipulation": {
+          "type": "ReplaceAllManipulation",
+          "params": [
+            "teste",
+            "tste",
+            "true"
+          ]
+        },
+        "variableName": "teste2"
+      }
+    },
+    {
+      "class_type": "ToastAction",
+      "count": 1,
+      "config_keys": [
+        "cancelPrevious",
+        "m_backgroundColor",
+        "m_displayIcon",
+        "m_duration",
+        "m_horizontalPosition",
+        "m_imageName",
+        "m_imagePackageName",
+        "m_imageResourceName",
+        "m_messageText",
+        "m_position",
+        "m_textColor",
+        "m_tintIcon",
+        "maintainSpaces",
+        "useTextOnly"
+      ],
+      "sample_index": 140,
+      "sample_config": {
+        "cancelPrevious": true,
+        "m_backgroundColor": -14606047,
+        "m_displayIcon": true,
+        "m_duration": 0,
+        "m_horizontalPosition": 0,
+        "m_imageName": "launcher_no_border",
+        "m_imagePackageName": "com.arlosoft.macrodroid",
+        "m_imageResourceName": "launcher_no_border",
+        "m_messageText": "teste",
+        "m_position": 0,
+        "m_textColor": -1,
+        "m_tintIcon": false,
+        "maintainSpaces": true,
+        "useTextOnly": false
+      }
+    },
+    {
+      "class_type": "TranslateTextAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "option",
+        "outputLanguageCode",
+        "sourceLanguageCode",
+        "text",
+        "variableName"
+      ],
+      "sample_index": 107,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "option": 0,
+        "outputLanguageCode": "en",
+        "sourceLanguageCode": "pt",
+        "text": "teste",
+        "variableName": "teste2"
+      }
+    },
+    {
+      "class_type": "UDPCommandAction",
+      "count": 1,
+      "config_keys": [
+        "m_destination",
+        "m_message",
+        "m_port"
+      ],
+      "sample_index": 108,
+      "sample_config": {
+        "m_destination": "teste",
+        "m_message": "teste",
+        "m_port": 1111
+      }
+    },
+    {
+      "class_type": "UIInteractionAction",
+      "count": 2,
+      "config_keys": [
+        "action",
+        "uiInteractionConfiguration"
+      ],
+      "sample_index": 12,
+      "sample_config": {
+        "action": 0,
+        "uiInteractionConfiguration": {
+          "blocking": true,
+          "checkOverlays": false,
+          "clickOption": 0,
+          "contentDescription": "",
+          "longClick": false,
+          "returnVariable": {
+            "variableName": "teste",
+            "keys": {
+              "keys": []
+            }
+          },
+          "textMatchOption": 0,
+          "useRegex": false,
+          "xyPercentages": false,
+          "type": "Click"
+        }
+      }
+    },
+    {
+      "class_type": "UpdateClipboardAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 19,
+      "sample_config": {}
+    },
+    {
+      "class_type": "UploadPhotoAction",
+      "count": 1,
+      "config_keys": [
+        "emailBody",
+        "emailFrom",
+        "emailSubject",
+        "m_email",
+        "m_option",
+        "useHtml",
+        "useSmtpEmail"
+      ],
+      "sample_index": 48,
+      "sample_config": {
+        "emailBody": "teste",
+        "emailFrom": "",
+        "emailSubject": "Compartilhando foto",
+        "m_email": "teste",
+        "m_option": "Email",
+        "useHtml": true,
+        "useSmtpEmail": false
+      }
+    },
+    {
+      "class_type": "VibrateAction",
+      "count": 1,
+      "config_keys": [
+        "m_vibratePattern",
+        "waitToFinish"
+      ],
+      "sample_index": 26,
+      "sample_config": {
+        "m_vibratePattern": 0,
+        "waitToFinish": false
+      }
+    },
+    {
+      "class_type": "VoiceInputAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "variableName"
+      ],
+      "sample_index": 6,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": [
+            "teste"
+          ]
+        },
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "VoiceSearchAction",
+      "count": 1,
+      "config_keys": [],
+      "sample_index": 16,
+      "sample_config": {}
+    },
+    {
+      "class_type": "VolumeIncrementDecrementAction",
+      "count": 1,
+      "config_keys": [
+        "m_volumeUp"
+      ],
+      "sample_index": 184,
+      "sample_config": {
+        "m_volumeUp": true
+      }
+    },
+    {
+      "class_type": "WearOsComplicationAction",
+      "count": 1,
+      "config_keys": [
+        "complicationType",
+        "imagePackageName",
+        "imageResourceId",
+        "imageResourceName",
+        "maxValue",
+        "minValue",
+        "setIcon",
+        "textContent",
+        "value"
+      ],
+      "sample_index": 68,
+      "sample_config": {
+        "complicationType": "ShortText1",
+        "imagePackageName": "com.arlosoft.macrodroid",
+        "imageResourceId": 0,
+        "imageResourceName": "active_icon_new",
+        "maxValue": "100",
+        "minValue": "0",
+        "setIcon": false,
+        "textContent": "teste",
+        "value": "50"
+      }
+    },
+    {
+      "class_type": "WhatsAppAction",
+      "count": 1,
+      "config_keys": [
+        "exitAppAfter",
+        "isBusiness",
+        "messageText",
+        "number",
+        "prepopulateOnly",
+        "sendButtonPressDelayMs"
+      ],
+      "sample_index": 128,
+      "sample_config": {
+        "exitAppAfter": true,
+        "isBusiness": false,
+        "messageText": "teste",
+        "number": "teste",
+        "prepopulateOnly": false,
+        "sendButtonPressDelayMs": 2000
+      }
+    },
+    {
+      "class_type": "WifiSSIDScanAction",
+      "count": 1,
+      "config_keys": [
+        "dictionaryKeys",
+        "groupBy",
+        "isLocalVar",
+        "variableName"
+      ],
+      "sample_index": 72,
+      "sample_config": {
+        "dictionaryKeys": {
+          "keys": []
+        },
+        "groupBy": 0,
+        "isLocalVar": false,
+        "variableName": "teste1"
+      }
+    },
+    {
+      "class_type": "WriteToFileAction",
+      "count": 1,
+      "config_keys": [
+        "allFilesPath",
+        "m_append",
+        "m_filename",
+        "m_logText",
+        "m_prepend",
+        "overwrite",
+        "useAllFilesAccess"
+      ],
+      "sample_index": 38,
+      "sample_config": {
+        "allFilesPath": "teste",
+        "m_append": true,
+        "m_filename": "teste",
+        "m_logText": "teste",
+        "m_prepend": false,
+        "overwrite": false,
+        "useAllFilesAccess": true
+      }
+    }
+  ],
+  "current_capabilities_usage": [
+    {
+      "artifact_id": "json_config_manager",
+      "file": "CDXMS_Json_Config_Manager_v1_0_0_final.ablock",
+      "macro_name": "[CDXMS] Json Config Manager",
+      "actions_count": 119,
+      "unique_actions": 12,
+      "action_counts": {
+        "ActionGroupAction": 3,
+        "ActionGroupEndAction": 3,
+        "ElseAction": 9,
+        "ElseIfConditionAction": 10,
+        "EndIfAction": 13,
+        "ExitActionBlockAction": 1,
+        "IfConditionAction": 13,
+        "JavaScriptAction": 25,
+        "JsonParseAction": 6,
+        "ReadFileAction": 6,
+        "ShellScriptAction": 4,
+        "WriteToFileAction": 26
+      }
+    },
+    {
+      "artifact_id": "bootstrap",
+      "file": "CDXMS_Bootstrap_v1_0_0.ablock",
+      "macro_name": "[CDXMS] Bootstrap",
+      "actions_count": 107,
+      "unique_actions": 10,
+      "action_counts": {
+        "ActionBlockAction": 58,
+        "ActionGroupAction": 2,
+        "ActionGroupEndAction": 2,
+        "ElseAction": 1,
+        "ElseIfConditionAction": 5,
+        "EndIfAction": 6,
+        "ExitActionBlockAction": 9,
+        "IfConditionAction": 6,
+        "JavaScriptAction": 9,
+        "JsonParseAction": 9
+      }
+    },
+    {
+      "artifact_id": "result_manager",
+      "file": "CDXMS_Result_Manager_v1_0_0.ablock",
+      "macro_name": "[CDXMS] Registrar Resultado",
+      "actions_count": 5,
+      "unique_actions": 5,
+      "action_counts": {
+        "ActionGroupAction": 1,
+        "ActionGroupEndAction": 1,
+        "ExitActionBlockAction": 1,
+        "JavaScriptAction": 1,
+        "JsonParseAction": 1
+      }
+    },
+    {
+      "artifact_id": "logger",
+      "file": "CDXMS_Logger_v1_0_0.ablock",
+      "macro_name": "[CDXMS] Logger",
+      "actions_count": 14,
+      "unique_actions": 9,
+      "action_counts": {
+        "ActionBlockAction": 2,
+        "ActionGroupAction": 3,
+        "ActionGroupEndAction": 3,
+        "EndIfAction": 1,
+        "ExitActionBlockAction": 1,
+        "IfConditionAction": 1,
+        "JavaScriptAction": 1,
+        "JsonParseAction": 1,
+        "WriteToFileAction": 1
+      }
+    },
+    {
+      "artifact_id": "string_utils",
+      "file": "CDXMS_String_Utils_v1_0_0.ablock",
+      "macro_name": "[CDXMS] String Utils",
+      "actions_count": 8,
+      "unique_actions": 6,
+      "action_counts": {
+        "ActionBlockAction": 1,
+        "ActionGroupAction": 2,
+        "ActionGroupEndAction": 2,
+        "ExitActionBlockAction": 1,
+        "JavaScriptAction": 1,
+        "JsonParseAction": 1
+      }
+    }
+  ]
+}

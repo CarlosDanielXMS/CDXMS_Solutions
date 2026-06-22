@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "catalog_sources",
+  "sources": [
+    {
+      "id": "cdxms_official_github",
+      "name": "CDXMS Official GitHub",
+      "type": "github_raw",
+      "enabled": true,
+      "repository": "CarlosDanielXMS/CDXMS_Solutions",
+      "ref": "develop",
+      "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src",
+      "catalog_path": "catalogs/local_catalog.default.json"
+    }
+  ],
+  "updated_at": ""
+}

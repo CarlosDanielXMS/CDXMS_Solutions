@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "file_integrity",
+    "name": "File Integrity",
+    "display_name": "[CDXMS] File Integrity",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Calcula e verifica SHA-256 de arquivos locais dentro do escopo seguro CDXMS usando executor homologado no dispositivo.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/file_integrity/macrodroid/[CDXMS]_File_Integrity.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] File Integrity",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "operations": [
+    "calculate_sha256",
+    "verify_sha256"
+  ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "purity": "filesystem_read_with_ephemeral_cache_bridge",
+  "side_effects": [
+    "temporary_runtime_report_created_and_removed"
+  ],
+  "implementation_audit": {
+    "stage": "homologated_v1_0_0",
+    "version_policy": "no_version_bump_before_first_official_release",
+    "source_base": "feat/create-ecosystem-core@626c37a02fe0beb5b806b4df33f801749ba6bf9b",
+    "runtime_evidence": {
+      "status": "homologated_executor",
+      "completed_at": "2026-06-21",
+      "macro": "[CDXMS] Homologar SHA-256 Runtime v1.0.1 TEMP",
+      "total_checks": 7,
+      "passed_checks": 7,
+      "failed_checks": 0,
+      "selected_executor": "/system/bin/sha256sum",
+      "execution_context": {
+        "non_root": true,
+        "use_helper": false,
+        "use_shizuku": false
+      }
+    },
+    "production_capability_homologation": {
+      "status": "homologated",
+      "manual_homologation_required": false,
+      "completed_at": "2026-06-21",
+      "macro": "[CDXMS] Homologar File Integrity v1.0.0 TEMP",
+      "total_checks": 11,
+      "passed_checks": 11,
+      "failed_checks": 0,
+      "verified_behaviors": [
+        "calculate_known_sha256",
+        "verify_matching_sha256",
+        "reject_checksum_mismatch",
+        "hash_empty_file",
+        "support_path_with_spaces",
+        "hash_multi_block_file",
+        "reject_missing_file",
+        "reject_malformed_expected_sha256",
+        "reject_unsafe_path",
+        "reject_unsupported_operation",
+        "preserve_registry"
+      ]
+    },
+    "action_profile": {
+      "total_actions": 21,
+      "javascript_actions": 7,
+      "shell_actions": 1,
+      "action_block_calls": 2,
+      "read_file_actions": 1
+    },
+    "shell_policy": "single_fixed_executor_no_user_command",
+    "filesystem_policy": "JCM prepares and removes the ephemeral report; the shell only writes its result bridge",
+    "security_policy": "absolute paths restricted to CDXMS base_path; shell metacharacters rejected; path quoted",
+    "export_checked_against_contract": true
+  }
+}

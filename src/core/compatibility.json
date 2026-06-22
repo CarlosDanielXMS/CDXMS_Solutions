@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "core_compatibility",
+  "core_min_version": "1.0.0",
+  "supported_result_contract_versions": [
+    1
+  ],
+  "min_jcm_version": "1.0.0",
+  "supported_remote_manifest_versions": [
+    1
+  ],
+  "supported_catalog_versions": [
+    1
+  ],
+  "updated_at": ""
+}

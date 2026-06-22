@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "capability",
+  "artifact_id": "bootstrap",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "capabilities/bootstrap/manifest.json",
+      "target_path": "capabilities/bootstrap/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "60daa761cfbd4f7c45aa534868ee33232597a91eebbbdcc16d180a07c7571bb5"
+    },
+    {
+      "path": "capabilities/bootstrap/contract.json",
+      "target_path": "capabilities/bootstrap/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "f5d998b1886b6cb0bac4fbb428488a2cf8f40c0d64df2304829db4547cefef5c"
+    },
+    {
+      "path": "capabilities/bootstrap/config.default.json",
+      "target_path": "capabilities/bootstrap/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "3e658d1355bed81dc9b5a99c469c9e43b6c4634d632facb21122586839029191"
+    },
+    {
+      "path": "capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock",
+      "target_path": "capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "checksum_sha256": "109dc8c4e0107019fefae68a6303b6c672169493fdb1b1e3374d8f91a5f57bab"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "capabilities/bootstrap/macrodroid/[CDXMS]_Bootstrap.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Bootstrap",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0"
+    }
+  },
+  "updated_at": ""
+}

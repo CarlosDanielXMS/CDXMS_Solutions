@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "release_id": "ecosystem_core_ui_capabilities_catalog_navigation_hotfix",
+  "artifact_id": "ecosystem_core_ui_capabilities_catalog_navigation_hotfix",
+  "artifact_type": "package",
+  "version": "1.0.0",
+  "status": "pre_release",
+  "created_at": "",
+  "distribution": {
+    "source_id": "cdxms_official_github",
+    "catalog_sources_path": "catalogs/sources.json",
+    "catalog_path": "catalogs/local_catalog.default.json",
+    "checksums_path": "checksums.json",
+    "homologation_ref": "develop"
+  },
+  "artifacts": [
+    {
+      "artifact_id": "cdxms_core",
+      "artifact_type": "core",
+      "version": "1.0.0",
+      "path": "core/manifest.json",
+      "remote_manifest_path": "core/remote_manifest.json"
+    },
+    {
+      "artifact_id": "json_config_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/json_config_manager/manifest.json",
+      "remote_manifest_path": "capabilities/json_config_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "bootstrap",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/bootstrap/manifest.json",
+      "remote_manifest_path": "capabilities/bootstrap/remote_manifest.json"
+    },
+    {
+      "artifact_id": "result_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/result_manager/manifest.json",
+      "remote_manifest_path": "capabilities/result_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "logger",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/logger/manifest.json",
+      "remote_manifest_path": "capabilities/logger/remote_manifest.json"
+    },
+    {
+      "artifact_id": "string_utils",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/string_utils/manifest.json",
+      "remote_manifest_path": "capabilities/string_utils/remote_manifest.json"
+    },
+    {
+      "artifact_id": "artifact_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/artifact_manager/manifest.json",
+      "remote_manifest_path": "capabilities/artifact_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "dependency_resolver",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/dependency_resolver/manifest.json",
+      "remote_manifest_path": "capabilities/dependency_resolver/remote_manifest.json"
+    },
+    {
+      "artifact_id": "remote_source_manager",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/remote_source_manager/manifest.json",
+      "remote_manifest_path": "capabilities/remote_source_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "file_integrity",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/file_integrity/manifest.json",
+      "remote_manifest_path": "capabilities/file_integrity/remote_manifest.json"
+    },
+    {
+      "artifact_id": "java_ui_framework",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/java_ui_framework/manifest.json",
+      "remote_manifest_path": "capabilities/java_ui_framework/remote_manifest.json"
+    },
+    {
+      "artifact_id": "juif_ui_builder",
+      "artifact_type": "capability",
+      "version": "1.0.0",
+      "path": "capabilities/juif_ui_builder/manifest.json",
+      "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json"
+    }
+  ],
+  "notes": [
+    "Base completa e mesclada do ecossistema atual.",
+    "Java UI Framework e JUIF UI Builder seguem core/result_contract.json.",
+    "Shell profissional mantido em hosts persistentes.",
+    "Navegação do catálogo corrigida com despacho adiado na main loop.",
+    "Página e shell são construídos transacionalmente antes do commit visual.",
+    "Falhas recuperáveis publicam UI_RUNTIME_ERROR sem fechamento silencioso.",
+    "UI padrão cobre 36 componentes e 21 bindings.",
+    "Homologação final em dispositivo permanece obrigatória."
+  ],
+  "package": "CDXMS_UI_Capabilities_v1_0_0_catalog_navigation_hotfix_delta_2026_06_22.zip"
+}

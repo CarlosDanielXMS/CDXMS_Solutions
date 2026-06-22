@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "local_catalog",
+  "version": "1.0.0",
+  "solutions": [],
+  "capabilities": [
+    {
+      "artifact_id": "json_config_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Json Config Manager",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/json_config_manager/manifest.json",
+      "remote_manifest_path": "capabilities/json_config_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "bootstrap",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Bootstrap",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/bootstrap/manifest.json",
+      "remote_manifest_path": "capabilities/bootstrap/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "result_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Registrar Resultado",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/result_manager/manifest.json",
+      "remote_manifest_path": "capabilities/result_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "logger",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Logger",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/logger/manifest.json",
+      "remote_manifest_path": "capabilities/logger/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "string_utils",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] String Utils",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/string_utils/manifest.json",
+      "remote_manifest_path": "capabilities/string_utils/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "artifact_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Artifact Manager",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/artifact_manager/manifest.json",
+      "remote_manifest_path": "capabilities/artifact_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "dependency_resolver",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Dependency Resolver",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/dependency_resolver/manifest.json",
+      "remote_manifest_path": "capabilities/dependency_resolver/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "remote_source_manager",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Remote Source Manager",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/remote_source_manager/manifest.json",
+      "remote_manifest_path": "capabilities/remote_source_manager/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "file_integrity",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] File Integrity",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/file_integrity/manifest.json",
+      "remote_manifest_path": "capabilities/file_integrity/remote_manifest.json",
+      "installable": true,
+      "visible": false
+    },
+    {
+      "artifact_id": "java_ui_framework",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] Java UI Framework",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/java_ui_framework/manifest.json",
+      "remote_manifest_path": "capabilities/java_ui_framework/remote_manifest.json",
+      "installable": true,
+      "visible": true,
+      "status": "professionally_redesigned_ready_for_device_homologation",
+      "summary": "Renderer JUIF com 36 componentes e shell persistente profissional.",
+      "implementation_stage": "catalog_navigation_hotfix_ready_for_device_validation",
+      "runtime_guards": [
+        "posted_main_loop",
+        "transactional_page_rendering",
+        "transactional_shell_rendering",
+        "UI_RUNTIME_ERROR"
+      ]
+    },
+    {
+      "artifact_id": "juif_ui_builder",
+      "artifact_type": "capability",
+      "display_name": "[CDXMS] JUIF UI Builder",
+      "version": "1.0.0",
+      "manifest_path": "capabilities/juif_ui_builder/manifest.json",
+      "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json",
+      "installable": true,
+      "visible": true,
+      "status": "professionally_redesigned_ready_for_device_homologation",
+      "summary": "Builder declarativo com documentação interativa de sete páginas."
+    }
+  ],
+  "core": [
+    {
+      "artifact_id": "cdxms_core",
+      "artifact_type": "core",
+      "version": "1.0.0",
+      "manifest_path": "core/manifest.json",
+      "remote_manifest_path": "core/remote_manifest.json"
+    }
+  ],
+  "updated_at": "2026-06-22"
+}

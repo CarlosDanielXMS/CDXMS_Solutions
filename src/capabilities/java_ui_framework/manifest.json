@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "capability",
+  "capability": {
+    "id": "java_ui_framework",
+    "name": "Java UI Framework",
+    "display_name": "[CDXMS] Java UI Framework",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Renderer declarativo JUIF para overlays Android com shell persistente, páginas, state, eventos e catálogo visual profissional.",
+    "enabled": true,
+    "has_config": true
+  },
+  "macrodroid_export": {
+    "file_path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
+    "kind": "action_block",
+    "expected_name": "[CDXMS] Java UI Framework",
+    "expected_is_action_block": true,
+    "manual_import_required": true
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {}
+  },
+  "operations": [
+    "render_ui"
+  ],
+  "result_contract": "core/result_contract.json",
+  "created_at": "",
+  "updated_at": "",
+  "purity": "ui_side_effect",
+  "side_effects": [
+    "application_overlay",
+    "runtime_state_and_event_updates",
+    "clipboard_when_requested"
+  ],
+  "component_catalog": {
+    "version": "1.0.0",
+    "path": "capabilities/java_ui_framework/component_catalog.json",
+    "supported_component_count": 36,
+    "existing_components_preserved": 26,
+    "new_components": [
+      "top_app_bar",
+      "bottom_navigation",
+      "navigation_rail",
+      "navigation_drawer",
+      "tab_bar",
+      "search_bar",
+      "chip",
+      "chip_group",
+      "empty_state",
+      "loading_indicator"
+    ],
+    "shell_mode": "persistent_hosts",
+    "persistent_shell_enabled": true,
+    "supported_shell_components": [
+      "top_app_bar",
+      "tab_bar",
+      "navigation_rail",
+      "bottom_navigation",
+      "navigation_drawer"
+    ]
+  },
+  "implementation_audit": {
+    "stage": "catalog_navigation_runtime_hotfix_ready_for_device_validation",
+    "source_base": "feat/create-ecosystem-core@8fdb41c5eebcb9bd03d6da6f91df0f6fd53b6b08",
+    "prototype_preserved": true,
+    "manual_homologation_required": true,
+    "action_profile": {
+      "total_actions": 10,
+      "text_manipulation_actions": 3,
+      "java_actions": 1,
+      "json_parse_actions": 1
+    },
+    "export_checked_against_contract": true,
+    "result_contract_verified": true,
+    "forbidden_result_fields_removed": true,
+    "result_contract_enforced": true,
+    "runtime_hierarchy": "persistent_top_tabs_rail_scroll_bottom_drawer_hosts",
+    "default_ui_pages": 7,
+    "default_ui_component_coverage": 36,
+    "catalog_navigation_state_unified": true,
+    "new_components_visual_system_aligned": true,
+    "beanshell_syntax_verified": true,
+    "catalog_navigation_runtime_hotfix": true,
+    "navigation_dispatch": "posted_main_loop",
+    "transactional_page_rendering": true,
+    "transactional_shell_rendering": true,
+    "throwable_runtime_guard": true,
+    "silent_runtime_close_prevented": true
+  }
+}
