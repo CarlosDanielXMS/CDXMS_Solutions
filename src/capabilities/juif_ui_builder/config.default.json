@@ -50,7 +50,18 @@
       "chip_group",
       "empty_state",
       "loading_indicator"
+    ],
+    "shell_mode": "persistent_hosts",
+    "shell_visibility_filters": [
+      "visible_pages",
+      "hidden_pages"
+    ],
+    "navigation_item_matching": [
+      "target",
+      "active_pages",
+      "active_prefix",
+      "selected"
     ]
   },
-  "updated_at": ""
+  "updated_at": "2026-06-22"
 }

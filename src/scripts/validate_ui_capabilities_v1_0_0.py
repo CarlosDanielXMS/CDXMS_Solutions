@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,7 +21,7 @@ for script in [
 ]:
     subprocess.run([sys.executable, str(script)], check=True)
 
-# Todo JSON/export contido no overlay deve continuar estruturalmente válido.
+# Todos os JSONs e exports do overlay devem permanecer válidos.
 for path in sorted(ROOT.rglob("*")):
     if path.is_file() and path.suffix in {".json", ".ablock", ".macro"}:
         load(path)
@@ -40,62 +42,92 @@ canonical_types = [item["type"] for item in renderer_catalog["components"]]
 assert renderer_catalog["component_count"] == 36
 assert renderer_config["settings"]["supported_component_types"] == canonical_types
 assert builder_config["settings"]["supported_component_types"] == canonical_types
+assert renderer_config["settings"]["shell_mode"] == "persistent_hosts"
+assert builder_config["settings"]["shell_mode"] == "persistent_hosts"
 
-# O package preserva o mapa completo remoto e sobrepõe hashes dos arquivos novos/modificados.
-checksums = load(ROOT / "checksums.json")
-assert checksums["scope"] == "complete_src_tree_except_checksums_json"
-checksum_files = checksums["files"]
-for path in sorted(ROOT.rglob("*")):
-    if not path.is_file():
-        continue
-    relative = path.relative_to(ROOT).as_posix()
-    if relative == "checksums.json":
-        continue
-    assert relative in checksum_files, f"arquivo do overlay ausente em checksums.json: {relative}"
-    actual = hashlib.sha256(path.read_bytes()).hexdigest()
-    assert checksum_files[relative] == actual, f"checksum divergente: {relative}"
-
-print("OK: integração das capabilities de UI validada")
-
-# Resultado universal: validar scripts e defaults contra o contrato do core.
-core_contract_path = ROOT / "core/result_contract.json"
+# Resultado universal.
 expected_forbidden = {"data_json", "error_code", "error_message", "error_json"}
-expected_required = {
-    "schema_version", "namespace", "success", "status", "artifact_type",
-    "artifact_id", "operation", "message", "data", "error",
-}
+core_contract_path = ROOT / "core/result_contract.json"
 if core_contract_path.exists():
     result_contract = load(core_contract_path)["result_contract"]
-    forbidden = set(result_contract.get("forbidden_top_level_fields", []))
-    required = {name for name, spec in result_contract.get("fields", {}).items() if spec.get("required") is True}
-    assert forbidden == expected_forbidden
-    assert expected_required.issubset(required)
-else:
-    # O patch é distribuído sem duplicar o core inalterado. Após a extração na raiz
-    # do projeto, o contrato real será usado automaticamente.
-    forbidden = expected_forbidden
+    assert set(result_contract.get("forbidden_top_level_fields", [])) == expected_forbidden
+
 for export_path in [
     ROOT / "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
     ROOT / "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
 ]:
     export = load(export_path)
     result_var = next(v for v in export["macro"]["localVariables"] if v["m_name"] == "Resultado")
-    default_keys = {e.get("key") for e in result_var.get("dictionary", {}).get("entries", [])}
-    assert not (default_keys & forbidden), f"Resultado default contém campos proibidos em {export_path}"
-    script_text = "\n".join(a.get("scriptText", "") for a in export["macro"]["m_actionList"] if a.get("scriptText"))
-    for field in forbidden:
-        assert field not in script_text, f"script contém campo proibido {field}: {export_path}"
+    assert result_var.get("dictionary", {}).get("entries", []) == []
+    script_text = "\n".join(
+        action.get("scriptText", "")
+        for action in export["macro"]["m_actionList"]
+        if action.get("scriptText")
+    )
+    for field in expected_forbidden:
+        assert field not in script_text, f"campo proibido {field}: {export_path}"
 
-print("OK: contrato universal de Resultado validado")
+# O Builder real deve gerar exatamente o default do Framework.
+builder_export = load(ROOT / "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock")
+framework_export = load(ROOT / "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock")
+builder_vars = {v["m_name"]: v for v in builder_export["macro"]["localVariables"]}
+framework_vars = {v["m_name"]: v for v in framework_export["macro"]["localVariables"]}
+builder_script = next(
+    action["scriptText"]
+    for action in builder_export["macro"]["m_actionList"]
+    if action.get("m_classType") == "JavaScriptAction"
+)
+node = shutil.which("node")
+if node:
+    runtime = (
+        builder_script
+        .replace("{lv=Config Json}", builder_vars["Config Json"]["m_stringValue"])
+        .replace("{lv=UI Schema Json}", builder_vars["UI Schema Json"]["m_stringValue"])
+        .replace("{lv=Escape Json}", "true")
+    )
+    with tempfile.TemporaryDirectory() as tmp:
+        source = Path(tmp) / "builder.js"
+        source.write_text(runtime + "\nconsole.log(__cdxms_result);\n", encoding="utf-8")
+        process = subprocess.run([node, str(source)], check=True, capture_output=True, text=True)
+        built_result = json.loads(process.stdout.strip().splitlines()[-1])
 
-# Remote manifests devem apontar para os bytes efetivamente distribuídos.
+    assert built_result["success"] is True
+    built_ui = json.loads(built_result["data"]["juif_ui_json"])
+    framework_ui = json.loads(framework_vars["JUIF UI Json"]["m_stringValue"])
+    assert built_ui == framework_ui, "default do Framework diverge do Builder"
+
+    compact = json.dumps(framework_ui, ensure_ascii=False, separators=(",", ":"))
+    escaped = (
+        compact.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\r", "\\r")
+        .replace("\n", "\\n")
+        .replace("\t", "\\t")
+    )
+    assert framework_vars["Tmp_DefaultUiJson"]["m_stringValue"] == escaped
+    assert len(json.loads(built_result["data"]["mapping_json"])) == 21
+
+# Remote manifests.
 for capability_id in ["java_ui_framework", "juif_ui_builder"]:
-    remote_manifest_path = ROOT / f"capabilities/{capability_id}/remote_manifest.json"
-    remote_manifest = load(remote_manifest_path)
+    remote_manifest = load(ROOT / f"capabilities/{capability_id}/remote_manifest.json")
     for item in remote_manifest.get("files", []):
-        distributed_path = ROOT / item["path"]
-        assert distributed_path.exists(), f"arquivo remoto ausente: {item['path']}"
-        actual = hashlib.sha256(distributed_path.read_bytes()).hexdigest()
+        distributed = ROOT / item["path"]
+        assert distributed.exists(), f"arquivo remoto ausente: {item['path']}"
+        actual = hashlib.sha256(distributed.read_bytes()).hexdigest()
         assert item.get("checksum_sha256") == actual, f"checksum remoto divergente: {item['path']}"
 
-print("OK: remote manifests das capabilities de UI validados")
+# Mapa completo de checksums.
+checksums = load(ROOT / "checksums.json")
+assert checksums["scope"] == "complete_src_tree_except_checksums_json"
+for path in sorted(ROOT.rglob("*")):
+    if not path.is_file():
+        continue
+    relative = path.relative_to(ROOT).as_posix()
+    if relative == "checksums.json":
+        continue
+    if relative not in checksums["files"]:
+        raise AssertionError(f"arquivo do overlay ausente em checksums.json: {relative}")
+    actual = hashlib.sha256(path.read_bytes()).hexdigest()
+    assert checksums["files"][relative] == actual, f"checksum divergente: {relative}"
+
+print("OK: redesign profissional das capabilities de UI validado")

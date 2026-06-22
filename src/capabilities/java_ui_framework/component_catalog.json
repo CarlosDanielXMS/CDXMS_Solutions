@@ -8,12 +8,20 @@
   "backward_compatible_with_prototype": true,
   "shell": {
     "supported": true,
+    "mode": "persistent_hosts",
+    "persistent": true,
     "properties": [
       "top_app_bar",
       "tab_bar",
-      "bottom_navigation"
+      "navigation_rail",
+      "bottom_navigation",
+      "navigation_drawer"
     ],
-    "description": "Shell opcional renderizado no fluxo da página sem reescrever a hierarquia-base do protótipo. navigation_rail e navigation_drawer permanecem componentes inline combináveis com row/column."
+    "visibility_properties": [
+      "visible_pages",
+      "hidden_pages"
+    ],
+    "description": "Shell persistente com hosts independentes para barra superior, abas, rail, conteúdo rolável, navegação inferior e drawer em camada."
   },
   "components": [
     {
@@ -349,14 +357,18 @@
     {
       "type": "top_app_bar",
       "category": "navigation",
-      "description": "Barra superior com título, navegação e ações.",
+      "description": "Barra superior persistente com contexto da página, navegação global e ações discretas.",
       "properties": [
         "title",
         "subtitle",
+        "use_page_title",
         "navigation_action",
         "navigation_target",
         "navigation_text",
-        "actions"
+        "actions",
+        "safe_top",
+        "visible_pages",
+        "hidden_pages"
       ],
       "emits": [
         "app_bar_action"
@@ -366,70 +378,123 @@
     {
       "type": "bottom_navigation",
       "category": "navigation",
-      "description": "Barra de navegação inferior inline ou declarada em ui.shell.",
+      "description": "Navegação principal persistente com indicador de seleção e agrupamento de páginas.",
       "properties": [
         "key",
         "selected",
-        "items"
+        "items",
+        "safe_bottom",
+        "visible_pages",
+        "hidden_pages"
       ],
       "emits": [
         "navigation_selected"
       ],
-      "introduced_in": "1.0.0"
+      "introduced_in": "1.0.0",
+      "item_properties": [
+        "id",
+        "label",
+        "icon",
+        "target",
+        "action",
+        "active_pages",
+        "active_prefix"
+      ]
     },
     {
       "type": "navigation_rail",
       "category": "navigation",
-      "description": "Navegação lateral vertical compacta.",
+      "description": "Navegação lateral compacta com células, indicador de seleção e suporte a páginas ativas.",
       "properties": [
         "key",
         "selected",
-        "items"
+        "items",
+        "item_width",
+        "visible_pages",
+        "hidden_pages"
       ],
       "emits": [
         "navigation_selected"
       ],
-      "introduced_in": "1.0.0"
+      "introduced_in": "1.0.0",
+      "item_properties": [
+        "id",
+        "label",
+        "icon",
+        "target",
+        "action",
+        "active_pages",
+        "active_prefix"
+      ]
     },
     {
       "type": "navigation_drawer",
       "category": "navigation",
-      "description": "Painel lateral/inline com itens de navegação; pode ser combinado com row/column.",
+      "description": "Drawer lateral em camada, com scrim, cabeçalho, itens descritivos e fechamento animado.",
       "properties": [
         "title",
         "subtitle",
+        "footer",
         "key",
         "selected",
         "items",
-        "width"
+        "width",
+        "safe_top",
+        "show_close",
+        "visible_pages",
+        "hidden_pages"
       ],
       "emits": [
-        "navigation_selected"
+        "drawer_opened",
+        "drawer_closed",
+        "navigation_selected",
+        "drawer_error"
       ],
-      "introduced_in": "1.0.0"
+      "introduced_in": "1.0.0",
+      "item_properties": [
+        "id",
+        "label",
+        "subtitle",
+        "icon",
+        "target",
+        "action",
+        "active_pages",
+        "active_prefix"
+      ]
     },
     {
       "type": "tab_bar",
       "category": "navigation",
-      "description": "Abas horizontais roláveis.",
+      "description": "Abas persistentes com indicador inferior, seleção sincronizada pela página e rolagem horizontal.",
       "properties": [
         "key",
         "selected",
-        "items"
+        "items",
+        "visible_pages",
+        "hidden_pages"
       ],
       "emits": [
         "tab_selected"
       ],
-      "introduced_in": "1.0.0"
+      "introduced_in": "1.0.0",
+      "item_properties": [
+        "id",
+        "label",
+        "target",
+        "action",
+        "active_pages",
+        "active_prefix"
+      ]
     },
     {
       "type": "search_bar",
       "category": "forms",
-      "description": "Campo de pesquisa com eventos de alteração e envio.",
+      "description": "Pesquisa composta com ícone, limpeza contextual e eventos de alteração/envio.",
       "properties": [
         "key",
         "value",
         "hint",
+        "clearable",
         "change_action",
         "submit_action"
       ],
@@ -442,10 +507,11 @@
     {
       "type": "chip",
       "category": "forms",
-      "description": "Filtro booleano compacto.",
+      "description": "Filtro booleano compacto com estados selecionado e neutro alinhados ao tema.",
       "properties": [
         "key",
         "text",
+        "leading",
         "selected",
         "action"
       ],
@@ -457,7 +523,7 @@
     {
       "type": "chip_group",
       "category": "forms",
-      "description": "Grupo de filtros single ou multiple.",
+      "description": "Grupo horizontal de filtros single ou multiple com seleção visual consistente.",
       "properties": [
         "key",
         "selected",
@@ -468,16 +534,23 @@
       "emits": [
         "chip_group_changed"
       ],
-      "introduced_in": "1.0.0"
+      "introduced_in": "1.0.0",
+      "item_properties": [
+        "id",
+        "label",
+        "leading"
+      ]
     },
     {
       "type": "empty_state",
       "category": "feedback",
-      "description": "Estado vazio com ação opcional.",
+      "description": "Estado vazio editorial com eyebrow, ícone, mensagem e ação opcional.",
       "properties": [
+        "eyebrow",
         "icon",
         "title",
         "text",
+        "message",
         "action"
       ],
       "emits": [],
@@ -486,14 +559,16 @@
     {
       "type": "loading_indicator",
       "category": "feedback",
-      "description": "Indicador de carregamento indeterminado.",
+      "description": "Indicador compacto com título, subtítulo e cor semântica.",
       "properties": [
         "text",
+        "title",
+        "subtitle",
         "variant"
       ],
       "emits": [],
       "introduced_in": "1.0.0"
     }
   ],
-  "updated_at": ""
+  "updated_at": "2026-06-22"
 }

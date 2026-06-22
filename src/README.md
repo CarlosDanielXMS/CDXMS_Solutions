@@ -24,9 +24,9 @@ Base completa do ecossistema CDXMS Solutions.
 
 ## UI antes do Solutions Manager
 
-O Java UI Framework e o JUIF UI Builder foram adaptados ao contrato CDXMS sem remover as definições do protótipo. O catálogo passou de 26 para 36 componentes e ganhou shell declarativo opcional no fluxo rolável.
+O Java UI Framework e o JUIF UI Builder foram adaptados ao contrato CDXMS sem remover as definições do protótipo. O catálogo passou de 26 para 36 componentes e ganhou shell persistente com hosts independentes para navegação e conteúdo.
 
-Essas duas capabilities estão `ready_for_homologation`; ainda não devem ser marcadas como homologadas antes do teste real no MacroDroid.
+Essas duas capabilities estão `professionally_redesigned_ready_for_device_homologation`; ainda não devem ser marcadas como homologadas antes do teste real no MacroDroid.
 
 ## Arquitetura de entrada única
 
@@ -43,3 +43,8 @@ Não existe Installer separado na v1. Importação automática de `.macro`/`.abl
 ## UI — correção pré-homologação
 
 O Java UI Framework e o JUIF UI Builder publicam o contrato universal sem campos legados. A homologação visual/interativa no MacroDroid ainda é gate obrigatório antes do Solutions Manager.
+
+
+## UI — redesign profissional
+
+A UI padrão agora é a documentação canônica do JUIF. Ela possui sete páginas, uma única Tab Bar contextual, Bottom Navigation fixa, drawer completo e catálogo sem duplicação de estado. O Java Action foi validado sintaticamente com parser BeanShell, mas a homologação visual em dispositivo permanece obrigatória.

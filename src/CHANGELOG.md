@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.0 — Redesign profissional do JUIF
+
+- Corrigida a arquitetura visual do shell: barras e navegação deixaram o conteúdo rolável e passaram a utilizar hosts persistentes.
+- Implementados hosts para Top App Bar, Tab Bar, Navigation Rail, ScrollView, Bottom Navigation e Navigation Drawer.
+- Navigation Drawer ganhou scrim, animação, fechamento contextual e itens descritivos.
+- Refinados visualmente os dez componentes adicionados, alinhando-os ao tema dark gold do protótipo.
+- Substituídas seleções genéricas por indicadores, superfícies e tipografia específicos de cada padrão de navegação.
+- Catálogo padrão reorganizado em sete páginas.
+- Removidas seis Tab Bars duplicadas e chaves `catalog_tabs_<pagina>`.
+- Criada uma única chave `catalog_section`, com seleção resolvida pela página atual.
+- Bottom Navigation passou a usar `active_pages` para manter Catálogo selecionado em todas as categorias.
+- Shell passou a aceitar `visible_pages`, `hidden_pages`, `active_pages` e `active_prefix`.
+- UI padrão cobre 36/36 componentes e 21 bindings.
+- Default do Framework continua sendo gerado pelo JavaScript real do Builder.
+- Parser BeanShell e validadores estruturais foram adicionados ao gate local.
+- Homologação visual e interativa em dispositivo continua obrigatória.
+
 ## 1.0.0 — Correção das capabilities de UI
 
 - Corrigidos Java UI Framework e JUIF UI Builder a partir do estado remoto atual.

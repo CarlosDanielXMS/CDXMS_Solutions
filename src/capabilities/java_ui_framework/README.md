@@ -1,17 +1,48 @@
 # [CDXMS] Java UI Framework v1.0.0
 
-Capability de apresentação responsável por renderizar contratos JUIF em overlay Android usando o `JavaAction` do MacroDroid.
+Capability de apresentação responsável por renderizar contratos JUIF em overlay Android por meio do `JavaAction` do MacroDroid.
 
 ## Estado
 
-- definições do protótipo preservadas;
-- 26 componentes anteriores mantidos;
-- 10 componentes adicionados;
-- shell declarativo opcional no fluxo rolável;
+- 26 componentes do protótipo preservados;
+- 10 componentes adicionais refinados no mesmo sistema visual;
+- catálogo total de 36 componentes;
+- shell persistente com hosts independentes;
 - saída pública única `Resultado`;
-- homologação em dispositivo ainda obrigatória.
+- pronta para homologação visual e interativa em dispositivo.
 
-## Novos componentes
+## Arquitetura visual
+
+O overlay utiliza uma estrutura de aplicação completa:
+
+```text
+Overlay
+├── Top App Bar persistente
+├── Tab Bar persistente e contextual
+├── Body
+│   ├── Navigation Rail opcional
+│   └── ScrollView
+│       └── Conteúdo da página
+├── Bottom Navigation persistente
+└── Navigation Drawer em camada com scrim
+```
+
+Somente o conteúdo da página é rolável. As barras de navegação permanecem estáveis durante a leitura e a interação.
+
+## Sistema visual dos componentes novos
+
+Os novos componentes seguem o tema dark gold do JUIF:
+
+- superfícies escuras em níveis;
+- bordas discretas;
+- seleção dourada com baixo contraste de fundo;
+- tipografia hierárquica;
+- indicadores de navegação consistentes;
+- áreas de toque adequadas;
+- animações curtas para drawer e overlay;
+- ausência de cards e bordas decorativas desnecessárias.
+
+Componentes refinados:
 
 - `top_app_bar`;
 - `bottom_navigation`;
@@ -24,16 +55,23 @@ Capability de apresentação responsável por renderizar contratos JUIF em overl
 - `empty_state`;
 - `loading_indicator`.
 
-O catálogo completo está em `component_catalog.json`.
+## Navegação
+
+O shell aceita:
+
+- `visible_pages` e `hidden_pages` para controlar onde cada elemento aparece;
+- `target`, `active_pages`, `active_prefix` e `selected` para resolver seleção;
+- `open_drawer` e `close_drawer`;
+- títulos derivados da página por `use_page_title`;
+- navegação por `navigate`, `replace`, `back` e `close`.
 
 ## Responsabilidade
 
-- renderizar pages e componentes;
-- manter state da UI;
+- renderizar páginas e componentes;
+- manter state em memória;
 - emitir eventos estruturados;
-- navegar por `navigate`, `replace` e `back`;
-- tratar seleção em drawer inline e fechamento do overlay;
-- renderizar componentes de shell sem reescrever a hierarquia-base das páginas legadas.
+- coordenar navegação do overlay;
+- expor o estado inicial e os eventos no contrato universal.
 
 ## Não faz
 
@@ -50,11 +88,4 @@ python src/capabilities/java_ui_framework/scripts/validate_java_ui_framework_inc
 python src/scripts/validate_ui_capabilities_v1_0_0.py
 ```
 
-
-## Correção de contrato e runtime
-
-- `Resultado` contém somente os campos permitidos por `core/result_contract.json`.
-- O bridge interno do export funcional do protótipo foi preservado.
-- O overlay e o `ScrollView` permanecem com a hierarquia original; barras de shell são renderizadas no conteúdo rolável.
-- `navigation_rail` e `navigation_drawer` são componentes inline e podem ser combinados com `row`/`column`.
-- A homologação no dispositivo continua obrigatória.
+A homologação em dispositivo continua obrigatória para confirmar dimensões, teclado, animações e comportamento do overlay no Android real.

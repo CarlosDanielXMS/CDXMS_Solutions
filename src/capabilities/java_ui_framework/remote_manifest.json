@@ -17,35 +17,35 @@
       "target_path": "capabilities/java_ui_framework/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "2a5bf45238bd4ee05a886751ce1d171146c240a66691f8e6495fe0eefd053b91"
+      "checksum_sha256": "fb95ee9499c391fe026aaa710528d2586dc5e207eb3635392c961cbee5c270af"
     },
     {
       "path": "capabilities/java_ui_framework/contract.json",
       "target_path": "capabilities/java_ui_framework/contract.json",
       "write_policy": "overwrite_versioned",
       "file_role": "contract",
-      "checksum_sha256": "38d60b7a7b411b202224d6fe07306c02e8763adda642fc6294eb541ab5e5a436"
+      "checksum_sha256": "bc08465ec95436c54c93ac90b24f06e965268b83973ba2339f3cc7c3d23a4608"
     },
     {
       "path": "capabilities/java_ui_framework/config.default.json",
       "target_path": "capabilities/java_ui_framework/config.json",
       "write_policy": "create_if_missing_or_merge",
       "file_role": "default_config",
-      "checksum_sha256": "1b4c5e796f82cc2af532762195ed49c8f4238b1c91e28ef829ab62bdeda6d629"
+      "checksum_sha256": "1eb2dc3f596735f4f26a2d6314a608bb06c77c825f1bc42fe207624a3bcc2545"
     },
     {
       "path": "capabilities/java_ui_framework/component_catalog.json",
       "target_path": "capabilities/java_ui_framework/component_catalog.json",
       "write_policy": "overwrite_versioned",
       "file_role": "component_catalog",
-      "checksum_sha256": "c0d447b4a75e2483d89c1d67681c3a0a2b7e0106b7a97d15c72807fff51cdbf2"
+      "checksum_sha256": "02a3692d3292ae573f220316ec35423a91f155496a37e09462d70aa49cfb1799"
     },
     {
       "path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
       "target_path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
-      "checksum_sha256": "ca3cc4fb2bfd6c51518a009863a39235c4c0c2e2706f6315fefdc924267ed1dc"
+      "checksum_sha256": "f1b72ab36e229ca908d900fff0fc3e21adff368303a1ce4f6172bb56bd2d03af"
     }
   ],
   "macrodroid_export": {
@@ -59,5 +59,5 @@
     "core_min_version": "1.0.0",
     "capabilities": {}
   },
-  "updated_at": ""
+  "updated_at": "2026-06-22"
 }

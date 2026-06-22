@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] Java UI Framework",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Renderer declarativo JUIF para overlays Android, páginas, state, eventos e componentes de navegação.",
+    "description": "Renderer declarativo JUIF para overlays Android com shell persistente, páginas, state, eventos e catálogo visual profissional.",
     "enabled": true,
     "has_config": true
   },
@@ -51,11 +51,20 @@
       "chip_group",
       "empty_state",
       "loading_indicator"
+    ],
+    "shell_mode": "persistent_hosts",
+    "persistent_shell_enabled": true,
+    "supported_shell_components": [
+      "top_app_bar",
+      "tab_bar",
+      "navigation_rail",
+      "bottom_navigation",
+      "navigation_drawer"
     ]
   },
   "implementation_audit": {
-    "stage": "corrected_ready_for_device_homologation",
-    "source_base": "feat/create-ecosystem-core@remote_state_2026-06-22",
+    "stage": "professionally_redesigned_ready_for_device_homologation",
+    "source_base": "feat/create-ecosystem-core@8fdb41c5eebcb9bd03d6da6f91df0f6fd53b6b08",
     "prototype_preserved": true,
     "manual_homologation_required": true,
     "action_profile": {
@@ -68,6 +77,11 @@
     "result_contract_verified": true,
     "forbidden_result_fields_removed": true,
     "result_contract_enforced": true,
-    "runtime_hierarchy": "prototype_overlay_scrollview_page_container"
+    "runtime_hierarchy": "persistent_top_tabs_rail_scroll_bottom_drawer_hosts",
+    "default_ui_pages": 7,
+    "default_ui_component_coverage": 36,
+    "catalog_navigation_state_unified": true,
+    "new_components_visual_system_aligned": true,
+    "beanshell_syntax_verified": true
   }
 }

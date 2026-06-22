@@ -124,3 +124,16 @@ Nenhum.
 ## Validação obrigatória do Resultado
 
 Antes do `JSON Parse`, o texto interno deve representar exatamente o contrato universal e não pode conter `data_json`, `error_code`, `error_message` ou `error_json`.
+
+
+## UI padrão canônica
+
+- `initial_page`: `overview`;
+- páginas: `overview`, `catalog_layout`, `catalog_forms`, `catalog_data`, `catalog_feedback`, `catalog_navigation` e `playground`;
+- shell: Top App Bar, Tab Bar contextual, Bottom Navigation e Navigation Drawer;
+- state de catálogo unificado em `catalog_section`;
+- seleção principal agrupada por `active_pages`;
+- 21 bindings reais;
+- cobertura de 36/36 componentes.
+
+O Builder preserva `visible_pages`, `hidden_pages`, `active_pages` e `active_prefix` como propriedades declarativas consumidas pelo renderer.

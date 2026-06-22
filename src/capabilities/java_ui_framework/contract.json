@@ -34,7 +34,9 @@
     "using_default_ui",
     "component_catalog_version",
     "supported_component_count",
-    "shell_enabled"
+    "shell_enabled",
+    "shell_mode",
+    "drawer_available"
   ],
   "runtime_events": {
     "payload_fields": [
@@ -63,6 +65,7 @@
   ],
   "side_effects": [
     "Exibe overlay TYPE_APPLICATION_OVERLAY.",
+    "Mantém shell persistente e conteúdo rolável em hosts independentes.",
     "Atualiza variáveis internas de state/eventos.",
     "Pode copiar texto para clipboard somente por ação explícita."
   ],
@@ -74,16 +77,36 @@
     "error_json"
   ],
   "shell_contract": {
-    "mode": "scroll_content",
+    "mode": "persistent_hosts",
+    "persistent_shell": true,
+    "hosts": [
+      "top_app_bar",
+      "tab_bar",
+      "navigation_rail",
+      "content_scroll",
+      "bottom_navigation",
+      "navigation_drawer"
+    ],
     "supported": [
       "top_app_bar",
       "tab_bar",
-      "bottom_navigation"
-    ],
-    "inline_only": [
       "navigation_rail",
+      "bottom_navigation",
       "navigation_drawer"
     ],
-    "persistent_shell": false
+    "visibility_filters": [
+      "visible_pages",
+      "hidden_pages"
+    ],
+    "navigation_item_matching": [
+      "target",
+      "active_pages",
+      "active_prefix",
+      "selected"
+    ],
+    "drawer_actions": [
+      "open_drawer",
+      "close_drawer"
+    ]
   }
 }

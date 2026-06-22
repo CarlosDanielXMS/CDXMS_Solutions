@@ -12,7 +12,7 @@
     "default_animation_ms": 180,
     "theme": {
       "background": "#090A0C",
-      "overlay": "#DD000000",
+      "overlay": "#E6000000",
       "surface": "#111318",
       "surface_2": "#181B22",
       "surface_3": "#222631",
@@ -24,7 +24,10 @@
       "error": "#E35D5D",
       "success": "#4CAF7D",
       "warning": "#FFC857",
-      "info": "#5DADE2"
+      "info": "#5DADE2",
+      "surface_elevated": "#292E39",
+      "text_disabled": "#686A70",
+      "divider": "#242832"
     },
     "supported_component_types": [
       "text",
@@ -64,13 +67,25 @@
       "empty_state",
       "loading_indicator"
     ],
-    "shell_mode": "scroll_content",
-    "persistent_shell_enabled": false,
+    "shell_mode": "persistent_hosts",
+    "persistent_shell_enabled": true,
     "supported_shell_components": [
       "top_app_bar",
       "tab_bar",
-      "bottom_navigation"
+      "navigation_rail",
+      "bottom_navigation",
+      "navigation_drawer"
+    ],
+    "shell_visibility_filters": [
+      "visible_pages",
+      "hidden_pages"
+    ],
+    "navigation_item_matching": [
+      "target",
+      "active_pages",
+      "active_prefix",
+      "selected"
     ]
   },
-  "updated_at": ""
+  "updated_at": "2026-06-22"
 }

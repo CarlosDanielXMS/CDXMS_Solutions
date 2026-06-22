@@ -103,7 +103,9 @@
       "manifest_path": "capabilities/java_ui_framework/manifest.json",
       "remote_manifest_path": "capabilities/java_ui_framework/remote_manifest.json",
       "installable": true,
-      "visible": true
+      "visible": true,
+      "status": "professionally_redesigned_ready_for_device_homologation",
+      "summary": "Renderer JUIF com 36 componentes e shell persistente profissional."
     },
     {
       "artifact_id": "juif_ui_builder",
@@ -113,7 +115,9 @@
       "manifest_path": "capabilities/juif_ui_builder/manifest.json",
       "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json",
       "installable": true,
-      "visible": true
+      "visible": true,
+      "status": "professionally_redesigned_ready_for_device_homologation",
+      "summary": "Builder declarativo com documentação interativa de sete páginas."
     }
   ],
   "core": [
@@ -125,5 +129,5 @@
       "remote_manifest_path": "core/remote_manifest.json"
     }
   ],
-  "updated_at": ""
+  "updated_at": "2026-06-22"
 }

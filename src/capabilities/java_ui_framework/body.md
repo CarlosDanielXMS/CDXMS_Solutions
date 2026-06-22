@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Renderizar um contrato JUIF em um overlay Android, manter state e eventos em runtime e oferecer navegação multipágina, com componentes de shell renderizados no fluxo rolável nesta fase.
+Renderizar um contrato JUIF em um overlay Android, manter state e eventos em runtime e oferecer navegação multipágina com shell persistente e conteúdo rolável independente.
 
 ## Tipo
 
@@ -102,20 +102,25 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
 - **Logging:** habilitado conforme padrão da macro.
 - **Processamento interno:**
   1. importa as APIs Android e `org.json` necessárias;
-  2. inicializa tokens visuais e objetos de runtime;
+  2. inicializa tokens visuais, state, navegação e hosts do shell;
   3. limpa `Tmp_JuifVisible`, `Tmp_JuifClicked`, `Tmp_JuifAction`, `Tmp_JuifPayload`, `Tmp_JuifState` e `Tmp_JuifCurrentPage`;
-  4. usa `Tmp_DefaultUiJson` somente quando a entrada estiver ausente ou ainda contiver Magic Text não resolvido;
-  5. interpreta `state`, `pages` e `shell`/`navigation`;
-  6. converte o contrato legado de página única para uma página `main` sem alterar seus componentes;
-  7. cria o overlay com `WindowManager.TYPE_APPLICATION_OVERLAY`;
-  8. preserva a hierarquia original do protótipo: overlay, um `ScrollView` e um container vertical de página;
-  9. renderiza os 26 componentes do protótipo;
-  10. renderiza os 10 componentes adicionados na v1.0.0;
-  11. mantém navegação por `navigate`, `replace`, `back`, seleção em drawer inline e fechamento do overlay;
-  12. mantém state local e emite payloads estruturados com ação, página atual e snapshot do state;
-  13. renderiza `top_app_bar`, `tab_bar` e `bottom_navigation` declarados em `ui.shell` no fluxo da página, e mantém rail/drawer como componentes inline;
-  14. permite fechar o overlay por long press;
-  15. publica `Tmp_ResultJson` com `artifact_id=java_ui_framework`.
+  4. valida a permissão `SYSTEM_ALERT_WINDOW`;
+  5. usa `Tmp_DefaultUiJson` somente quando a entrada estiver ausente ou ainda contiver Magic Text não resolvido;
+  6. interpreta `state`, `pages` e `shell`;
+  7. converte o contrato legado de página única para uma página `main`;
+  8. cria o overlay com `WindowManager.TYPE_APPLICATION_OVERLAY`;
+  9. cria os hosts persistentes `Top Host`, `Tab Host`, `Body`, `Rail Host`, `ScrollView`, `Bottom Host` e `Drawer Layer`;
+  10. mantém somente o conteúdo da página dentro do `ScrollView`;
+  11. resolve visibilidade de shell por `visible_pages` e `hidden_pages`;
+  12. resolve seleção por `target`, `active_pages`, `active_prefix` e `selected`;
+  13. renderiza os 26 componentes do protótipo;
+  14. renderiza e estiliza os 10 componentes adicionados na v1.0.0;
+  15. abre e fecha o drawer em camada com scrim e animação;
+  16. mantém navegação por `navigate`, `replace`, `back`, `open_drawer`, `close_drawer` e `close`;
+  17. mantém state local e emite payloads com ação, página atual e snapshot do state;
+  18. retorna o conteúdo ao topo após cada troca de página;
+  19. permite fechar o overlay por long press;
+  20. publica `Tmp_ResultJson` com `artifact_id=java_ui_framework`.
 - **Configuração da janela:**
   - largura: `MATCH_PARENT`;
   - altura: `MATCH_PARENT`;
@@ -123,9 +128,8 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
   - flag: `FLAG_LAYOUT_IN_SCREEN`;
   - pixel format: `TRANSLUCENT`;
   - soft input: `ADJUST_RESIZE | STATE_UNSPECIFIED`.
-- **Resultado de sucesso:** inclui `current_page`, `state`, `using_default_ui`, `component_catalog_version`, `supported_component_count` e `shell_enabled`.
+- **Resultado de sucesso:** inclui `current_page`, `state`, `using_default_ui`, `component_catalog_version`, `supported_component_count`, `shell_enabled`, `shell_mode` e `drawer_available`.
 - **Resultado de erro:** `INVALID_JSON`, `PERMISSION_DENIED`, `PROCESSING_FAILED` ou fallback crítico `UNKNOWN_ERROR`, sempre no contrato universal CDXMS.
-
 ### Ação 8 — JSON Parse
 
 - **Ação MacroDroid:** `JSON Parse` (`JsonParseAction`).
@@ -160,8 +164,15 @@ empty_state
 loading_indicator
 ```
 
-Todos podem ser usados inline. Nesta etapa, `top_app_bar`, `tab_bar` e `bottom_navigation` também podem ser declarados em `ui.shell`, mas continuam dentro do conteúdo rolável. `navigation_rail` e `navigation_drawer` permanecem inline.
+Os cinco componentes de navegação podem ser usados inline. Quando declarados em `ui.shell`, são distribuídos em hosts persistentes:
 
+- `top_app_bar` — topo;
+- `tab_bar` — abaixo da barra superior;
+- `navigation_rail` — lateral do body;
+- `bottom_navigation` — base;
+- `navigation_drawer` — camada sobre o conteúdo.
+
+Os componentes aceitam controle de página e seleção sem duplicar estado entre telas.
 ## Efeitos colaterais
 
 - exibe overlay Android;
@@ -173,3 +184,10 @@ Todos podem ser usados inline. Nesta etapa, `top_app_bar`, `tab_bar` e `bottom_n
 ## Validação obrigatória do Resultado
 
 Antes do `JSON Parse`, o texto interno deve representar exatamente o contrato universal e não pode conter `data_json`, `error_code`, `error_message` ou `error_json`.
+
+
+## UI padrão e tutorial
+
+A UI de fallback possui sete páginas e usa todos os 36 componentes. O catálogo utiliza uma única `tab_bar` global para as cinco categorias, uma `bottom_navigation` para as áreas principais e um `navigation_drawer` para o mapa completo da documentação.
+
+A organização evita componentes complexos lado a lado em telas estreitas e mantém o catálogo navegável sem duplicar barras em cada página.

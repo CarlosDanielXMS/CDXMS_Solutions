@@ -1,30 +1,65 @@
-# Teste manual — JUIF UI Builder v1.0.0
+# Teste manual — [CDXMS] JUIF UI Builder v1.0.0
 
-## Pré-condições
+## Preparação
 
-- importar `[CDXMS] JUIF UI Builder`;
-- importar `[CDXMS] Java UI Framework` para o teste end-to-end.
+1. Importe `[CDXMS] JUIF UI Builder`.
+2. Execute o Action Block com os valores padrão.
 
-## Casos obrigatórios
+## Resultado
 
-1. `Config Json = {}` e schema mínimo válido retornam `success=true`.
-2. JSON vazio retorna `MISSING_REQUIRED_INPUT`.
-3. JSON inválido retorna `INVALID_JSON`.
-4. Componente desconhecido retorna `INVALID_ENUM_VALUE`.
-5. `bind` hidrata state e cria entrada em `mapping_json`.
-6. `Escape Json=false` mantém a cópia não escapada.
-7. Todos os 26 componentes legados permanecem aceitos.
-8. Os 10 componentes v1.0.0 aparecem em `supported_components`.
-9. `shell.top_app_bar`, `bottom_navigation`, `navigation_rail`, `navigation_drawer` e `tab_bar` são normalizados.
-10. Aliases `top_bar`, `bottom_bar`, `rail`, `drawer` e `tabs` funcionam.
-11. O JSON produzido é aceito pelo Java UI Framework.
-12. Apenas `Resultado` aparece como saída pública.
+Validar:
 
-## Aceite
+- `Resultado.success = true`;
+- `Resultado.status = success`;
+- `Resultado.artifact_id = juif_ui_builder`;
+- `Resultado.operation = build_ui`;
+- `Resultado.data.supported_component_count = 36`;
+- `Resultado.data.juif_ui_json` é JSON válido;
+- `Resultado.data.mapping_json` contém 21 bindings;
+- nenhum campo proibido existe no topo.
 
-Registrar quantidade aprovada/reprovada. Não marcar a capability como homologada antes da execução real no dispositivo.
+## Contrato padrão gerado
 
+Validar:
 
-## Resultado universal
+- `initial_page = overview`;
+- existem sete páginas;
+- `pages` é normalizado como objeto indexado por id;
+- `shell.top_app_bar.type = top_app_bar`;
+- `shell.tab_bar.type = tab_bar`;
+- `shell.bottom_navigation.type = bottom_navigation`;
+- `shell.navigation_drawer.type = navigation_drawer`;
+- a Tab Bar possui `visible_pages` com as cinco páginas do catálogo;
+- Bottom Navigation usa `active_pages` para manter Catálogo selecionado;
+- o drawer possui o mapa completo da documentação;
+- todos os 36 tipos aparecem no contrato final.
 
-Confirmar que a saída não contém `data_json`, `error_code`, `error_message` ou `error_json`, e que `data`/`error` são estruturas reais do dicionário.
+## Catálogo e estado
+
+- existe apenas uma chave `catalog_section`;
+- não existem chaves `catalog_tabs_<pagina>`;
+- cada item da Tab Bar aponta para uma página válida;
+- cada item da Bottom Navigation aponta para uma página válida;
+- listas `active_pages` contêm apenas ids existentes.
+
+## Bindings
+
+Confirmar hidratação de:
+
+- métricas;
+- perfil;
+- pesquisa;
+- chip;
+- chip group;
+- lista dinâmica;
+- fluxo copiável;
+- code block;
+- sandbox.
+
+## Cenários negativos
+
+1. `Config Json` inválido → `INVALID_JSON`.
+2. `UI Schema Json` vazio → `MISSING_REQUIRED_INPUT`.
+3. Componente desconhecido → `INVALID_ENUM_VALUE`.
+4. Página sem `id` → `MISSING_REQUIRED_INPUT`.
+5. `pages` vazio → `MISSING_REQUIRED_INPUT`.

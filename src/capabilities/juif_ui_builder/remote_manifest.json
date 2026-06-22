@@ -17,28 +17,28 @@
       "target_path": "capabilities/juif_ui_builder/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "08ad5630317858b0bce5ed2597758250ac7a7ef24408df16a805b484d57c2118"
+      "checksum_sha256": "dc50531aa736f24839a20cddd9afd86cd69000d57dbef84e0d77b38f4d194c2d"
     },
     {
       "path": "capabilities/juif_ui_builder/contract.json",
       "target_path": "capabilities/juif_ui_builder/contract.json",
       "write_policy": "overwrite_versioned",
       "file_role": "contract",
-      "checksum_sha256": "21ece3be45c48b823f348f99d8658ac7dfbdf3b153f59938f1fe6d9e895e71ec"
+      "checksum_sha256": "378ae3a05d6485d5ade38afd00d07c1e73e2b40e3d7bf19b71e2d171cb22761b"
     },
     {
       "path": "capabilities/juif_ui_builder/config.default.json",
       "target_path": "capabilities/juif_ui_builder/config.json",
       "write_policy": "create_if_missing_or_merge",
       "file_role": "default_config",
-      "checksum_sha256": "65ad1827d8d1f8d9a074bdfa4fc4fdf38054413e25160b086d78d7b423262b0d"
+      "checksum_sha256": "bdc5ccc043c83b81db239c666889e43d78da4bd1d11e76c79d293f1114adb51a"
     },
     {
       "path": "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
       "target_path": "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JUIF_UI_Builder.ablock",
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
-      "checksum_sha256": "0276358fbcbfa5bf114fef12e01c2b6a22a7e9d743ab657737a860a815ecacad"
+      "checksum_sha256": "d60ed14850b33af73708c10b568e4b25db8032f9893c8703cfdee290a21e91fa"
     }
   ],
   "macrodroid_export": {
@@ -54,5 +54,5 @@
       "java_ui_framework": ">=1.0.0"
     }
   },
-  "updated_at": ""
+  "updated_at": "2026-06-22"
 }

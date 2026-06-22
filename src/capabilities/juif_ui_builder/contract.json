@@ -68,12 +68,25 @@
     ],
     "shell_properties": [
       "top_app_bar",
-      "bottom_navigation",
+      "tab_bar",
       "navigation_rail",
-      "navigation_drawer",
-      "tab_bar"
+      "bottom_navigation",
+      "navigation_drawer"
     ],
-    "component_catalog_path": "capabilities/java_ui_framework/component_catalog.json"
+    "component_catalog_path": "capabilities/java_ui_framework/component_catalog.json",
+    "shell_behavior": {
+      "renderer_mode": "persistent_hosts",
+      "visibility_filters": [
+        "visible_pages",
+        "hidden_pages"
+      ],
+      "navigation_item_matching": [
+        "target",
+        "active_pages",
+        "active_prefix",
+        "selected"
+      ]
+    }
   },
   "errors": [
     "MISSING_REQUIRED_INPUT",
