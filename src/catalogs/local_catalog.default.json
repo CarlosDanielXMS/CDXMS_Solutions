@@ -105,7 +105,14 @@
       "installable": true,
       "visible": true,
       "status": "professionally_redesigned_ready_for_device_homologation",
-      "summary": "Renderer JUIF com 36 componentes e shell persistente profissional."
+      "summary": "Renderer JUIF com 36 componentes e shell persistente profissional.",
+      "implementation_stage": "catalog_navigation_hotfix_ready_for_device_validation",
+      "runtime_guards": [
+        "posted_main_loop",
+        "transactional_page_rendering",
+        "transactional_shell_rendering",
+        "UI_RUNTIME_ERROR"
+      ]
     },
     {
       "artifact_id": "juif_ui_builder",

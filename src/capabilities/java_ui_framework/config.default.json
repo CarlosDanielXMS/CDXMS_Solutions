@@ -85,7 +85,11 @@
       "active_pages",
       "active_prefix",
       "selected"
-    ]
+    ],
+    "navigation_dispatch": "posted_main_loop",
+    "transactional_page_rendering": true,
+    "transactional_shell_rendering": true,
+    "runtime_error_code": "UI_RUNTIME_ERROR"
   },
   "updated_at": "2026-06-22"
 }

@@ -61,6 +61,7 @@
     "INVALID_JSON",
     "PERMISSION_DENIED",
     "PROCESSING_FAILED",
+    "UI_RUNTIME_ERROR",
     "UNKNOWN_ERROR"
   ],
   "side_effects": [
@@ -107,6 +108,18 @@
     "drawer_actions": [
       "open_drawer",
       "close_drawer"
+    ]
+  },
+  "runtime_guards": {
+    "navigation_dispatch": "posted_main_loop",
+    "page_rendering": "transactional_staging",
+    "shell_rendering": "transactional_build_before_commit",
+    "failure_capture": "Throwable",
+    "failure_visibility": [
+      "Resultado",
+      "Tmp_JuifPayload",
+      "toast",
+      "inline_error_banner"
     ]
   }
 }

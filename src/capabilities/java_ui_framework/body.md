@@ -191,3 +191,17 @@ Antes do `JSON Parse`, o texto interno deve representar exatamente o contrato un
 A UI de fallback possui sete páginas e usa todos os 36 componentes. O catálogo utiliza uma única `tab_bar` global para as cinco categorias, uma `bottom_navigation` para as áreas principais e um `navigation_drawer` para o mapa completo da documentação.
 
 A organização evita componentes complexos lado a lado em telas estreitas e mantém o catálogo navegável sem duplicar barras em cada página.
+
+## Proteção de navegação e renderização
+
+O Java Action aplica as seguintes garantias adicionais:
+
+1. todo clique capaz de navegar usa `juifRequestAction`;
+2. `juifRequestAction` agenda o processamento com `View.post`;
+3. `juifRenderPage` monta o conteúdo em um `LinearLayout` de staging;
+4. `juifRenderShell` cria Top App Bar, Tab Bar, Rail e Bottom Navigation antes de limpar os hosts visíveis;
+5. a Tab Bar usa uma hierarquia segura com `FrameLayout.LayoutParams`, indicador de largura fixa e sem dependência circular `MATCH_PARENT`/`WRAP_CONTENT`;
+6. falhas em callbacks são capturadas como `Throwable`;
+7. falhas recuperáveis retornam `UI_RUNTIME_ERROR`, preservam a página anterior e exibem diagnóstico no overlay.
+
+O objetivo é impedir encerramento silencioso da interface durante a navegação assíncrona do overlay.

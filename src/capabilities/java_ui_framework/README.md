@@ -89,3 +89,14 @@ python src/scripts/validate_ui_capabilities_v1_0_0.py
 ```
 
 A homologação em dispositivo continua obrigatória para confirmar dimensões, teclado, animações e comportamento do overlay no Android real.
+
+## Hotfix de navegação do catálogo
+
+A navegação que substitui a árvore visual não é executada diretamente dentro do `onClick`. O evento é publicado no próximo ciclo da main thread por `View.post`, evitando remover a própria barra que ainda processa o toque.
+
+A renderização também é transacional:
+
+- a nova página é criada em um container de staging;
+- todos os elementos do shell são construídos antes da limpeza dos hosts atuais;
+- a árvore visível só é substituída depois que a construção completa termina;
+- qualquer `Throwable` produz `UI_RUNTIME_ERROR`, Toast e banner inline sem fechar silenciosamente o overlay.

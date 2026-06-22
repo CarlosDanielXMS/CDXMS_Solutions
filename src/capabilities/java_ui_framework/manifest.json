@@ -63,7 +63,7 @@
     ]
   },
   "implementation_audit": {
-    "stage": "professionally_redesigned_ready_for_device_homologation",
+    "stage": "catalog_navigation_runtime_hotfix_ready_for_device_validation",
     "source_base": "feat/create-ecosystem-core@8fdb41c5eebcb9bd03d6da6f91df0f6fd53b6b08",
     "prototype_preserved": true,
     "manual_homologation_required": true,
@@ -82,6 +82,12 @@
     "default_ui_component_coverage": 36,
     "catalog_navigation_state_unified": true,
     "new_components_visual_system_aligned": true,
-    "beanshell_syntax_verified": true
+    "beanshell_syntax_verified": true,
+    "catalog_navigation_runtime_hotfix": true,
+    "navigation_dispatch": "posted_main_loop",
+    "transactional_page_rendering": true,
+    "transactional_shell_rendering": true,
+    "throwable_runtime_guard": true,
+    "silent_runtime_close_prevented": true
   }
 }

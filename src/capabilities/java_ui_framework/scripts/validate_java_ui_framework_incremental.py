@@ -137,6 +137,14 @@ require('"visible_pages"' in script and '"hidden_pages"' in script, "filtros de 
 require('"active_pages"' in script and '"active_prefix"' in script, "seleção agrupada ausente")
 require("juifPageContainer.addView(JUIFTopAppBar" not in script, "Top App Bar voltou para dentro do conteúdo rolável")
 require("juifPageContainer.addView(JUIFBottomNavigation" not in script, "Bottom Navigation voltou para dentro do conteúdo rolável")
+require("juifRequestAction" in script and "dispatcher.post(new Runnable()" in script, "navegação não está adiada para a main loop")
+require("juifDispatchActionNow" in script and "juifDispatchAction(" not in script, "dispatch síncrono legado ainda presente")
+require("boolean juifRenderPage" in script and "LinearLayout staging" in script, "renderização transacional de página ausente")
+require(script.index("nextTabs = JUIFTabBar") < script.index("juifClearHost(juifTabHost)"), "shell é limpo antes da construção da nova Tab Bar")
+require("UI_RUNTIME_ERROR" in script and "juifReportRuntimeFailure" in script, "falha de runtime não estruturada")
+require("catch(Throwable" in script, "callbacks ainda permitem Error escapar")
+require("new HorizontalScrollView.LayoutParams" not in script, "LayoutParams inseguro no HorizontalScrollView")
+require("LinearLayout JUIFTabBar" in script and "FrameLayout.LayoutParams.WRAP_CONTENT" in script, "Tab Bar segura ausente")
 require('result.put("artifact_id", "java_ui_framework")' in script, "artifact id divergente")
 require('data.put("supported_component_count", 36)' in script, "contagem publicada divergente")
 require('"PERMISSION_DENIED"' in script and "Settings.canDrawOverlays" in script, "validação de overlay ausente")
@@ -220,4 +228,4 @@ if parser_jar.exists() and java_bin:
             text=True,
         )
 
-print("OK: Java UI Framework profissional validado")
+print("OK: Java UI Framework profissional com hotfix de navegação validado")

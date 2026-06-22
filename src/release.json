@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_ui_capabilities_professional_redesign",
-  "artifact_id": "ecosystem_core_ui_capabilities_professional_redesign",
+  "release_id": "ecosystem_core_ui_capabilities_catalog_navigation_hotfix",
+  "artifact_id": "ecosystem_core_ui_capabilities_catalog_navigation_hotfix",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -103,11 +103,12 @@
   "notes": [
     "Base completa e mesclada do ecossistema atual.",
     "Java UI Framework e JUIF UI Builder seguem core/result_contract.json.",
-    "Shell reorganizado em hosts persistentes para navegação e conteúdo.",
-    "Dez componentes adicionais refinados no sistema visual dark gold.",
-    "Catálogo padrão reorganizado em sete páginas com uma única Tab Bar contextual.",
+    "Shell profissional mantido em hosts persistentes.",
+    "Navegação do catálogo corrigida com despacho adiado na main loop.",
+    "Página e shell são construídos transacionalmente antes do commit visual.",
+    "Falhas recuperáveis publicam UI_RUNTIME_ERROR sem fechamento silencioso.",
     "UI padrão cobre 36 componentes e 21 bindings.",
-    "Homologação visual e interativa em dispositivo permanece obrigatória antes do Solutions Manager."
+    "Homologação final em dispositivo permanece obrigatória."
   ],
-  "package": "CDXMS_UI_Capabilities_v1_0_0_professional_redesign_delta_2026_06_22.zip"
+  "package": "CDXMS_UI_Capabilities_v1_0_0_catalog_navigation_hotfix_delta_2026_06_22.zip"
 }

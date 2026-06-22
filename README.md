@@ -44,3 +44,4 @@ As capabilities de UI foram corrigidas para seguir `core/result_contract.json`; 
 ## Redesign profissional da UI
 
 O shell do Java UI Framework foi reorganizado para manter Top App Bar, Tab Bar, Navigation Rail, Bottom Navigation e Navigation Drawer fora do conteúdo rolável. Os dez componentes novos foram alinhados ao sistema visual dark gold e a documentação padrão passou a usar uma única navegação de catálogo, com sete páginas e cobertura integral dos 36 componentes.
+- Hotfix aplicado: navegação do catálogo usa despacho adiado, renderização transacional e erro visível em runtime.

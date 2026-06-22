@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 — Hotfix de navegação do catálogo
+
+- Corrigida a falha que encerrava o overlay ao abrir o catálogo.
+- Navegação passou a ser despachada com `View.post`, fora do callback de toque atual.
+- Página e shell passaram a usar construção transacional antes de substituir a árvore visível.
+- Tab Bar passou a usar hierarquia segura e `FrameLayout.LayoutParams`.
+- Falhas de callback agora retornam `UI_RUNTIME_ERROR` e permanecem visíveis no overlay.
+
 ## 1.0.0 — Redesign profissional do JUIF
 
 - Corrigida a arquitetura visual do shell: barras e navegação deixaram o conteúdo rolável e passaram a utilizar hosts persistentes.

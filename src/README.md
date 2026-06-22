@@ -48,3 +48,4 @@ O Java UI Framework e o JUIF UI Builder publicam o contrato universal sem campos
 ## UI — redesign profissional
 
 A UI padrão agora é a documentação canônica do JUIF. Ela possui sete páginas, uma única Tab Bar contextual, Bottom Navigation fixa, drawer completo e catálogo sem duplicação de estado. O Java Action foi validado sintaticamente com parser BeanShell, mas a homologação visual em dispositivo permanece obrigatória.
+- Hotfix aplicado: navegação do catálogo usa despacho adiado, renderização transacional e erro visível em runtime.

@@ -93,3 +93,20 @@ Os estados selecionados devem usar dourado discreto, superfícies escuras e bord
 2. JSON inválido → `INVALID_JSON`.
 3. Página inexistente → evento `navigation_error`.
 4. Drawer ausente com ação `open_drawer` → evento `drawer_unavailable`.
+
+## Regressão crítica — entrada no catálogo
+
+1. Abra a UI padrão na página `overview`.
+2. Toque em `Catálogo` na Bottom Navigation.
+3. Confirme que o overlay permanece aberto e exibe `catalog_layout`.
+4. Confirme que a Tab Bar aparece sem encerrar o Action Block.
+5. Alterne por Layout, Formulários, Dados, Feedback e Navegação.
+6. Volte para Início e depois acesse Laboratório.
+7. Repita a entrada no Catálogo pelo botão da página inicial e pelo Navigation Drawer.
+
+Resultado esperado:
+
+- nenhuma navegação fecha o overlay;
+- nenhuma exceção escapa do callback de toque;
+- a página anterior só é removida após o commit da nova página;
+- em falha recuperável, deve aparecer banner `Navegação não concluída`, Toast e `Resultado.error.code = UI_RUNTIME_ERROR`.

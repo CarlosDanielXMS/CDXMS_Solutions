@@ -83,3 +83,20 @@ O drawer:
 - precisa ser homologado em dispositivo após alterações no Java Action;
 - não substitui UI nativa do MacroDroid em fluxos de recuperação crítica;
 - não garante importação automática de artifacts.
+
+## Navegação transacional
+
+Trocas de página não modificam a hierarquia durante o callback de toque. O fluxo correto é:
+
+```text
+onClick
+→ juifRequestAction
+→ View.post
+→ juifDispatchActionNow
+→ construir página em staging
+→ construir próximo shell fora da árvore visível
+→ commit dos hosts e do conteúdo
+→ emitir evento
+```
+
+Caso qualquer etapa falhe, a página anterior permanece ativa. A capability publica `UI_RUNTIME_ERROR` e mostra o estágio, target e motivo no próprio overlay.

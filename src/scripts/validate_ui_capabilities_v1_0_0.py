@@ -44,6 +44,9 @@ assert renderer_config["settings"]["supported_component_types"] == canonical_typ
 assert builder_config["settings"]["supported_component_types"] == canonical_types
 assert renderer_config["settings"]["shell_mode"] == "persistent_hosts"
 assert builder_config["settings"]["shell_mode"] == "persistent_hosts"
+assert renderer_config["settings"]["navigation_dispatch"] == "posted_main_loop"
+assert renderer_config["settings"]["transactional_page_rendering"] is True
+assert renderer_config["settings"]["transactional_shell_rendering"] is True
 
 # Resultado universal.
 expected_forbidden = {"data_json", "error_code", "error_message", "error_json"}
@@ -130,4 +133,4 @@ for path in sorted(ROOT.rglob("*")):
     actual = hashlib.sha256(path.read_bytes()).hexdigest()
     assert checksums["files"][relative] == actual, f"checksum divergente: {relative}"
 
-print("OK: redesign profissional das capabilities de UI validado")
+print("OK: redesign profissional e hotfix de navegação das capabilities de UI validados")
