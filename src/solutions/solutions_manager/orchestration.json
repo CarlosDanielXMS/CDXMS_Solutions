@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "solution_orchestration_map",
+  "artifact_id": "solutions_manager",
+  "version": "1.0.0",
+  "operations": {
+    "launch": [
+      {"capability": "bootstrap", "operation": "get_status"},
+      {"decision": "absent_partial_or_ready"},
+      {"capability": "bootstrap", "operation": "initialize_ecosystem", "when": "absent"},
+      {"capability": "bootstrap", "operation": "repair_core", "when": "partial_or_invalid"},
+      {"capability": "bootstrap", "operation": "load_context"},
+      {"solution_operation": "validate_ecosystem"},
+      {"solution_operation": "refresh_catalog", "when": "network_allowed_or_cache_missing"},
+      {"solution_operation": "load_dashboard"},
+      {"capability": "juif_ui_builder", "operation": "build_ui"},
+      {"capability": "java_ui_framework", "operation": "render_ui"}
+    ],
+    "validate_ecosystem": [
+      {"capability": "bootstrap", "operation": "verify_core"},
+      {"capability": "json_config_manager", "operation": "read_json", "target": "core/registry.json"},
+      {"capability": "remote_source_manager", "operation": "get_source_status"},
+      {"capability": "result_manager", "operation": "build_result"}
+    ],
+    "refresh_catalog": [
+      {"capability": "remote_source_manager", "operation": "fetch_catalog"},
+      {"capability": "remote_source_manager", "operation": "fetch_release_manifest"},
+      {"capability": "file_integrity", "operation": "verify_file"},
+      {"capability": "json_config_manager", "operation": "read_json", "target": "verified_staging"}
+    ],
+    "get_artifact_details": [
+      {"capability": "remote_source_manager", "operation": "fetch_remote_manifest", "when": "remote_details_required"},
+      {"capability": "artifact_manager", "operation": "get_artifact_status"},
+      {"capability": "result_manager", "operation": "build_result"}
+    ],
+    "install_artifact": [
+      {"gate": "event_bridge_homologated"},
+      {"gate": "payload_pipeline_enabled"},
+      {"capability": "remote_source_manager", "operation": "fetch_remote_manifest"},
+      {"capability": "file_integrity", "operation": "verify_manifest"},
+      {"capability": "dependency_resolver", "operation": "build_resolution_plan"},
+      {"capability": "artifact_manager", "operation": "build_install_plan"},
+      {"capability": "json_config_manager", "operation": "execute_jcm_apply_plan"},
+      {"capability": "artifact_manager", "operation": "verify_local_apply"}
+    ]
+  },
+  "invariants": [
+    "Solutions Manager never writes filesystem directly.",
+    "Remote Source Manager never installs artifacts.",
+    "Dependency Resolver never mutates local state.",
+    "Artifact Manager only declares physical success after JCM verification.",
+    "Every public result follows core/result_contract.json."
+  ]
+}
