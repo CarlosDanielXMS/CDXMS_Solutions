@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "solution_config",
+  "artifact_id": "solutions_manager",
+  "version": "1.0.0",
+  "manager": {
+    "base_path": "/storage/emulated/0/Documents/CDXMS_Solutions",
+    "start_operation": "launch",
+    "strict_mode": true,
+    "preserve_user_config": true,
+    "allow_network": true,
+    "catalog_refresh_policy": "prefer_valid_cache_then_remote",
+    "catalog_max_age_minutes": 60,
+    "offline_mode": "degraded_read_only"
+  },
+  "source": {
+    "source_id": "cdxms_official_github",
+    "ref": "develop",
+    "catalog_path": "catalogs/local_catalog.default.json",
+    "release_path": "release.json"
+  },
+  "ui": {
+    "initial_page": "home",
+    "theme": "dark_gold",
+    "show_hidden_capabilities": false,
+    "show_pre_release_badge": true,
+    "confirm_mutating_operations": true
+  },
+  "lifecycle": {
+    "dry_run_default": true,
+    "apply_changes_default": false,
+    "verify_after_apply": true,
+    "preserve_user_config": true,
+    "macro_import_mode": "manual_until_homologated"
+  },
+  "feature_flags": {
+    "catalog": true,
+    "installed": true,
+    "updates": true,
+    "diagnostics": true,
+    "settings": true,
+    "lifecycle_mutations": false,
+    "event_bridge": false
+  },
+  "updated_at": "2026-06-22"
+}
