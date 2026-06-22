@@ -71,6 +71,11 @@ for marker in ["{lv=Config Json}", "{lv=UI Schema Json}", "{lv=Escape Json}"]:
 for alias in ["top_bar", "bottom_bar", "rail", "drawer", "tabs"]:
     require(alias in script, "alias de shell ausente: " + alias)
 require('artifact_id: "juif_ui_builder"' in script, "artifact id do Resultado divergente")
+for forbidden in ["data_json", "error_code", "error_message", "error_json"]:
+    require(forbidden not in script, "campo proibido no Resultado do Builder: " + forbidden)
+require('meta: {' in script, "Resultado do Builder deve publicar meta")
+require('error: safeError' in script, "Resultado do Builder deve publicar error estruturado")
+
 require("supported_component_count: Object.keys(SUPPORTED_COMPONENT_TYPES).length" in script, "contagem dinâmica ausente")
 require("JUIF / Java UI Framework" in variables["UI Schema Json"].get("m_stringValue", ""), "schema default não foi adaptado")
 

@@ -17,35 +17,35 @@
       "target_path": "capabilities/java_ui_framework/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "690105a0ff14d5a252fc8c607713efc203e377e59173aa07770bcea007672633"
+      "checksum_sha256": "2a5bf45238bd4ee05a886751ce1d171146c240a66691f8e6495fe0eefd053b91"
     },
     {
       "path": "capabilities/java_ui_framework/contract.json",
       "target_path": "capabilities/java_ui_framework/contract.json",
       "write_policy": "overwrite_versioned",
       "file_role": "contract",
-      "checksum_sha256": "b933d2a8abb14be387dba921efdffe7bc01335591e181b1e1e2a968feebd974d"
+      "checksum_sha256": "38d60b7a7b411b202224d6fe07306c02e8763adda642fc6294eb541ab5e5a436"
     },
     {
       "path": "capabilities/java_ui_framework/config.default.json",
       "target_path": "capabilities/java_ui_framework/config.json",
       "write_policy": "create_if_missing_or_merge",
       "file_role": "default_config",
-      "checksum_sha256": "809516ac8645b3d87c975616bb83a198912d68218db6cc59df645d4a84d9f0d2"
+      "checksum_sha256": "1b4c5e796f82cc2af532762195ed49c8f4238b1c91e28ef829ab62bdeda6d629"
     },
     {
       "path": "capabilities/java_ui_framework/component_catalog.json",
       "target_path": "capabilities/java_ui_framework/component_catalog.json",
       "write_policy": "overwrite_versioned",
       "file_role": "component_catalog",
-      "checksum_sha256": "d77768a728f97f19542cf08e9f86b2923f62e7a30ec959aa7ecac5cba1b1c51b"
+      "checksum_sha256": "c0d447b4a75e2483d89c1d67681c3a0a2b7e0106b7a97d15c72807fff51cdbf2"
     },
     {
       "path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
       "target_path": "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock",
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
-      "checksum_sha256": "0e2a32941c35b48b16a49f4ef69d7fdd1f7c88cae0af0c8cbb903feeceb145fb"
+      "checksum_sha256": "ca3cc4fb2bfd6c51518a009863a39235c4c0c2e2706f6315fefdc924267ed1dc"
     }
   ],
   "macrodroid_export": {

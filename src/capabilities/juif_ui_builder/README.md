@@ -39,3 +39,8 @@ Capability pura responsável por transformar `Config Json` e `UI Schema Json` em
 python src/capabilities/juif_ui_builder/scripts/validate_juif_ui_builder_incremental.py
 python src/scripts/validate_ui_capabilities_v1_0_0.py
 ```
+
+
+## Correção de Resultado
+
+O Builder publica exclusivamente `schema_version`, `namespace`, `success`, `status`, `artifact_type`, `artifact_id`, `operation`, `message`, `data`, `error` e `meta`. Os campos legados proibidos foram removidos.

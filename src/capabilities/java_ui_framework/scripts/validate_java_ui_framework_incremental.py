@@ -48,7 +48,7 @@ require(sum(1 for v in variables.values() if v.get("supportsInput")) == 1, "deve
 require(sum(1 for v in variables.values() if v.get("supportsOutput")) == 1, "deve existir uma única saída pública")
 for name, variable in variables.items():
     require(str(variable.get("description", "")).strip(), f"variável sem descrição: {name}")
-    if name.startswith("Tmp_"):
+    if name not in {"JUIF UI Json", "Resultado"}:
         require(variable.get("isActionBlockWorkingVar") is True, f"variável interna não marcada como working: {name}")
         require(not variable.get("supportsInput") and not variable.get("supportsOutput"), f"working variable exposta: {name}")
 
@@ -90,12 +90,15 @@ for token in new_renderers:
 require('result.put("artifact_id", "java_ui_framework")' in script, "artifact id do Resultado divergente")
 require('"artifact_id":\\"mdf\\"' not in script and '"artifact_id":"mdf"' not in script, "fallback legado mdf ainda presente")
 require('data.put("supported_component_count", 36)' in script, "contagem publicada pelo renderer divergente")
+for forbidden in ["data_json", "error_code", "error_message", "error_json"]:
+    require(forbidden not in script, "campo proibido no Resultado do renderer: " + forbidden)
+require('result.put("meta", meta)' in script, "renderer deve publicar meta")
+require('result.put("error", error == null ? JSONObject.NULL : error)' in script, "renderer deve publicar error estruturado")
+require('"PERMISSION_DENIED"' in script and "Settings.canDrawOverlays" in script, "renderer deve validar permissão de overlay")
+require('catch(JSONException e)' in script, "renderer deve classificar JSON inválido")
+require("juifRootContainer" not in script and "juifBodyContainer" not in script, "renderer não deve reescrever a hierarquia-base do protótipo nesta fase")
 
-result_entries = {
-    entry.get("key"): entry.get("variable", {}).get("textValue")
-    for entry in variables["Resultado"].get("dictionary", {}).get("entries", [])
-}
-require(result_entries.get("artifact_id") == "java_ui_framework", "default de Resultado ainda usa artifact id legado")
+require(variables["Resultado"].get("dictionary", {}).get("entries", []) == [], "Resultado deve iniciar vazio para JSON Parse substituir integralmente o conteúdo")
 
 catalog_types = [item["type"] for item in catalog.get("components", [])]
 config_types = config.get("settings", {}).get("supported_component_types", [])

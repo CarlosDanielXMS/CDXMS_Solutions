@@ -54,8 +54,8 @@
     ]
   },
   "implementation_audit": {
-    "stage": "ready_for_homologation",
-    "source_base": "feat/create-ecosystem-core@remote_state_2026-06-21",
+    "stage": "corrected_ready_for_device_homologation",
+    "source_base": "feat/create-ecosystem-core@remote_state_2026-06-22",
     "prototype_preserved": true,
     "manual_homologation_required": true,
     "action_profile": {
@@ -64,6 +64,10 @@
       "java_actions": 1,
       "json_parse_actions": 1
     },
-    "export_checked_against_contract": true
+    "export_checked_against_contract": true,
+    "result_contract_verified": true,
+    "forbidden_result_fields_removed": true,
+    "result_contract_enforced": true,
+    "runtime_hierarchy": "prototype_overlay_scrollview_page_container"
   }
 }

@@ -17,7 +17,7 @@ Esta consolidação fecha a fundação de integridade/entrada única e adiciona 
 
 ## Capabilities de UI
 
-- `[CDXMS] Java UI Framework` — renderer JUIF com 36 componentes e shell persistente opcional;
+- `[CDXMS] Java UI Framework` — renderer JUIF com 36 componentes e shell declarativo no conteúdo rolável;
 - `[CDXMS] JUIF UI Builder` — normalizador de schema, bindings, state, mapping e shell.
 
 Os 26 componentes do protótipo foram preservados. Foram adicionados componentes de navegação, busca, filtros e estados vazios/carregamento.
@@ -34,3 +34,8 @@ python src/capabilities/bootstrap/scripts/validate_bootstrap_incremental.py
 python src/capabilities/file_integrity/scripts/validate_file_integrity_incremental.py
 python src/scripts/validate_remote_distribution_readiness_v1_0_0.py
 ```
+
+
+## Correção aplicada
+
+As capabilities de UI foram corrigidas para seguir `core/result_contract.json`; a hierarquia-base do renderer do protótipo foi restaurada e os validadores agora rejeitam campos legados proibidos.

@@ -24,7 +24,7 @@ Base completa do ecossistema CDXMS Solutions.
 
 ## UI antes do Solutions Manager
 
-O Java UI Framework e o JUIF UI Builder foram adaptados ao contrato CDXMS sem remover as definições do protótipo. O catálogo passou de 26 para 36 componentes e ganhou shell persistente opcional.
+O Java UI Framework e o JUIF UI Builder foram adaptados ao contrato CDXMS sem remover as definições do protótipo. O catálogo passou de 26 para 36 componentes e ganhou shell declarativo opcional no fluxo rolável.
 
 Essas duas capabilities estão `ready_for_homologation`; ainda não devem ser marcadas como homologadas antes do teste real no MacroDroid.
 
@@ -38,3 +38,8 @@ execuções seguintes -> manager
 ```
 
 Não existe Installer separado na v1. Importação automática de `.macro`/`.ablock` continua não presumida.
+
+
+## UI — correção pré-homologação
+
+O Java UI Framework e o JUIF UI Builder publicam o contrato universal sem campos legados. A homologação visual/interativa no MacroDroid ainda é gate obrigatório antes do Solutions Manager.

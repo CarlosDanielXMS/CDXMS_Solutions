@@ -119,3 +119,8 @@ capabilities/java_ui_framework/component_catalog.json
 ## Efeitos colaterais
 
 Nenhum.
+
+
+## Validação obrigatória do Resultado
+
+Antes do `JSON Parse`, o texto interno deve representar exatamente o contrato universal e não pode conter `data_json`, `error_code`, `error_message` ou `error_json`.

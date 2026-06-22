@@ -63,6 +63,13 @@
       "chip_group",
       "empty_state",
       "loading_indicator"
+    ],
+    "shell_mode": "scroll_content",
+    "persistent_shell_enabled": false,
+    "supported_shell_components": [
+      "top_app_bar",
+      "tab_bar",
+      "bottom_navigation"
     ]
   },
   "updated_at": ""

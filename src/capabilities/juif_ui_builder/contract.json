@@ -82,5 +82,12 @@
     "INVALID_ENUM_VALUE",
     "PROCESSING_FAILED"
   ],
-  "side_effects": false
+  "side_effects": false,
+  "result_contract": "core/result_contract.json",
+  "forbidden_result_fields": [
+    "data_json",
+    "error_code",
+    "error_message",
+    "error_json"
+  ]
 }

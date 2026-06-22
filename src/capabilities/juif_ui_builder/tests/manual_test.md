@@ -23,3 +23,8 @@
 ## Aceite
 
 Registrar quantidade aprovada/reprovada. Não marcar a capability como homologada antes da execução real no dispositivo.
+
+
+## Resultado universal
+
+Confirmar que a saída não contém `data_json`, `error_code`, `error_message` ou `error_json`, e que `data`/`error` são estruturas reais do dicionário.

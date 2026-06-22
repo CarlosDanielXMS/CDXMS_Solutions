@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Renderizar um contrato JUIF em um overlay Android, manter state e eventos em runtime e oferecer navegação multipágina, incluindo shell persistente opcional.
+Renderizar um contrato JUIF em um overlay Android, manter state e eventos em runtime e oferecer navegação multipágina, com componentes de shell renderizados no fluxo rolável nesta fase.
 
 ## Tipo
 
@@ -12,7 +12,7 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
 
 | Entrada | Tipo | Obrigatória | Descrição |
 |---|---|---:|---|
-| `JUIF UI Json` | Texto/JSON | Sim | Contrato JUIF produzido pelo Builder ou escrito manualmente. Aceita o formato multipágina e o formato legado de página única. |
+| `JUIF UI Json` | Texto/JSON | Não | Contrato JUIF normal produzido pelo Builder ou escrito manualmente. Quando vazio, usa a UI de demonstração embarcada. |
 
 ## Saída
 
@@ -108,12 +108,12 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
   5. interpreta `state`, `pages` e `shell`/`navigation`;
   6. converte o contrato legado de página única para uma página `main` sem alterar seus componentes;
   7. cria o overlay com `WindowManager.TYPE_APPLICATION_OVERLAY`;
-  8. cria hosts independentes para top bar/tabs, rail, conteúdo rolável, bottom navigation e drawer;
+  8. preserva a hierarquia original do protótipo: overlay, um `ScrollView` e um container vertical de página;
   9. renderiza os 26 componentes do protótipo;
   10. renderiza os 10 componentes adicionados na v1.0.0;
-  11. mantém navegação por `navigate`, `replace`, `back`, abertura/fechamento do drawer e fechamento do overlay;
+  11. mantém navegação por `navigate`, `replace`, `back`, seleção em drawer inline e fechamento do overlay;
   12. mantém state local e emite payloads estruturados com ação, página atual e snapshot do state;
-  13. atualiza o shell quando a página muda;
+  13. renderiza `top_app_bar`, `tab_bar` e `bottom_navigation` declarados em `ui.shell` no fluxo da página, e mantém rail/drawer como componentes inline;
   14. permite fechar o overlay por long press;
   15. publica `Tmp_ResultJson` com `artifact_id=java_ui_framework`.
 - **Configuração da janela:**
@@ -124,7 +124,7 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
   - pixel format: `TRANSLUCENT`;
   - soft input: `ADJUST_RESIZE | STATE_UNSPECIFIED`.
 - **Resultado de sucesso:** inclui `current_page`, `state`, `using_default_ui`, `component_catalog_version`, `supported_component_count` e `shell_enabled`.
-- **Resultado de erro:** `INVALID_JSON` ou fallback crítico `UNKNOWN_ERROR`, sempre no contrato universal CDXMS.
+- **Resultado de erro:** `INVALID_JSON`, `PERMISSION_DENIED`, `PROCESSING_FAILED` ou fallback crítico `UNKNOWN_ERROR`, sempre no contrato universal CDXMS.
 
 ### Ação 8 — JSON Parse
 
@@ -160,7 +160,7 @@ empty_state
 loading_indicator
 ```
 
-Todos podem ser usados inline. Os cinco componentes de navegação também podem ser declarados em `ui.shell` para permanecerem fora da área rolável.
+Todos podem ser usados inline. Nesta etapa, `top_app_bar`, `tab_bar` e `bottom_navigation` também podem ser declarados em `ui.shell`, mas continuam dentro do conteúdo rolável. `navigation_rail` e `navigation_drawer` permanecem inline.
 
 ## Efeitos colaterais
 
@@ -168,3 +168,8 @@ Todos podem ser usados inline. Os cinco componentes de navegação também podem
 - atualiza variáveis locais de runtime;
 - pode escrever no clipboard apenas quando o usuário aciona explicitamente componentes de cópia;
 - não grava arquivos, não altera registry e não acessa rede.
+
+
+## Validação obrigatória do Resultado
+
+Antes do `JSON Parse`, o texto interno deve representar exatamente o contrato universal e não pode conter `data_json`, `error_code`, `error_message` ou `error_json`.

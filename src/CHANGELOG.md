@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0 — Correção das capabilities de UI
+
+- Corrigidos Java UI Framework e JUIF UI Builder a partir do estado remoto atual.
+- Removidos do Resultado os campos proibidos `data_json`, `error_code`, `error_message` e `error_json`.
+- Resultado agora segue exatamente `core/result_contract.json`.
+- Java UI Framework volta a usar a hierarquia-base e os bridges internos do protótipo funcional.
+- Mantidos 26 componentes legados e 10 componentes adicionais.
+- Shell passa a ser renderizado no conteúdo rolável nesta fase; rail/drawer permanecem componentes inline.
+- Validadores passam a bloquear regressões no contrato universal.
+- Homologação em dispositivo real continua obrigatória.
+
 ## 1.0.0 — Capabilities de UI preparadas para homologação
 
 - Incorporados os protótipos `[CDXMS] Java UI Framework` e `[CDXMS] JUIF UI Builder` ao padrão de capability do ecossistema.

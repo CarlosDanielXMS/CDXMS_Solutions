@@ -37,3 +37,8 @@
 ## Aceite
 
 A homologação deve registrar modelo Android, versão do MacroDroid e resultado por caso.
+
+
+## Resultado universal
+
+Confirmar que a saída não contém `data_json`, `error_code`, `error_message` ou `error_json`, e que `data`/`error` são estruturas reais do dicionário.

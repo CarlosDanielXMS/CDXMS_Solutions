@@ -10,12 +10,10 @@
     "supported": true,
     "properties": [
       "top_app_bar",
-      "bottom_navigation",
-      "navigation_rail",
-      "navigation_drawer",
-      "tab_bar"
+      "tab_bar",
+      "bottom_navigation"
     ],
-    "description": "Shell opcional persistente em ui.shell. Os mesmos tipos também podem ser usados como componentes inline."
+    "description": "Shell opcional renderizado no fluxo da página sem reescrever a hierarquia-base do protótipo. navigation_rail e navigation_drawer permanecem componentes inline combináveis com row/column."
   },
   "components": [
     {
@@ -368,7 +366,7 @@
     {
       "type": "bottom_navigation",
       "category": "navigation",
-      "description": "Navegação persistente ou inline na base.",
+      "description": "Barra de navegação inferior inline ou declarada em ui.shell.",
       "properties": [
         "key",
         "selected",
@@ -396,7 +394,7 @@
     {
       "type": "navigation_drawer",
       "category": "navigation",
-      "description": "Painel lateral com itens de navegação.",
+      "description": "Painel lateral/inline com itens de navegação; pode ser combinado com row/column.",
       "properties": [
         "title",
         "subtitle",
@@ -406,8 +404,6 @@
         "width"
       ],
       "emits": [
-        "drawer_opened",
-        "drawer_closed",
         "navigation_selected"
       ],
       "introduced_in": "1.0.0"

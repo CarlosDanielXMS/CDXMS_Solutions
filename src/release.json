@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_ui_capabilities",
-  "artifact_id": "ecosystem_core_ui_capabilities",
+  "release_id": "ecosystem_core_ui_capabilities_contract_fix",
+  "artifact_id": "ecosystem_core_ui_capabilities_contract_fix",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -101,12 +101,11 @@
     }
   ],
   "notes": [
-    "Base incremental das capabilities de UI antes do Solutions Manager.",
-    "Java UI Framework e JUIF UI Builder foram adaptados ao padrão CDXMS.",
-    "Os 26 componentes do protótipo foram preservados e 10 foram adicionados.",
-    "As capabilities de UI ainda requerem homologação real no MacroDroid.",
-    "Solutions Manager permanece a próxima etapa.",
-    "Base remota consultada: feat/create-ecosystem-core em 2026-06-21."
+    "Base completa e mesclada do ecossistema atual.",
+    "Corrigidos Java UI Framework e JUIF UI Builder contra core/result_contract.json.",
+    "Removidos campos proibidos de Resultado e restaurada a hierarquia-base do renderer do protótipo.",
+    "Catálogo permanece com 36 componentes; shell persistente não é declarado como homologado.",
+    "Homologação em dispositivo real permanece obrigatória antes do Solutions Manager."
   ],
-  "package": "CDXMS_UI_Capabilities_v1_0_0_delta_2026_06_21.zip"
+  "package": "CDXMS_UI_Capabilities_v1_0_0_contract_fix_delta_2026_06_22.zip"
 }
