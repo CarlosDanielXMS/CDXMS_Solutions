@@ -12,105 +12,169 @@ Capability pura. Não grava arquivos, não altera variáveis globais, não exibe
 
 | Entrada | Tipo | Obrigatória | Valor padrão | Descrição |
 |---|---|---:|---|---|
-| `Config Json` | Texto/JSON | Sim | `{}` | Objeto JSON com os valores usados para hidratar propriedades declaradas por `bind`. |
-| `UI Schema Json` | Texto/JSON | Sim | — | Schema multipágina contendo `state`, `pages`, sections, fields, lists, components, actions e `shell` opcional. |
-| `Escape Json` | Booleano | Não | `true` | Quando verdadeiro, também gera `juif_ui_json_escaped` para fronteiras textuais do MacroDroid. |
+| `Config Json` | Texto/JSON | Sim | JSON de demonstração | Valores usados para hidratar propriedades declaradas por `bind`. |
+| `UI Schema Json` | Texto/JSON | Sim | Schema canônico | Schema multipágina com `state`, `pages`, sections, fields, lists, components, actions e `shell`. |
+| `Escape Json` | Booleano | Não | `true` | Define se `juif_ui_json_escaped` recebe o JSON escapado ou o mesmo valor cru. |
 
 ## Saída
 
 | Saída | Tipo | Descrição |
 |---|---|---|
-| `Resultado` | Dicionário | Saída pública única no contrato universal CDXMS. Em sucesso, `data` contém o JSON JUIF, a versão escapada, o mapping e o catálogo suportado. |
+| `Resultado` | Dicionário | Saída pública única no contrato universal CDXMS. |
+
+Em sucesso, `Resultado.data` contém:
+
+```text
+juif_ui_json
+juif_ui_json_escaped
+mapping_json
+component_catalog_version
+supported_components
+supported_component_count
+```
 
 ## Variáveis de trabalho
 
-| Variável | Tipo | Exposição | Descrição |
-|---|---|---|---|
-| `Tmp_ResultJson` | Texto | Interna | Resultado universal serializado pelo JavaScript antes da publicação com `JSON Parse`. |
+| Variável | Tipo | Descrição |
+|---|---|---|
+| `Tmp_ConfigEscapeResult` | Dicionário | Resultado da `String Utils` ao escapar `Config Json`. |
+| `Tmp_SchemaEscapeResult` | Dicionário | Resultado da `String Utils` ao escapar `UI Schema Json`. |
+| `Tmp_CoreResultJson` | Texto | Resultado intermediário serializado pelo motor principal. |
+| `Tmp_CoreResult` | Dicionário | Resultado intermediário parseado. |
+| `Tmp_CoreResultJsonEscape` | Dicionário | Resultado da `String Utils` ao escapar o envelope intermediário. |
+| `Tmp_UiEscapeResult` | Dicionário | JUIF UI Json escapado uma vez. |
+| `Tmp_UiDoubleEscapeResult` | Dicionário | Valor escapado novamente para entrar com segurança no JavaScript final. |
+| `Tmp_ResultJson` | Texto | Resultado universal final antes do último `JSON Parse`. |
 
 ## Corpo completo — passo a passo
 
 ### Ação 1 — Action Group
 
-- **Ação MacroDroid:** `Action Group`.
-- **Nome do grupo:** `01 — Build JUIF UI Contract`.
+- **Ação:** `Action Group`.
+- **Nome:** `01 — Build JUIF UI Contract`.
 - **Rótulo:** `01 — Build and Publish Resultado`.
 - **Children collapsed:** desabilitado.
 - **Dont log if condition is false:** desabilitado.
-- **Comentário:** constrói o contrato JUIF v1.0.0 sem persistência ou efeitos colaterais.
+- **Objetivo:** agrupar toda a construção e publicação do contrato.
 
-### Ação 2 — JavaScript Code
+### Ação 2 — Action Block: escapar Config Json
 
-- **Ação MacroDroid:** `JavaScript Code` (`JavaScriptAction`).
+- **Ação:** `Action Block`.
+- **Action Block:** `[CDXMS] String Utils`.
+- **Aguardar conclusão:** sim.
+- **Entradas:**
+  - `Operation = escape_json_string`;
+  - `Text = {lv=Config Json}`.
+- **Saída:**
+  - `Resultado -> Tmp_ConfigEscapeResult`.
+- **Objetivo:** impedir que aspas, barras e quebras do JSON cru quebrem o código JavaScript.
+
+### Ação 3 — Action Block: escapar UI Schema Json
+
+- **Ação:** `Action Block`.
+- **Action Block:** `[CDXMS] String Utils`.
+- **Aguardar conclusão:** sim.
+- **Entradas:**
+  - `Operation = escape_json_string`;
+  - `Text = {lv=UI Schema Json}`.
+- **Saída:**
+  - `Resultado -> Tmp_SchemaEscapeResult`.
+
+### Ação 4 — JavaScript Code: construir contrato
+
+- **Ação:** `JavaScript Code` (`JavaScriptAction`).
 - **Engine:** `JetPack JavascriptEngine`.
 - **Block next action:** habilitado.
-- **Console output variable:** nenhuma.
-- **Variável de saída textual:** `Tmp_ResultJson`.
-- **Logging:** habilitado conforme padrão da macro.
-- **Entradas consumidas por Magic Text em blocos de comentário:**
-  - `{lv=Config Json}`;
-  - `{lv=UI Schema Json}`;
+- **Variável textual de saída:** `Tmp_CoreResultJson`.
+- **Entradas consumidas:**
+  - `{lv=Tmp_ConfigEscapeResult[data][value]}`;
+  - `{lv=Tmp_SchemaEscapeResult[data][value]}`.
+- **Não permitido:** inserir `{lv=Config Json}` ou `{lv=UI Schema Json}` diretamente no script.
+- **Processamento:**
+  1. interpreta os JSONs já protegidos;
+  2. valida `pages` e `page.id`;
+  3. preserva o `state` declarado;
+  4. hidrata propriedades `bind`;
+  5. monta `mapping_json`;
+  6. normaliza sections, fields, lists, components e actions;
+  7. normaliza o shell persistente;
+  8. gera `juif_ui_json`;
+  9. monta um Resultado intermediário no contrato universal.
+- **Erros:** `MISSING_REQUIRED_INPUT`, `INVALID_INPUT_TYPE`, `INVALID_JSON`, `INVALID_ENUM_VALUE` e `PROCESSING_FAILED`.
+
+### Ação 5 — JSON Parse: Resultado intermediário
+
+- **String source:** `Tmp_CoreResultJson`.
+- **Dictionary target:** `Tmp_CoreResult`.
+- **Dictionary keys:** raiz.
+- **Objetivo:** disponibilizar os campos intermediários para as ações seguintes.
+
+### Ação 6 — Action Block: escapar envelope intermediário
+
+- **Action Block:** `[CDXMS] String Utils`.
+- **Aguardar conclusão:** sim.
+- **Entradas:**
+  - `Operation = escape_json_string`;
+  - `Text = {lv=Tmp_CoreResultJson}`.
+- **Saída:** `Resultado -> Tmp_CoreResultJsonEscape`.
+- **Objetivo:** permitir que o JavaScript final reconstrua o envelope sem receber JSON cru.
+
+### Ação 7 — Action Block: escapar JUIF UI Json
+
+- **Action Block:** `[CDXMS] String Utils`.
+- **Aguardar conclusão:** sim.
+- **Entradas:**
+  - `Operation = escape_json_string`;
+  - `Text = {lv=Tmp_CoreResult[data][juif_ui_json]}`.
+- **Saída:** `Resultado -> Tmp_UiEscapeResult`.
+- **Objetivo:** produzir o valor canônico de `juif_ui_json_escaped`.
+
+### Ação 8 — Action Block: proteger o valor escapado
+
+- **Action Block:** `[CDXMS] String Utils`.
+- **Aguardar conclusão:** sim.
+- **Entradas:**
+  - `Operation = escape_json_string`;
+  - `Text = {lv=Tmp_UiEscapeResult[data][value]}`.
+- **Saída:** `Resultado -> Tmp_UiDoubleEscapeResult`.
+- **Objetivo:** proteger o valor já escapado para que ele entre no JavaScript final sem perda de barras.
+
+### Ação 9 — JavaScript Code: finalizar Resultado
+
+- **Engine:** `JetPack JavascriptEngine`.
+- **Block next action:** habilitado.
+- **Variável textual de saída:** `Tmp_ResultJson`.
+- **Entradas consumidas:**
+  - `{lv=Tmp_CoreResultJsonEscape[data][value]}`;
+  - `{lv=Tmp_UiEscapeResult[data][value]}`;
+  - `{lv=Tmp_UiDoubleEscapeResult[data][value]}`;
   - `{lv=Escape Json}`.
-- **Processamento interno:**
-  1. valida entradas obrigatórias e tipos;
-  2. normaliza BOM, quebras, JSON entre aspas, escapes e o caso legado `{{...}}`;
-  3. interpreta `Config Json` e `UI Schema Json`;
-  4. valida `pages` como lista não vazia e exige `page.id`;
-  5. preserva `state` já declarado pelo schema;
-  6. hidrata propriedades `bind` a partir de `Config Json`;
-  7. monta `mapping_json` com origem, destino, tipo e propriedade de valor;
-  8. normaliza `sections`, `fields`, `lists`, `components` e `actions`;
-  9. aceita os 26 tipos do protótipo sem alteração semântica;
-  10. aceita os 10 novos tipos do catálogo v1.0.0;
-  11. normaliza `shell` e o alias `navigation`;
-  12. normaliza aliases de shell: `top_bar`, `bottom_bar`, `rail`, `drawer` e `tabs`;
-  13. converte a lista de páginas do schema em objeto indexado por `page.id`, como esperado pelo renderer;
-  14. serializa `juif_ui_json` e, quando solicitado, `juif_ui_json_escaped`;
-  15. publica o contrato universal CDXMS em `Tmp_ResultJson`.
-- **Erros estruturados:**
-  - `MISSING_REQUIRED_INPUT`;
-  - `INVALID_INPUT_TYPE`;
-  - `INVALID_JSON`;
-  - `INVALID_ENUM_VALUE`;
-  - `PROCESSING_FAILED`.
+- **Comportamento:**
+  1. reconstrói o Resultado intermediário;
+  2. preserva `juif_ui_json` cru;
+  3. usa o valor da `String Utils` em `juif_ui_json_escaped` quando `Escape Json = true`;
+  4. usa o valor cru quando `Escape Json = false`;
+  5. serializa o Resultado final.
 
-### Ação 3 — JSON Parse
+### Ação 10 — JSON Parse: publicar Resultado
 
-- **Ação MacroDroid:** `JSON Parse` (`JsonParseAction`).
 - **String source:** `Tmp_ResultJson`.
 - **Dictionary target:** `Resultado`.
-- **Dictionary keys:** raiz do dicionário, sem chave interna.
-- **Objetivo:** transformar o texto JSON produzido pela ação anterior na única saída pública do Action Block.
+- **Dictionary keys:** raiz.
+- **Objetivo:** publicar a única saída pública.
 
-### Ação 4 — End Action Group
+### Ação 11 — End Action Group
 
-- **Ação MacroDroid:** `End Action Group`.
-- **Objetivo:** encerrar `01 — Build JUIF UI Contract`.
+- encerra `01 — Build JUIF UI Contract`.
 
-### Ação 5 — Exit Action Block
+### Ação 12 — Exit Action Block
 
-- **Ação MacroDroid:** `Exit Action Block`.
-- **Output option:** `0` — encerramento normal.
-- **Objetivo:** finalizar explicitamente a capability após `Resultado` estar publicado.
+- **Output option:** `0`.
+- finaliza explicitamente a capability.
 
 ## Catálogo suportado
 
-O Builder aceita 36 componentes. Os 26 tipos do protótipo foram preservados e os novos tipos são:
-
-```text
-top_app_bar
-bottom_navigation
-navigation_rail
-navigation_drawer
-tab_bar
-search_bar
-chip
-chip_group
-empty_state
-loading_indicator
-```
-
-O contrato canônico do catálogo fica em:
+O Builder aceita 36 componentes. O contrato canônico fica em:
 
 ```text
 capabilities/java_ui_framework/component_catalog.json
@@ -120,20 +184,19 @@ capabilities/java_ui_framework/component_catalog.json
 
 Nenhum.
 
+## Regras de fronteira
 
-## Validação obrigatória do Resultado
-
-Antes do `JSON Parse`, o texto interno deve representar exatamente o contrato universal e não pode conter `data_json`, `error_code`, `error_message` ou `error_json`.
-
+- `Config Json` e `UI Schema Json` nunca entram crus no JavaScript;
+- o Builder não possui função manual de escape JSON;
+- todo escape é delegado a `[CDXMS] String Utils`;
+- `Resultado.data` permanece a estrutura pública canônica;
+- versões continuam em `1.0.0` até a primeira release.
 
 ## UI padrão canônica
 
 - `initial_page`: `overview`;
-- páginas: `overview`, `catalog_layout`, `catalog_forms`, `catalog_data`, `catalog_feedback`, `catalog_navigation` e `playground`;
-- shell: Top App Bar, Tab Bar contextual, Bottom Navigation e Navigation Drawer;
+- sete páginas;
+- shell persistente;
 - state de catálogo unificado em `catalog_section`;
-- seleção principal agrupada por `active_pages`;
-- 21 bindings reais;
+- 21 bindings;
 - cobertura de 36/36 componentes.
-
-O Builder preserva `visible_pages`, `hidden_pages`, `active_pages` e `active_prefix` como propriedades declarativas consumidas pelo renderer.
