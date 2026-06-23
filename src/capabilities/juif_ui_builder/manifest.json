@@ -22,7 +22,8 @@
   "requires": {
     "core_min_version": "1.0.0",
     "capabilities": {
-      "java_ui_framework": ">=1.0.0"
+      "java_ui_framework": ">=1.0.0",
+      "string_utils": ">=1.0.0"
     }
   },
   "operations": [
@@ -39,14 +40,17 @@
     "supported_component_count": 36
   },
   "implementation_audit": {
-    "stage": "professionally_redesigned_ready_for_device_homologation",
-    "source_base": "feat/create-ecosystem-core@8fdb41c5eebcb9bd03d6da6f91df0f6fd53b6b08",
+    "stage": "json_boundary_hardened_ready_for_device_homologation",
+    "source_base": "feat/solutions-manager",
     "prototype_preserved": true,
     "manual_homologation_required": true,
+    "json_escape_provider": "string_utils",
+    "direct_raw_json_injection_removed": true,
     "action_profile": {
-      "total_actions": 5,
-      "javascript_actions": 1,
-      "json_parse_actions": 1
+      "total_actions": 12,
+      "action_block_actions": 5,
+      "javascript_actions": 2,
+      "json_parse_actions": 2
     },
     "export_checked_against_contract": true,
     "result_contract_verified": true,
