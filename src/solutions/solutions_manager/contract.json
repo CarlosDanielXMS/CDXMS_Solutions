@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "solution_contract",
+  "artifact_id": "solutions_manager",
+  "version": "1.0.0",
+  "macro": "[CDXMS] Solutions Manager",
+  "description": "Contrato operacional da entrada única CDXMS.",
+  "invocation_inputs": [],
+  "entrypoints": [
+    {
+      "type": "manual",
+      "trigger": "EmptyTrigger",
+      "operation": "launch"
+    },
+    {
+      "type": "broadcast_intent",
+      "trigger": "IntentReceivedTrigger",
+      "action": "com.cdxms.solutions.EVENT",
+      "operation": "receive_ui_event"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "description": "Única saída pública/lógica da macro, no contrato universal CDXMS."
+    }
+  ],
+  "working_variables": [
+    "Tmp_SmViewModelJson",
+    "Tmp_SmUiSchemaJson",
+    "Tmp_SmEventNamespace",
+    "Tmp_SmEventProtocolVersion",
+    "Tmp_SmEventSessionId",
+    "Tmp_SmEventId",
+    "Tmp_SmEventSourceArtifactId",
+    "Tmp_SmEventAction",
+    "Tmp_SmEventCurrentPage",
+    "Tmp_SmEventJson",
+    "Tmp_SmLastConsumedEventId",
+    "Tmp_SmResultJson"
+  ],
+  "operations": {
+    "launch": {
+      "description": "Executa Bootstrap.initialize_ecosystem de forma idempotente e, em sucesso, constrói e renderiza a interface.",
+      "mutating": "core_and_runtime_initialization"
+    },
+    "bootstrap": {
+      "description": "Orquestra Bootstrap.initialize_ecosystem e a validação pós-inicialização.",
+      "mutating": true
+    },
+    "validate_ecosystem": {
+      "description": "Valida core, runtime, registry e capacidades críticas sem duplicar as validações internas das capabilities.",
+      "mutating": false
+    },
+    "load_dashboard": {
+      "description": "Compõe o modelo de dados da página inicial.",
+      "mutating": false
+    },
+    "refresh_catalog": {
+      "description": "Busca catálogo/release em staging via RSM e valida integridade antes de expor os dados.",
+      "mutating": "staging_only"
+    },
+    "download_test_solution": {
+      "description": "Baixa e valida estruturalmente o export .macro da Solution de Teste em staging por meio do Remote Source Manager.",
+      "mutating": "staging_only",
+      "automatic_import": false,
+      "availability": "implemented_for_device_homologation"
+    },
+    "list_available": {
+      "description": "Filtra artifacts visíveis no catálogo validado.",
+      "mutating": false
+    },
+    "list_installed": {
+      "description": "Lê registry/contexto local e produz visão instalada.",
+      "mutating": false
+    },
+    "get_artifact_details": {
+      "description": "Carrega detalhes locais/remotos do artifact selecionado.",
+      "mutating": false
+    },
+    "install_artifact": {
+      "description": "Orquestra remote manifest, integridade, dependências, plano AM, apply JCM e verificação. Bloqueada na fundação.",
+      "mutating": true,
+      "availability": "blocked_until_event_bridge_and_payload_pipeline"
+    },
+    "update_artifact": {
+      "description": "Mesmo pipeline de lifecycle com preservação de config e versionamento. Bloqueada na fundação.",
+      "mutating": true,
+      "availability": "blocked_until_event_bridge_and_payload_pipeline"
+    },
+    "repair_artifact": {
+      "description": "Reconstrói arquivos versionados a partir de manifest verificado. Bloqueada na fundação.",
+      "mutating": true,
+      "availability": "blocked_until_event_bridge_and_payload_pipeline"
+    },
+    "uninstall_artifact": {
+      "description": "Desregistra e remove somente escopo permitido, preservando dados do usuário por padrão. Bloqueada na fundação.",
+      "mutating": true,
+      "availability": "blocked_until_event_bridge_and_payload_pipeline"
+    },
+    "open_settings": {
+      "description": "Abre configurações do Manager.",
+      "mutating": false
+    },
+    "close": {
+      "description": "Fecha a interface e finaliza a sessão de forma controlada.",
+      "mutating": false
+    },
+    "receive_ui_event": {
+      "description": "Valida namespace, protocolo, sessão, origem, ação e idempotência do evento JUIF recebido por Intent.",
+      "mutating": "local_event_receipt_and_dispatch",
+      "availability": "implemented"
+    }
+  },
+  "result": {
+    "output_variable": "Resultado",
+    "top_level_fields": [
+      "schema_version",
+      "namespace",
+      "success",
+      "status",
+      "artifact_type",
+      "artifact_id",
+      "operation",
+      "message",
+      "data",
+      "error",
+      "meta"
+    ],
+    "forbidden_top_level_fields": [
+      "data_json",
+      "error_code",
+      "error_message",
+      "error_json"
+    ]
+  },
+  "errors": [
+    "MISSING_REQUIRED_INPUT",
+    "INVALID_JSON",
+    "INVALID_ENUM_VALUE",
+    "UNSUPPORTED_OPERATION",
+    "BOOTSTRAP_CORE_UNAVAILABLE",
+    "BOOTSTRAP_CORE_INVALID",
+    "BOOTSTRAP_REPAIR_REQUIRED",
+    "REMOTE_SOURCE_UNAVAILABLE",
+    "CHECKSUM_MISMATCH",
+    "MISSING_DEPENDENCY",
+    "VERSION_CONFLICT",
+    "DEPENDENCY_CYCLE_DETECTED",
+    "ARTIFACT_INVALID_MANIFEST",
+    "ARTIFACT_APPLY_BLOCKED",
+    "ARTIFACT_APPLY_FAILED",
+    "ARTIFACT_APPLY_NOT_VERIFIED",
+    "UI_RUNTIME_ERROR",
+    "PROCESSING_FAILED",
+    "UNKNOWN_ERROR"
+  ],
+  "event_bridge": {
+    "status": "implemented_ready_for_device_homologation",
+    "requirement": "A UI deve publicar action, payload, página e state em um canal observável pelo fluxo MacroDroid após o Action Block de UI ter retornado.",
+    "must_not": "Depender apenas de working variables internas do Java UI Framework após o encerramento da chamada.",
+    "transport": {
+      "type": "explicit_package_broadcast_intent",
+      "action": "com.cdxms.solutions.EVENT",
+      "event_variable": "Tmp_SmEventJson",
+      "fields": [
+        "event_id",
+        "session_id",
+        "action",
+        "payload",
+        "current_page",
+        "state",
+        "timestamp_ms",
+        "consumed"
+      ]
+    }
+  }
+}

@@ -4,6 +4,10 @@
   "source_file": "All_Actions.ablock",
   "macro_name": "All Actions",
   "macro_export_version": 1,
+  "last_edited_at_utc": "2026-06-16T21:41:54.421000+00:00",
+  "macrodroid_version_context": "5.64.x",
+  "complete": false,
+  "completeness_note": "Snapshot estrutural parcial. A versão 5.67.x adicionou ações posteriores a este export.",
   "total_actions": 189,
   "unique_action_classes": 171,
   "actions": [

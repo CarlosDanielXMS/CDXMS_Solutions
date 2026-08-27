@@ -17,7 +17,7 @@
       "target_path": "capabilities/artifact_manager/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "6ef3686a6fd14487ac8be3f8f52b9257de02dbd38bbb00e9f80eb3104bf73fd6"
+      "checksum_sha256": "3a2e7d0098c5f0aafa67da0b91503ec69b0ca315f6a665256d423be84067ddd7"
     },
     {
       "path": "capabilities/artifact_manager/contract.json",

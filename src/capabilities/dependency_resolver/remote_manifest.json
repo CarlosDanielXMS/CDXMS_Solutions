@@ -17,7 +17,7 @@
       "target_path": "capabilities/dependency_resolver/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "01d63b30a5d83d72de05b544a42d4eceb6ce4ead642dd3dd2435ec3fcb3a6a4f"
+      "checksum_sha256": "a8d4894e35a0d4e7b4ed5a14cff9c62fb457e4e2a1fb79a2efc04ddc1c57478f"
     },
     {
       "path": "capabilities/dependency_resolver/contract.json",

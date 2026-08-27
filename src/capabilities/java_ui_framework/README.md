@@ -70,6 +70,7 @@ O shell aceita:
 - renderizar páginas e componentes;
 - manter state em memória;
 - emitir eventos estruturados;
+- encaminhar eventos de negócio por Intent explícito quando `event_bridge` estiver habilitado;
 - coordenar navegação do overlay;
 - expor o estado inicial e os eventos no contrato universal.
 
@@ -93,6 +94,8 @@ A homologação em dispositivo continua obrigatória para confirmar dimensões, 
 ## Hotfix de navegação do catálogo
 
 A navegação que substitui a árvore visual não é executada diretamente dentro do `onClick`. O evento é publicado no próximo ciclo da main thread por `View.post`, evitando remover a própria barra que ainda processa o toque.
+
+Eventos não navegacionais permanecem disponíveis nas variáveis de runtime e, quando configurado no contrato, são enviados à macro orquestradora pelo action `com.cdxms.solutions.EVENT`. O broadcast é restrito ao pacote do MacroDroid e inclui namespace, protocolo, sessão, `event_id`, origem, ação, página e JSON integral do evento.
 
 A renderização também é transacional:
 

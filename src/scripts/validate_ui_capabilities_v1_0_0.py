@@ -9,10 +9,18 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+TEXT_SUFFIXES = {".ablock", ".json", ".macro", ".md", ".py", ".js"}
 
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def canonical_sha256(path: Path) -> str:
+    data = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES or path.name == ".gitkeep":
+        data = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(data).hexdigest()
 
 
 for script in [
@@ -75,22 +83,53 @@ builder_export = load(ROOT / "capabilities/juif_ui_builder/macrodroid/[CDXMS]_JU
 framework_export = load(ROOT / "capabilities/java_ui_framework/macrodroid/[CDXMS]_Java_UI_Framework.ablock")
 builder_vars = {v["m_name"]: v for v in builder_export["macro"]["localVariables"]}
 framework_vars = {v["m_name"]: v for v in framework_export["macro"]["localVariables"]}
-builder_script = next(
+builder_scripts = [
     action["scriptText"]
     for action in builder_export["macro"]["m_actionList"]
     if action.get("m_classType") == "JavaScriptAction"
-)
+]
+assert len(builder_scripts) == 2
+core_script, final_script = builder_scripts
 node = shutil.which("node")
 if node:
-    runtime = (
-        builder_script
-        .replace("{lv=Config Json}", builder_vars["Config Json"]["m_stringValue"])
-        .replace("{lv=UI Schema Json}", builder_vars["UI Schema Json"]["m_stringValue"])
-        .replace("{lv=Escape Json}", "true")
+    def escape_json_string(value: str) -> str:
+        return json.dumps(str(value), ensure_ascii=False)[1:-1]
+
+    core_runtime = (
+        core_script
+        .replace(
+            "{lv=Tmp_ConfigEscapeResult[data][value]}",
+            escape_json_string(builder_vars["Config Json"]["m_stringValue"]),
+        )
+        .replace(
+            "{lv=Tmp_SchemaEscapeResult[data][value]}",
+            escape_json_string(builder_vars["UI Schema Json"]["m_stringValue"]),
+        )
     )
     with tempfile.TemporaryDirectory() as tmp:
-        source = Path(tmp) / "builder.js"
-        source.write_text(runtime + "\nconsole.log(__cdxms_result);\n", encoding="utf-8")
+        source = Path(tmp) / "builder_core.js"
+        source.write_text(core_runtime + "\nconsole.log(__cdxms_result);\n", encoding="utf-8")
+        process = subprocess.run([node, str(source)], check=True, capture_output=True, text=True)
+        core_result_json = process.stdout.strip().splitlines()[-1]
+        core_result = json.loads(core_result_json)
+
+        raw_ui = core_result["data"]["juif_ui_json"]
+        escaped_ui = escape_json_string(raw_ui)
+        final_runtime = (
+            final_script
+            .replace(
+                "{lv=Tmp_CoreResultJsonEscape[data][value]}",
+                escape_json_string(core_result_json),
+            )
+            .replace("{lv=Tmp_UiEscapeResult[data][value]}", escaped_ui)
+            .replace(
+                "{lv=Tmp_UiDoubleEscapeResult[data][value]}",
+                escape_json_string(escaped_ui),
+            )
+            .replace("{lv=Escape Json}", "true")
+        )
+        source = Path(tmp) / "builder_final.js"
+        source.write_text(final_runtime + "\nconsole.log(__cdxms_result);\n", encoding="utf-8")
         process = subprocess.run([node, str(source)], check=True, capture_output=True, text=True)
         built_result = json.loads(process.stdout.strip().splitlines()[-1])
 
@@ -116,7 +155,7 @@ for capability_id in ["java_ui_framework", "juif_ui_builder"]:
     for item in remote_manifest.get("files", []):
         distributed = ROOT / item["path"]
         assert distributed.exists(), f"arquivo remoto ausente: {item['path']}"
-        actual = hashlib.sha256(distributed.read_bytes()).hexdigest()
+        actual = canonical_sha256(distributed)
         assert item.get("checksum_sha256") == actual, f"checksum remoto divergente: {item['path']}"
 
 # Mapa completo de checksums.
@@ -130,7 +169,7 @@ for path in sorted(ROOT.rglob("*")):
         continue
     if relative not in checksums["files"]:
         raise AssertionError(f"arquivo do overlay ausente em checksums.json: {relative}")
-    actual = hashlib.sha256(path.read_bytes()).hexdigest()
+    actual = canonical_sha256(path)
     assert checksums["files"][relative] == actual, f"checksum divergente: {relative}"
 
 print("OK: redesign profissional e hotfix de navegação das capabilities de UI validados")

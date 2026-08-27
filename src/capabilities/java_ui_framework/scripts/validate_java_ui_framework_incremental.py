@@ -65,9 +65,9 @@ expected_variables = {
     "Tmp_JuifState",
     "Tmp_JuifCurrentPage",
     "Tmp_ResultJson",
-    "Tmp_JuifUiJsonEscaped",
     "Tmp_DefaultUiJson",
     "Resultado",
+    "Tmp_JuifEscapeResult",
 }
 require(expected_variables == set(variables), "variáveis públicas/internas divergentes")
 require(variables["JUIF UI Json"].get("supportsInput") is True, "entrada pública ausente")
@@ -82,9 +82,7 @@ for name, variable in variables.items():
 
 expected_actions = [
     "ActionGroupAction",
-    "TextManipulationAction",
-    "TextManipulationAction",
-    "TextManipulationAction",
+    "ActionBlockAction",
     "ActionGroupEndAction",
     "ActionGroupAction",
     "JavaAction",
@@ -94,13 +92,20 @@ expected_actions = [
 ]
 actions = macro.get("m_actionList", [])
 require([a.get("m_classType") for a in actions] == expected_actions, "sequência de ações divergente")
-require(actions[6].get("blockNextAction") is True, "Java Action deve bloquear a continuação")
-require(actions[6].get("runInBackgroundThread") is False, "renderer não pode manipular views em background")
-require(actions[6].get("responseVariableName") == "Tmp_ResultJson", "response variable divergente")
-require(actions[7].get("stringVarName") == "Tmp_ResultJson", "JSON Parse deve consumir Tmp_ResultJson")
-require(actions[7].get("dictionaryVarName") == "Resultado", "JSON Parse deve publicar Resultado")
+string_call = actions[1]
+require(string_call.get("actionBlockName") == "[CDXMS] String Utils", "fronteira JSON não usa String Utils")
+require(string_call.get("actionBlockId") == -3034207520900123987, "GUID da String Utils divergente")
+require(string_call.get("continueActionsWithoutWaiting") is False, "String Utils deve aguardar")
+require(string_call.get("inputVarsMap", {}).get("Operation") == "escape_json_string", "operação de escape divergente")
+require(string_call.get("inputVarsMap", {}).get("Text") == "{lv=JUIF UI Json}", "entrada de escape divergente")
+require(string_call.get("outputVarsMap", {}).get("Resultado") == "Tmp_JuifEscapeResult", "saída de escape divergente")
+require(actions[4].get("blockNextAction") is True, "Java Action deve bloquear a continuação")
+require(actions[4].get("runInBackgroundThread") is False, "renderer não pode manipular views em background")
+require(actions[4].get("responseVariableName") == "Tmp_ResultJson", "response variable divergente")
+require(actions[5].get("stringVarName") == "Tmp_ResultJson", "JSON Parse deve consumir Tmp_ResultJson")
+require(actions[5].get("dictionaryVarName") == "Resultado", "JSON Parse deve publicar Resultado")
 
-script = actions[6]["scriptText"]
+script = actions[4]["scriptText"]
 for token in [
     "JUIFTopAppBar",
     "JUIFBottomNavigation",
@@ -149,6 +154,22 @@ require('result.put("artifact_id", "java_ui_framework")' in script, "artifact id
 require('data.put("supported_component_count", 36)' in script, "contagem publicada divergente")
 require('"PERMISSION_DENIED"' in script and "Settings.canDrawOverlays" in script, "validação de overlay ausente")
 require("catch(JSONException e)" in script, "JSON inválido não classificado")
+require('String raw = "{lv=Tmp_JuifEscapeResult[data][value]}";' in script, "Java Action não consome o escape canônico")
+require("import android.content.Intent;" in script, "Intent bridge sem import explícito")
+require("void juifPublishBridgeEvent" in script, "publicação do event bridge ausente")
+require("intent.setPackage(appContext.getPackageName())" in script, "broadcast JUIF deve ser restrito ao pacote")
+require("appContext.sendBroadcast(intent)" in script, "broadcast JUIF não é enviado")
+for extra in [
+    "cdxms_namespace",
+    "cdxms_protocol_version",
+    "cdxms_session_id",
+    "cdxms_event_id",
+    "cdxms_source_artifact_id",
+    "cdxms_action",
+    "cdxms_current_page",
+    "cdxms_event_json",
+]:
+    require(extra in script, "extra do event bridge ausente: " + extra)
 for forbidden in ["data_json", "error_code", "error_message", "error_json"]:
     require(forbidden not in script, "campo proibido no Resultado: " + forbidden)
 

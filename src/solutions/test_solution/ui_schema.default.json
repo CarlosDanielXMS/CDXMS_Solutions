@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "title": "CDXMS Test Solution",
+  "initial_page": "overview",
+  "state": {
+    "test_section": "overview"
+  },
+  "shell": {
+    "top_app_bar": {
+      "title": "Solution de Teste",
+      "subtitle": "CDXMS Solutions",
+      "actions": [
+        {
+          "text": "Fechar",
+          "action": "close"
+        }
+      ]
+    },
+    "bottom_navigation": {
+      "selected": "overview",
+      "items": [
+        {
+          "id": "overview",
+          "label": "Visão geral",
+          "target": "overview",
+          "action": "replace",
+          "active_pages": [
+            "overview"
+          ]
+        },
+        {
+          "id": "components",
+          "label": "Componentes",
+          "target": "components",
+          "action": "replace",
+          "active_pages": [
+            "components"
+          ]
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "id": "overview",
+      "title": "Homologação concluída",
+      "subtitle": "O fluxo principal da solution foi executado.",
+      "components": [
+        {
+          "type": "alert",
+          "variant": "success",
+          "title": "JUIF funcional",
+          "text": "Bootstrap, Builder e renderer chegaram até esta interface."
+        },
+        {
+          "type": "container",
+          "variant": "surface2",
+          "radius": 24,
+          "children": [
+            {
+              "type": "text",
+              "variant": "label",
+              "text": "CDXMS SOLUTIONS"
+            },
+            {
+              "type": "text",
+              "variant": "title",
+              "text": "Uma identidade visual para automações profissionais"
+            },
+            {
+              "type": "text",
+              "bind": "test.message"
+            },
+            {
+              "type": "progress_bar",
+              "label": "Fluxo validado",
+              "bind": "test.progress",
+              "value_type": "number",
+              "variant": "success"
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "children": [
+            {
+              "type": "stat_card",
+              "label": "Bootstrap",
+              "bind": "test.bootstrap"
+            },
+            {
+              "type": "stat_card",
+              "label": "JUIF",
+              "bind": "test.renderer"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "children": [
+            {
+              "type": "text",
+              "variant": "title",
+              "text": "Próximo passo"
+            },
+            {
+              "type": "text",
+              "text": "Navegue até Componentes para validar a lista dinâmica e o shell persistente."
+            },
+            {
+              "type": "button",
+              "text": "Ver componentes",
+              "action": "replace",
+              "target": "components",
+              "variant": "primary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "title": "Componentes",
+      "subtitle": "Elementos construídos pelo schema declarativo.",
+      "components": [
+        {
+          "type": "dynamic_list",
+          "key": "test_features",
+          "bind": "features",
+          "item_template": {
+            "type": "list_item",
+            "title": "{{title}}",
+            "subtitle": "{{subtitle}}",
+            "value": "{{value}}",
+            "action": "test_component_selected"
+          }
+        },
+        {
+          "type": "badge",
+          "variant": "success",
+          "text": "Sem operações destrutivas"
+        },
+        {
+          "type": "button",
+          "text": "Voltar",
+          "action": "replace",
+          "target": "overview",
+          "variant": "secondary"
+        }
+      ]
+    }
+  ]
+}

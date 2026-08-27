@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "solution_contract",
+  "artifact_id": "test_solution",
+  "version": "1.0.0",
+  "entrypoint": "[CDXMS] Test Solution",
+  "trigger": "manual",
+  "operation": "run_test_solution",
+  "inputs": [],
+  "outputs": [
+    {
+      "name": "Resultado",
+      "type": "dictionary",
+      "contract": "core/result_contract.json"
+    }
+  ],
+  "runtime_flow": [
+    "bootstrap",
+    "build_juif_ui",
+    "render_juif_ui"
+  ],
+  "security": {
+    "network_required": false,
+    "destructive_operations": false,
+    "preserve_user_config": true
+  }
+}

@@ -39,6 +39,12 @@
     "drawer_available"
   ],
   "runtime_events": {
+    "transport": {
+      "type": "explicit_package_broadcast_intent",
+      "default_action": "com.cdxms.solutions.EVENT",
+      "enabled_by": "ui.event_bridge.enabled",
+      "automatic_import": false
+    },
     "payload_fields": [
       "action",
       "current_page",
@@ -52,7 +58,7 @@
       "Tmp_JuifState",
       "Tmp_JuifCurrentPage",
       "Tmp_ResultJson",
-      "Tmp_JuifUiJsonEscaped",
+      "Tmp_JuifEscapeResult",
       "Tmp_DefaultUiJson"
     ]
   },

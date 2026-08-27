@@ -22,8 +22,7 @@
   "requires": {
     "core_min_version": "1.0.0",
     "capabilities": {
-      "json_config_manager": ">=1.0.0",
-      "result_manager": ">=1.0.0"
+      "json_config_manager": ">=1.0.0"
     }
   },
   "operations": [

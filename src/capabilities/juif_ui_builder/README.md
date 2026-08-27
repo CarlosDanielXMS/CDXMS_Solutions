@@ -8,8 +8,10 @@ Capability pura responsável por transformar `Config Json` e `UI Schema Json` em
 - saída pública única `Resultado`;
 - catálogo JUIF v1.0.0 com 36 componentes;
 - shell persistente opcional;
-- UI padrão reorganizada como documentação interativa profissional;
-- motor puro do Builder preservado.
+- UI padrão organizada como documentação interativa;
+- fronteiras JSON protegidas pela `[CDXMS] String Utils`;
+- passagem direta de JSON cru para o JavaScript removida;
+- versão preservada em `1.0.0`, pois ainda não existe release.
 
 ## UI padrão
 
@@ -23,25 +25,33 @@ O schema padrão possui sete páginas:
 6. `catalog_navigation` — shell, rail e comportamento de navegação;
 7. `playground` — code block e sandbox.
 
-A navegação usa uma única `tab_bar` compartilhada entre as páginas do catálogo. O estado deixou de ser fragmentado em uma chave por página.
-
-## Shell padrão
-
-- Top App Bar com título contextual e acesso ao drawer;
-- Tab Bar visível apenas nas páginas do catálogo;
-- Bottom Navigation para Início, Catálogo e Laboratório;
-- Navigation Drawer com o mapa completo da documentação;
-- seleção resolvida por página atual e grupos `active_pages`.
+A navegação usa uma única `tab_bar` compartilhada entre as páginas do catálogo. O estado não é fragmentado em uma chave por página.
 
 ## Responsabilidade
 
+- preparar os JSONs de entrada com `string_utils.escape_json_string`;
 - validar os JSONs de entrada;
 - hidratar componentes declarados com `bind`;
 - montar `state` e `mapping_json`;
 - normalizar pages, sections, fields, lists e componentes diretos;
 - normalizar shell e itens de navegação;
 - rejeitar tipos não suportados;
-- gerar JSON cru e escapado.
+- gerar `juif_ui_json` cru;
+- gerar `juif_ui_json_escaped` pela `String Utils`.
+
+## Fronteira JSON
+
+`Config Json` e `UI Schema Json` não são mais inseridos diretamente no código JavaScript. O Action Block chama `[CDXMS] String Utils` antes do motor principal e usa apenas os valores previamente escapados.
+
+A mesma regra é aplicada à saída:
+
+```text
+JUIF UI Json cru
+-> String Utils / escape_json_string
+-> juif_ui_json_escaped
+```
+
+Isso centraliza o escape em uma única capability e elimina implementações manuais divergentes.
 
 ## Não faz
 
@@ -51,9 +61,10 @@ A navegação usa uma única `tab_bar` compartilhada entre as páginas do catál
 - não chama JCM;
 - não altera registry.
 
-## Dependência
+## Dependências
 
-`[CDXMS] Java UI Framework >= 1.0.0`, pois o catálogo aceito pelo Builder deve corresponder ao renderer.
+- `[CDXMS] Java UI Framework >= 1.0.0`;
+- `[CDXMS] String Utils >= 1.0.0`.
 
 ## Validação
 
@@ -61,3 +72,5 @@ A navegação usa uma única `tab_bar` compartilhada entre as páginas do catál
 python src/capabilities/juif_ui_builder/scripts/validate_juif_ui_builder_incremental.py
 python src/scripts/validate_ui_capabilities_v1_0_0.py
 ```
+
+A homologação final do export continua obrigatória em dispositivo real após importação no MacroDroid.

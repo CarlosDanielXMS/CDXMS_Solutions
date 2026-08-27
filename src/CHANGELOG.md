@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.0 — Revisão de fundação e entrada única (pré-release)
+
+- Mantida a versão `1.0.0`, pois o ecossistema ainda não possui release oficial.
+- Consolidado o próprio `[CDXMS] Solutions Manager` como artifact da Template Store e entrada permanente; não existe Installer descartável.
+- Incorporadas as 11 capabilities v1 ao export do Solutions Manager para suportar dispositivo vazio.
+- Adicionada chamada idempotente ao Bootstrap antes do Builder e do renderer, com interrupção segura e feedback em caso de falha.
+- Mantido o event bridge por Intent com validação e deduplicação; despacho de operações de negócio continua bloqueado.
+- Separadas dependências realmente invocadas (`requires`) de integrações arquiteturais (`integrates_with`).
+- Corrigidas referências a operações inexistentes no mapa de orquestração.
+- Formalizada a separação entre payload de filesystem, instalável automaticamente após verificação, e export MacroDroid, que exige importação explícita.
+- Adicionados estados de entrega/importação e erros específicos ao core.
+- Integrado catálogo parcial de 144 instâncias e 118 classes nativas de gatilho do MacroDroid 5.67.x.
+- Corrigidos os gates agregados de UI e distribuição, incluindo closure incorporada, GUIDs, contratos, catálogos, release, remote manifests e checksums completos.
+- Homologação em dispositivo limpo permanece obrigatória antes da promoção da pré-release.
+
 ## 1.0.0 — Hotfix de navegação do catálogo
 
 - Corrigida a falha que encerrava o overlay ao abrir o catálogo.

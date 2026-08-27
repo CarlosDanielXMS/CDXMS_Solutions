@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "solution",
+  "solution": {
+    "id": "solutions_manager",
+    "name": "Solutions Manager",
+    "display_name": "[CDXMS] Solutions Manager",
+    "version": "1.0.0",
+    "author": "Carlos Daniel X.M.S.",
+    "description": "Entrada única permanente do ecossistema CDXMS. Atua como bootstrapper na primeira execução e como gerenciador de solutions/capabilities nas execuções seguintes.",
+    "enabled": true,
+    "has_config": true,
+    "single_entry": true,
+    "entry_mode": "bootstrap_then_manager"
+  },
+  "macrodroid_export": {
+    "file_path": "solutions/solutions_manager/macrodroid/[CDXMS]_Solutions_Manager.macro",
+    "kind": "macro",
+    "expected_name": "[CDXMS] Solutions Manager",
+    "expected_is_action_block": false,
+    "manual_import_required": true,
+    "status": "structurally_ready_for_device_homologation",
+    "must_embed_action_blocks": true,
+    "embedded_action_block_count": 11,
+    "delivery_mode": "template_store_or_manual_macro_import"
+  },
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0",
+      "bootstrap": ">=1.0.0",
+      "result_manager": ">=1.0.0",
+      "logger": ">=1.0.0",
+      "string_utils": ">=1.0.0",
+      "artifact_manager": ">=1.0.0",
+      "dependency_resolver": ">=1.0.0",
+      "remote_source_manager": ">=1.0.0",
+      "file_integrity": ">=1.0.0",
+      "juif_ui_builder": ">=1.0.0",
+      "java_ui_framework": ">=1.0.0"
+    }
+  },
+  "embedded_runtime": {
+    "required_for_empty_device": true,
+    "capabilities": [
+      "json_config_manager",
+      "bootstrap",
+      "result_manager",
+      "logger",
+      "string_utils",
+      "artifact_manager",
+      "dependency_resolver",
+      "remote_source_manager",
+      "file_integrity",
+      "juif_ui_builder",
+      "java_ui_framework"
+    ],
+    "policy": "The macro export must carry complete referenced Action Blocks through exportedActionBlocks. Filesystem delivery of .ablock/.macro is not considered MacroDroid import."
+  },
+  "operations": [
+    "launch",
+    "bootstrap",
+    "validate_ecosystem",
+    "load_dashboard",
+    "refresh_catalog",
+    "list_available",
+    "list_installed",
+    "get_artifact_details",
+    "install_artifact",
+    "update_artifact",
+    "repair_artifact",
+    "uninstall_artifact",
+    "open_settings",
+    "download_test_solution",
+    "close"
+  ],
+  "operation_availability": {
+    "implemented_in_export": [
+      "launch",
+      "bootstrap",
+      "download_test_solution",
+      "close"
+    ],
+    "declared_but_not_dispatched_yet": [
+      "validate_ecosystem",
+      "load_dashboard",
+      "refresh_catalog",
+      "list_available",
+      "list_installed",
+      "get_artifact_details",
+      "open_settings"
+    ],
+    "blocked_until_payload_pipeline_and_device_homologation": [
+      "install_artifact",
+      "update_artifact",
+      "repair_artifact",
+      "uninstall_artifact"
+    ]
+  },
+  "result_contract": "core/result_contract.json",
+  "created_at": "2026-06-22",
+  "updated_at": "2026-08-27",
+  "implementation_audit": {
+    "stage": "bootstrap_full_juif_ui_and_test_solution_download_vertical_slice",
+    "branch": "feat/solutions-manager",
+    "base_branch": "develop",
+    "base_commit": "bb8f1bc8c9c5541d5bb334cced73cd0417062438",
+    "macro_export_ready": true,
+    "device_homologation_required": true,
+    "critical_gate": "clean_device_import_bootstrap_ui_and_business_dispatch_homologation",
+    "notes": [
+      "Solutions Manager is an orchestrating solution and must not reimplement capability domains.",
+      "First execution must work on a device without preinstalled CDXMS components by using embedded Action Blocks.",
+      "No separate Installer exists in v1.",
+      "Automatic MacroDroid import is not assumed until device homologation proves it.",
+      "The export now embeds the complete v1 capability closure and invokes Bootstrap before rendering the UI.",
+      "The JUIF renderer now publishes an explicit package broadcast and the Manager validates and deduplicates the event contract.",
+      "The full Manager view model and UI schema are embedded in the MacroDroid export.",
+      "download_test_solution uses Remote Source Manager to download and structurally validate the .macro export in staging.",
+      "Import remains manual and lifecycle mutations remain blocked until end-to-end device homologation is complete."
+    ]
+  },
+  "distribution_model": {
+    "manager_runtime": "single_macro_with_embedded_action_blocks",
+    "remote_control_plane": "github_raw_json",
+    "remote_payloads": "download_to_staging_then_verify",
+    "macrodroid_exports": "template_store_or_manual_guided_import",
+    "automatic_macro_import": false,
+    "production_ref_policy": "immutable_release_tag_or_commit"
+  }
+}

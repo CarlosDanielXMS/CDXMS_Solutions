@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "namespace": "CDXMS",
-  "release_id": "ecosystem_core_ui_capabilities_catalog_navigation_hotfix",
-  "artifact_id": "ecosystem_core_ui_capabilities_catalog_navigation_hotfix",
+  "release_id": "ecosystem_v1_foundation_hardening_2026_08_27",
+  "artifact_id": "ecosystem_v1_foundation_hardening_2026_08_27",
   "artifact_type": "package",
   "version": "1.0.0",
   "status": "pre_release",
@@ -98,17 +98,31 @@
       "version": "1.0.0",
       "path": "capabilities/juif_ui_builder/manifest.json",
       "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json"
+    },
+    {
+      "artifact_id": "solutions_manager",
+      "artifact_type": "solution",
+      "version": "1.0.0",
+      "path": "solutions/solutions_manager/manifest.json",
+      "remote_manifest_path": "solutions/solutions_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "test_solution",
+      "artifact_type": "solution",
+      "version": "1.0.0",
+      "path": "solutions/test_solution/manifest.json",
+      "remote_manifest_path": "solutions/test_solution/remote_manifest.json"
     }
   ],
   "notes": [
-    "Base completa e mesclada do ecossistema atual.",
-    "Java UI Framework e JUIF UI Builder seguem core/result_contract.json.",
-    "Shell profissional mantido em hosts persistentes.",
-    "Navegação do catálogo corrigida com despacho adiado na main loop.",
-    "Página e shell são construídos transacionalmente antes do commit visual.",
-    "Falhas recuperáveis publicam UI_RUNTIME_ERROR sem fechamento silencioso.",
-    "UI padrão cobre 36 componentes e 21 bindings.",
-    "Homologação final em dispositivo permanece obrigatória."
+    "Solutions Manager incorporado como entrada única com 11 Action Blocks.",
+    "Bootstrap é executado antes da construção e renderização da UI.",
+    "Event bridge JUIF publica, recebe, valida e deduplica eventos por broadcast explícito.",
+    "O Manager despacha somente o download validado da Solution de Teste para staging.",
+    "A Solution de Teste valida Bootstrap, Builder, Renderer e distribuição remota.",
+    "Capabilities e UI permanecem em 1.0.0 porque ainda não houve release oficial.",
+    "Lifecycle mutável, outros payloads executáveis e importação automática permanecem desabilitados.",
+    "Homologação final em dispositivo limpo permanece obrigatória."
   ],
-  "package": "CDXMS_UI_Capabilities_v1_0_0_catalog_navigation_hotfix_delta_2026_06_22.zip"
+  "package": "CDXMS_Solutions_JUIF_Manager_Test_Solution_Fix_2026-08-27.zip"
 }

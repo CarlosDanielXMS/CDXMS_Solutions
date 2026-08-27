@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "title": "CDXMS Solutions Manager",
+  "initial_page": "home",
+  "state": {
+    "catalog_query": "",
+    "catalog_filter": "all"
+  },
+  "event_bridge": {
+    "enabled": true,
+    "intent_action": "com.cdxms.solutions.EVENT",
+    "namespace": "CDXMS",
+    "protocol_version": 1,
+    "session_id": "solutions-manager-session-v1",
+    "source_artifact_type": "solution",
+    "source_artifact_id": "solutions_manager"
+  },
+  "shell": {
+    "top_app_bar": {
+      "title": "Solutions Manager",
+      "subtitle": "Ecossistema CDXMS",
+      "actions": [
+        {"text": "Atualizar", "action": "refresh_catalog"},
+        {"text": "Fechar", "action": "close"}
+      ]
+    },
+    "bottom_navigation": {
+      "selected": "home",
+      "items": [
+        {"id": "home", "label": "Início", "target": "home", "action": "replace", "active_pages": ["home"]},
+        {"id": "catalog", "label": "Catálogo", "target": "catalog", "action": "replace", "active_pages": ["catalog", "artifact_details"]},
+        {"id": "installed", "label": "Instaladas", "target": "installed", "action": "replace", "active_pages": ["installed", "updates"]}
+      ]
+    },
+    "navigation_drawer": {
+      "title": "CDXMS Solutions",
+      "subtitle": "Gerenciamento do ecossistema",
+      "items": [
+        {"id": "home", "label": "Visão geral", "target": "home", "action": "replace"},
+        {"id": "catalog", "label": "Catálogo", "target": "catalog", "action": "replace"},
+        {"id": "installed", "label": "Instaladas", "target": "installed", "action": "replace"},
+        {"id": "updates", "label": "Atualizações", "target": "updates", "action": "replace"},
+        {"id": "diagnostics", "label": "Diagnóstico", "target": "diagnostics", "action": "replace"},
+        {"id": "settings", "label": "Configurações", "target": "settings", "action": "replace"},
+        {"id": "about", "label": "Sobre", "target": "about", "action": "replace"}
+      ]
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "title": "Visão geral",
+      "subtitle": "Integridade, catálogo e ações recomendadas.",
+      "components": [
+        {"type": "alert", "variant": "info", "title": "Entrada única", "text": "Na primeira execução o Manager prepara o ecossistema; depois passa a gerenciá-lo."},
+        {"type": "row", "children": [
+          {"type": "stat_card", "label": "Estado", "bind": "dashboard.status"},
+          {"type": "stat_card", "label": "Instaladas", "bind": "dashboard.installed_count", "value_type": "number"}
+        ]},
+        {"type": "row", "children": [
+          {"type": "stat_card", "label": "Disponíveis", "bind": "dashboard.available_count", "value_type": "number"},
+          {"type": "stat_card", "label": "Atualizações", "bind": "dashboard.update_count", "value_type": "number"}
+        ]},
+        {"type": "card", "children": [
+          {"type": "text", "variant": "title", "text": "Próxima ação"},
+          {"type": "text", "bind": "dashboard.recommendation"},
+          {"type": "button_group", "buttons": [
+            {"text": "Abrir catálogo", "action": "replace", "target": "catalog"},
+            {"text": "Baixar solution de teste", "action": "download_test_solution", "variant": "primary"},
+            {"text": "Executar diagnóstico", "action": "replace", "target": "diagnostics", "variant": "secondary"}
+          ]}
+        ]}
+      ]
+    },
+    {
+      "id": "catalog",
+      "title": "Catálogo",
+      "subtitle": "Solutions e capabilities publicadas pelas fontes habilitadas.",
+      "components": [
+        {"type": "search_bar", "key": "catalog_query", "bind": "catalog.query", "hint": "Pesquisar artifacts", "action": "catalog_search"},
+        {"type": "chip_group", "key": "catalog_filter", "bind": "catalog.filter", "selection_mode": "single", "options": [
+          {"label": "Todos", "value": "all"},
+          {"label": "Solutions", "value": "solution"},
+          {"label": "Capabilities", "value": "capability"},
+          {"label": "Atualizações", "value": "updates"}
+        ]},
+        {"type": "dynamic_list", "key": "catalog_items", "bind": "catalog.items", "item_template": {
+          "type": "list_item", "title": "{{display_name}}", "subtitle": "{{summary}}", "value": "{{artifact_id}}", "action": "download_test_solution"
+        }},
+        {"type": "card", "children": [
+          {"type": "badge", "variant": "success", "text": "Disponível para download"},
+          {"type": "text", "variant": "title", "text": "Solution de Teste"},
+          {"type": "text", "text": "Valida o fluxo completo sem executar operações destrutivas."},
+          {"type": "button_group", "buttons": [
+            {"text": "Baixar export .macro", "action": "download_test_solution", "variant": "primary"},
+            {"text": "Ver detalhes", "action": "replace", "target": "artifact_details", "variant": "secondary"}
+          ]}
+        ]},
+        {"type": "empty_state", "title": "Nenhum artifact encontrado", "description": "Ajuste os filtros ou atualize o catálogo.", "action_label": "Atualizar catálogo", "action": "refresh_catalog"}
+      ]
+    },
+    {
+      "id": "artifact_details",
+      "title": "Detalhes",
+      "subtitle": "Informações e lifecycle do artifact selecionado.",
+      "components": [
+        {"type": "badge", "variant": "info", "bind": "artifact.status"},
+        {"type": "text", "variant": "title", "bind": "artifact.display_name"},
+        {"type": "text", "bind": "artifact.summary"},
+        {"type": "key_value", "label": "Versão disponível", "bind": "artifact.available_version"},
+        {"type": "key_value", "label": "Versão instalada", "bind": "artifact.installed_version"},
+        {"type": "key_value", "label": "Tipo", "bind": "artifact.artifact_type"},
+        {"type": "alert", "variant": "info", "title": "Importação orientada", "text": "O Manager baixa e valida o export. Nesta etapa, a importação no MacroDroid permanece manual e explícita."},
+        {"type": "button_group", "buttons": [
+          {"text": "Baixar export .macro", "action": "download_test_solution", "variant": "primary"},
+          {"text": "Voltar ao catálogo", "action": "replace", "target": "catalog", "variant": "secondary"}
+        ]}
+      ]
+    },
+    {
+      "id": "installed",
+      "title": "Instaladas",
+      "subtitle": "Artifacts registrados no dispositivo.",
+      "components": [
+        {"type": "dynamic_list", "key": "installed_items", "bind": "installed.items", "item_template": {
+          "type": "list_item", "title": "{{display_name}}", "subtitle": "{{version}} · {{status}}", "value": "{{artifact_id}}", "action": "open_artifact_details"
+        }},
+        {"type": "empty_state", "title": "Nenhuma solution instalada", "description": "O core incorporado pode existir sem solutions adicionais.", "action_label": "Abrir catálogo", "action": "replace", "target": "catalog"}
+      ]
+    },
+    {
+      "id": "updates",
+      "title": "Atualizações",
+      "subtitle": "Diferenças entre registry local e catálogo remoto.",
+      "components": [
+        {"type": "dynamic_list", "key": "update_items", "bind": "updates.items", "item_template": {
+          "type": "list_item", "title": "{{display_name}}", "subtitle": "{{installed_version}} → {{available_version}}", "value": "{{artifact_id}}", "action": "open_artifact_details"
+        }},
+        {"type": "empty_state", "title": "Tudo atualizado", "description": "Não há atualizações conhecidas no catálogo validado."}
+      ]
+    },
+    {
+      "id": "diagnostics",
+      "title": "Diagnóstico",
+      "subtitle": "Saúde do core, runtime, fontes e integridade.",
+      "components": [
+        {"type": "progress_bar", "label": "Integridade do ecossistema", "bind": "diagnostics.health_percent", "value_type": "number"},
+        {"type": "dynamic_list", "key": "diagnostic_checks", "bind": "diagnostics.checks", "item_template": {
+          "type": "list_item", "title": "{{name}}", "subtitle": "{{message}}", "value": "{{status}}", "action": "diagnostic_detail"
+        }},
+        {"type": "button", "text": "Executar novamente", "action": "validate_ecosystem"}
+      ]
+    },
+    {
+      "id": "settings",
+      "title": "Configurações",
+      "subtitle": "Comportamento local do Manager.",
+      "components": [
+        {"type": "switch", "label": "Permitir acesso à rede", "bind": "settings.allow_network", "value_type": "boolean"},
+        {"type": "switch", "label": "Preservar configurações do usuário", "bind": "settings.preserve_user_config", "value_type": "boolean"},
+        {"type": "switch", "label": "Exibir capabilities internas", "bind": "settings.show_hidden_capabilities", "value_type": "boolean"},
+        {"type": "select", "label": "Política de atualização do catálogo", "bind": "settings.catalog_refresh_policy", "options": [
+          {"label": "Cache válido, depois remoto", "value": "prefer_valid_cache_then_remote"},
+          {"label": "Sempre remoto", "value": "remote_first"},
+          {"label": "Somente local", "value": "local_only"}
+        ]},
+        {"type": "button", "text": "Salvar configurações", "action": "save_settings"}
+      ]
+    },
+    {
+      "id": "about",
+      "title": "Sobre",
+      "subtitle": "Arquitetura e versão do ecossistema.",
+      "components": [
+        {"type": "key_value", "label": "Solution", "value": "[CDXMS] Solutions Manager"},
+        {"type": "key_value", "label": "Versão", "value": "1.0.0"},
+        {"type": "key_value", "label": "Namespace", "value": "CDXMS"}
+      ]
+    }
+  ]
+}

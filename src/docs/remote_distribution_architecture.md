@@ -7,6 +7,24 @@
 - `[CDXMS] File Integrity`: homologado em `2026-06-21`, `11/11`;
 - payload verificado e instalação remota: ainda não promovidos para o fluxo oficial.
 
+## Decisão revisada de distribuição
+
+O GitHub é a fonte oficial dos artifacts, mas existem duas classes de entrega:
+
+```text
+plano de controle e payloads de filesystem
+  -> download automático para staging
+  -> checksum
+  -> aplicação controlada
+
+exports executáveis MacroDroid (.macro/.ablock)
+  -> Template Store ou release GitHub
+  -> importação explícita pelo usuário
+  -> evidência de runtime
+```
+
+Não existe uma ação nativa geral de importação automática de exports no inventário MacroDroid 5.67.x analisado. Por isso, a macro da Template Store é o próprio Solutions Manager com runtime incorporado, e não um instalador que tenta baixar e importar outra macro.
+
 ## Ordem arquitetural
 
 Antes de ampliar o transporte remoto, o ecossistema deve provar sua entrada única em dispositivo vazio.
@@ -17,7 +35,7 @@ Antes de ampliar o transporte remoto, o ecossistema deve provar sua entrada úni
   -> runtime mínimo validado
   -> plano de controle remoto
   -> payload verificado
-  -> importação guiada
+  -> importação guiada quando o artifact contiver export MacroDroid
   -> receipt
   -> registry
 ```
@@ -67,6 +85,15 @@ A v1 não presume importação automática de `.macro` ou `.ablock`. O baseline 
 ```text
 download -> checksum -> awaiting_import -> importação manual guiada -> receipt -> runtime_detected -> registered
 ```
+
+O estado `downloaded` ou `verified` nunca equivale a `installed`. Para config/assets, instalação significa aplicação e releitura verificadas. Para export MacroDroid, exige ainda importação explícita e evidência de runtime.
+
+## Política de refs
+
+- durante a pré-release: `develop` é permitido e deve aparecer visualmente como ambiente de homologação;
+- release oficial: manifests e catálogos devem apontar para tag ou commit imutável;
+- `main`, `develop` ou qualquer branch mutável não podem ser a ref de produção;
+- atualização troca a ref somente após validar o novo release manifest e seus checksums.
 
 ## Regras de segurança
 

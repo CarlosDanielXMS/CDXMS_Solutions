@@ -21,7 +21,9 @@
   },
   "requires": {
     "core_min_version": "1.0.0",
-    "capabilities": {}
+    "capabilities": {
+      "string_utils": ">=1.0.0"
+    }
   },
   "operations": [
     "render_ui"
@@ -33,6 +35,7 @@
   "side_effects": [
     "application_overlay",
     "runtime_state_and_event_updates",
+    "explicit_internal_event_broadcast",
     "clipboard_when_requested"
   ],
   "component_catalog": {
@@ -63,13 +66,14 @@
     ]
   },
   "implementation_audit": {
-    "stage": "catalog_navigation_runtime_hotfix_ready_for_device_validation",
+    "stage": "event_bridge_and_string_utils_boundary_ready_for_device_validation",
     "source_base": "feat/create-ecosystem-core@8fdb41c5eebcb9bd03d6da6f91df0f6fd53b6b08",
     "prototype_preserved": true,
     "manual_homologation_required": true,
     "action_profile": {
-      "total_actions": 10,
-      "text_manipulation_actions": 3,
+      "total_actions": 8,
+      "action_block_actions": 1,
+      "text_manipulation_actions": 0,
       "java_actions": 1,
       "json_parse_actions": 1
     },
@@ -89,5 +93,8 @@
     "transactional_shell_rendering": true,
     "throwable_runtime_guard": true,
     "silent_runtime_close_prevented": true
+    ,
+    "json_escape_provider": "string_utils",
+    "event_bridge_transport": "explicit_package_broadcast_intent"
   }
 }

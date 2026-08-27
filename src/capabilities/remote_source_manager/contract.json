@@ -119,6 +119,14 @@
         "Remote Path"
       ],
       "side_effects": "download_to_staging"
+    },
+    "fetch_macrodroid_export": {
+      "description": "Baixa um export .macro/.ablock permitido, valida JSON, macroExportVersion, nome e natureza do export e o mantém em staging para importação manual.",
+      "required_inputs": [
+        "Operation",
+        "Remote Path"
+      ],
+      "side_effects": "download_macrodroid_export_to_staging"
     }
   },
   "result_data_contract": [
@@ -136,8 +144,9 @@
     "blocked_url_fragment": "/blob/",
     "download_target": "temporary_staging_only",
     "allow_any_certificate": false,
-    "control_plane_only": true,
-    "artifact_payload_download_enabled": false
+    "control_plane_only": false,
+    "artifact_payload_download_enabled": "macrodroid_exports_only",
+    "automatic_import_enabled": false
   },
   "errors": [
     "MISSING_REQUIRED_INPUT",
@@ -153,5 +162,5 @@
     "SECURITY_STOP",
     "PROCESSING_FAILED"
   ],
-  "side_effects": "Somente download HTTP para staging em packages/downloaded/remote_source_manager e verificação por JCM. Não instala, não registra e não altera destino final."
+  "side_effects": "Download HTTP para staging e verificação por JCM. Exports MacroDroid permanecem fora do registry e exigem importação manual."
 }
