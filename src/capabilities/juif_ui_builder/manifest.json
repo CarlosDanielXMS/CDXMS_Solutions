@@ -45,13 +45,15 @@
     "supported_component_count": 36
   },
   "implementation_audit": {
-    "stage": "json_boundary_simplified_ready_for_device_homologation",
+    "stage": "json_transport_normalized_ready_for_device_homologation",
     "source_base": "feat/solutions-manager",
     "prototype_preserved": true,
     "manual_homologation_required": true,
     "json_escape_provider": "string_utils",
     "direct_raw_json_injection_removed": true,
     "double_escape_removed": true,
+    "raw_escaped_and_double_escaped_inputs_supported": true,
+    "transport_decode_layer_limit": 3,
     "event_bridge_preserved": true,
     "action_profile": {
       "total_actions": 11,

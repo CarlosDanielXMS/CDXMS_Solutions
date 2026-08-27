@@ -90,7 +90,7 @@ supported_component_count
   - `{lv=Tmp_SchemaEscapeResult[data][value]}`.
 - **Não permitido:** inserir `{lv=Config Json}` ou `{lv=UI Schema Json}` diretamente no script.
 - **Processamento:**
-  1. interpreta os JSONs já protegidos;
+  1. interpreta os JSONs já protegidos, removendo de forma limitada camadas adicionais de escape introduzidas no transporte entre Action Blocks;
   2. valida `pages` e `page.id`;
   3. preserva o `state` declarado;
   4. hidrata propriedades `bind`;
@@ -99,7 +99,7 @@ supported_component_count
   7. normaliza o shell persistente;
   8. gera `juif_ui_json`;
   9. monta um Resultado intermediário no contrato universal.
-- **Erros:** `MISSING_REQUIRED_INPUT`, `INVALID_INPUT_TYPE`, `INVALID_JSON`, `INVALID_ENUM_VALUE` e `PROCESSING_FAILED`.
+- **Erros:** `MISSING_REQUIRED_INPUT`, `INVALID_INPUT_TYPE`, `INVALID_JSON`, `INVALID_ENUM_VALUE` e `PROCESSING_FAILED`. Em `INVALID_JSON`, `decoded_transport_layers` informa quantas camadas foram normalizadas antes da falha.
 
 ### Ação 5 — JSON Parse: Resultado intermediário
 
