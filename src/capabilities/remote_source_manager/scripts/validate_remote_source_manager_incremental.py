@@ -5,11 +5,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 CAP = ROOT / 'capabilities' / 'remote_source_manager'
 ERRORS = []
+TEXT_SUFFIXES = {'.ablock', '.json', '.macro', '.md', '.py', '.js'}
 
 def error(msg): ERRORS.append(msg)
 def load(path):
     try: return json.loads(path.read_text(encoding='utf-8'))
     except Exception as exc: error(f'{path}: JSON inválido: {exc}'); return {}
+
+def canonical_sha256(path):
+    data = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES or path.name == '.gitkeep':
+        data = data.replace(b'\r\n', b'\n').replace(b'\r', b'\n')
+    return hashlib.sha256(data).hexdigest()
 
 required = ['manifest.json','contract.json','config.default.json','remote_manifest.json','README.md','body.md','tests/manual_test.md','macrodroid/[CDXMS]_Remote_Source_Manager.ablock']
 for rel in required:
@@ -124,7 +131,7 @@ remote = load(CAP/'remote_manifest.json')
 for item in remote.get('files',[]):
     path = ROOT/item.get('path','')
     if not path.is_file(): error(f'arquivo remoto ausente: {item.get("path")}')
-    elif hashlib.sha256(path.read_bytes()).hexdigest() != item.get('checksum_sha256'): error(f'checksum remoto divergente: {item.get("path")}')
+    elif canonical_sha256(path) != item.get('checksum_sha256'): error(f'checksum remoto divergente: {item.get("path")}')
 
 if ERRORS:
     print('VALIDATION FAILED — Remote Source Manager v1.0.0')

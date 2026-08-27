@@ -117,6 +117,9 @@
       "verify_local_apply": "verify_local_apply"
     },
     "artifact_lifecycle_status": {
+      "discovered": "discovered",
+      "downloaded": "downloaded",
+      "staged": "staged",
       "planned": "planned",
       "valid": "valid",
       "invalid": "invalid",
@@ -129,6 +132,20 @@
       "verified": "verified",
       "apply_blocked": "apply_blocked",
       "partially_applied": "partially_applied"
+    },
+    "artifact_delivery_mode": {
+      "github_control_plane": "github_control_plane",
+      "github_verified_payload": "github_verified_payload",
+      "template_store": "template_store",
+      "manual_macro_import": "manual_macro_import",
+      "embedded_action_blocks": "embedded_action_blocks"
+    },
+    "macrodroid_import_state": {
+      "not_applicable": "not_applicable",
+      "awaiting_import": "awaiting_import",
+      "import_claimed": "import_claimed",
+      "runtime_detected": "runtime_detected",
+      "import_failed": "import_failed"
     },
     "dependency_resolver_operation": {
       "validate_dependencies": "validate_dependencies",

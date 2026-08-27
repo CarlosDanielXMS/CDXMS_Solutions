@@ -32,7 +32,8 @@
     "apply_changes_default": false,
     "verify_after_apply": true,
     "preserve_user_config": true,
-    "macro_import_mode": "manual_until_homologated"
+    "macro_import_mode": "template_store_or_manual_guided_import",
+    "register_only_after_runtime_evidence": true
   },
   "feature_flags": {
     "catalog": true,
@@ -41,7 +42,9 @@
     "diagnostics": true,
     "settings": true,
     "lifecycle_mutations": false,
-    "event_bridge": false
+    "event_bridge": true,
+    "business_event_dispatch": false,
+    "remote_payload_pipeline": false
   },
-  "updated_at": "2026-06-22"
+  "updated_at": "2026-08-27"
 }

@@ -3,7 +3,21 @@
   "namespace": "CDXMS",
   "file_type": "local_catalog",
   "version": "1.0.0",
-  "solutions": [],
+  "solutions": [
+    {
+      "artifact_id": "solutions_manager",
+      "artifact_type": "solution",
+      "display_name": "[CDXMS] Solutions Manager",
+      "version": "1.0.0",
+      "manifest_path": "solutions/solutions_manager/manifest.json",
+      "remote_manifest_path": "solutions/solutions_manager/remote_manifest.json",
+      "installable": false,
+      "visible": true,
+      "status": "current_runtime_bundle_ready_for_device_homologation",
+      "delivery_mode": "template_store_or_manual_macro_import",
+      "summary": "Entrada única com Bootstrap e capabilities incorporadas."
+    }
+  ],
   "capabilities": [
     {
       "artifact_id": "json_config_manager",
@@ -136,5 +150,5 @@
       "remote_manifest_path": "core/remote_manifest.json"
     }
   ],
-  "updated_at": "2026-06-22"
+  "updated_at": "2026-08-27"
 }

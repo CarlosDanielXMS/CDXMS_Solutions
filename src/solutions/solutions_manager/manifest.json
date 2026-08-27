@@ -20,8 +20,10 @@
     "expected_name": "[CDXMS] Solutions Manager",
     "expected_is_action_block": false,
     "manual_import_required": true,
-    "status": "pending_implementation",
-    "must_embed_action_blocks": true
+    "status": "structurally_ready_for_device_homologation",
+    "must_embed_action_blocks": true,
+    "embedded_action_block_count": 11,
+    "delivery_mode": "template_store_or_manual_macro_import"
   },
   "requires": {
     "core_min_version": "1.0.0",
@@ -73,19 +75,21 @@
     "close"
   ],
   "operation_availability": {
-    "foundation": [
+    "implemented_in_export": [
       "launch",
       "bootstrap",
+      "close"
+    ],
+    "declared_but_not_dispatched_yet": [
       "validate_ecosystem",
       "load_dashboard",
       "refresh_catalog",
       "list_available",
       "list_installed",
       "get_artifact_details",
-      "open_settings",
-      "close"
+      "open_settings"
     ],
-    "lifecycle_after_event_bridge_and_payload_pipeline": [
+    "blocked_until_payload_pipeline_and_device_homologation": [
       "install_artifact",
       "update_artifact",
       "repair_artifact",
@@ -94,21 +98,31 @@
   },
   "result_contract": "core/result_contract.json",
   "created_at": "2026-06-22",
-  "updated_at": "2026-06-22",
+  "updated_at": "2026-08-27",
   "implementation_audit": {
-    "stage": "foundation_contract_state_machine_orchestration_and_ui_schema",
+    "stage": "embedded_bootstrap_and_event_receive_vertical_slice",
     "branch": "feat/solutions-manager",
     "base_branch": "develop",
     "base_commit": "bb8f1bc8c9c5541d5bb334cced73cd0417062438",
-    "macro_export_ready": false,
+    "macro_export_ready": true,
     "device_homologation_required": true,
-    "critical_gate": "juif_to_macrodroid_event_bridge",
+    "critical_gate": "clean_device_import_bootstrap_ui_and_business_dispatch_homologation",
     "notes": [
       "Solutions Manager is an orchestrating solution and must not reimplement capability domains.",
       "First execution must work on a device without preinstalled CDXMS components by using embedded Action Blocks.",
       "No separate Installer exists in v1.",
       "Automatic MacroDroid import is not assumed until device homologation proves it.",
-      "Lifecycle mutations remain blocked until UI events can safely return to the MacroDroid orchestration flow."
+      "The export now embeds the complete v1 capability closure and invokes Bootstrap before rendering the UI.",
+      "The JUIF intent receiver validates and deduplicates the current event contract, but business operations are not dispatched yet.",
+      "Lifecycle mutations remain blocked until payload download/apply and end-to-end device homologation are complete."
     ]
+  },
+  "distribution_model": {
+    "manager_runtime": "single_macro_with_embedded_action_blocks",
+    "remote_control_plane": "github_raw_json",
+    "remote_payloads": "download_to_staging_then_verify",
+    "macrodroid_exports": "template_store_or_manual_guided_import",
+    "automatic_macro_import": false,
+    "production_ref_policy": "immutable_release_tag_or_commit"
   }
 }

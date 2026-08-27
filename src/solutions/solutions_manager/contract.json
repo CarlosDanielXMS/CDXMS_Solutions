@@ -6,55 +6,18 @@
   "version": "1.0.0",
   "macro": "[CDXMS] Solutions Manager",
   "description": "Contrato operacional da entrada única CDXMS.",
-  "invocation_inputs": [
+  "invocation_inputs": [],
+  "entrypoints": [
     {
-      "name": "Sm_RequestedOperation",
-      "type": "string",
-      "required": false,
-      "default": "launch",
-      "description": "Operação solicitada. Na execução manual normal permanece launch."
+      "type": "manual",
+      "trigger": "EmptyTrigger",
+      "operation": "launch"
     },
     {
-      "name": "Sm_RequestedArtifactType",
-      "type": "string",
-      "required": false,
-      "default": "",
-      "description": "Tipo do artifact selecionado pela UI ou por retomada interna."
-    },
-    {
-      "name": "Sm_RequestedArtifactId",
-      "type": "string",
-      "required": false,
-      "default": "",
-      "description": "Id técnico do artifact selecionado."
-    },
-    {
-      "name": "Sm_RequestedPayloadJson",
-      "type": "string(json)",
-      "required": false,
-      "default": "{}",
-      "description": "Payload contextual da operação solicitada."
-    },
-    {
-      "name": "Sm_AllowNetwork?",
-      "type": "boolean",
-      "required": false,
-      "default": true,
-      "description": "Permite atualizar documentos de controle pela fonte remota oficial."
-    },
-    {
-      "name": "Sm_ForceRefresh?",
-      "type": "boolean",
-      "required": false,
-      "default": false,
-      "description": "Ignora cache válido e solicita novo catálogo/release."
-    },
-    {
-      "name": "Sm_DryRun?",
-      "type": "boolean",
-      "required": false,
-      "default": true,
-      "description": "Mantém operações de lifecycle em planejamento enquanto verdadeiro."
+      "type": "broadcast_intent",
+      "trigger": "IntentReceivedTrigger",
+      "action": "com.cdxms.solutions.EVENT",
+      "operation": "receive_ui_event"
     }
   ],
   "outputs": [
@@ -65,35 +28,23 @@
     }
   ],
   "working_variables": [
-    "Tmp_SmSessionId",
-    "Tmp_SmCorrelationId",
-    "Tmp_SmState",
-    "Tmp_SmMode",
-    "Tmp_SmLoopContinue",
-    "Tmp_SmBootstrapResult",
-    "Tmp_SmContextResult",
-    "Tmp_SmRegistryJson",
-    "Tmp_SmSettingsJson",
-    "Tmp_SmCatalogResult",
-    "Tmp_SmCatalogJson",
-    "Tmp_SmReleaseResult",
-    "Tmp_SmUiConfigJson",
+    "Tmp_SmViewModelJson",
     "Tmp_SmUiSchemaJson",
-    "Tmp_SmUiBuildResult",
-    "Tmp_SmUiJson",
-    "Tmp_SmUiResult",
-    "Tmp_SmUiEventJson",
-    "Tmp_SmSelectedArtifactType",
-    "Tmp_SmSelectedArtifactId",
-    "Tmp_SmDependencyResult",
-    "Tmp_SmArtifactPlanResult",
-    "Tmp_SmOperationResult",
-    "Tmp_SmLastErrorJson"
+    "Tmp_SmEventNamespace",
+    "Tmp_SmEventProtocolVersion",
+    "Tmp_SmEventSessionId",
+    "Tmp_SmEventId",
+    "Tmp_SmEventSourceArtifactId",
+    "Tmp_SmEventAction",
+    "Tmp_SmEventCurrentPage",
+    "Tmp_SmEventJson",
+    "Tmp_SmLastConsumedEventId",
+    "Tmp_SmResultJson"
   ],
   "operations": {
     "launch": {
-      "description": "Detecta o estado local, executa bootstrap/reparo quando necessário, carrega contexto, catálogo e dashboard.",
-      "mutating": false
+      "description": "Executa Bootstrap.initialize_ecosystem de forma idempotente e, em sucesso, constrói e renderiza a interface.",
+      "mutating": "core_and_runtime_initialization"
     },
     "bootstrap": {
       "description": "Orquestra Bootstrap.initialize_ecosystem e a validação pós-inicialização.",
@@ -150,6 +101,11 @@
     "close": {
       "description": "Fecha a interface e finaliza a sessão de forma controlada.",
       "mutating": false
+    },
+    "receive_ui_event": {
+      "description": "Valida namespace, protocolo, sessão, origem, ação e idempotência do evento JUIF recebido por Intent.",
+      "mutating": "local_event_receipt_only",
+      "availability": "implemented_without_business_dispatch"
     }
   },
   "result": {

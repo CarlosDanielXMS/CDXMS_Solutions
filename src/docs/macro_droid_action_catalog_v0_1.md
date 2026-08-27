@@ -1,6 +1,8 @@
 # CDXMS — Catálogo de Estruturas de Ações MacroDroid v0.1
 Arquivo analisado: `All_Actions.ablock`. Este documento registra as estruturas observadas diretamente no export MacroDroid enviado para servir como referência de engenharia do ecossistema CDXMS.
 > Observação: este catálogo é baseado no export fornecido. Ele não substitui a homologação no MacroDroid real, mas passa a ser a fonte prática local para conhecer nomes de classes, campos e formatos internos das ações.
+
+O snapshot foi editado em `2026-06-16` e representa aproximadamente o contexto do MacroDroid `5.64.x`. Ele é parcial: a linha `5.67.x` já possui ações posteriores, como Sensor Read, Read Sound Level e Mute Microphone. Ausência neste catálogo não significa indisponibilidade na versão alvo.
 ## Resumo executivo
 - Total de ações no export: **189**.
 - Classes de ação únicas observadas: **171**.

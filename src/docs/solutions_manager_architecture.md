@@ -15,13 +15,17 @@ Oferecer uma única macro permanente para inicializar, diagnosticar e gerenciar 
 7. Copiar `.macro` ou `.ablock` não equivale a importá-los no MacroDroid.
 8. Toda resposta pública segue `core/result_contract.json`.
 
+## Unidade de entrada
+
+O usuário importa uma única macro: o próprio Solutions Manager. O export incorpora a closure das 11 capabilities v1. Na primeira execução ele chama Bootstrap antes da interface. Nas execuções seguintes a mesma chamada idempotente apenas valida/repara a base mínima necessária.
+
+Uma macro instaladora separada foi descartada porque download de arquivo não produz importação automática no MacroDroid.
+
 ## Pipeline de lançamento
 
 ```text
 launch
-  -> Bootstrap.get_status
-  -> ausente/parcial? Bootstrap.initialize_ecosystem ou repair_core
-  -> Bootstrap.load_context
+  -> Bootstrap.initialize_ecosystem (idempotente, Load Context? = true)
   -> validate_ecosystem
   -> carregar cache local
   -> opcionalmente RSM.fetch_catalog + fetch_release_manifest
@@ -45,8 +49,8 @@ seleção da UI
   -> atualizar UI
 ```
 
-## Gate do event bridge
+## Estado do event bridge
 
-A UI precisa publicar eventos de negócio em um canal observável pela macro depois que o Action Block de UI retorna. O evento deve conter `event_id`, `session_id`, `action`, `payload`, `current_page`, `state`, `created_at` e `consumed`.
+A UI publica eventos por broadcast Intent. O export atual recebe, valida e deduplica o envelope com `event_id`, `session_id`, `action`, `payload`, `current_page`, `state`, `created_at` e `consumed`.
 
-Enquanto esse bridge não for implementado e homologado, `install_artifact`, `update_artifact`, `repair_artifact` e `uninstall_artifact` permanecem bloqueadas.
+O recebimento existe, mas o despacho das operações ainda não. Até a homologação em dispositivo e a implementação do pipeline de payload, `install_artifact`, `update_artifact`, `repair_artifact` e `uninstall_artifact` permanecem bloqueadas.

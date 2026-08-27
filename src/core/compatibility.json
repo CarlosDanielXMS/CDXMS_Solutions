@@ -13,5 +13,8 @@
   "supported_catalog_versions": [
     1
   ],
-  "updated_at": ""
+  "reference_macrodroid_version": "5.67.2",
+  "export_schema_version": 1,
+  "device_homologation_required": true,
+  "updated_at": "2026-08-27"
 }

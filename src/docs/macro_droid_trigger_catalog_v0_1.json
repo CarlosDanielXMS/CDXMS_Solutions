@@ -1,0 +1,1303 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "macrodroid_native_trigger_catalog",
+  "catalog_version": "0.1.0",
+  "source": {
+    "file_name": "All_triggers.macro",
+    "macro_name": "All triggers",
+    "macro_export_version": 1,
+    "last_edited_at_utc": "2026-08-26T23:54:02.369000+00:00",
+    "macrodroid_version_context": "5.67.x",
+    "complete": false,
+    "completeness_note": "Snapshot de referência fornecido pelo projeto; não representa garantia de cobertura total da versão."
+  },
+  "summary": {
+    "trigger_instances": 144,
+    "unique_trigger_classes": 118
+  },
+  "triggers": [
+    {
+      "class_type": "AccessibilityServiceStateTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "idList",
+        "nameList",
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ActivityRecognitionTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "lessThan",
+        "m_confidenceLevel",
+        "m_selectedIndex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AirplaneModeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_airplaneModeEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AndroidWearTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "iconBgColor",
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AppActivityLaunchedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "activityNameToMatch",
+        "enableRegex",
+        "ignoreCase",
+        "launched",
+        "matchOption"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AppEnabledTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "applicationNameList",
+        "applicationOption",
+        "option",
+        "packageNameList"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ApplicationInstalledRemovedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_applicationNameList",
+        "m_applicationOption",
+        "m_installed",
+        "m_packageNameList",
+        "m_updated"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ApplicationLaunchedTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "excludeMode",
+        "isAllApps",
+        "m_applicationNameList",
+        "m_launched",
+        "m_packageNameList",
+        "usePackageNameOption"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AssistantActivatedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AutoRotateChangeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "AutoSyncChangeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "BatteryLevelTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_batteryLevel",
+        "m_decreasesTo",
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "BatterySaverTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "BatteryTemperatureTrigger",
+      "occurrences": 3,
+      "parameter_keys": [
+        "decreasesTo",
+        "option",
+        "temperature",
+        "varDictionaryKeys",
+        "variableName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "BluetoothBeaconTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option",
+        "selectedBeacons"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "BluetoothTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_anyDevice",
+        "m_btState",
+        "m_deviceName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "BootTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "CalendarTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "calendarAccount",
+        "enableRegex",
+        "ignoreCase",
+        "m_advanceTimeSeconds",
+        "m_availability",
+        "m_calendarId",
+        "m_calendarName",
+        "m_checkInAdvance",
+        "m_detailText",
+        "m_eventStart",
+        "m_ignoreAllDay",
+        "m_negativeAdvanceCheck",
+        "m_titleText",
+        "simpleCalendarName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CallActiveTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "isExclude",
+        "m_contactList",
+        "m_groupIdList",
+        "m_groupNameList",
+        "m_option",
+        "m_phoneNumber",
+        "m_phoneNumberExclude",
+        "m_secondaryClassType",
+        "m_signalOn",
+        "subscriptionId",
+        "useRegex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CallEndedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "isExclude",
+        "m_contactList",
+        "m_groupIdList",
+        "m_groupNameList",
+        "m_option",
+        "m_phoneNumber",
+        "m_phoneNumberExclude",
+        "useRegex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CallMissedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "isExclude",
+        "m_contactList",
+        "m_groupIdList",
+        "m_groupNameList",
+        "m_option",
+        "m_phoneNumberExclude",
+        "useRegex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CameraFlashlightTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CameraInUseTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "cameraOption",
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CellTowerTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_cellGroupName",
+        "m_cellIds",
+        "m_inRange"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ClipboardChangeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "enableRegex",
+        "ignoreCase",
+        "isConfigured",
+        "m_text"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "CustomSceneTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "identifier",
+        "isShown"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DarkThemeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DataOnOffTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_dataAvailable"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DataUsedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "billingDay",
+        "calendarScope",
+        "cooldownMinutes",
+        "networkType",
+        "periodKind",
+        "rollingAmount",
+        "rollingUnitMinutes",
+        "thresholdAmount",
+        "thresholdUnit",
+        "useVariableThreshold",
+        "variableThresholdUnit"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DayDreamTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_dayDreamEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DayTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_dayOfMonth",
+        "m_dayOfWeek",
+        "m_hour",
+        "m_minute",
+        "m_monthOfYear",
+        "m_option",
+        "m_useAlarm",
+        "m_useVariable"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DeviceUnlockedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "DialNumberTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_makeCall",
+        "m_numberToDial"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DockTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_dockType"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "DrawerOpenCloseTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "drawerType",
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "EmailReceivedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "bodyPattern",
+        "emailSource",
+        "enableRegex",
+        "fromAddressPattern",
+        "ignoreCase",
+        "isConfigured",
+        "lastBody",
+        "lastFromAddress",
+        "lastSubject",
+        "legacyImapPort",
+        "legacyImapServer",
+        "legacyUseSSL",
+        "markAsRead",
+        "selectedServerId",
+        "subjectPattern",
+        "useAlarm"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "EmptyTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "ExternalPowerTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_hasSetNewPowerConnectedOptions",
+        "m_hasSetUSBOption",
+        "m_powerConnected",
+        "m_powerConnectedOptions"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "FailedLoginTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_numFailures",
+        "m_timeIndex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "FileChangedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "fileFilter",
+        "folderPath",
+        "useStaticFolder",
+        "watchForCreated",
+        "watchForDeleted",
+        "watchForModified"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "FingerprintGestureTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "FlipDeviceTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_anyStart",
+        "m_faceDown",
+        "m_workWithScreenOff"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "FloatingButtonTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "disableTriggerOnRemove",
+        "drawOverSystemApps",
+        "fixedLocation",
+        "forceLocation",
+        "iconText",
+        "iconTextColor",
+        "iconTintColor",
+        "iconTintEnabled",
+        "iconType",
+        "identifier",
+        "longPressEnabled",
+        "m_alpha",
+        "m_iconBgColor",
+        "m_imageResourceId",
+        "m_padding",
+        "m_showOnLockScreen",
+        "m_size",
+        "m_transparentBackground",
+        "overridenAlpha",
+        "overridenBgColor",
+        "overridenSize",
+        "overridenTransparentBackground",
+        "preventRemoveByDrag",
+        "showPositionOnMove",
+        "usePercentForLocation",
+        "vibrateOnClick",
+        "xLocation",
+        "yLocation"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "FloatingTextShownHiddenTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "identifier",
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "GPSEnabledTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_gpsModeEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "GeofenceTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_enterArea",
+        "m_geofenceId",
+        "m_geofenceUpdateRateMinutes",
+        "m_triggerFromUnknown",
+        "m_updateRateText"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "GoogleAssistantTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "HeadphonesTrigger",
+      "occurrences": 3,
+      "parameter_keys": [
+        "d",
+        "m_headphonesConnected",
+        "m_micOption"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "HomeButtonLongPressTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "HotspotTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_hotspotEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "HttpServerTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "headerParams",
+        "identifier",
+        "ipAddressWhiteList",
+        "responseCode",
+        "responseText",
+        "saveBodyToFile",
+        "saveBodyToFileDirectory",
+        "saveBodyToFileFilename",
+        "sendResponse",
+        "variableWhiteList",
+        "variableWhiteListEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "IncomingCallTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "isExclude",
+        "m_groupIdList",
+        "m_groupNameList",
+        "m_incomingCallFromList",
+        "m_option",
+        "m_phoneNumberExclude",
+        "useRegex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "IncomingSMSTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "enableRegex",
+        "enableRegexPhoneNumber",
+        "ignoreCase",
+        "isExcludeContact",
+        "m_exactMatch",
+        "m_excludes",
+        "m_groupIdList",
+        "m_groupNameList",
+        "m_option",
+        "m_smsContent",
+        "m_smsFromList",
+        "m_smsNumberExclude",
+        "subscriptionId"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "IntentReceivedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "action",
+        "enableRegex",
+        "extraDictionaryKeys",
+        "extraParams",
+        "extraValuePatterns",
+        "extraVariables",
+        "extrasDictKeys",
+        "extrasDictVarName",
+        "saveExtrasToDict"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "IpAddressChangeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "KeyboardOpenCloseTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "LightSensorTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_lightLevel",
+        "m_lightLevelFloat",
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "LocationTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_dontTriggerFromUnknownEnter",
+        "m_enterArea",
+        "m_geofenceId",
+        "m_latitude",
+        "m_longitude",
+        "m_newTriggerFromUnknown",
+        "m_radius",
+        "m_triggerFromUnknown"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "LogcatTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "component",
+        "ignoreCase",
+        "textToMatch"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "MacroDroidEnabledTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "MacroDroidIconLongPressShortcutTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "fgColor",
+        "iconBgColor",
+        "iconText",
+        "iconType",
+        "imagePackageName",
+        "imageResourceId",
+        "imageResourceName",
+        "shortcutName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "MacroDroidInitialisedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "MacroEnabledTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "MacroFinishedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "macroId",
+        "macroName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "MediaButtonPressedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_cancelPress",
+        "m_option",
+        "m_optionIndex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "MediaButtonV2Trigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "optionsEnabledArray"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "MediaTrackChangedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "ModeEnterExitTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_anyChange",
+        "m_mode",
+        "m_modeEntered"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "MusicPlayingTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "NFCStateTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "NetworkRoamingChangedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_roamingEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "NotificationButtonTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "REQUEST_CODE_SELECT_BUTTON",
+        "m_collapseNotification",
+        "m_id"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "NotificationTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "enableRegex",
+        "ignoreCase",
+        "m_applicationNameList",
+        "m_exactMatch",
+        "m_excludeApps",
+        "m_excludes",
+        "m_ignoreOngoing",
+        "m_option",
+        "m_packageNameList",
+        "m_soundOption",
+        "m_supressMultiples",
+        "m_textContent",
+        "matchOptionMessage",
+        "matchOptionTitle",
+        "separateTitleAndMessage"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "OrientationTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "OutgoingCallTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "isExclude",
+        "m_groupIdList",
+        "m_groupNameList",
+        "m_option",
+        "m_outgoingCallToList",
+        "m_phoneNumber",
+        "m_phoneNumberExclude",
+        "useRegex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "PhotoTakenTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "PowerButtonLongPressTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "PowerButtonToggleTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_numToggles"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "PriorityModeTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ProximityTrigger",
+      "occurrences": 3,
+      "parameter_keys": [
+        "m_near",
+        "m_selectedOption"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "QuickSettingsTileTrigger",
+      "occurrences": 3,
+      "parameter_keys": [
+        "m_tileOption",
+        "m_toggleOption",
+        "quickTileImageName",
+        "quickTileIsCollapseOnPress",
+        "quickTileIsToggle",
+        "quickTileLabel",
+        "quickTileSubtitle"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "RegularIntervalTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_ignoreReferenceStartTime",
+        "m_minutes",
+        "m_seconds",
+        "m_startHour",
+        "m_startMinute",
+        "m_useAlarm",
+        "m_useIntervalVariable",
+        "m_useReferenceTimeVariable"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SMSSentTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "enableRegexPhoneNumber",
+        "ignoreCase",
+        "isExcludeContact",
+        "m_contactList",
+        "m_exactMatch",
+        "m_excludes",
+        "m_option",
+        "m_smsContent",
+        "m_smsNumberExclude",
+        "useRegex"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ScreenContentTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "activityEnableRegex",
+        "activityIgnoreCase",
+        "activityNameToMatch",
+        "appNameList",
+        "enableRegex",
+        "ignoreCase",
+        "includeOverlays",
+        "isOffScreen",
+        "limitToActivity",
+        "matchOption",
+        "packageNameList",
+        "textToMatch"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ScreenOnOffTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_screenOn"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ScreenshotContentTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "activityEnableRegex",
+        "activityIgnoreCase",
+        "activityNameToMatch",
+        "appNameList",
+        "enableRegex",
+        "ignoreCase",
+        "isOffScreen",
+        "limitToActivity",
+        "packageNameList",
+        "textToMatch"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ShakeDeviceTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "ShareFileTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "enableRegex",
+        "filePatternToCheck",
+        "ignoreCase",
+        "matchOption",
+        "safPathName",
+        "safPathUri",
+        "saveToNewLocation",
+        "useAllFilesAccess"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ShareTextTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "enableRegex",
+        "ignoreCase",
+        "matchOption",
+        "saveExtrasToDict",
+        "textToCheck"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ShizukuStoppedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "ShortcutTrigger",
+      "occurrences": 1,
+      "parameter_keys": [],
+      "comments": []
+    },
+    {
+      "class_type": "SignalOnOffTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_signalOn",
+        "subscriptionId"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SilentModeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_silentEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SimChangeTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SleepTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SpotifyTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "StopwatchTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "dontUseAlarm",
+        "m_seconds",
+        "m_stopwatchName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SunriseSunsetTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_option",
+        "timeAdjustSeconds",
+        "useAlarm"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SwipeTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_cleared",
+        "m_swipeMotion",
+        "m_swipeStartArea"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SystemLogTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "enableRegex",
+        "ignoreCase",
+        "matchOption",
+        "text"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "SystemSettingTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "globalEnabled",
+        "regexEnabled",
+        "secureEnabled",
+        "settingPattern",
+        "systemEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "TimerTrigger",
+      "occurrences": 2,
+      "parameter_keys": [
+        "m_daysOfWeek",
+        "m_hour",
+        "m_minute",
+        "m_second",
+        "m_useAlarm",
+        "m_useVariable",
+        "m_variableName"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "ToastTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "appNameList",
+        "enableRegex",
+        "ignoreCase",
+        "packageNameList",
+        "textToMatch"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "UIClickTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "appNameList",
+        "clickType",
+        "enableRegex",
+        "ignoreCase",
+        "packageNameList",
+        "textToMatch",
+        "useContentDescriptionText"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "USBTetheringTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "UsbDeviceConnectionTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "VariableTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "anyDictionaryKeyChange",
+        "checkCase",
+        "dictionaryKeys",
+        "dictionaryType",
+        "enableRegex",
+        "m_anyValueChange",
+        "m_booleanValue",
+        "m_doubleValue",
+        "m_intCompareVariable",
+        "m_intGreaterThan",
+        "m_intLessThan",
+        "m_intNotEqual",
+        "m_intValue",
+        "m_otherValueToCompare",
+        "m_stringComparisonType",
+        "m_stringEqual",
+        "m_stringValue",
+        "m_variable"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "VolumeButtonTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_dontChangeVolume",
+        "m_monitorOption",
+        "m_notConfigured",
+        "m_option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "VolumeLongPressTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "isNew",
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "VpnTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "option"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WearOSComplicationClickTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "complicationType"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WeatherTrigger",
+      "occurrences": 3,
+      "parameter_keys": [
+        "m_humidityAbove",
+        "m_humidityValue",
+        "m_option",
+        "m_tempBelow",
+        "m_tempCelcius",
+        "m_temperature",
+        "m_weatherCondition",
+        "m_windSpeedAbove",
+        "m_windSpeedValue",
+        "m_windSpeedValueMph"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WebHook2wayTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "headerParams",
+        "identifier",
+        "ipAddressWhiteList",
+        "responseCode",
+        "responseText",
+        "saveBodyDictionaryKeys",
+        "saveBodyVariableName",
+        "sendResponse"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WebHookTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "identifier",
+        "ipAddressWhiteList",
+        "queryParamsDictionaryName",
+        "variableWhiteList",
+        "variableWhiteListEnabled"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WidgetPressedTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "iconTintEnabled",
+        "m_imageId",
+        "m_widgetType",
+        "tintColor"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WifiConnectionTrigger",
+      "occurrences": 4,
+      "parameter_keys": [
+        "customAddedSSIDs",
+        "m_SSIDList",
+        "m_wifiState"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WifiSSIDTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "m_InRange",
+        "m_SSIDList",
+        "wifiCellInfoList"
+      ],
+      "comments": []
+    },
+    {
+      "class_type": "WorkProfileTrigger",
+      "occurrences": 1,
+      "parameter_keys": [
+        "workProfileEnabled"
+      ],
+      "comments": []
+    }
+  ]
+}

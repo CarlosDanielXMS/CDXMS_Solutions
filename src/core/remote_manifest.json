@@ -38,14 +38,14 @@
       "target_path": "core/enums.json",
       "write_policy": "overwrite_versioned",
       "file_role": "enums",
-      "checksum_sha256": "b55d7216f96e4ab38bcef11c20ef11770d2184915a1afc72de336dc5c353d955"
+      "checksum_sha256": "ca80802b5493a583056dfd08a3fae24e8719b2f238365aa31ea82bfcdfa75e40"
     },
     {
       "path": "core/errors.json",
       "target_path": "core/errors.json",
       "write_policy": "overwrite_versioned",
       "file_role": "errors",
-      "checksum_sha256": "1618aca477d2cb2899b3c7b7fdb03c78955565ccdd2c77e71a69773642cad06f"
+      "checksum_sha256": "9043bacc75c9ab62c7f4f294bfd7c09ef985db3ef712261da9b25dc5ae501c45"
     },
     {
       "path": "core/result_contract.json",
@@ -59,7 +59,7 @@
       "target_path": "core/compatibility.json",
       "write_policy": "overwrite_versioned",
       "file_role": "compatibility",
-      "checksum_sha256": "ac61cc43577b4c00ca487713508bd96fd539119df0cec3c770340101f493b833"
+      "checksum_sha256": "a144bd8e40bade5b1dd38ab636e206aaf66b29f19f1bb19098da5a7eb2851aa0"
     }
   ],
   "requires": {

@@ -21,12 +21,7 @@
   },
   "requires": {
     "core_min_version": "1.0.0",
-    "capabilities": {
-      "json_config_manager": ">=1.0.0",
-      "result_manager": ">=1.0.0",
-      "logger": ">=1.0.0",
-      "string_utils": ">=1.0.0"
-    }
+    "capabilities": {}
   },
   "operations": [
     "validate_artifact",
@@ -80,6 +75,7 @@
     "capabilities": {
       "dependency_resolver": ">=1.0.0",
       "json_config_manager": ">=1.0.0"
-    }
+    },
+    "note": "O Artifact Manager gera planos; o orquestrador executa as primitivas físicas pelo Json Config Manager."
   }
 }

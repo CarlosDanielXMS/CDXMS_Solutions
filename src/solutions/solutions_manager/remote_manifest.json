@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "solution",
+  "artifact_id": "solutions_manager",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "solutions/solutions_manager/manifest.json",
+      "target_path": "solutions/solutions_manager/manifest.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "manifest",
+      "checksum_sha256": "2cfabc40a168b55a4326918f1bb802c04902f2ef63235e7c55ad121babe6123f"
+    },
+    {
+      "path": "solutions/solutions_manager/contract.json",
+      "target_path": "solutions/solutions_manager/contract.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "contract",
+      "checksum_sha256": "d986707e6006bcadafa6ace045224589cf853d62520440be01826ed710a41fa4"
+    },
+    {
+      "path": "solutions/solutions_manager/config.default.json",
+      "target_path": "solutions/solutions_manager/config.json",
+      "write_policy": "create_if_missing_or_merge",
+      "file_role": "default_config",
+      "checksum_sha256": "c623387e0a8c6fb04e8c1e2c78964d1b80263d5e4b09a525979e7937a59c4b10"
+    },
+    {
+      "path": "solutions/solutions_manager/state_machine.json",
+      "target_path": "solutions/solutions_manager/state_machine.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "state_machine",
+      "checksum_sha256": "cb9cba7a7f6e864debc8ef6e9888dfe2d96bf5552aa093e30bc3cf8d8c80487d"
+    },
+    {
+      "path": "solutions/solutions_manager/orchestration.json",
+      "target_path": "solutions/solutions_manager/orchestration.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "orchestration",
+      "checksum_sha256": "e6a338131cb3d4ecdfeed43bb9af7e039ae658a913bc64d90d8eb933af66e5f2"
+    },
+    {
+      "path": "solutions/solutions_manager/ui_schema.default.json",
+      "target_path": "solutions/solutions_manager/ui_schema.json",
+      "write_policy": "overwrite_versioned",
+      "file_role": "ui_schema",
+      "checksum_sha256": "2dba029ebb0fefcddc853f8c55444818cc1725bfe61e94542847cc7e1781fdac"
+    },
+    {
+      "path": "solutions/solutions_manager/macrodroid/[CDXMS]_Solutions_Manager.macro",
+      "target_path": "solutions/solutions_manager/macrodroid/[CDXMS]_Solutions_Manager.macro",
+      "write_policy": "overwrite_versioned",
+      "file_role": "macrodroid_export",
+      "install_mode": "manual_import",
+      "checksum_sha256": "334ae31717b628d27ae175587f9a4e679c01422dc3aa9b195de211a786b0afd2"
+    }
+  ],
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "json_config_manager": ">=1.0.0",
+      "bootstrap": ">=1.0.0",
+      "result_manager": ">=1.0.0",
+      "logger": ">=1.0.0",
+      "string_utils": ">=1.0.0",
+      "artifact_manager": ">=1.0.0",
+      "dependency_resolver": ">=1.0.0",
+      "remote_source_manager": ">=1.0.0",
+      "file_integrity": ">=1.0.0",
+      "juif_ui_builder": ">=1.0.0",
+      "java_ui_framework": ">=1.0.0"
+    }
+  },
+  "delivery": {
+    "runtime_bundle": "macro_with_embedded_action_blocks",
+    "automatic_macro_import": false,
+    "production_ref_must_be_immutable": true
+  },
+  "updated_at": "2026-08-27"
+}

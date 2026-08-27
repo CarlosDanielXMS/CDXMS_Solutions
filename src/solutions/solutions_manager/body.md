@@ -1,97 +1,90 @@
-# Corpo planejado — [CDXMS] Solutions Manager v1.0.0
+# Corpo — [CDXMS] Solutions Manager v1.0.0
+
+## Tipo e responsabilidade
+
+Macro permanente, orquestradora e idempotente. Na primeira execução inicializa o core local com as capabilities incorporadas; nas seguintes valida o ambiente e abre a interface. Não existe Installer descartável na v1.
 
 ## Entradas
 
-- `Sm_RequestedOperation`: operação inicial, default `launch`.
-- `Sm_RequestedArtifactType`: tipo do artifact selecionado.
-- `Sm_RequestedArtifactId`: id técnico selecionado.
-- `Sm_RequestedPayloadJson`: payload contextual.
-- `Sm_AllowNetwork?`: permite atualização de documentos remotos.
-- `Sm_ForceRefresh?`: força atualização do catálogo.
-- `Sm_DryRun?`: mantém lifecycle em planejamento.
+Nenhuma entrada pública. A macro possui dois pontos de entrada:
+
+| Gatilho | Configuração | Finalidade |
+|---|---|---|
+| `EmptyTrigger` | execução manual | inicializar e abrir o Manager |
+| `IntentReceivedTrigger` | action `com.cdxms.solutions.EVENT` | receber evento publicado pela interface JUIF |
+
+O Intent recebe os extras `cdxms_namespace`, `cdxms_protocol_version`, `cdxms_session_id`, `cdxms_event_id`, `cdxms_source_artifact_id`, `cdxms_action`, `cdxms_current_page` e `cdxms_event_json`.
 
 ## Saída
 
-- `Resultado` — dicionário único no contrato universal CDXMS.
+| Saída | Tipo | Descrição |
+|---|---|---|
+| `Resultado` | Dicionário | Último resultado lógico no contrato universal CDXMS. |
 
 ## Variáveis de trabalho
 
-Usar exclusivamente as variáveis `Tmp_Sm*` descritas em `contract.json`.
+| Variável | Tipo | Descrição |
+|---|---|---|
+| `Tmp_SmViewModelJson` | Texto | Modelo de dados usado pelo Builder. |
+| `Tmp_SmUiSchemaJson` | Texto | Schema declarativo da interface. |
+| `Tmp_SmEventNamespace` | Texto | Namespace recebido pelo Intent. |
+| `Tmp_SmEventProtocolVersion` | Texto | Versão do protocolo recebido. |
+| `Tmp_SmEventSessionId` | Texto | Sessão do evento. |
+| `Tmp_SmEventId` | Texto | Id idempotente do evento. |
+| `Tmp_SmEventSourceArtifactId` | Texto | Artifact emissor. |
+| `Tmp_SmEventAction` | Texto | Ação solicitada. |
+| `Tmp_SmEventCurrentPage` | Texto | Página ativa no momento do evento. |
+| `Tmp_SmEventJson` | Texto/JSON | Envelope completo do evento. |
+| `Tmp_SmLastConsumedEventId` | Texto | Último evento aceito, usado contra duplicação. |
+| `Tmp_SmResultJson` | Texto/JSON | Resultado serializado antes do `JSON Parse`. |
 
-## Corpo — primeiro incremento vertical
+## Corpo completo — passo a passo
 
-### 01 — Inicializar sessão
+### Fluxo A — abertura manual
 
-1. Definir `Tmp_SmState = starting`.
-2. Gerar `Tmp_SmSessionId` e `Tmp_SmCorrelationId`.
-3. Definir `Tmp_SmLoopContinue = true`.
-4. Normalizar operação vazia para `launch`.
+1. `If Clause` — executa somente quando o gatilho invocador é o `EmptyTrigger` de entrada manual.
+2. `Action Block` — chama `[CDXMS] Bootstrap`, aguardando a conclusão, com:
+   - `Operation = initialize_ecosystem`;
+   - `Requested Artifact Type = solution`;
+   - `Requested Artifact Id = solutions_manager`;
+   - `Force Repair? = false`;
+   - `Load Context? = true`;
+   - `Session Id = solutions-manager-session-v1`;
+   - `Correlation Id = solutions-manager-launch-v1`;
+   - `Resultado -> Resultado`.
+3. `If Clause` — continua somente quando `Resultado[success] = true`.
+4. `Action Block` — chama `[CDXMS] JUIF UI Builder`, aguardando a conclusão, com:
+   - `Config Json = {lv=Tmp_SmViewModelJson}`;
+   - `UI Schema Json = {lv=Tmp_SmUiSchemaJson}`;
+   - `Escape Json = false`;
+   - `Resultado -> Resultado`.
+5. `If Clause` — continua somente quando o Builder publicou `Resultado[success] = true`.
+6. `Action Block` — chama `[CDXMS] Java UI Framework`, aguardando a conclusão, com `JUIF UI Json = {lv=Resultado[data][juif_ui_json]}`.
+7. `Else` — ramo de falha do Builder.
+8. `Toast` — exibe `Falha ao construir a interface` com a mensagem do Resultado.
+9. `End If` — encerra a validação do Builder.
+10. `Else` — ramo de falha do Bootstrap.
+11. `Toast` — exibe `Falha ao inicializar` com a mensagem do Resultado.
+12. `End If` — encerra a validação do Bootstrap.
+13. `End If` — encerra o fluxo de abertura manual.
 
-### 02 — Verificar ambiente
+### Fluxo B — recebimento de evento JUIF
 
-1. Executar `[CDXMS] Bootstrap` com `Operation = get_status` e aguardar conclusão.
-2. Salvar a saída em `Tmp_SmBootstrapResult`.
-3. Direcionar o fluxo:
-   - ausente → `bootstrapping`;
-   - parcial/inválido → `repairing`;
-   - pronto → `loading_context`.
+14. `If Clause` — executa somente quando o gatilho invocador é o `IntentReceivedTrigger` do protocolo CDXMS.
+15. `JavaScript Code` — interpreta `Tmp_SmEventJson` e valida schema, namespace, protocolo, sessão, origem, allowlist, `event_id` e `consumed = false`.
+16. `JSON Parse` — publica o texto validado em `Resultado`.
+17. `JavaScript Code` — atualiza `Tmp_SmLastConsumedEventId` somente quando a validação é sucesso.
+18. `Log Event` — registra id, ação e resultado para diagnóstico local.
+19. `Toast` — fornece feedback visual da recepção do evento.
+20. `End If` — encerra o fluxo de evento.
 
-### 03 — Bootstrap ou reparo
+## Runtime incorporado
 
-1. Ambiente ausente: Bootstrap `initialize_ecosystem`, com `Load Context? = true`.
-2. Ambiente parcial: Bootstrap `repair_core`, seguido de `load_context`.
-3. Em falha, propagar o resultado por `[CDXMS] Registrar Resultado` e encerrar.
+O export contém 11 Action Blocks em `macro.exportedActionBlocks`: JCM, Bootstrap, Result Manager, Logger, String Utils, Artifact Manager, Dependency Resolver, Remote Source Manager, File Integrity, JUIF UI Builder e Java UI Framework. Isso é obrigatório para uma importação em dispositivo sem componentes CDXMS previamente instalados.
 
-### 04 — Carregar contexto
+## Limites deste incremento
 
-1. Extrair registry e settings do resultado do Bootstrap.
-2. Preencher `Tmp_SmRegistryJson` e `Tmp_SmSettingsJson`.
-3. Não repetir leituras que já estejam presentes no contexto.
-
-### 05 — Validar ecossistema
-
-1. Bootstrap `verify_core`.
-2. RSM `get_source_status`.
-3. Consolidar checks sem duplicar as regras internas das capabilities.
-4. Construir o modelo de diagnóstico.
-
-### 06 — Carregar catálogo
-
-1. Ler cache local válido por meio do JCM.
-2. Quando permitido, chamar RSM `fetch_catalog` e `fetch_release_manifest`.
-3. Validar staging com File Integrity.
-4. Relê-lo com JCM antes do uso.
-5. Em falha remota com cache válido, operar em `degraded_read_only`.
-
-### 07 — Construir e renderizar UI
-
-1. Montar `Tmp_SmUiConfigJson`.
-2. Carregar `ui_schema.default.json`.
-3. Executar `[CDXMS] JUIF UI Builder` com `Escape Json = false`.
-4. Extrair `data.juif_ui_json` para `Tmp_SmUiJson`.
-5. Executar `[CDXMS] Java UI Framework`.
-
-### 08 — Event bridge
-
-Somente após homologação:
-
-1. observar eventos da sessão atual;
-2. rejeitar evento duplicado ou consumido;
-3. copiar `action`, `payload`, `current_page` e `state`;
-4. marcar evento como consumido;
-5. mapear a ação para uma operação do Manager;
-6. executar a operação e atualizar a UI.
-
-### 09 — Encerramento
-
-1. Encerrar o overlay ao receber `close`.
-2. Publicar `Resultado` da sessão.
-3. Limpar somente runtime efêmero.
-4. Manter a macro instalada como entrada permanente.
-
-## Restrições
-
-- Não usar Shell como executor normal.
-- Não escrever arquivos diretamente na macro.
-- Não considerar cópia de `.macro`/`.ablock` como importação.
-- Não habilitar lifecycle mutável antes do event bridge e do pipeline de payload verificado.
+- O bridge recebe, valida e deduplica eventos, mas ainda não despacha operações de negócio.
+- Download de payload executável, lifecycle mutável e confirmação de importação continuam bloqueados.
+- Copiar `.macro` ou `.ablock` para o filesystem não equivale a importá-lo no MacroDroid.
+- O export exige homologação em dispositivo limpo após qualquer reconstrução.
