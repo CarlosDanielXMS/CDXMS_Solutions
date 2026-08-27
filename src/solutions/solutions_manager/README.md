@@ -23,8 +23,10 @@ O GitHub permanece como fonte oficial do plano de controle, manifests, catálogo
 - 11 Action Blocks incorporados, suficientes para dispositivo vazio;
 - Bootstrap executado antes da UI;
 - Builder e renderer protegidos por resultado de sucesso;
-- Intent bridge presente com validação de protocolo e deduplicação;
-- lifecycle mutável e despacho de operações ainda bloqueados;
+- interface JUIF completa incorporada ao export;
+- Intent bridge funcional com broadcast explícito, validação de protocolo e deduplicação;
+- download validado da Solution de Teste implementado, com importação manual guiada;
+- lifecycle de instalação, atualização, reparo e remoção ainda bloqueado;
 - homologação final em dispositivo limpo obrigatória.
 
 ## Garantias
@@ -51,5 +53,5 @@ O primeiro script recompõe a closure incorporada e o fluxo inicial do export; o
 1. Importar o `.macro` em dispositivo limpo com MacroDroid 5.67.x ou superior.
 2. Confirmar a criação do core e runtime.
 3. Homologar visualmente a abertura e fechamento da UI.
-4. Homologar o Intent bridge end-to-end.
-5. Implementar o despacho de operações somente depois desses testes.
+4. Acionar `Baixar solution de teste` e confirmar o arquivo em staging.
+5. Importar manualmente o export baixado e executar a Solution de Teste.

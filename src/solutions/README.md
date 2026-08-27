@@ -13,6 +13,10 @@ Diretório das macros orquestradoras permanentes do ecossistema CDXMS.
 
 `[CDXMS] Solutions Manager` é a única macro permanente importada pelo usuário.
 
+## Solution de homologação
+
+`[CDXMS] Test Solution` é o primeiro artifact baixável pelo Manager. Ela valida Bootstrap, Builder, renderer e identidade visual JUIF sem executar operações destrutivas.
+
 ## Unidades de distribuição
 
 O ecossistema possui duas fronteiras diferentes:

@@ -76,7 +76,13 @@ O Intent recebe os extras `cdxms_namespace`, `cdxms_protocol_version`, `cdxms_se
 17. `JavaScript Code` — atualiza `Tmp_SmLastConsumedEventId` somente quando a validação é sucesso.
 18. `Log Event` — registra id, ação e resultado para diagnóstico local.
 19. `Toast` — fornece feedback visual da recepção do evento.
-20. `End If` — encerra o fluxo de evento.
+20. `If Clause` — permite despacho somente quando o evento foi validado.
+21. `If Clause` — seleciona a operação `download_test_solution`.
+22. `Action Block` — chama `[CDXMS] Remote Source Manager` com `fetch_macrodroid_export` para baixar e validar o export em staging.
+23. `If/Else` — informa o caminho local em caso de sucesso ou expõe a falha do pipeline remoto.
+24. `Else` — confirma eventos válidos que não exigem operação remota.
+25. `Else` — expõe eventos rejeitados pelo contrato.
+26. `End If` — encerra o fluxo de evento e seus ramos internos.
 
 ## Runtime incorporado
 
@@ -84,7 +90,8 @@ O export contém 11 Action Blocks em `macro.exportedActionBlocks`: JCM, Bootstra
 
 ## Limites deste incremento
 
-- O bridge recebe, valida e deduplica eventos, mas ainda não despacha operações de negócio.
-- Download de payload executável, lifecycle mutável e confirmação de importação continuam bloqueados.
+- O bridge recebe, valida, deduplica e despacha somente a operação incremental `download_test_solution`.
+- O download aceito fica restrito a exports `.macro`/`.ablock` sob `solutions/` ou `capabilities/` e passa por validação estrutural após a escrita.
+- Lifecycle mutável e confirmação automática de importação continuam bloqueados.
 - Copiar `.macro` ou `.ablock` para o filesystem não equivale a importá-lo no MacroDroid.
 - O export exige homologação em dispositivo limpo após qualquer reconstrução.

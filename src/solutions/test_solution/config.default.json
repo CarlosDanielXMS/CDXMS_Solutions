@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "solution_config",
+  "artifact_id": "test_solution",
+  "version": "1.0.0",
+  "test": {
+    "status": "Pronto para homologação",
+    "bootstrap": "Executado",
+    "builder": "Contrato gerado",
+    "renderer": "Interface carregada",
+    "message": "Esta solution valida o caminho completo do ecossistema sem operações destrutivas.",
+    "progress": 100
+  },
+  "features": [
+    {
+      "title": "Bootstrap idempotente",
+      "subtitle": "Inicializa e valida o core antes da interface.",
+      "value": "bootstrap"
+    },
+    {
+      "title": "JUIF UI Builder",
+      "subtitle": "Transforma schema e dados no contrato visual.",
+      "value": "builder"
+    },
+    {
+      "title": "Java UI Framework",
+      "subtitle": "Renderiza a identidade visual oficial CDXMS.",
+      "value": "renderer"
+    }
+  ]
+}

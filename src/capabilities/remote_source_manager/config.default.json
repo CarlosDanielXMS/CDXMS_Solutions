@@ -27,8 +27,9 @@
     "allow_any_certificate": false,
     "strict_mode_default": true,
     "block_github_blob_urls": true,
-    "control_plane_only": true,
+    "control_plane_only": false,
     "artifact_payload_download_enabled": false,
+    "macrodroid_export_download_enabled": true,
     "checksum_validation": "deferred_until_native_or_dedicated_capability"
   },
   "updated_at": ""

@@ -17,21 +17,21 @@
       "target_path": "solutions/solutions_manager/manifest.json",
       "write_policy": "overwrite_versioned",
       "file_role": "manifest",
-      "checksum_sha256": "2cfabc40a168b55a4326918f1bb802c04902f2ef63235e7c55ad121babe6123f"
+      "checksum_sha256": "e95b06ee1faed167c417d83516bf113b5d0b6a8c1d81a5a87ecda4eefcecc85d"
     },
     {
       "path": "solutions/solutions_manager/contract.json",
       "target_path": "solutions/solutions_manager/contract.json",
       "write_policy": "overwrite_versioned",
       "file_role": "contract",
-      "checksum_sha256": "d986707e6006bcadafa6ace045224589cf853d62520440be01826ed710a41fa4"
+      "checksum_sha256": "f8c8ec92ae5b22bd64a9a1cc18edd7e3fcc552764d582a40741318a730a2bfed"
     },
     {
       "path": "solutions/solutions_manager/config.default.json",
       "target_path": "solutions/solutions_manager/config.json",
       "write_policy": "create_if_missing_or_merge",
       "file_role": "default_config",
-      "checksum_sha256": "c623387e0a8c6fb04e8c1e2c78964d1b80263d5e4b09a525979e7937a59c4b10"
+      "checksum_sha256": "a0b70b3d4da93595b74a741435994bf43c4e43b61a7cffc908e28c586d12543a"
     },
     {
       "path": "solutions/solutions_manager/state_machine.json",
@@ -52,7 +52,7 @@
       "target_path": "solutions/solutions_manager/ui_schema.json",
       "write_policy": "overwrite_versioned",
       "file_role": "ui_schema",
-      "checksum_sha256": "2dba029ebb0fefcddc853f8c55444818cc1725bfe61e94542847cc7e1781fdac"
+      "checksum_sha256": "7c0186ede1f64a7cba841cf030bfcfc8a268398b70331e77e1b7648b9274b576"
     },
     {
       "path": "solutions/solutions_manager/macrodroid/[CDXMS]_Solutions_Manager.macro",
@@ -60,7 +60,7 @@
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
       "install_mode": "manual_import",
-      "checksum_sha256": "334ae31717b628d27ae175587f9a4e679c01422dc3aa9b195de211a786b0afd2"
+      "checksum_sha256": "0893996c84431ba330ef31a9ede59eeffc24c9f9e23c051fa66f0c14ed9e9580"
     }
   ],
   "requires": {

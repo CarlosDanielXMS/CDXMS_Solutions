@@ -16,6 +16,20 @@
       "status": "current_runtime_bundle_ready_for_device_homologation",
       "delivery_mode": "template_store_or_manual_macro_import",
       "summary": "Entrada única com Bootstrap e capabilities incorporadas."
+    },
+    {
+      "artifact_id": "test_solution",
+      "artifact_type": "solution",
+      "display_name": "[CDXMS] Test Solution",
+      "version": "1.0.0",
+      "manifest_path": "solutions/test_solution/manifest.json",
+      "remote_manifest_path": "solutions/test_solution/remote_manifest.json",
+      "macrodroid_export_path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
+      "installable": true,
+      "visible": true,
+      "status": "testing",
+      "delivery_mode": "manager_download_then_manual_macro_import",
+      "summary": "Solution genérica para validar Bootstrap, JUIF e distribuição remota."
     }
   ],
   "capabilities": [
@@ -118,9 +132,9 @@
       "remote_manifest_path": "capabilities/java_ui_framework/remote_manifest.json",
       "installable": true,
       "visible": true,
-      "status": "professionally_redesigned_ready_for_device_homologation",
-      "summary": "Renderer JUIF com 36 componentes e shell persistente profissional.",
-      "implementation_stage": "catalog_navigation_hotfix_ready_for_device_validation",
+      "status": "event_bridge_fix_ready_for_device_homologation",
+      "summary": "Renderer JUIF com 36 componentes, shell persistente e Event Bridge por Intent explícito.",
+      "implementation_stage": "event_bridge_and_string_utils_boundary_ready_for_device_validation",
       "runtime_guards": [
         "posted_main_loop",
         "transactional_page_rendering",
@@ -137,8 +151,8 @@
       "remote_manifest_path": "capabilities/juif_ui_builder/remote_manifest.json",
       "installable": true,
       "visible": true,
-      "status": "professionally_redesigned_ready_for_device_homologation",
-      "summary": "Builder declarativo com documentação interativa de sete páginas."
+      "status": "json_boundary_fix_ready_for_device_homologation",
+      "summary": "Builder declarativo com fronteira String Utils sem duplo escape e preservação do Event Bridge."
     }
   ],
   "core": [

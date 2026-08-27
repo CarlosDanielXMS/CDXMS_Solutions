@@ -105,15 +105,24 @@
       "version": "1.0.0",
       "path": "solutions/solutions_manager/manifest.json",
       "remote_manifest_path": "solutions/solutions_manager/remote_manifest.json"
+    },
+    {
+      "artifact_id": "test_solution",
+      "artifact_type": "solution",
+      "version": "1.0.0",
+      "path": "solutions/test_solution/manifest.json",
+      "remote_manifest_path": "solutions/test_solution/remote_manifest.json"
     }
   ],
   "notes": [
     "Solutions Manager incorporado como entrada única com 11 Action Blocks.",
     "Bootstrap é executado antes da construção e renderização da UI.",
-    "Event bridge recebe, valida e deduplica eventos; despacho de negócio ainda está bloqueado.",
+    "Event bridge JUIF publica, recebe, valida e deduplica eventos por broadcast explícito.",
+    "O Manager despacha somente o download validado da Solution de Teste para staging.",
+    "A Solution de Teste valida Bootstrap, Builder, Renderer e distribuição remota.",
     "Capabilities e UI permanecem em 1.0.0 porque ainda não houve release oficial.",
-    "Lifecycle mutável e payload remoto executável permanecem desabilitados.",
+    "Lifecycle mutável, outros payloads executáveis e importação automática permanecem desabilitados.",
     "Homologação final em dispositivo limpo permanece obrigatória."
   ],
-  "package": "CDXMS_Solutions_v1_0_0_pre_release.zip"
+  "package": "CDXMS_Solutions_JUIF_Manager_Test_Solution_Fix_2026-08-27.zip"
 }

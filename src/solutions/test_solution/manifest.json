@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "artifact_type": "solution",
+  "artifact_id": "test_solution",
+  "display_name": "CDXMS Solution de Teste",
+  "version": "1.0.0",
+  "status": "testing",
+  "description": "Solution genérica para homologar Bootstrap, JUIF Builder, Java UI Framework e distribuição remota.",
+  "entrypoint": "[CDXMS] Test Solution",
+  "macrodroid_export": "macrodroid/[CDXMS]_Test_Solution.macro",
+  "manual_import_required": true,
+  "requires": {
+    "core_min_version": "1.0.0",
+    "capabilities": {
+      "bootstrap": ">=1.0.0",
+      "juif_ui_builder": ">=1.0.0",
+      "java_ui_framework": ">=1.0.0"
+    }
+  },
+  "side_effects": [
+    "bootstrap_idempotent",
+    "application_overlay"
+  ],
+  "destructive_operations": false
+}

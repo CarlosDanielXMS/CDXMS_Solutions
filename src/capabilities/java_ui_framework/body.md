@@ -31,7 +31,7 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
 | `Tmp_JuifState` | Texto/JSON | State atualizado da interface. |
 | `Tmp_JuifCurrentPage` | Texto | Id da página atualmente renderizada. |
 | `Tmp_ResultJson` | Texto/JSON | Resultado universal serializado pelo Java Action. |
-| `Tmp_JuifUiJsonEscaped` | Texto | Entrada escapada para inserção segura no literal Java. |
+| `Tmp_JuifEscapeResult` | Dicionário | Resultado da `String Utils` com a entrada protegida para o literal Java. |
 | `Tmp_DefaultUiJson` | Texto/JSON | UI de fallback e catálogo interativo usado quando a entrada não é fornecida. |
 
 ## Corpo completo — passo a passo
@@ -43,47 +43,22 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
 - **Rótulo:** `01 — Escape JUIF UI Json`.
 - **Children collapsed:** habilitado.
 - **Dont log if condition is false:** desabilitado.
-- **Comentário:** escapa barras, aspas e quebras antes do Java Action.
+- **Comentário:** protege a entrada pela capability oficial de texto antes do Java Action.
 
-### Ação 2 — Text Manipulation: escapar barras
+### Ação 2 — Action Block: escapar entrada JUIF
 
-- **Ação MacroDroid:** `Text Manipulation` (`TextManipulationAction`).
-- **Source text:** `{lv=JUIF UI Json}`.
-- **Operation:** `Replace All`.
-- **Search:** `\`.
-- **Replacement:** `\\`.
-- **Ignore case:** desabilitado.
-- **Output variable:** `Tmp_JuifUiJsonEscaped`.
-- **Objetivo:** preservar barras existentes quando o JSON for inserido no literal Java.
+- **Action Block:** `[CDXMS] String Utils`.
+- **Operation:** `escape_json_string`.
+- **Text:** `{lv=JUIF UI Json}`.
+- **Output:** `Resultado -> Tmp_JuifEscapeResult`.
+- **Objetivo:** manter uma única implementação de escape JSON no ecossistema.
 
-### Ação 3 — Text Manipulation: escapar aspas
-
-- **Ação MacroDroid:** `Text Manipulation`.
-- **Source text:** `{lv=Tmp_JuifUiJsonEscaped}`.
-- **Operation:** `Replace All`.
-- **Search:** `"`.
-- **Replacement:** `\"`.
-- **Ignore case:** desabilitado.
-- **Output variable:** `Tmp_JuifUiJsonEscaped`.
-- **Objetivo:** impedir que aspas do JSON encerrem o literal Java.
-
-### Ação 4 — Text Manipulation: normalizar quebras
-
-- **Ação MacroDroid:** `Text Manipulation`.
-- **Source text:** `{lv=Tmp_JuifUiJsonEscaped}`.
-- **Operation:** `Replace All`.
-- **Search:** quebra de linha real.
-- **Replacement:** `\n`.
-- **Ignore case:** desabilitado.
-- **Output variable:** `Tmp_JuifUiJsonEscaped`.
-- **Objetivo:** evitar quebra física do literal Java.
-
-### Ação 5 — End Action Group
+### Ação 3 — End Action Group
 
 - **Ação MacroDroid:** `End Action Group`.
 - **Objetivo:** encerrar `01 — Prepare JUIF Input`.
 
-### Ação 6 — Action Group
+### Ação 4 — Action Group
 
 - **Ação MacroDroid:** `Action Group`.
 - **Nome do grupo:** `02 — Render JUIF Overlay`.
@@ -92,7 +67,7 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
 - **Dont log if condition is false:** desabilitado.
 - **Comentário:** renderiza a UI declarativa e publica `Resultado` sem persistir configurações.
 
-### Ação 7 — Java Code
+### Ação 5 — Java Code
 
 - **Ação MacroDroid:** `Java Code` (`JavaAction`).
 - **Block next action:** habilitado.
@@ -118,9 +93,10 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
   15. abre e fecha o drawer em camada com scrim e animação;
   16. mantém navegação por `navigate`, `replace`, `back`, `open_drawer`, `close_drawer` e `close`;
   17. mantém state local e emite payloads com ação, página atual e snapshot do state;
-  18. retorna o conteúdo ao topo após cada troca de página;
-  19. permite fechar o overlay por long press;
-  20. publica `Tmp_ResultJson` com `artifact_id=java_ui_framework`.
+  18. publica eventos não navegacionais por Intent explícito quando `event_bridge.enabled = true`;
+  19. retorna o conteúdo ao topo após cada troca de página;
+  20. permite fechar o overlay por long press;
+  21. publica `Tmp_ResultJson` com `artifact_id=java_ui_framework`.
 - **Configuração da janela:**
   - largura: `MATCH_PARENT`;
   - altura: `MATCH_PARENT`;
@@ -130,7 +106,7 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
   - soft input: `ADJUST_RESIZE | STATE_UNSPECIFIED`.
 - **Resultado de sucesso:** inclui `current_page`, `state`, `using_default_ui`, `component_catalog_version`, `supported_component_count`, `shell_enabled`, `shell_mode` e `drawer_available`.
 - **Resultado de erro:** `INVALID_JSON`, `PERMISSION_DENIED`, `PROCESSING_FAILED` ou fallback crítico `UNKNOWN_ERROR`, sempre no contrato universal CDXMS.
-### Ação 8 — JSON Parse
+### Ação 6 — JSON Parse
 
 - **Ação MacroDroid:** `JSON Parse` (`JsonParseAction`).
 - **String source:** `Tmp_ResultJson`.
@@ -138,12 +114,12 @@ Capability impura de apresentação. Seu efeito colateral esperado é a criaçã
 - **Dictionary keys:** raiz do dicionário, sem chave interna.
 - **Objetivo:** publicar a única saída pública do Action Block.
 
-### Ação 9 — End Action Group
+### Ação 7 — End Action Group
 
 - **Ação MacroDroid:** `End Action Group`.
 - **Objetivo:** encerrar `02 — Render JUIF Overlay`.
 
-### Ação 10 — Exit Action Block
+### Ação 8 — Exit Action Block
 
 - **Ação MacroDroid:** `Exit Action Block`.
 - **Output option:** `0` — encerramento normal.

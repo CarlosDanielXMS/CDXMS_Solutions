@@ -8,7 +8,7 @@
     "display_name": "[CDXMS] Remote Source Manager",
     "version": "1.0.0",
     "author": "Carlos Daniel X.M.S.",
-    "description": "Gerencia fontes remotas GitHub raw e baixa documentos JSON de controle para staging local validado, sem executar lifecycle ou instalação de artifacts.",
+    "description": "Gerencia fontes GitHub raw, baixa documentos de controle e exports MacroDroid permitidos para staging local validado, sem importação automática.",
     "enabled": true,
     "has_config": true
   },
@@ -31,7 +31,8 @@
     "fetch_catalog",
     "fetch_release_manifest",
     "fetch_remote_manifest",
-    "fetch_json"
+    "fetch_json",
+    "fetch_macrodroid_export"
   ],
   "result_contract": "core/result_contract.json",
   "created_at": "",
@@ -40,26 +41,27 @@
     "v1_0_0": "github_raw_control_plane_validation_and_staging",
     "transport": "macrodroid_http_request",
     "staging_verification": "json_config_manager",
-    "artifact_payload_downloads": "blocked_until_file_integrity_capability_is_homologated_and_integrated",
+    "artifact_payload_downloads": "macro_and_action_block_exports_to_verified_staging_only",
     "artifact_installation": "out_of_scope",
     "registry_updates": "out_of_scope"
   },
   "implementation_audit": {
-    "stage": "homologated_control_plane_v1_0_0",
+    "stage": "control_plane_homologated_export_download_candidate_v1_0_0",
     "version_policy": "pre_release_same_version_1_0_0",
     "source_base": "feat/create-ecosystem-core@d79fa8cbed54048900fcb12fcb873408b7a70478",
-    "manual_homologation_required": false,
+    "manual_homologation_required": true,
     "notes": [
       "A capability usa HTTP Request nativo e nunca curl para transporte HTTP comum.",
       "Downloads são salvos em staging temporário, nunca diretamente sobre arquivos instalados.",
       "O Json Config Manager prepara a pasta e relê o JSON baixado para verificação pós-download.",
-      "A v1.0.0 homologada cobre somente documentos JSON de controle: catálogo, release manifest, remote manifest e JSON genérico CDXMS.",
+      "A homologação anterior continua cobrindo documentos JSON de controle; o novo fetch_macrodroid_export exige homologação específica no dispositivo.",
+      "Exports .macro/.ablock são aceitos somente sob solutions/ ou capabilities/, validados estruturalmente e mantidos em staging para importação manual.",
       "A ponte escalar evita usar chaves aninhadas de dicionário diretamente em HTTP Request e ações de arquivo.",
       "Preflight e finalização publicam o valor pela última expressão do JavaScriptAction.",
       "O Resultado de preflight é mantido como objeto em pre_result; pre_result_json é proibido.",
       "O modo All Files Access exige caminho completo em saveResponseAllFilesAccessPath e saveResponseFileName vazio.",
       "A macro temporária de homologação é evidência de teste e não integra catálogo, release ou runtime operacional.",
-      "O executor SHA-256 /system/bin/sha256sum foi homologado em runtime; payloads continuam bloqueados até a homologação e integração da capability File Integrity."
+      "O download de export desta etapa não registra nem importa o artifact e não declara verificação SHA-256."
     ],
     "action_profile": {
       "total_actions": 21,
@@ -98,7 +100,7 @@
         "registry_unchanged"
       ],
       "excluded_scope": [
-        "artifact_payload_download",
+        "artifact_payload_download_outside_macrodroid_exports",
         "artifact_payload_checksum_integration",
         "artifact_installation",
         "registry_update",

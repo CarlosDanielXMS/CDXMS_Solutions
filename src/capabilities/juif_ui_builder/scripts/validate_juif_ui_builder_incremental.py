@@ -90,7 +90,6 @@ expected_variables = {
     "Tmp_CoreResult",
     "Tmp_CoreResultJsonEscape",
     "Tmp_UiEscapeResult",
-    "Tmp_UiDoubleEscapeResult",
     "Tmp_ResultJson",
 }
 require(set(variables) == expected_variables, "variáveis esperadas divergentes")
@@ -110,7 +109,6 @@ expected_actions = [
     "JsonParseAction",
     "ActionBlockAction",
     "ActionBlockAction",
-    "ActionBlockAction",
     "JavaScriptAction",
     "JsonParseAction",
     "ActionGroupEndAction",
@@ -125,7 +123,6 @@ string_calls = {
     2: ("{lv=UI Schema Json}", "Tmp_SchemaEscapeResult"),
     5: ("{lv=Tmp_CoreResultJson}", "Tmp_CoreResultJsonEscape"),
     6: ("{lv=Tmp_CoreResult[data][juif_ui_json]}", "Tmp_UiEscapeResult"),
-    7: ("{lv=Tmp_UiEscapeResult[data][value]}", "Tmp_UiDoubleEscapeResult"),
 }
 for index, (text_value, output_variable) in string_calls.items():
     action = actions[index]
@@ -138,8 +135,8 @@ for index, (text_value, output_variable) in string_calls.items():
 
 core_action = actions[3]
 core_parse = actions[4]
-final_action = actions[8]
-final_parse = actions[9]
+final_action = actions[7]
+final_parse = actions[8]
 
 require(core_action.get("javascriptEngine") == "JetPack JavascriptEngine", "engine do motor principal divergente")
 require(core_action.get("blockNextAction") is True, "motor principal deve bloquear continuação")
@@ -185,7 +182,6 @@ for required in [
 for required in [
     "{lv=Tmp_CoreResultJsonEscape[data][value]}",
     "{lv=Tmp_UiEscapeResult[data][value]}",
-    "{lv=Tmp_UiDoubleEscapeResult[data][value]}",
     "{lv=Escape Json}",
 ]:
     require(required in final_script, "entrada da finalização ausente: " + required)
@@ -244,8 +240,6 @@ if node:
 
     raw_ui_json = core_result["data"]["juif_ui_json"]
     escaped_ui_json = escape_json_string(raw_ui_json)
-    double_escaped_ui_json = escape_json_string(escaped_ui_json)
-
     def finalize(escape_value: str):
         runtime = (
             final_script.replace(
@@ -255,10 +249,6 @@ if node:
             .replace(
                 "{lv=Tmp_UiEscapeResult[data][value]}",
                 escaped_ui_json,
-            )
-            .replace(
-                "{lv=Tmp_UiDoubleEscapeResult[data][value]}",
-                double_escaped_ui_json,
             )
             .replace("{lv=Escape Json}", escape_value)
         )
@@ -284,6 +274,27 @@ if node:
     require(set(ui["pages"]) == expected_pages, "Builder gerou páginas divergentes")
     require(ui["shell"]["tab_bar"]["type"] == "tab_bar", "Tab Bar não normalizada")
     require(ui["shell"]["navigation_drawer"]["type"] == "navigation_drawer", "Drawer não normalizado")
+
+    bridge_schema = dict(default_schema)
+    bridge_schema["event_bridge"] = {
+        "enabled": True,
+        "intent_action": "com.cdxms.solutions.EVENT",
+        "session_id": "builder-validator",
+        "source_artifact_id": "validator",
+    }
+    bridge_runtime = (
+        core_script.replace(
+            "{lv=Tmp_ConfigEscapeResult[data][value]}",
+            escape_json_string(default_config_text),
+        )
+        .replace(
+            "{lv=Tmp_SchemaEscapeResult[data][value]}",
+            escape_json_string(json.dumps(bridge_schema, ensure_ascii=False)),
+        )
+    )
+    bridge_result = json.loads(run_node(bridge_runtime))
+    bridge_ui = json.loads(bridge_result["data"]["juif_ui_json"])
+    require(bridge_ui["event_bridge"]["session_id"] == "builder-validator", "event_bridge não foi preservado")
 
     invalid_runtime = (
         core_script.replace(

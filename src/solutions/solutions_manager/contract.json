@@ -62,6 +62,12 @@
       "description": "Busca catálogo/release em staging via RSM e valida integridade antes de expor os dados.",
       "mutating": "staging_only"
     },
+    "download_test_solution": {
+      "description": "Baixa e valida estruturalmente o export .macro da Solution de Teste em staging por meio do Remote Source Manager.",
+      "mutating": "staging_only",
+      "automatic_import": false,
+      "availability": "implemented_for_device_homologation"
+    },
     "list_available": {
       "description": "Filtra artifacts visíveis no catálogo validado.",
       "mutating": false
@@ -104,8 +110,8 @@
     },
     "receive_ui_event": {
       "description": "Valida namespace, protocolo, sessão, origem, ação e idempotência do evento JUIF recebido por Intent.",
-      "mutating": "local_event_receipt_only",
-      "availability": "implemented_without_business_dispatch"
+      "mutating": "local_event_receipt_and_dispatch",
+      "availability": "implemented"
     }
   },
   "result": {
@@ -152,11 +158,13 @@
     "UNKNOWN_ERROR"
   ],
   "event_bridge": {
-    "status": "required_before_lifecycle_mutations",
+    "status": "implemented_ready_for_device_homologation",
     "requirement": "A UI deve publicar action, payload, página e state em um canal observável pelo fluxo MacroDroid após o Action Block de UI ter retornado.",
     "must_not": "Depender apenas de working variables internas do Java UI Framework após o encerramento da chamada.",
-    "candidate_contract": {
-      "event_variable": "global runtime event dictionary or equivalent native callback",
+    "transport": {
+      "type": "explicit_package_broadcast_intent",
+      "action": "com.cdxms.solutions.EVENT",
+      "event_variable": "Tmp_SmEventJson",
       "fields": [
         "event_id",
         "session_id",
@@ -164,7 +172,7 @@
         "payload",
         "current_page",
         "state",
-        "created_at",
+        "timestamp_ms",
         "consumed"
       ]
     }

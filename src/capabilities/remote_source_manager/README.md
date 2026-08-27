@@ -1,6 +1,6 @@
 # [CDXMS] Remote Source Manager v1.0.0
 
-Capability homologada para a fronteira remota do plano de controle do ecossistema CDXMS via GitHub raw.
+Capability da fronteira remota do ecossistema CDXMS via GitHub raw. O plano de controle está homologado; o download restrito de exports MacroDroid é candidato a homologação no dispositivo.
 
 ## Estado de homologação
 
@@ -12,7 +12,7 @@ Capability homologada para a fronteira remota do plano de controle do ecossistem
 - source ref exercitado: `aad55e5969b41c456bb92e096bde2c381101e385`;
 - head remoto na formalização: `d79fa8cbed54048900fcb12fcb873408b7a70478`.
 
-A homologação cobre transporte, persistência em staging, validação estrutural/semântica e releitura pelo JCM. Não cobre payloads de artifacts, SHA-256 em runtime, instalação, alteração de registry ou importação automática.
+A homologação concluída cobre transporte, persistência em staging, validação estrutural/semântica e releitura pelo JCM para documentos de controle. A operação incremental `fetch_macrodroid_export` adiciona download restrito de `.macro`/`.ablock` para staging e ainda exige homologação específica no dispositivo. Não cobre instalação, alteração de registry ou importação automática.
 
 ## Responsabilidade
 
@@ -32,12 +32,12 @@ A homologação cobre transporte, persistência em staging, validação estrutur
 - resolução de dependências;
 - apply no destino final;
 - importação automática de `.macro`/`.ablock`;
-- download em lote de payloads;
+- download em lote de payloads ou payloads fora de `.macro`/`.ablock`;
 - declaração falsa de checksum verificado.
 
 ## Escopo v1.0.0
 
-A versão inicial cobre catálogo, `release.json`, `remote_manifest.json` e JSON CDXMS genérico. Payloads de artifact continuam bloqueados até a homologação de SHA-256 em runtime e do fluxo de download verificado.
+A versão inicial cobre catálogo, `release.json`, `remote_manifest.json`, JSON CDXMS genérico e, neste incremento, um único export `.macro`/`.ablock` para staging validado. Outros payloads permanecem bloqueados; a importação continua manual.
 
 ## Dependência
 
@@ -72,4 +72,4 @@ No modo **All Files Access**, `saveResponseAllFilesAccessPath` recebe o caminho 
 
 ## SHA-256 runtime homologado
 
-O dispositivo confirmou `/system/bin/sha256sum` com `7/7` verificações em contexto non-root, sem Helper e sem Shizuku. O RSM ainda não baixa payloads: a abertura desse fluxo depende da homologação própria de `[CDXMS] File Integrity` e de uma integração posterior de staging verificado.
+O dispositivo confirmou `/system/bin/sha256sum` com `7/7` verificações em contexto non-root, sem Helper e sem Shizuku. A nova operação de export MacroDroid realiza validação estrutural e releitura JCM, mas não declara verificação SHA-256 nem instalação. Essa integração permanece como etapa posterior.

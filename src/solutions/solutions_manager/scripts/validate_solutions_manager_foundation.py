@@ -65,7 +65,7 @@ def main() -> None:
     assert macro["m_triggerList"][1]["action"] == "com.cdxms.solutions.EVENT"
 
     action_classes = [action["m_classType"] for action in macro["m_actionList"]]
-    assert len(action_classes) == 20
+    assert len(action_classes) == 33
     assert action_classes[:13] == [
         "IfConditionAction",
         "ActionBlockAction",
@@ -85,6 +85,7 @@ def main() -> None:
         "[CDXMS] Bootstrap",
         "[CDXMS] JUIF UI Builder",
         "[CDXMS] Java UI Framework",
+        "[CDXMS] Remote Source Manager",
     ]
     bootstrap_call = action_block_calls(macro)[0]
     assert bootstrap_call["continueActionsWithoutWaiting"] is False
@@ -125,8 +126,8 @@ def main() -> None:
 
     assert config["feature_flags"]["lifecycle_mutations"] is False
     assert config["feature_flags"]["event_bridge"] is True
-    assert config["feature_flags"]["business_event_dispatch"] is False
-    assert config["feature_flags"]["remote_payload_pipeline"] is False
+    assert config["feature_flags"]["business_event_dispatch"] is True
+    assert config["feature_flags"]["remote_payload_pipeline"] is True
     assert machine["initial_state"] == "starting"
     assert "waiting_ui_event" in machine["states"]
     assert "launch" in orchestration["operations"]
@@ -145,6 +146,40 @@ def main() -> None:
     }
     assert page_ids == expected
     assert {"top_app_bar", "bottom_navigation", "navigation_drawer"}.issubset(ui["shell"])
+    assert ui["event_bridge"]["enabled"] is True
+    assert ui["event_bridge"]["source_artifact_id"] == "solutions_manager"
+
+    assert json.loads(variables["Tmp_SmViewModelJson"]["m_stringValue"]) == config
+    assert json.loads(variables["Tmp_SmUiSchemaJson"]["m_stringValue"]) == ui
+
+    builder = next(item for item in embedded if item["m_name"] == "[CDXMS] JUIF UI Builder")
+    assert len(builder["m_actionList"]) == 11
+    assert not any(
+        item["m_name"] == "Tmp_UiDoubleEscapeResult"
+        for item in builder["localVariables"]
+    )
+
+    renderer = next(item for item in embedded if item["m_name"] == "[CDXMS] Java UI Framework")
+    renderer_java = next(
+        action["scriptText"]
+        for action in renderer["m_actionList"]
+        if action["m_classType"] == "JavaAction"
+    )
+    assert "appContext.sendBroadcast(intent);" in renderer_java
+    assert "juifEventBridge = ui.optJSONObject(\"event_bridge\")" in renderer_java
+    assert not any(
+        action["m_classType"] == "TextManipulationAction"
+        for action in renderer["m_actionList"]
+    )
+
+    remote = next(item for item in embedded if item["m_name"] == "[CDXMS] Remote Source Manager")
+    remote_scripts = "\n".join(
+        action.get("scriptText", "") for action in remote["m_actionList"]
+    )
+    assert "fetch_macrodroid_export" in remote_scripts
+    download_call = action_block_calls(macro)[3]
+    assert download_call["inputVarsMap"]["Operation"] == "fetch_macrodroid_export"
+    assert download_call["inputVarsMap"]["Remote Path"].endswith("[CDXMS]_Test_Solution.macro")
 
     print(
         "Solutions Manager foundation: OK "

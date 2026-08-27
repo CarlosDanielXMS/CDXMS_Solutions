@@ -72,12 +72,14 @@
     "repair_artifact",
     "uninstall_artifact",
     "open_settings",
+    "download_test_solution",
     "close"
   ],
   "operation_availability": {
     "implemented_in_export": [
       "launch",
       "bootstrap",
+      "download_test_solution",
       "close"
     ],
     "declared_but_not_dispatched_yet": [
@@ -100,7 +102,7 @@
   "created_at": "2026-06-22",
   "updated_at": "2026-08-27",
   "implementation_audit": {
-    "stage": "embedded_bootstrap_and_event_receive_vertical_slice",
+    "stage": "bootstrap_full_juif_ui_and_test_solution_download_vertical_slice",
     "branch": "feat/solutions-manager",
     "base_branch": "develop",
     "base_commit": "bb8f1bc8c9c5541d5bb334cced73cd0417062438",
@@ -113,8 +115,10 @@
       "No separate Installer exists in v1.",
       "Automatic MacroDroid import is not assumed until device homologation proves it.",
       "The export now embeds the complete v1 capability closure and invokes Bootstrap before rendering the UI.",
-      "The JUIF intent receiver validates and deduplicates the current event contract, but business operations are not dispatched yet.",
-      "Lifecycle mutations remain blocked until payload download/apply and end-to-end device homologation are complete."
+      "The JUIF renderer now publishes an explicit package broadcast and the Manager validates and deduplicates the event contract.",
+      "The full Manager view model and UI schema are embedded in the MacroDroid export.",
+      "download_test_solution uses Remote Source Manager to download and structurally validate the .macro export in staging.",
+      "Import remains manual and lifecycle mutations remain blocked until end-to-end device homologation is complete."
     ]
   },
   "distribution_model": {

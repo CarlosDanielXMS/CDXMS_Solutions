@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "namespace": "CDXMS",
+  "file_type": "remote_artifact_manifest",
+  "artifact_type": "solution",
+  "artifact_id": "test_solution",
+  "version": "1.0.0",
+  "source": {
+    "type": "github_raw",
+    "repository": "CarlosDanielXMS/CDXMS_Solutions",
+    "ref": "develop",
+    "base_raw_url": "https://raw.githubusercontent.com/CarlosDanielXMS/CDXMS_Solutions/develop/src"
+  },
+  "files": [
+    {
+      "path": "solutions/test_solution/manifest.json",
+      "target_path": "solutions/test_solution/manifest.json",
+      "file_role": "manifest",
+      "checksum_sha256": "f3bf62724a118a4e035e866e5dba81e8950f418752e09d4650756e4315e2351a"
+    },
+    {
+      "path": "solutions/test_solution/config.default.json",
+      "target_path": "solutions/test_solution/config.json",
+      "file_role": "default_config",
+      "write_policy": "create_if_missing_or_merge",
+      "checksum_sha256": "04b8f020587a50dfebe9e3af1bcdabde60159b92684fd54a81df07ced1170591"
+    },
+    {
+      "path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
+      "target_path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
+      "file_role": "macrodroid_export",
+      "write_policy": "overwrite_versioned",
+      "checksum_sha256": "ab951d96e47d1226bfa82541ea2686d6bc314c2d23145689bfafdb2bd2ab8246"
+    }
+  ],
+  "macrodroid_export": {
+    "file_path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
+    "kind": "macro",
+    "expected_name": "[CDXMS] Test Solution",
+    "expected_is_action_block": false,
+    "manual_import_required": true
+  }
+}

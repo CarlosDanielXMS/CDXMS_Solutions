@@ -16,6 +16,8 @@ JUIF_BUILDER_NAME = "[CDXMS] JUIF UI Builder"
 JUIF_BUILDER_GUID = -6466181188242727880
 JUIF_RENDERER_NAME = "[CDXMS] Java UI Framework"
 JUIF_RENDERER_GUID = -7176705300326504843
+REMOTE_SOURCE_NAME = "[CDXMS] Remote Source Manager"
+REMOTE_SOURCE_GUID = -611028407650120260
 
 EMBED_ORDER = [
     "json_config_manager",
@@ -95,6 +97,48 @@ def if_result(result_variable: dict, *, siguid: int, constraint_siguid: int, com
     }
 
 
+def text_constraint(variable: dict, *, expected: str, siguid: int) -> dict:
+    return {
+        "checkCase": True,
+        "dictionaryKeys": {"keys": []},
+        "dictionaryType": 0,
+        "enableRegex": False,
+        "m_booleanValue": False,
+        "m_doubleValue": 0,
+        "m_intCompareVariable": False,
+        "m_intGreaterThan": False,
+        "m_intLessThan": False,
+        "m_intNotEqual": False,
+        "m_intValue": 0,
+        "m_otherValueToCompare": copy.deepcopy(variable),
+        "m_stringComparisonType": 0,
+        "m_stringEqual": True,
+        "m_stringValue": expected,
+        "m_variable": copy.deepcopy(variable),
+        "disableLogging": False,
+        "m_SIGUID": siguid,
+        "m_classType": "MacroDroidVariableConstraint",
+        "m_comment": "",
+        "m_constraintList": [],
+        "m_isDisabled": False,
+        "m_isOrCondition": False,
+    }
+
+
+def if_text(variable: dict, *, expected: str, siguid: int, constraint_siguid: int, comment: str) -> dict:
+    action = simple_action("IfConditionAction", siguid=siguid, comment=comment)
+    action.update(
+        {
+            "m_constraintList": [
+                text_constraint(variable, expected=expected, siguid=constraint_siguid)
+            ],
+            "childrenCollapsed": False,
+            "dontLogIfConditionIsFalse": True,
+        }
+    )
+    return action
+
+
 def simple_action(class_type: str, *, siguid: int, comment: str = "") -> dict:
     return {
         "disableLogging": False,
@@ -128,6 +172,37 @@ def bootstrap_action(*, siguid: int) -> dict:
                 "Config Json": "",
                 "Session Id": "solutions-manager-session-v1",
                 "Correlation Id": "solutions-manager-launch-v1",
+            },
+            "outputDictionaryMap": {"Resultado": {"keys": []}},
+            "outputVarsMap": {"Resultado": "Resultado"},
+        }
+    )
+    return action
+
+
+def download_test_solution_action(*, siguid: int) -> dict:
+    action = simple_action(
+        "ActionBlockAction",
+        siguid=siguid,
+        comment="Baixa e valida o export da Solution de Teste em staging.",
+    )
+    action.update(
+        {
+            "actionBlockId": REMOTE_SOURCE_GUID,
+            "actionBlockName": REMOTE_SOURCE_NAME,
+            "continueActionsWithoutWaiting": False,
+            "inputDictionaryMap": {},
+            "inputVarsMap": {
+                "Operation": "fetch_macrodroid_export",
+                "Source Json": "",
+                "Source Id": "cdxms_official_github",
+                "Remote Path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
+                "Expected File Type": "macrodroid_macro",
+                "Cache Root Path": "/storage/emulated/0/Documents/CDXMS_Solutions/packages/downloaded/test_solution",
+                "Timeout Seconds": "30",
+                "Strict Mode?": "true",
+                "Session Id": "solutions-manager-session-v1",
+                "Correlation Id": "solutions-manager-download-test-solution-v1",
             },
             "outputDictionaryMap": {"Resultado": {"keys": []}},
             "outputVarsMap": {"Resultado": "Resultado"},
@@ -185,7 +260,7 @@ def build_launch_actions(macro: dict) -> list[dict]:
         if action.get("m_classType") == "IfConditionAction"
         and action.get("m_comment") == "Consome evento JUIF."
     )
-    event_actions = current[event_start:]
+    current_event_actions = current[event_start:]
     result_variable = next(
         variable for variable in macro["localVariables"] if variable["m_name"] == "Resultado"
     )
@@ -223,6 +298,70 @@ def build_launch_actions(macro: dict) -> list[dict]:
         simple_action("EndIfAction", siguid=-6123400000000000129),
         simple_action("EndIfAction", siguid=-6123400000000000130),
     ]
+    event_action_variable = next(
+        variable
+        for variable in macro["localVariables"]
+        if variable["m_name"] == "Tmp_SmEventAction"
+    )
+    event_validator = copy.deepcopy(current_event_actions[1])
+    event_validator["scriptText"] = event_validator["scriptText"].replace(
+        "var allowed={refresh_catalog:1,validate_ecosystem:1,closed:1};",
+        "var allowed={refresh_catalog:1,validate_ecosystem:1,download_test_solution:1,closed:1};",
+    )
+    event_actions = [
+        copy.deepcopy(current_event_actions[0]),
+        event_validator,
+        copy.deepcopy(current_event_actions[2]),
+        copy.deepcopy(current_event_actions[3]),
+        copy.deepcopy(current_event_actions[4]),
+        if_result(
+            result_variable,
+            siguid=-6123400000000000131,
+            constraint_siguid=-6123400000000000231,
+            comment="Executa somente eventos JUIF validados.",
+        ),
+        if_text(
+            event_action_variable,
+            expected="download_test_solution",
+            siguid=-6123400000000000132,
+            constraint_siguid=-6123400000000000232,
+            comment="Executa o download solicitado pela interface.",
+        ),
+        download_test_solution_action(siguid=-6123400000000000133),
+        if_result(
+            result_variable,
+            siguid=-6123400000000000134,
+            constraint_siguid=-6123400000000000234,
+            comment="Confirma o download validado.",
+        ),
+        toast(
+            "Download concluído · {lv=Resultado[data][cache][file_path]} · Importe o arquivo pelo MacroDroid.",
+            siguid=-6123400000000000135,
+            comment="Informa o arquivo baixado.",
+        ),
+        simple_action("ElseAction", siguid=-6123400000000000136),
+        toast(
+            "Falha no download · {lv=Resultado[message]}",
+            siguid=-6123400000000000137,
+            comment="Expõe a falha do pipeline remoto.",
+        ),
+        simple_action("EndIfAction", siguid=-6123400000000000138),
+        simple_action("ElseAction", siguid=-6123400000000000139),
+        toast(
+            "Solutions Manager · ação recebida: {lv=Tmp_SmEventAction}",
+            siguid=-6123400000000000140,
+            comment="Confirma eventos válidos sem operação remota.",
+        ),
+        simple_action("EndIfAction", siguid=-6123400000000000141),
+        simple_action("ElseAction", siguid=-6123400000000000142),
+        toast(
+            "Solutions Manager · evento rejeitado: {lv=Resultado[message]}",
+            siguid=-6123400000000000143,
+            comment="Expõe rejeição do contrato de evento.",
+        ),
+        simple_action("EndIfAction", siguid=-6123400000000000144),
+        copy.deepcopy(current_event_actions[-1]),
+    ]
     return launch + event_actions
 
 
@@ -247,6 +386,21 @@ def validate_runtime_closure(macro: dict) -> None:
 def main() -> None:
     document = load(EXPORT)
     macro = document["macro"]
+    seeds = {
+        "Tmp_SmViewModelJson": json.dumps(
+            load(SOLUTION / "config.default.json"),
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ),
+        "Tmp_SmUiSchemaJson": json.dumps(
+            load(SOLUTION / "ui_schema.default.json"),
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ),
+    }
+    for variable in macro["localVariables"]:
+        if variable["m_name"] in seeds:
+            variable["m_stringValue"] = seeds[variable["m_name"]]
     macro["m_actionList"] = build_launch_actions(macro)
     macro["exportedActionBlocks"] = action_block_exports()
     macro["m_description"] = (

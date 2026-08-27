@@ -96,23 +96,29 @@ if 'return pre;' in finalize.get('scriptText',''):
     error('finalização ainda usa return no fluxo principal')
 for required_var in ['Tmp_ShouldRequestText','Tmp_RequestUrl','Tmp_StagingFolderPath','Tmp_StagingFileName','Tmp_StagingFilePath','Tmp_JcmReadResultJson']:
     if required_var not in works: error(f'ponte escalar ausente: {required_var}')
+for required in ['fetch_macrodroid_export', 'solutions/', 'capabilities/', '.macro', '.ablock']:
+    if required not in prep_script: error(f'preflight de export ausente: {required}')
+for required in ['macroExportVersion', 'macroName', 'isActionBlock', 'automatic_import_enabled:false']:
+    if required not in finalize_script: error(f'validação final de export ausente: {required}')
 
 supported = set(manifest.get('operations',[]))
-expected = {'validate_source','get_source_status','fetch_catalog','fetch_release_manifest','fetch_remote_manifest','fetch_json'}
+expected = {'validate_source','get_source_status','fetch_catalog','fetch_release_manifest','fetch_remote_manifest','fetch_json','fetch_macrodroid_export'}
 if supported != expected: error(f'operações divergentes: {supported}')
-if config.get('settings',{}).get('artifact_payload_download_enabled') is not False: error('payload download deve permanecer bloqueado')
+if config.get('settings',{}).get('control_plane_only') is not False: error('config deve reconhecer o incremento de export MacroDroid')
+if config.get('settings',{}).get('artifact_payload_download_enabled') is not False: error('payload genérico deve permanecer bloqueado')
+if config.get('settings',{}).get('macrodroid_export_download_enabled') is not True: error('download restrito de export MacroDroid deve estar habilitado')
 if config.get('settings',{}).get('allowed_hosts') != ['raw.githubusercontent.com']: error('host permitido inválido')
 
 # Formal homologation closure.
 audit = manifest.get('implementation_audit', {})
-if audit.get('stage') != 'homologated_control_plane_v1_0_0': error('stage de homologação formal inválido')
-if audit.get('manual_homologation_required') is not False: error('manual_homologation_required deve ser false após 23/23 checks')
+if audit.get('stage') != 'control_plane_homologated_export_download_candidate_v1_0_0': error('stage incremental inválido')
+if audit.get('manual_homologation_required') is not True: error('novo download de export exige homologação manual')
 homologation = audit.get('homologation', {})
 if homologation.get('status') != 'homologated': error('status de homologação inválido')
 if homologation.get('scope') != 'github_raw_control_plane_json_documents': error('escopo de homologação inválido')
 if homologation.get('total_checks') != 23 or homologation.get('passed_checks') != 23 or homologation.get('failed_checks') != 0: error('placar de homologação deve ser 23/23, 0 falhas')
 if homologation.get('macro') != '[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP': error('macro de evidência divergente')
-if 'artifact_payload_download' not in homologation.get('excluded_scope', []): error('payload download deve permanecer explicitamente fora do escopo')
+if 'artifact_payload_download_outside_macrodroid_exports' not in homologation.get('excluded_scope', []): error('payloads fora de exports MacroDroid devem permanecer fora do escopo')
 
 # Integration with catalog/release/core enums/errors.
 catalog = load(ROOT/'catalogs/local_catalog.default.json')
@@ -139,4 +145,4 @@ if ERRORS:
     raise SystemExit(1)
 print('VALIDATION OK — Remote Source Manager v1.0.0')
 print(f'actions={len(classes)} working_vars={len(works)} operations={len(expected)} http_requests=1 jcm_calls=2')
-print('scope=control_plane_only artifact_payload_download_enabled=false checksum=false_success_claim_blocked')
+print('scope=control_plane_homologated+macrodroid_export_candidate generic_payload=false automatic_import=false')

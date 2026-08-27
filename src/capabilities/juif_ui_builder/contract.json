@@ -64,7 +64,8 @@
       "lists",
       "components",
       "actions",
-      "shell"
+      "shell",
+      "event_bridge"
     ],
     "shell_properties": [
       "top_app_bar",
@@ -73,6 +74,7 @@
       "bottom_navigation",
       "navigation_drawer"
     ],
+    "event_bridge_behavior": "Preservado no contrato normalizado para consumo pelo renderer; o Builder não publica eventos.",
     "component_catalog_path": "capabilities/java_ui_framework/component_catalog.json",
     "shell_behavior": {
       "renderer_mode": "persistent_hosts",

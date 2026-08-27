@@ -6,7 +6,8 @@
 - Macro de evidência: `[CDXMS] Homologar Remote Source Manager v1.0.6 TEMP`.
 - Resultado: `23/23` verificações aprovadas.
 - Escopo homologado: documentos JSON do plano de controle, staging e releitura JCM.
-- Fora do escopo: payloads, SHA-256 em runtime, instalação, registry e importação automática.
+- Incremento candidato: export único `.macro`/`.ablock`, restrito a paths oficiais, com validação estrutural pós-escrita.
+- Fora do escopo: outros payloads, verificação SHA-256 integrada ao download, instalação, registry e importação automática.
 
 ## Entradas
 

@@ -38,7 +38,7 @@
       "target_path": "core/enums.json",
       "write_policy": "overwrite_versioned",
       "file_role": "enums",
-      "checksum_sha256": "ca80802b5493a583056dfd08a3fae24e8719b2f238365aa31ea82bfcdfa75e40"
+      "checksum_sha256": "fbf8edd08c660241099369fd6457cb775b284b4f3c5e24ca9f33180c5fe31063"
     },
     {
       "path": "core/errors.json",

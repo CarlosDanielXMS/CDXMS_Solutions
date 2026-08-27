@@ -171,7 +171,8 @@
       "fetch_catalog": "fetch_catalog",
       "fetch_release_manifest": "fetch_release_manifest",
       "fetch_remote_manifest": "fetch_remote_manifest",
-      "fetch_json": "fetch_json"
+      "fetch_json": "fetch_json",
+      "fetch_macrodroid_export": "fetch_macrodroid_export"
     },
     "remote_document_type": {
       "local_catalog": "local_catalog",

@@ -110,7 +110,17 @@ Após os testes:
 
 ## Critério de conclusão
 
-Critério atendido: os casos 1–8 e as regressões complementares foram executados no dispositivo com `23/23` verificações aprovadas. `manual_homologation_required` permanece `false` para o escopo do plano de controle homologado.
+Critério atendido: os casos 1–8 e as regressões complementares foram executados no dispositivo com `23/23` verificações aprovadas. Essa evidência permanece válida para o plano de controle; o manifest volta a exigir homologação manual por causa do novo incremento de download de export.
+
+## Incremento — export MacroDroid para staging
+
+- [ ] `fetch_macrodroid_export` aceita o path oficial da Solution de Teste.
+- [ ] Paths fora de `solutions/` e `capabilities/` são rejeitados antes do HTTP.
+- [ ] Extensões diferentes de `.macro` e `.ablock` são rejeitadas.
+- [ ] O arquivo é relido pelo JCM depois do HTTP 200.
+- [ ] `macroExportVersion`, `macro.m_name` e `macro.isActionBlock` são validados.
+- [ ] Falhas de HTTP, escrita, releitura e estrutura não produzem sucesso.
+- [ ] Nenhum registry é alterado e nenhuma importação automática é declarada.
 
 ## Regressões obrigatórias da homologação
 

@@ -43,7 +43,6 @@ supported_component_count
 | `Tmp_CoreResult` | Dicionário | Resultado intermediário parseado. |
 | `Tmp_CoreResultJsonEscape` | Dicionário | Resultado da `String Utils` ao escapar o envelope intermediário. |
 | `Tmp_UiEscapeResult` | Dicionário | JUIF UI Json escapado uma vez. |
-| `Tmp_UiDoubleEscapeResult` | Dicionário | Valor escapado novamente para entrar com segurança no JavaScript final. |
 | `Tmp_ResultJson` | Texto | Resultado universal final antes do último `JSON Parse`. |
 
 ## Corpo completo — passo a passo
@@ -129,17 +128,7 @@ supported_component_count
 - **Saída:** `Resultado -> Tmp_UiEscapeResult`.
 - **Objetivo:** produzir o valor canônico de `juif_ui_json_escaped`.
 
-### Ação 8 — Action Block: proteger o valor escapado
-
-- **Action Block:** `[CDXMS] String Utils`.
-- **Aguardar conclusão:** sim.
-- **Entradas:**
-  - `Operation = escape_json_string`;
-  - `Text = {lv=Tmp_UiEscapeResult[data][value]}`.
-- **Saída:** `Resultado -> Tmp_UiDoubleEscapeResult`.
-- **Objetivo:** proteger o valor já escapado para que ele entre no JavaScript final sem perda de barras.
-
-### Ação 9 — JavaScript Code: finalizar Resultado
+### Ação 8 — JavaScript Code: finalizar Resultado
 
 - **Engine:** `JetPack JavascriptEngine`.
 - **Block next action:** habilitado.
@@ -147,27 +136,26 @@ supported_component_count
 - **Entradas consumidas:**
   - `{lv=Tmp_CoreResultJsonEscape[data][value]}`;
   - `{lv=Tmp_UiEscapeResult[data][value]}`;
-  - `{lv=Tmp_UiDoubleEscapeResult[data][value]}`;
   - `{lv=Escape Json}`.
 - **Comportamento:**
   1. reconstrói o Resultado intermediário;
   2. preserva `juif_ui_json` cru;
-  3. usa o valor da `String Utils` em `juif_ui_json_escaped` quando `Escape Json = true`;
+  3. preserva o valor canônico da `String Utils` em `juif_ui_json_escaped` quando `Escape Json = true`, sem executar um segundo escape;
   4. usa o valor cru quando `Escape Json = false`;
   5. serializa o Resultado final.
 
-### Ação 10 — JSON Parse: publicar Resultado
+### Ação 9 — JSON Parse: publicar Resultado
 
 - **String source:** `Tmp_ResultJson`.
 - **Dictionary target:** `Resultado`.
 - **Dictionary keys:** raiz.
 - **Objetivo:** publicar a única saída pública.
 
-### Ação 11 — End Action Group
+### Ação 10 — End Action Group
 
 - encerra `01 — Build JUIF UI Contract`.
 
-### Ação 12 — Exit Action Block
+### Ação 11 — Exit Action Block
 
 - **Output option:** `0`.
 - finaliza explicitamente a capability.

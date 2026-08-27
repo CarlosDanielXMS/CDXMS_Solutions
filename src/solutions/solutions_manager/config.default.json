@@ -20,12 +20,78 @@
     "catalog_path": "catalogs/local_catalog.default.json",
     "release_path": "release.json"
   },
-  "ui": {
-    "initial_page": "home",
-    "theme": "dark_gold",
+  "dashboard": {
+    "status": "Pronto",
+    "installed_count": 1,
+    "available_count": 1,
+    "update_count": 0,
+    "recommendation": "Baixe a Solution de Teste para validar o fluxo remoto do ecossistema."
+  },
+  "catalog": {
+    "query": "",
+    "filter": "all",
+    "items": [
+      {
+        "artifact_id": "test_solution",
+        "artifact_type": "solution",
+        "display_name": "CDXMS Solution de Teste",
+        "summary": "Solution genérica para validar Bootstrap, JUIF Builder, renderer e distribuição remota.",
+        "version": "1.0.0",
+        "status": "Disponível",
+        "download_action": "download_test_solution"
+      }
+    ]
+  },
+  "artifact": {
+    "artifact_id": "test_solution",
+    "artifact_type": "solution",
+    "display_name": "CDXMS Solution de Teste",
+    "summary": "Executa o Bootstrap e renderiza uma interface JUIF completa de homologação.",
+    "status": "Disponível",
+    "available_version": "1.0.0",
+    "installed_version": "Não importada",
+    "remote_path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
+    "local_download_root": "/storage/emulated/0/Documents/CDXMS_Solutions/packages/downloaded/test_solution",
+    "manual_import_required": true
+  },
+  "installed": {
+    "items": [
+      {
+        "artifact_id": "solutions_manager",
+        "display_name": "Solutions Manager",
+        "version": "1.0.0",
+        "status": "Ativo"
+      }
+    ]
+  },
+  "updates": {
+    "items": []
+  },
+  "diagnostics": {
+    "health_percent": 100,
+    "checks": [
+      {
+        "name": "Bootstrap",
+        "message": "Core inicializado antes da abertura do Manager.",
+        "status": "ok"
+      },
+      {
+        "name": "JUIF UI Builder",
+        "message": "Contrato visual construído pela fronteira oficial de escape.",
+        "status": "ok"
+      },
+      {
+        "name": "Event Bridge",
+        "message": "Eventos publicados por Intent explícito para a macro orquestradora.",
+        "status": "ok"
+      }
+    ]
+  },
+  "settings": {
+    "allow_network": true,
+    "preserve_user_config": true,
     "show_hidden_capabilities": false,
-    "show_pre_release_badge": true,
-    "confirm_mutating_operations": true
+    "catalog_refresh_policy": "prefer_valid_cache_then_remote"
   },
   "lifecycle": {
     "dry_run_default": true,
@@ -43,8 +109,8 @@
     "settings": true,
     "lifecycle_mutations": false,
     "event_bridge": true,
-    "business_event_dispatch": false,
-    "remote_payload_pipeline": false
+    "business_event_dispatch": true,
+    "remote_payload_pipeline": true
   },
   "updated_at": "2026-08-27"
 }

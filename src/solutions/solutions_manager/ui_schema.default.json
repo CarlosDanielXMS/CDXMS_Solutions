@@ -6,6 +6,15 @@
     "catalog_query": "",
     "catalog_filter": "all"
   },
+  "event_bridge": {
+    "enabled": true,
+    "intent_action": "com.cdxms.solutions.EVENT",
+    "namespace": "CDXMS",
+    "protocol_version": 1,
+    "session_id": "solutions-manager-session-v1",
+    "source_artifact_type": "solution",
+    "source_artifact_id": "solutions_manager"
+  },
   "shell": {
     "top_app_bar": {
       "title": "Solutions Manager",
@@ -57,6 +66,7 @@
           {"type": "text", "bind": "dashboard.recommendation"},
           {"type": "button_group", "buttons": [
             {"text": "Abrir catálogo", "action": "replace", "target": "catalog"},
+            {"text": "Baixar solution de teste", "action": "download_test_solution", "variant": "primary"},
             {"text": "Executar diagnóstico", "action": "replace", "target": "diagnostics", "variant": "secondary"}
           ]}
         ]}
@@ -75,8 +85,17 @@
           {"label": "Atualizações", "value": "updates"}
         ]},
         {"type": "dynamic_list", "key": "catalog_items", "bind": "catalog.items", "item_template": {
-          "type": "list_item", "title": "{{display_name}}", "subtitle": "{{summary}}", "value": "{{artifact_id}}", "action": "open_artifact_details"
+          "type": "list_item", "title": "{{display_name}}", "subtitle": "{{summary}}", "value": "{{artifact_id}}", "action": "download_test_solution"
         }},
+        {"type": "card", "children": [
+          {"type": "badge", "variant": "success", "text": "Disponível para download"},
+          {"type": "text", "variant": "title", "text": "Solution de Teste"},
+          {"type": "text", "text": "Valida o fluxo completo sem executar operações destrutivas."},
+          {"type": "button_group", "buttons": [
+            {"text": "Baixar export .macro", "action": "download_test_solution", "variant": "primary"},
+            {"text": "Ver detalhes", "action": "replace", "target": "artifact_details", "variant": "secondary"}
+          ]}
+        ]},
         {"type": "empty_state", "title": "Nenhum artifact encontrado", "description": "Ajuste os filtros ou atualize o catálogo.", "action_label": "Atualizar catálogo", "action": "refresh_catalog"}
       ]
     },
@@ -91,9 +110,9 @@
         {"type": "key_value", "label": "Versão disponível", "bind": "artifact.available_version"},
         {"type": "key_value", "label": "Versão instalada", "bind": "artifact.installed_version"},
         {"type": "key_value", "label": "Tipo", "bind": "artifact.artifact_type"},
-        {"type": "alert", "variant": "warning", "title": "Lifecycle protegido", "text": "Instalar, atualizar, reparar e remover permanecem em dry-run até a homologação do event bridge e do pipeline de payload."},
+        {"type": "alert", "variant": "info", "title": "Importação orientada", "text": "O Manager baixa e valida o export. Nesta etapa, a importação no MacroDroid permanece manual e explícita."},
         {"type": "button_group", "buttons": [
-          {"text": "Planejar instalação", "action": "install_artifact", "variant": "primary"},
+          {"text": "Baixar export .macro", "action": "download_test_solution", "variant": "primary"},
           {"text": "Voltar ao catálogo", "action": "replace", "target": "catalog", "variant": "secondary"}
         ]}
       ]
