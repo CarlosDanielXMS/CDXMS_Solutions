@@ -117,6 +117,14 @@ expected_actions = [
 actions = macro.get("m_actionList", [])
 require([action.get("m_classType") for action in actions] == expected_actions, "sequência de ações divergente")
 require(manifest["implementation_audit"]["action_profile"]["total_actions"] == len(actions), "action_profile divergente")
+require(
+    manifest["implementation_audit"].get("raw_escaped_and_double_escaped_inputs_supported") is True,
+    "manifest não declara a normalização de transporte validada",
+)
+require(
+    manifest["implementation_audit"].get("transport_decode_layer_limit") == 3,
+    "limite de camadas de transporte divergente",
+)
 
 string_calls = {
     1: ("{lv=Config Json}", "Tmp_ConfigEscapeResult"),
@@ -179,6 +187,13 @@ for required in [
 ]:
     require(required in core_script, "entrada protegida ausente: " + required)
 
+require("function decodeJsonTransportLayer" in core_script, "normalizador de transporte JSON ausente")
+require("decoded_transport_layers" in core_script, "diagnóstico de camadas JSON ausente")
+require(
+    "text.indexOf('\\\"') >= 0 && text.indexOf('\"') < 0" not in core_script,
+    "condição impossível de detecção do JSON escapado voltou ao Builder",
+)
+
 for required in [
     "{lv=Tmp_CoreResultJsonEscape[data][value]}",
     "{lv=Tmp_UiEscapeResult[data][value]}",
@@ -237,6 +252,32 @@ if node:
     require(core_result["success"] is True, "Builder padrão falhou")
     require(core_result["data"]["supported_component_count"] == 36, "Builder publicou contagem divergente")
     require(len(json.loads(core_result["data"]["mapping_json"])) == 21, "mapping padrão deve possuir 21 bindings")
+
+    for transport_layers in (1, 2):
+        transported_config = default_config_text
+        transported_schema = default_schema_text
+        for _ in range(transport_layers):
+            transported_config = escape_json_string(transported_config)
+            transported_schema = escape_json_string(transported_schema)
+        transport_runtime = (
+            core_script.replace(
+                "{lv=Tmp_ConfigEscapeResult[data][value]}",
+                escape_json_string(transported_config),
+            )
+            .replace(
+                "{lv=Tmp_SchemaEscapeResult[data][value]}",
+                escape_json_string(transported_schema),
+            )
+        )
+        transport_result = json.loads(run_node(transport_runtime))
+        require(
+            transport_result["success"] is True,
+            f"Builder falhou com {transport_layers} camada(s) adicional(is) de escape",
+        )
+        require(
+            json.loads(transport_result["data"]["juif_ui_json"])["initial_page"] == "overview",
+            f"UI divergente após normalizar {transport_layers} camada(s) de escape",
+        )
 
     raw_ui_json = core_result["data"]["juif_ui_json"]
     escaped_ui_json = escape_json_string(raw_ui_json)

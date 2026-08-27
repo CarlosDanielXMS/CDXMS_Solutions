@@ -30,7 +30,7 @@
       "target_path": "solutions/test_solution/macrodroid/[CDXMS]_Test_Solution.macro",
       "file_role": "macrodroid_export",
       "write_policy": "overwrite_versioned",
-      "checksum_sha256": "ab951d96e47d1226bfa82541ea2686d6bc314c2d23145689bfafdb2bd2ab8246"
+      "checksum_sha256": "fbc98e0284f5cc6683aadfaa23da47ae903114410f8b719ae51030c0a0d17fb1"
     }
   ],
   "macrodroid_export": {

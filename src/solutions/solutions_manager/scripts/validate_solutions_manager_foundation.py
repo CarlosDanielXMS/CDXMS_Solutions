@@ -154,6 +154,13 @@ def main() -> None:
 
     builder = next(item for item in embedded if item["m_name"] == "[CDXMS] JUIF UI Builder")
     assert len(builder["m_actionList"]) == 11
+    builder_core = next(
+        action["scriptText"]
+        for action in builder["m_actionList"]
+        if action.get("actionLabel") == "Construir contrato JUIF"
+    )
+    assert "function decodeJsonTransportLayer" in builder_core
+    assert "decoded_transport_layers" in builder_core
     assert not any(
         item["m_name"] == "Tmp_UiDoubleEscapeResult"
         for item in builder["localVariables"]

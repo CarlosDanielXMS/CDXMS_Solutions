@@ -53,6 +53,15 @@
     "supported_component_count"
   ],
   "schema_contract": {
+    "input_transport": {
+      "accepted_representations": [
+        "raw_json",
+        "escaped_json_string",
+        "double_escaped_json_string"
+      ],
+      "normalization": "Remove somente camadas de transporte necessárias, tenta JSON.parse após cada camada e mantém limite finito.",
+      "invalid_input_error": "INVALID_JSON"
+    },
     "pages_input_type": "array",
     "page_required_fields": [
       "id"

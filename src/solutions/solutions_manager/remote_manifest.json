@@ -60,7 +60,7 @@
       "write_policy": "overwrite_versioned",
       "file_role": "macrodroid_export",
       "install_mode": "manual_import",
-      "checksum_sha256": "0893996c84431ba330ef31a9ede59eeffc24c9f9e23c051fa66f0c14ed9e9580"
+      "checksum_sha256": "82043bd9652795a6744dde0bfe610607449cfcd2a6a7be54c14e9c1997d9eb3e"
     }
   ],
   "requires": {

@@ -1,12 +1,20 @@
 # Changelog
 
+## 1.0.0 — Hotfix da fronteira JSON do JUIF UI Builder
+
+- Corrigida a detecção impossível de JSON escapado que deixava `Config Json` ou `UI Schema Json` começar com `{\"` antes do `JSON.parse`.
+- O Builder agora aceita JSON cru, escapado ou duplamente escapado e remove somente as camadas de transporte necessárias.
+- O parse é tentado novamente após cada camada, com limite finito e diagnóstico `decoded_transport_layers` em falhas reais.
+- Adicionados testes de regressão executando o motor JavaScript com uma e duas camadas adicionais de escape.
+- Solutions Manager e Test Solution foram reconstruídos para incorporar a capability corrigida.
+
 ## 1.0.0 — Revisão de fundação e entrada única (pré-release)
 
 - Mantida a versão `1.0.0`, pois o ecossistema ainda não possui release oficial.
 - Consolidado o próprio `[CDXMS] Solutions Manager` como artifact da Template Store e entrada permanente; não existe Installer descartável.
 - Incorporadas as 11 capabilities v1 ao export do Solutions Manager para suportar dispositivo vazio.
 - Adicionada chamada idempotente ao Bootstrap antes do Builder e do renderer, com interrupção segura e feedback em caso de falha.
-- Mantido o event bridge por Intent com validação e deduplicação; despacho de operações de negócio continua bloqueado.
+- Mantido o event bridge por Intent com validação e deduplicação; somente o download incremental da Solution de Teste está liberado.
 - Separadas dependências realmente invocadas (`requires`) de integrações arquiteturais (`integrates_with`).
 - Corrigidas referências a operações inexistentes no mapa de orquestração.
 - Formalizada a separação entre payload de filesystem, instalável automaticamente após verificação, e export MacroDroid, que exige importação explícita.

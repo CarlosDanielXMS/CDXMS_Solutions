@@ -120,6 +120,7 @@
     "Event bridge JUIF publica, recebe, valida e deduplica eventos por broadcast explícito.",
     "O Manager despacha somente o download validado da Solution de Teste para staging.",
     "A Solution de Teste valida Bootstrap, Builder, Renderer e distribuição remota.",
+    "JUIF UI Builder normaliza JSON cru, escapado e duplamente escapado na fronteira entre Action Blocks.",
     "Capabilities e UI permanecem em 1.0.0 porque ainda não houve release oficial.",
     "Lifecycle mutável, outros payloads executáveis e importação automática permanecem desabilitados.",
     "Homologação final em dispositivo limpo permanece obrigatória."

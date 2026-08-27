@@ -43,6 +43,8 @@ A navegação usa uma única `tab_bar` compartilhada entre as páginas do catál
 
 `Config Json` e `UI Schema Json` não são mais inseridos diretamente no código JavaScript. O Action Block chama `[CDXMS] String Utils` antes do motor principal e usa apenas os valores previamente escapados.
 
+Como o MacroDroid pode acrescentar outra camada de escape ao atravessar entradas de Action Blocks, o motor reconhece JSON cru, JSON escapado e JSON duplamente escapado. Cada camada é removida de forma controlada, com nova tentativa de parse e limite finito; entradas realmente inválidas continuam retornando `INVALID_JSON`.
+
 A mesma regra é aplicada à saída:
 
 ```text

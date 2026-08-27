@@ -62,6 +62,14 @@ for owner in [macro, *embedded.values()]:
         dependency = embedded[action["actionBlockName"]]
         assert action["actionBlockId"] == dependency["m_GUID"]
 
+builder_core = next(
+    action["scriptText"]
+    for action in embedded["[CDXMS] JUIF UI Builder"]["m_actionList"]
+    if action.get("actionLabel") == "Construir contrato JUIF"
+)
+assert "function decodeJsonTransportLayer" in builder_core
+assert "decoded_transport_layers" in builder_core
+
 assert manifest["artifact_id"] == "test_solution"
 assert contract["artifact_id"] == "test_solution"
 assert remote["macrodroid_export"]["manual_import_required"] is True
